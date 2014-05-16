@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YunakQuize Layout</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+  </head>
+  <body class="container-fluid">
+    <div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
+      <header class="row">
+        <div id="header-container" class="col-lg-10 col-lg-offset-1">
+          <a href="#"><img src="pic/logo.png" alt="YunakQuize"></a>
+          <nav id="header-menu">
+            <ul>
+              <li><a href="#">Тести</a></li>
+              <li><a href="#">Про нас</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+          </nav>  
+        </div>
+      </header>
+      <main>
+
+   <div class="row">
+                    <div class="input-group col-lg-6 col-lg-offset-3">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="button">Search</button>
+                    </span>
+                </div>
+                </div>
+                <br>
+                
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                    <script>
+                        $('.filter-search div:not(.row)').click(function(){
+                            $('.curent-filter').removeClass('curent-filter');
+                            $(this).addClass('curent-filter');
+                            if ($(this).hasClass('filter-categories')) {
+                                $(this).next().slideToggle();
+                            }                            
+                        })
+                    </script>
+                    <div class="col-lg-8 col-lg-offset-3">
+                        <style>
+                            .search-result{ border: solid 2px transparent;-moz-transition: all .2s linear 0s;-webkit-transition: all .2s linear 0s;transition: all .2s linear 0s;} 
+                            .search-result:hover{
+                                border: solid 2px rgb(221, 219, 219);box-shadow: 0 3px 6px rgba(0,0,0,.6);
+                                border-radius: 5px;
+                            }
+                            .filter-search > div{
+                                color: #5bc0de;
+                                cursor: pointer;                             
+                            }
+                            .curent-filter{
+                                font-weight: bold;
+                                border-right: solid 3px;
+                            }
+                            .filter-categories+div.row{
+                                display: none;
+                            }
+                        </style>
+                            <div class="row">
+                            <div class="col-lg-8 search-result well">
+                                <div >
+                                <h3 class="title-post-name">
+                                    <a style="text-decoration: none;" href="#">Правила дорожнього руху</a>
+                                </h3>
+                                <p class="text-justify ">Представляємо екзаменаційні білети ДАІ по 20 питань у кожному.  Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!</p>
+                            </div>
+                            </div>
+                            <div class="col-lg-8 search-result well">
+                                <h3 class="title-post-name">
+                                    <a style="text-decoration: none;" href="#">Правила дорожнього руху</a>
+                                </h3>
+                                <p class="text-justify">Представляємо екзаменаційні білети ДАІ по 20 питань у кожному.  Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!</p>
+                            </div>
+                                                        <div class="col-lg-8 search-result well">
+                                <h3 class="title-post-name">
+                                    <a style="text-decoration: none;" href="#">Правила дорожнього руху</a>
+                                </h3>
+                                <p class="text-justify">Представляємо екзаменаційні білети ДАІ по 20 питань у кожному.  Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+      </main>
+    </div>
+    </div>
+    <footer class="container">
+      <div id="footer-container">
+        <nav id="footer-menu">
+          <ul>
+            <li><a href="#">Тести &nbsp|</a></li>
+            <li><a href="#">Про нас &nbsp|</a></li>
+            <li><a href="#">Контакти</a></li>
+          </ul>
+        </nav>
+        <p>Copyright@ 2014 <b>IF-044</b></p>
+      </div> 
+    </footer>
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
