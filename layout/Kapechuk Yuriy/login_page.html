@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YunakQuize Login Page</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login_page.css" rel="stylesheet">
+
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+  </head>
+  <body class="container-fluid">
+    <div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
+      <header class="row">
+        <div id="header-container" class="col-lg-10 col-lg-offset-1">
+          <a href="#"><img src="pic/logo.png" alt="YunakQuize"></a>
+          <nav id="header-menu">
+            <ul>
+              <li><a href="#">Тести</a></li>
+              <li><a href="#">Про нас</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+          </nav>  
+        </div>
+      </header>
+      <main>
+        <div class="overlay" id="overlay1">
+          <div class="modal-block">
+          </div>
+          <div id="modal-wrapper1">
+          <a href="#page"> X </a>
+          <form class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">Email</label>
+                <div class="controls">
+                  <input type="text" id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword">Password</label>
+                <div class="controls">
+                  <input type="password" id="inputPassword" placeholder="Password">
+                </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <label class="checkbox">
+                  <input type="checkbox"> Remember me
+                </label>
+                <button type="submit" class="btn">Sign in</button>
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+        <div class="overlay" id="overlay2">
+          <div class="modal-block">Modal Window!!! <a href="#page"> x Close</a></div>
+        </div>
+        <section class="container content" id="content-container">
+          <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+              <article id="registration-info">
+                <h3>Реєстраційна Інформація</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum justo eros, hendrerit ut ligula sit amet, mollis placerat libero. Nullam fermentum elementum libero, eu luctus magna. Aenean pharetra eget purus et sollicitudin. Fusce id blandit lectus. Fusce commodo erat in lorem tincidunt condimentum ut ut orci. Integer ut ante ut massa ultrices fermentum. Aliquam luctus, metus vitae facilisis condimentum, sapien metus tincidunt nisi, a laoreet justo sem ac urna. Nunc at accumsan risus. Maecenas tempus sapien vitae quam dignissim mattis. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque erat dolor, suscipit cursus sodales dapibus, adipiscing ac metus.</p>
+              </article>
+            </div>
+            <div class="col-lg-2 col-lg-offset-3">
+              <a href="#overlay2" class="btn btn-primary btn-large">Зареєструватись</a>
+            </div>
+            <div class="col-lg-2 col-lg-offset-2">
+               <a href="#overlay1" class="btn btn-success btn-large">Увійти На Сайт</a>
+            </div>
+          </div>      
+        </section>                
+      </main>
+    </div>
+    </div>
+    <footer class="container">
+      <div id="footer-container">
+        <nav id="footer-menu">
+          <ul>
+            <li><a href="#">Тести &nbsp|</a></li>
+            <li><a href="#">Про нас &nbsp|</a></li>
+            <li><a href="#">Контакти</a></li>
+          </ul>
+        </nav>
+        <p>Copyright@ 2014 <b>IF-044</b></p>
+      </div> 
+    </footer>
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
