@@ -4,53 +4,6 @@ html. body {
 body {
 	position: relative;
 	}
-	
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;  /*индекс выше всех елементов, кроме модального окна*/
-  background-color: rgba(0,0,0,0.5);
-  display:none;
-	}
-
-.modal-block {
-	display: block;
-    width: 300px;
-    height: 400px;
-    line-height: 200px;
-    position: fixed;
-    top: 30%; 
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -150px;
-    border-radius: 5px;
-    text-align: center;
-    z-index: 11;
-	}
-
-#overlay1 .modal-block {
-    background-color: #a8e689;
-}
-
-#overlay2 .modal-block {
-    background-color: #89aae6;
-}
-
-body a {
-	text-decoration:none;
-	color:#000;
-	}
-.overlay:target{
-	display:block;
-	}
-#no_style{
-		text-decoration:underline;
-	}
-
-
 
 	#content-container {
 		margin-left: -15px;
@@ -61,37 +14,33 @@ body a {
 		margin-bottom: 90px;
 	}
 
-	#overlay1 form {
-		margin-top: 50px;
-		width: 300px;
-		height: 300px;
+	#login-button {
+ 		float: right;
 	}
 
-	#modal-wrapper1 {
-		position: fixed;
-		width: 300px;
-		height: 400px;
-		top: 30%; 
-    	left: 50%;
-    	margin-top: -100px;
-        margin-left: -150px;
-    	z-index: 12;
-	}
+    .modal-body form {
+    	width: 400px;
+    	margin-top: 25px;
+    }
 
-	#modal-wrapper1 a {
-		position: relative;
-		bottom: -5px;
-		left: 135px;
-		color: red;
-	}
+/*     .modal-body {
+	padding-top: 25px;
+} */
 
-	label.checkbox {
-		width: 200px;
-	}
+    #inputEmail3, #inputPassword3 {
+    	width: 200px;
+    	margin-left: 15px;
+    }
 
-	label.checkbox input {
-		margin-left: 55px !important;
-	}
-	form button {
-		margin-top: 30px;
-	}
+    .modal-body form .checkbox {
+    	width: 120px;
+    	margin-left: 25px;
+    }
+
+    .modal-body .form-horizontal {
+    	margin: 0 auto;
+    }
+
+    #signin-form .form-group {
+    	margin-left: 50px; 
+    }
