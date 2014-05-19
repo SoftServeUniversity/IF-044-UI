@@ -1,0 +1,22 @@
+#statistic {
+	margin-left: -15px;
+	padding: 30px 15px 20px;
+}
+
+#main-content {
+	text-align: center;
+	border-left: 1px solid #eae8e8;
+	border-right: 1px solid #eae8e8
+} 
+
+#main-content img {
+	margin: 15px 0;
+}
+
+#filters-box {
+	text-align: center;
+}
+#filters-box label {
+	width: 80%;
+	margin-bottom: 30px;
+}
