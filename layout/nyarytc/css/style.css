@@ -1,14 +1,26 @@
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300&subset=cyrillic' rel='stylesheet' type='text/css'>
+
+html, body {
+	height: 100%;
+}
+
 body {
 	background-color: #eae8e8
 }
 
-#wrapper {
-	margin-top: 50px;
-	background-color: white;
-	box-shadow: 0 0 10px #c0bfbf; 
-
+#outer-wrapper {
+	padding-left: 0;
+	min-height: 100%;
+    height: auto;
+    margin: 0 auto -57px;
+    padding: 0 0 57px;
 }
 
+#inner-wrapper {
+    background-color: white;
+	box-shadow: 0 0 10px #c0bfbf; 
+	margin-top: 20px;
+}
 
 #header-container {
 	height: 100px;
@@ -42,13 +54,17 @@ body {
 main {
 	margin: 20px 0;
 	background-color: white;
-	text-align: center;
+	
 
+}
+
+footer {
+	height: 57px;
 }
 
 #footer-container {
     width: 200px;
-    margin: 20px auto;
+    margin: 10px auto 10px;
 }
 
 #footer-menu {
@@ -74,70 +90,81 @@ main {
 	text-align: center;
 }
 
-.langflag {
-    width:20px;
-    height: 12px;
-}
-
-.test_image {
-    width:101px;
-    float:left;
-    margin:5px 5px 5px 10px;
-}
-
-.test_h3 {
+.container-fluid .row:nth-of-type(2){
+margin-top: 64px;
     text-align: left;
 }
 
-.test_p {
+
+#tag {
     text-align: left;
+    font-size: 14px;
 }
 
-.test_a {
-    text-align: left;
-}
-
-#quizquestions {
-    clear: both;
-    margin: 20px 10px;
-}
-
-.questionnumber {
+#barrel {
     float: left;
-    left: -10px;
-    margin-top: 20px;
-    position: relative;
+    background-color: #d3d2d2;
+    width: 3px;
+    height: 80px;
+    margin-right: 20px;
 }
 
-.questionblock {
-    border-top: 1px solid #D3773D;
-    clear: both;
+
+
+.row span:nth-of-type(1){
+      font-family: 'Droid Serif', serif;
+      font-size: 28px;
 }
 
-.thisanswer {
-    display: block;
-    margin-bottom: 4px;
+.row span:nth-of-type(2){
+    font: 18px italic arial;     
+    color: #9b9a9a;
 }
 
-.questionsubblock {
-    float: left;
-    margin-top: 20px;
+#name {
+    float: right;
+    font: 16px times new roman;
+    color: #a5a1a1;
+    margin: 10px -30px 0px 0px;
 }
 
-.questimg {
-    float: left;
-    margin: 0px 10px;
-    vertical-align: text-top;
+
+#count {
+    color: #a5a1a1;
+  font-family: 'Roboto Slab', serif;
+    font-size: 15px;
 }
 
-.testnumber {
-    float: left;
+.list-unstyled{
+margin: 10px 0px 20px 15px;
+}
+#q {
+    margin-top: 35px;
 }
 
-.edittest{
-    margin: 10px 10px 10px 40px;
+.bnt-next {
+   margin: 10px 0px 10px 120px;
 }
 
-.questiontext {
-    margin: 0 0 20px 10px;
+.ask {
+    margin-top: 10px;
+   float: none;
+}
+
+.block {
+     float: none;
+}
+
+.editfield { margin-bottom: 40px; }
+
+.marg {margin-left: 20px;}
+
+.nonedecor a  {
+color: @link-color;
+    text-decoration: none;
+
+    &:hover {
+color: @link-color-hover;
+    text-decoration: no-underline;
+    }
 }

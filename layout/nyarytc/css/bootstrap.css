@@ -2243,7 +2243,10 @@ fieldset[disabled] .btn-warning.active {
   color: #f0ad4e;
   background-color: #fff;
 }
-.btn-danger {
+.btn-nb {color: #fff;
+    background-color: #d9534f;}
+
+    .btn-danger {
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
@@ -5782,4 +5785,5 @@ button.close {
     display: none !important;
   }
 }
+.marg {margin-left: 10px}
 /*# sourceMappingURL=bootstrap.css.map */
