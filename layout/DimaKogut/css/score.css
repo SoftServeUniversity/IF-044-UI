@@ -25,14 +25,18 @@ body {
 	padding-left: 0;
 	border-bottom:1px solid #eae8e8;
 }
+#header-container img{
+    display: inline-block;
+}
 
 #header-container a {
 	display: inline-block;
 } 
 
 #header-menu {
-	display: inline-block;
-	margin-left: 15%;
+/*	display: inline-block;*/
+/*	margin-left: 15%;*/
+    margin: 0 auto;
 }
 
 #header-menu>ul, #footer-menu>ul {
