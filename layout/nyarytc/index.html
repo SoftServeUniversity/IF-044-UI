@@ -1,130 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YunakQuize Layout</title>
-
+      <link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
-</head>
-<body class="container-fluid">
-<div id="outer-wrapper" class="container">
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script type="text/javascript">
+          
+      
+      </script>
+  </head>
+  <body class="container-fluid">
+    <div id="outer-wrapper" class="container">
     <div id="inner-wrapper" class="container">
-        <div style=" text-align:right; ">
-            <a href="index.html">
-            <img class="langflag" border="0" alt="Russian" src="pic/uaflag.gif">
-        </a>
-            <a href="indexuk.html">
-                <img class="langflag" border="0" alt="English" src="pic/ukflag.JPG">
-            </a></div>
-        <header class="row">
-            <div id="header-container" class="col-lg-10 col-lg-offset-1">
-                <a href="#"><img src="pic/logo.png" alt="YunakQuize"></a>
-                <nav id="header-menu">
-                    <ul>
-                        <li><a href="index.html">Тести</a></li>
-                        <li><a href="#">Про нас</a></li>
-                        <li><a href="#">Контакти</a></li>
-
-                    </ul>
-
-                </nav>
-
-            </div>
-
-        </header>
-        <main>
-<div>
-            <div class="test_image" >
-            <div style="text-align:center">
-                <img alt="Велосипед" src="http://www.plast.ca/bm~pix/vel_vidznaka~s101x100.png" style="height: 90px">
-            </div>
-
-    </div>
-    <h3 class="test_h3">Вмілість - Їзда на велосипеді (ровері)</h3>
-    <p class="test_p">У запитнику подано питання, які тобі поможуть підготуватися до вмілості “Їзда на вельосипеді (ровері)”.</p>
-
-    <p class="test_p">
-    <div>
-        <ul class="nav nav-pills">
-            <li> <a href="http://www.plast.ca/100/quiz/quiz.cgi?quiz=velosyped">Пройти тест!</a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button">
-                    Статистика
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="drop4" role="menu">
-                    <li>
-                        <a href="http://google.com" tabindex="-1">Найкращий результат</a>
-                    </li>
-                    <li>
-                        <a href="http://google.com" tabindex="-1">Кількість тестувань</a>
-                    </li>
-
-                </ul>
-            </li>
-        </ul>
-    </div>
-    </p>
-</div>
-
-            <div>
-
-           <div class="test_image" style="width:101px">
-                <div style="text-align:center">
-                    <img alt="Тризуб" src="http://www.plast.ca/bm~pix/sym_herb~s101x100.png" style="height: 80px">
-                </div>
-                <div class="bmc_caption"> </div>
-            </div>
-            <h3 class="test_h3">Національна Символіка</h3>
-            <p class="test_p"> Символи суверенности держави є герб, прапор і гімн. (Проба ІІ, точка А.4 “Знає історію української національної символіки.”)</p>
-                <p class="test_p">
-                <div>
-                    <ul class="nav nav-pills">
-                        <li> <a href="Test2.html">Пройти тест!</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button">
-                                Статистика
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="drop4" role="menu">
-                                <li>
-                                    <a href="http://google.com" tabindex="-1">Найкращий результат</a>
-                                </li>
-                                <li>
-                                    <a href="http://google.com" tabindex="-1">Кількість тестувань</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                </p>
-</div>
-        </main>
-    </div>
-</div>
-<footer class="container">
-    <div id="footer-container">
-        <nav id="footer-menu">
-            <ul>
-                <li><a href="#">Тести &nbsp|</a></li>
-                <li><a href="#">Про нас &nbsp|</a></li>
-                <li><a href="#">Контакти</a></li>
+      <header class="row">
+          <div class="container">
+              <div class="text-right mar">
+                  <ul class="list-inline"><li><strong>Ви увійшли як:</strong></li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Мій профіль</a></li>
+                              <li><a href="mytest.html">Мої тести</a></li>
+                          </ul>
+                      </li>
+                      <li><strong>Група:</strong></li><li>User</li></ul>
+              </div>
+          </div>
+        <div id="header-container" class="col-lg-10 col-lg-offset-1">
+          <a href="#"><img src="pic/logo.png" alt="YunakQuize"></a>
+          <nav id="header-menu">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Гловна</a></li>
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Тести <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Обрати тест</a></li>
+              <li><a href="#">Категорії</a></li>
+            <li><a href="Statistic.html">Статистика</a></li>
+            <li><a href="edit.html">Додати тест</a></li>
+           
+          </ul>
+        </li>
+              
+                
+              <li><a href="#">Про нас</a></li>
+              <li><a href="#">Контакти</a></li>
             </ul>
+          </nav>  
+        </div>
+      </header>
+      <main>
+<div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-5 col-sm-offset-1">
+     <span><strong>Ласкаво просимо в Юнак Квіз!</strong></span><br><span>Юнак Квіз - це система тестування пластунів. Пройдіть тестування і дізнайтесь багато цікавого</span>
+ </div>       
+      
+      <div class="col-lg-3  col-sm-offset-2" id="tag">
+      <div id="barrel"></div>
+      <i>Тести доволі легкі та пізнавальні. З радістю пройшла їх і дізналась багато цікавого. Однозначно рекомендую!</i><br> <span id="name">-Соломія Паделко</span>
+      </div>
+      </div>
+      <div class="row">
+          
+          <div class="col-lg-2 col-lg-offset-2"><strong>Категорія  <a href="#"><u>Патрони</u></a><br></strong> <span id="count">12 тестів</span><ul class="list-unstyled">
+              <a href="#">
+                  <li>Комп'ютерні</li>
+              </a>
+              <a href="#">
+                  <li>Спортові</li>
+              </a>
+              <a href="#">
+                  <li>Практичні пласування</li>
+              </a>
+              <a href="#">
+                  <li>Природничі</li>
+              </a>
+          </ul></div>
+          <div class="col-lg-2 col-lg-offset-1"><strong>Категорія  <a href="#"><u>Проби</u></a><br> </strong><span id="count">10 тестів</span><ul class="list-unstyled">
+              <a href="#">
+                  <li>Відзнака прихильника</li>
+              </a>
+              <a href="#">
+                  <li>Перша проба</li>
+              </a>
+              <a href="#">
+                  <li>Друга проба</li>
+              </a>
+              <a href="#">
+                  <li>Третя проба</li>
+              </a>
+          </ul></div>
+           <div class="col-lg-2 col-lg-offset-1"><strong>Категорія <a href="#"><u>Вмілості</u></a><br></strong>  <span id="count">4 тести</span><ul class="list-unstyled">
+              <a href="#">
+                  <li>Наука і технологія</li>
+              </a>
+              <a href="#">
+                  <li>Природознавство</li>
+              </a>
+              <a href="#">
+                  <li>Українська спадщина</li>
+              </a>
+              <a href="#">
+                  <li>Тіловиховання</li>
+              </a>
+          </ul></div>
+      </div>
+      </div>
+      </main>
+    </div>
+    </div>
+    <footer class="container">
+      <div id="footer-container">
+        <nav id="footer-menu">
+          <ul>
+            <li><a href="#">Тести</a> &nbsp|</li>
+            <li><a href="#">Про нас</a>&nbsp|</li>
+            <li><a href="#">Контакти</a></li>
+          </ul>
         </nav>
         <p>Copyright@ 2014 <b>IF-044</b></p>
-    </div>
-</footer>
+      </div> 
+    </footer>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-</body>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
