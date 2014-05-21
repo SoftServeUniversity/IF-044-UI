@@ -66,75 +66,61 @@
                             }
                         </style>
                         <div class="row filter-search">
-                            <div class="col-xs-12 col-lg-8 col-xs-offset-0 col-lg-offset-2"><span class="filter-title">Фільтер для пошуку</span> 
-                            </div>
                             <div class="col-xs-8 col-xs-offset-2">
                                 <span class="reset">
-            <img src="pic/reset.png" height="10" width="10"> скинути всі фільтри</span>
-                            </div>
-                            <br />
-                            <br />
-                            <br />
-                            <div class="col-xs-12">
-                                <div class=" col-xs-8 col-xs-offset-2 text-left name-category">категорія 1</div>
-                                <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
-                                    </div>
-                                </div>
+            <img src="pic/reset.png" height="10" width="10"> шукати скрізь</span>
                             </div>
                             <div class="col-xs-12">
                                 <div class=" col-xs-8 col-xs-offset-2 text-left name-category">категорія 1</div>
                                 <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
+                                    <div class="col-xs-8 col-xs-offset-1 text-center">
+                                        підкатегорія
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
+                                    <div class="col-xs-8 col-xs-offset-1 text-center">
+                                        підкатегорія
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
+                                    <div class="col-xs-8 col-xs-offset-1 text-center">
+                                        підкатегорія
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class=" col-xs-8 col-xs-offset-2 text-left name-category ">категорія 1</div>
+                                <div class="row">
+                                    <div class="col-xs-8 col-xs-offset-1 text-center curent-filter">
+                                        підкатегорія
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8 col-xs-offset-1 text-center curent-filter">
+                                        підкатегорія
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8 col-xs-offset-1 text-center curent-filter">
+                                        підкатегорія
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class=" col-xs-8 col-xs-offset-2 text-left name-category">категорія 1</div>
                                 <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
+                                    <div class="col-xs-8 col-xs-offset-1 text-center">
+                                        підкатегорія
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
+                                    <div class="col-xs-8 col-xs-offset-1 text-center">
+                                        підкатегорія
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-8 text-right">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" value="value">підкатегорія</label>
+                                    <div class="col-xs-8 col-xs-offset-1 text-center">
+                                        підкатегорія
                                     </div>
                                 </div>
                             </div>
@@ -144,10 +130,24 @@
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
                     <script>
                         $('.name-category').click(function () {
-                            $('.curent-filter').removeClass('curent-filter');
-                            $(this).addClass('curent-filter');
-                            $(this).siblings().find('input[type=checkbox]').prop('checked', true);
+                           // alert('d');
+                            if($(this).siblings().find('div').hasClass('curent-filter')){
+                            console.log('true');
+                           // $('.curent-filter').removeClass('curent-filter');
+                             console.log($(this).siblings().find('div'));
+                             $(this).siblings().find('div').removeClass('curent-filter');
+                            }else{
+                                //$(this).addClass('curent-filter');
+                                $(this).siblings().find('div').addClass('curent-filter');
+                            }
                         })
+                         $('.name-category').siblings().find('div').click(function(){
+                             if($(this).hasClass('curent-filter')){
+                                 $(this).removeClass('curent-filter');
+                             }else{
+                                  $(this).addClass('curent-filter');
+                             }
+                         });
                          $('.reset').click(function () {
                             //console.log($('this').children());
                             // $('input[type=checkbox]').attr('checked','checked');
@@ -188,7 +188,7 @@
                             }
                         </style>
                         <div class="row">
-                            <div class="col-xs-12 col-lg-8 search-result well">
+                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well">
                                 <h3 class="title-post-name">
                                         <a style="text-decoration: none;" href="#">Правила дорожнього руху</a>
                                     </h3>
@@ -208,7 +208,7 @@
                                 </ul>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-lg-8 search-result well">
+                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well">
                                 <h3 class="title-post-name">
                                         <a style="text-decoration: none;" href="#">Правила дорожнього руху</a>
                                     </h3>
@@ -228,7 +228,7 @@
                                 </ul>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-lg-8 search-result well">
+                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well">
                                 <h3 class="title-post-name">
                                         <a style="text-decoration: none;" href="#">Правила дорожнього руху</a>
                                     </h3>
