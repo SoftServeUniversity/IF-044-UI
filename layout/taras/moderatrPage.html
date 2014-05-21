@@ -39,56 +39,47 @@
                 </div>
             </header>
             <main>
-<div class="col-lg-2 col-sm-3 col-xs-3">
-  <select class="form-control">
-  <option>всі категорії</option>
-  <option>категорія 1</option>
-  <option>категорія 2</option>
-  <option>категорія 3</option>
-  <option>категорія 4</option>
-</select>
-</div>            
-            
-<table class="table table-striped">
-        <thead>
-          <tr>
-            <th>назва категорії</th>
-            <th>назва тесту</th>
-            <th>автор</th>
-            <th>редагувати</th>
-            <th>видалити</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>категорія 1</td>
-            <td>тест 1</td>
-            <td>Петро</td>
-            <td>
-                <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-success btn-mini">edit</a>
-            </td>
-                <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
-          </tr>
-          <tr>
-            <td>категорія 2</td>
-            <td>тест 2</td>
-            <td>Василь</td>
-            <td>
-                <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-success btn-mini">edit</a>
-            </td>
-            <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
-          </tr>
-          <tr>
-            <td>категорія 3</td>
-            <td>тест 3</td>
-            <td>Іван</td>
-            <td>
-                <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-success btn-mini">edit</a>
-            </td>
-            <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
-          </tr>
-        </tbody>
-      </table>
+<div class="row">
+    <div class="col-lg-5 col-lg-offset-2">
+        <h3 class="title-post-name col-xs-12" style="float: none;">Правила Дорожнього руху</h3>
+        <div class="row well">
+            <div class="col-lg-12 text-justify"><b>1. </b>Чи мають перевагу сигнали регулювальника перед вимогами дорожніх знаків?</div>
+            <div class="col-lg-10 col-lg-offset-2 text-justify"> <b>1) </b>Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обов'язковими для виконання</div>
+            <div class="col-lg-10 col-lg-offset-2 text-justify"> <b>2) </b>)Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обов'язковими для виконання</div>
+            <div class="col-lg-10 col-lg-offset-2 tex-justify text-justify"> <b>3) </b>Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обов'язковими для виконання</div>
+        </div>
+        <div class="row well">
+            <div class="col-lg-12 text-justify"><b>2. </b>Чи дозволяється керувати автомобілем в темну пору доби або в умовах недостатньої видимості, якщо включені тільки габаритні ліхтарі?</div>
+            <div class="col-lg-10 col-lg-offset-2 text-justify"> <b>1) </b>Дозволяється на освітленій дорозі у населених пунктах.</div>
+            <div class="col-lg-10 col-lg-offset-2 text-justify"> <b>2) </b>)Дозволяється на освітленій дорозі у населених пунктах.</div>
+            <div class="col-lg-10 col-lg-offset-2 tex-justify text-justify"> <b>3) </b>Дозволяється під час швидкості руху не більше 50 км/год.</div>
+        </div>  
+        <div class="row well">
+            <div class="col-lg-12 text-justify"><b>3. </b>Ви наближаєтеся до нерегульованого пішохідного переходу, перед яким на суміжній з Вами смузі зупинився транспортний засіб. Ви повинні</div>
+            <div class="col-lg-10 col-lg-offset-2 text-justify"> <b>1) </b>Проїхати пішохідний перехід безупинно, але з особливою обережністю.</div>
+            <div class="col-lg-10 col-lg-offset-2 text-justify"> <b>2) </b>)Проїхати пішохідний перехід беззупинно.</div>
+            <div class="col-lg-10 col-lg-offset-2 tex-justify text-justify"> <b>3) </b>Обов'язково зупинитися. При появі пішоходів пропустити їх.</div>
+        </div>              
+    </div>
+    <div class="col-lg-3">
+        <h3 class="title-post-name col-xs-12">Коментарі</h3>
+        <div class="row">
+<div class="col-lg-10 col-lg-offset-1 well">
+    <p class="text-justify">неправельні відповіді...</p>
+    <p class="text-justify">некоректна інформація...</p>
+    <p class="text-justify">шось тут не так...</p>
+    <div class="col-xs-12 form-group">
+    <textarea class="form-control" rows="4"></textarea><br>
+         <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-primary btn-mini">добавити коментар</a>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+            <div class="row">
+                                <button type="button" class="btn btn-success">затвердити</button>
+                                <button type="button" class="btn btn-danger">завернути</button>
+            </div>
             </main>
         </div>
     </div>
@@ -119,54 +110,7 @@
                 <h5 class="modal-title">Редагування</h4>
             </div>
             <div class="modal-body">
-
-                <form class="form-horizontal" role="form">
-
-                    <div class="row">
-                        <div class="col-lg-5">виберіть категорію</div>
-                        <div class="col-lg-5">
-                            <select class="form-control input-sm">
-                                <option>всі категорії</option>
-                                <option>категорія 1</option>
-                                <option>категорія 2</option>
-                                <option>категорія 3</option>
-                                <option>категорія 4</option>
-                            </select>
-                        </div>
-                    </div>
-                
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">опублікувати
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">повернути на доопрацювання
-                        </label>
-                    </div>
-                    <br>
-
-                    <div class="form-group">
-                        <label for="notice" class="col-sm-2 control-label">коментар</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="notice" placeholder="запис до тесту">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="notice" class="col-sm-2 control-label">назва</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="notice" placeholder="тест...">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5"></div>
-                        <div class="col-lg-5"></div>
-                    </div>
-
-                </form>
+тут щось може бути
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success">зберегти</button>

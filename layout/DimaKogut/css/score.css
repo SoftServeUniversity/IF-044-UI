@@ -99,10 +99,11 @@ footer {
 }
 .question{
 	float: left;
+	margin-top: 10px;
 }
 article{
 	text-align: justify;
-	padding: 10px 10px 10px 30px;
+	padding: 50px 10px 10px 10px;
 	font-family: 'Droid Serif', serif;
 }
 .name{
@@ -119,4 +120,24 @@ article{
 }
 .progress{
 	font-size: 10px;
+}
+.result-wrong{
+	background: #F58C8C;
+	border-radius: 5px;
+}
+.result-right{
+	background: #98FA84;
+	border-radius: 5px;
+}
+.answer{
+	float: left;
+	margin: 0px 10px 0px 10px;
+}
+.right-answer{
+	float: left;
+	margin: 0px 10px 0px 10px;
+}
+.more-about{
+	float: left;
+	margin: 20px 10px 0px 10px;
 }

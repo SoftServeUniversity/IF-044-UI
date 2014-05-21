@@ -58,10 +58,29 @@
             </div>
         </header>
         <main>
+            <h3 class="text-center">СПИСОК МОЇХ ТЕСТІВ</h3>
+
+
             <div class="container-fluid">
                 <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
-                    <table class="table">
-                        <thead><th>#</th><th>Тест</th><th>Категорія</th><th>Статус</th><th></th><th></th><th></th></thead>
+                    <div class="panel panel-primary filterable">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Username</h3>
+
+                        </div>
+                        <table class="table">
+                            <thead>
+                            <tr >
+                                <th><input type="text" class="form-control" placeholder="№" disabled ></th>
+                                <th><input type="text" class="form-control" placeholder="Категорія" ></th>
+                                <th><input type="text" class="form-control" placeholder="Підкатегорія" ></th>
+                                <th><input type="text" class="form-control" placeholder="Статус" ></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         <tr><td>1</td><td><a href="#">Україна</a></td><td>Країна </td> <td><button  class="btn btn-success btn-xs text-center">Затверджено</button></td><td><a href="#">Статистика</a></td><td><a href="#">Редагувати</a></td><td><button  class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
                         <tr><td>2</td><td><a href="#">Київ</a></td><td>Країна/місто</td><td><button  class="btn btn-success btn-xs text-center">Затверджено</button></td><td><a href="#">Статистика</a></td><td><a href="#">Редагувати</a></td><td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
                         <tr><td>3</td><td><a href="#">Ніагара</a></td><td>Природа</td><td><button  class="btn btn-success btn-xs text-center">Затверджено</button></td><td><a href="#">Статистика</a></td><td><a href="#">Редагувати</a></td><td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
@@ -69,10 +88,11 @@
                         <tr><td>5</td><td><a href="#">Хокей</a></td><td>Спорт</td><td><button  class="btn btn-danger btn-xs text-center">Відхилено</button></td><td><a href="#">Статистика</a></td><td><a href="#">Редагувати</a></td><td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
                         <tr><td>6</td><td><a href="#">Футбол</a></td><td>Спорт/Правила</td><td><button  class="btn btn-success btn-xs text-center">Затверджено</button></td><td><a href="#">Статистика</a></td><td><a href="#">Редагувати</a></td><td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
                         <tr><td>7</td><td><a href="#">Наполеон</a></td><td>Історія</td><td><button  class="btn btn-success btn-xs text-center">Затверджено</button></td><td><a href="#">Статистика</a></td><td><a href="#">Редагувати</a></td><td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
-                    </table>
+                    </tbody>
+                        </table>
                 </div>
-                <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
-                    <a href="edit.html" class="btn-block btn-primary text-center" style="text-decoration: no-underline">Додати новий тест</button>
+                <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 text-center">
+                    <a href="edit.html" class="btn btn-primary text-center" style="text-decoration: no-underline">Додати новий тест</a>
                 </div>
             </div>
         </main>

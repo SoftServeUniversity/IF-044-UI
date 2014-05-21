@@ -7,6 +7,10 @@
  	padding-left: 0;
  }
 
+ #tests-block h4 {
+ 	margin-top: 20px;
+ }
+
  #test-list {
  	padding-top: 20px;
  }
@@ -22,3 +26,21 @@
  #search-sort {
  	padding-top: 20px;
  }
+
+ #search-sort select {
+ 	display: inline-block;
+ }
+
+ #search-sort label {
+ 	margin: 0 10px;
+ }
+
+ .categories-block .sub-category {
+ 	font-size: 1.4em;
+ 	margin: 0 10px;
+ }
+
+.categories-block .category {
+ 	font-size: 0.8em;
+ 	margin: 0 10px;
+ } 
