@@ -29,30 +29,34 @@ body>#outer-wrapper{
 }
 
 #header-container {
-	height: 100px;
+	height: 87px;
 	padding-left: 0;
 	border-bottom:1px solid #eae8e8;
+  margin-right: 8%;
 }
 
-#header-container a {
-	display: inline-block;
+
+#header-container a img{
+ margin-top: 2%;
+  float: left;
 } 
 
-#header-menu {
-	display: inline-block;
-    padding: 0px 0px 0px 15%;
-
+#header-menu {	
+    padding: 0px 0px 0px 25%;
 	margin:auto;
 }
+
 #header-menu>ul{
-  display: block;
-  width: 500px;
+  width: 100%;
+    margin-top:4%;
 }
 
 
 #header-menu>ul>li {
-	display:inline-block;    
-	padding:0px 15% 0px 0px;
+ display: table-cell;
+ float: none;
+ position: relative;
+ width: 40%;
 }
 
 #header-menu>ul>li>a {
@@ -63,8 +67,6 @@ body>#outer-wrapper{
 main {
 	margin: 20px 0;
 	background-color: white;
-	
-
 }
 
 footer {
@@ -74,7 +76,6 @@ footer {
 #footer-container {
     width: 200px;
     margin: 10px auto 10px;
-
 }
 
 #footer-menu {
@@ -154,10 +155,14 @@ margin: 10px 0px 20px 15px;
 }
 
 .bnt-next {
-   margin: 20px 0px 10px 100px;
-   width: 130px;
+  width: 200px;
+  
 }
 
+#container{
+  margin-top: 10px;
+  text-align: center;
+}
 .ask {
     margin-top: 10px;
    float: none;
@@ -262,4 +267,7 @@ input[type=checkbox]:checked+.graphic>img{
     text-align: center;
     font: 25px arial;
     margin-bottom: 20px;
+}
+.btn{
+  margin: auto;
 }
