@@ -182,16 +182,18 @@ input[type=checkbox] + label {
     display: inline-block;
     font: 25px arial ;
     margin:15px 10px;
+
 }
 
 input[type=date]{
 height: 25px;
 width: 155px;
+width: 105px;
 }
 #subcategory{
     display: inline-block;
     margin: 15px 10px;
-    font: 17px arial;
+    font: 12px arial;
     color: #000;
 }
 .graphic>img{
@@ -243,3 +245,5 @@ input[type=checkbox]:checked+.graphic>img{
 .btn{
   margin: auto;
 }
+
+/*http://javascript.crockford.com/
