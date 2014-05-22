@@ -5,13 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Статистика</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="js/hightchart.js"></script>
 </head>
 <body class="container-fluid">
   <div id="outer-wrapper" class="container">
@@ -36,103 +37,90 @@
         </div>
       </header>
       <main>
-        <div class="container" id="">
+        <div class="container">
           <div class="head">Назва категорії</div>
-         
-            <span id="result">Середній бал: 5.76</span>
-            <span id="result">Брали участь: 17людей</span>
+          <span id="result">Середній бал: 5.76</span>
+          <span id="result">Брали участь: 17людей</span>
 
-          
           <div class="row" id="category">
-          <div class="container-fluid">
-          <span id="subcategory">
-           Період часу:від
-            <input type="date">
-            до
-            <input type="date">
-            <input type="checkbox" for='lb1'> Графік
-            </span><br>
-            <span id="subcategory">
-            Вибір підкатегорії:
-            <select>
-              <option>Підкатегорія 1</option>
-              <option>Підкатегорія 2</option>
-              <option>Підкатегорія 3</option>
-            </select><input type="checkbox"> Графік
-
-          </span><br>
-          <span id="subcategory">
-            Вік учасників:від
-            <select>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
-            до
-            <select>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-            </select>
-            <input type="checkbox"> Графік
-            </span><br>
-             <span id="subcategory">
-            Ступінь Учасника:
-            <select>
-              <option>Підкатегорія 1</option>
-              <option>Підкатегорія 2</option>
-              <option>Підкатегорія 3</option>
-            </select><input type="checkbox"> Графік
-          </span><br>
-           <span id="subcategory">
-            Максимальний бал за тест:10
-          </span>
-           <span id="subcategory">
-              Мінімальний бал за тест:1
-            </span><br>
+            
+            <div class="col-sm-6">
+              <span id="subcategory">
+                Період часу:від
+                <input type="date">
+                до
+                <input type="date"><br>
+                <input type="checkbox" for='lb1'>Графік</span>
+              <br>
+              <span id="subcategory">
+                Вибір підкатегорії:
+                <select>
+                  <option>Підкатегорія 1</option>
+                  <option>Підкатегорія 2</option>
+                  <option>Підкатегорія 3</option>
+                </select>
+                <input type="checkbox">Графік</span>
+              <br>
+              <span id="subcategory">
+                Вік учасників:від
+                <select>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+                до
+                <select>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                </select>
+                <input type="checkbox">Графік</span>
+              <br>
+              <span id="subcategory">
+                Ступінь Учасника:
+                <select>
+                  <option>Підкатегорія 1</option>
+                  <option>Підкатегорія 2</option>
+                  <option>Підкатегорія 3</option>
+                </select>
+                <input type="checkbox">Графік</span>
+              <br>
+              <span id="subcategory">Максимальний бал за тест:10</span>
+              <span id="subcategory">Мінімальний бал за тест:1</span>
+              <br></div>
+              <div class="col-sm-5">
+             <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
           </div>
-          <!--<div id="show">
-          <input type="checkbox" >
-          Графік
-          <div id="graph">
-            <img src="http://fakeimg.pl/400x200/00CED1/FFF/?text=img+placeholder"></div>
-          -->
+          
+         </div>
         </div>
-        <input type="checkbox"> Графіки
-        <div class="graphic">
-
-<img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=highCharts">
-<img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=highCharts">
-<img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=highCharts">
-<img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=highCharts">
-<img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=highCharts">
-</div>
+       
       </main>
     </div>
-  </div>
+ 
 
-      <footer class="container">
-        <div id="footer-container">
-          <nav id="footer-menu">
-            <ul>
-              <li>
-                <a href="#">Тести</a>
-                &nbsp|
-              </li>
-              <li>
-                <a href="#">Про нас</a>
-                &nbsp|
-              </li>
-              <li>
-                <a href="#">Контакти</a>
-              </li>
-            </ul>
-          </nav>
-          <p>
-            Copyright@ 2014 <b>IF-044</b>
-          </p>
-        </div>
-      </footer>
+  <footer class="container">
+    <div id="footer-container">
+      <nav id="footer-menu">
+        <ul>
+          <li>
+            <a href="#">Тести</a>
+            &nbsp|
+          </li>
+          <li>
+            <a href="#">Про нас</a>
+            &nbsp|
+          </li>
+          <li>
+            <a href="#">Контакти</a>
+          </li>
+        </ul>
+      </nav>
+      <p>
+        Copyright@ 2014 <b>IF-044</b>
+      </p>
+    </div>
+  </footer>
 </body>
-    </html>
+</html>
