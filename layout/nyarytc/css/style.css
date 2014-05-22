@@ -168,3 +168,7 @@ color: @link-color-hover;
     text-decoration: no-underline;
     }
 }
+
+.fieldfree {margin-bottom: 10px; margin-top: 10px;}
+
+.marg { margin-top: 10px;  margin-bottom: 10px;}
