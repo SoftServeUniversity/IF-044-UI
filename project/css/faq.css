@@ -14,3 +14,14 @@
 #contentTable {
 	margin-bottom: 50px;
 }
+
+
+
+#title-block {
+	display: inline-block;
+}
+
+#header-menu {
+	margin-top: -40px;
+	margin-left: 22%;
+}

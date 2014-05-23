@@ -16,6 +16,8 @@ body {
 
 	#login-button {
  		float: right;
+        position: relative;
+        bottom: 90px;
 	}
 
     #modal-login-form {
