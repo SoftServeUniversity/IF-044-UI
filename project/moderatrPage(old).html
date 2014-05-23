@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YunakQuize Layout</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+</head>
+
+<body class="container-fluid">
+    <div id="outer-wrapper" class="container">
+        <div id="inner-wrapper" class="container">
+            <header class="row">
+                <div id="header-container" class=" col-xs-12 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1  col-xs-offset-0">
+                    <a href="#">
+                        <img src="pic/logo.png" alt="YunakQuize">
+                    </a>
+                    <nav id="header-menu">
+                        <ul>
+                            <li>
+                                <a href="#">Тести</a>
+                            </li>
+                            <li>
+                                <a href="#">Про нас</a>
+                            </li>
+                            <li>
+                                <a href="#">Контакти</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <main>
+<div class="col-lg-2 col-sm-3 col-xs-3">
+  <select class="form-control">
+  <option>всі категорії</option>
+  <option>категорія 1</option>
+  <option>категорія 2</option>
+  <option>категорія 3</option>
+  <option>категорія 4</option>
+</select>
+</div>            
+            
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>назва категорії</th>
+            <th>назва тесту</th>
+            <th>автор</th>
+            <th>редагувати</th>
+            <th>видалити</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>категорія 1</td>
+            <td>тест 1</td>
+            <td>Петро</td>
+            <td>
+                <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-success btn-mini">edit</a>
+            </td>
+                <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+          </tr>
+          <tr>
+            <td>категорія 2</td>
+            <td>тест 2</td>
+            <td>Василь</td>
+            <td>
+                <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-success btn-mini">edit</a>
+            </td>
+            <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+          </tr>
+          <tr>
+            <td>категорія 3</td>
+            <td>тест 3</td>
+            <td>Іван</td>
+            <td>
+                <a href="#modal-edit" data-toggle="modal" data-target="#modal-edit" class="btn btn-success btn-mini">edit</a>
+            </td>
+            <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+          </tr>
+        </tbody>
+      </table>
+            </main>
+        </div>
+    </div>
+    <footer class="container">
+        <div id="footer-container">
+            <nav id="footer-menu">
+                <ul>
+                    <li>
+                        <a href="#">Тести &nbsp|</a>
+                    </li>
+                    <li>
+                        <a href="#">Про нас &nbsp|</a>
+                    </li>
+                    <li>
+                        <a href="#">Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+            <p>Copyright@ 2014
+                <b>IF-044</b>
+            </p>
+        </div>
+    </footer>
+<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редагування</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" role="form">
+
+                    <div class="row">
+                        <div class="col-lg-5">виберіть категорію</div>
+                        <div class="col-lg-5">
+                            <select class="form-control input-sm">
+                                <option>всі категорії</option>
+                                <option>категорія 1</option>
+                                <option>категорія 2</option>
+                                <option>категорія 3</option>
+                                <option>категорія 4</option>
+                            </select>
+                        </div>
+                    </div>
+                
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">опублікувати
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">повернути на доопрацювання
+                        </label>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="notice" class="col-sm-2 control-label">коментар</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="notice" placeholder="запис до тесту">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notice" class="col-sm-2 control-label">назва</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="notice" placeholder="тест...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5"></div>
+                        <div class="col-lg-5"></div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">зберегти</button>
+            </div>
+        </div>
+    </div>
+</div>   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -24,6 +24,7 @@ body {
 	height: 100px;
 	padding-left: 0;
 	border-bottom:1px solid #eae8e8;
+	vertical-align: top;
 }
 
 #header-container a {
@@ -47,6 +48,15 @@ body {
 #header-menu>ul>li>a {
 	font-size: 1.5em;
 	color: black;
+	position: relative;
+	bottom: 30px;
+}
+
+#title-block {
+	display: inline-block;
+	margin: 0 30px;
+	position: relative;
+	bottom: 10px;
 }
 
 main {

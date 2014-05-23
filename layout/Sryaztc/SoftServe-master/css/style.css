@@ -65,7 +65,7 @@ body>#outer-wrapper{
 }
 
 main {
-	margin: 20px 0;
+	margin: 0px 0;
 	background-color: white;
 }
 
@@ -100,78 +100,44 @@ footer {
 	font-size: 0.8em;
 	text-align: center;
 }
-
-#categor{
-margin-top: 64px;
-    text-align: left;
-}
-
-
-#tag {
-    text-align: left;
-    font-size: 14px;
+/*index page style start*/;
     
-}
-
-#barrel {
-    float: left;
-    background-color: #d3d2d2;
-    width: 3px;
-    height: 90px;
-    margin-right: 20px;
-}
-
-
-
-.row span:nth-of-type(1){
-      font-family: 'Droid Serif', serif;
-      font-size: 28px;
-}
-
-.row span:nth-of-type(2){
+.desrpiption{
     font: 18px italic arial;     
     color: #9b9a9a;
 }
 
-#name {
-    float: right;
+.name {    
     font: 16px times new roman;
     color: #a5a1a1;
-    margin: 10px -30px 0px 0px;
-}
+  }
+.line { 
+    border-left: 2px solid #ccc; 
+    margin-left: 20px; 
+    padding-left: 10px; 
+   }
 
-
-#count {
+.count {
     color: #a5a1a1;
   font-family: 'Roboto Slab', serif;
     font-size: 15px;
 }
 
-.list-unstyled{
-margin: 10px 0px 20px 15px;
-}
-#q {
-    margin-top: 35px;
-}
+/*index page style end*/
+
+/*testpage style start*/
+
 
 .bnt-next {
-  width: 200px;
-  
+  width: 200px;  
 }
 
-#container{
+.center{
   margin-top: 10px;
   text-align: center;
 }
-.ask {
-    margin-top: 10px;
-   float: none;
-   margin-left: 10px;
-}
 
-.block {
-     float: none;
-}
+  
 input[type=checkbox]:checked + label {
   color: #3276B1;
   font-style: italic;
@@ -187,6 +153,12 @@ input[type=checkbox] + label {
     margin-bottom: 70px;
     margin-right: 5px;
 }
+
+.answer-spase{
+ margin-top: 5px;
+}
+
+/*testpage style end*/
 
 .head{
     color: #3276B1;
@@ -210,16 +182,18 @@ input[type=checkbox] + label {
     display: inline-block;
     font: 25px arial ;
     margin:15px 10px;
+
 }
 
 input[type=date]{
 height: 25px;
 width: 155px;
+width: 105px;
 }
 #subcategory{
     display: inline-block;
     margin: 15px 10px;
-    font: 17px arial;
+    font: 12px arial;
     color: #000;
 }
 .graphic>img{
@@ -271,3 +245,5 @@ input[type=checkbox]:checked+.graphic>img{
 .btn{
   margin: auto;
 }
+
+/*http://javascript.crockford.com/

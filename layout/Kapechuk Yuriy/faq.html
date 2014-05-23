@@ -22,11 +22,15 @@
             <div id="header-container"
                  class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
                 <a href="#"><img src="pic/logo.png" alt="YunakQuize"></a>
+                <div id="title-block">
+                    <h4 id="title-block">Система Пластових електронних опитників</h4>
+                </div>
                 <nav id="header-menu">
                     <ul>
-                        <li><a href="#">Тести</a></li>
-                        <li><a href="#">Про нас</a></li>
+                        <li><a href="#">Проби</a></li>
+                        <li><a href="#">Пошук</a></li>
                         <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Ввійти</a></li>
                     </ul>
                 </nav>
                 <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button">
@@ -36,8 +40,7 @@
         </header>
         <main>
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div id="modal-login-box" class="modal-dialog">
                     <div id="modal-login-form" class="modal-content">
                         <div class="modal-header">
@@ -83,80 +86,189 @@
                     </div>
                 </div>
             </div>
-
-            <section id="faq" class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div id="heading">
-                            <h2>F.A.Q.</h2>
+             <div class="modal fade" id="mySend" tabindex="-1" role="dialog" aria-labelledby="mySendlLabel" aria-hidden="true">
+                <div id="modal-send-box" class="modal-dialog">
+                    <div id="modal-send-form" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Діалог</h4>
                         </div>
-                        <div id="contentTable">
-                            <table class="table table-striped">
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a></td>
-                                </tr>
-                            </table>
+                        <div class="modal-body">
+                            <form id="signin-form" class="form-horizontal" role="form">
+                                <h4><strong>Ім'я користувача</strong></h4>
+                                <textarea class='col-lg-12 text' rows='10' cols='50'></textarea>
+                               
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5 sendbutton">
+                                        <button id="registration-button" type="button" class="btn btn-primary">Надіслати</button>                                     
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
-                        </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
-                        </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
-                        </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
-                        </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
-                        </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
-                        </div>
-                        <div class="question-answer">
-                            <p class="question"><b>Питання: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend, massa id varius auctor, lorem ligula consectetur magna, eu lacinia nisi felis eu sapien</p>
-                            <p class="answer"><b>Відповідь: </b>Nulla at est at sapien ultrices fringilla. Fusce in risus vehicula, sagittis est in, iaculis orci. Curabitur eget risus aliquam, mollis odio et, vulputate massa. Quisque fermentum consequat aliquam. Vestibulum ut eros vel tellus faucibus suscipit sit amet in turpis. Integer lacinia enim sit amet nulla interdum egestas. Praesent auctor dictum nisl eget vulputate.</p>
+                        <div class="modal-footer">
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
 
-        </main>
-    </div>
-</div>
+          <div class="container-fluid">
+
+                <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+
+
+
+                        <div class="bs-example bs-example-tabs">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" class="bg-info" href="#p1">Користувачі</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-info" href="#p2">Категорії тестів</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-info" href="#p3">Бази даних</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-info" href="#p4">Локалізація</a>
+                                </li>
+
+                            </ul>
+
+                            <div id="myTabContent" class="tab-content panel">
+                                <div id="p1" class="tab-pane fade in active">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th><select class='form-control'>
+                                                    <option>Алфавіту</oprtion>
+                                                    <option>Даті реєстрації</oprtion>
+                                                    <option>Країні</oprtion>
+                                                    <option>Статусу</oprtion>
+                                                </select></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th><input type='search' class='form-control' placeholder='Пошук'>
+                                                </th>
+                                            </tr>                                        
+                                        </thead>
+                                    <tr>
+                                        <td><a href='#'>Гарі Олдман</a></td>
+                                        <td>США</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='#'>Жан Дю Жар Ден</a></td>
+                                        <td>Франція</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='moderator'><strong>Модератор</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='#'>Адріано Чілінтано</a></td>
+                                        <td>Італія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='#'>Деніел Редкліф</a></td>
+                                        <td>Велика Британія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='#'>Андрій Козловський</a></td>
+                                        <td>Росія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='moderator'><strong>Модератор</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='#'>Антоніо Бандерас</a></td>
+                                        <td>Іспанія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='#'>Богдан Ступка</a></td>
+                                        <td>Україна</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
+                                        <td></td>
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
+                                    </tr>
+                                        
+                                        </tbody>
+
+
+                                        
+                                     
+                                    </table>
+                                       <div class='pageroller'>
+                                            <ul class='pagination'>
+                                                <li><a href='#'>&laquo;</a></li>
+                                                <li class='active'><a href='#'>1</a></li>
+                                                <li><a href='#'>2</a></li>
+                                                <li><a href='#'>3</a></li>
+                                                <li><a href='#'>4</a></li>
+                                                <li><a href='#'>5</a></li>
+                                                <li><a href='#'>6</a></li>
+                                                <li><a href='#'>7</a></li>
+                                                <li><a href='#'>&raquo</a></li>
+                                            </ul>
+                                        </div>
+                                </div>
+
+                                <div id="p2" class="tab-pane fade in #p2">
+                                    <ol>
+                                        <li>Тест 1</li>
+                                        <li>Тест 2</li>
+                                        <li>Тест 3</li>
+                                    </ol>
+                                </div>
+                                <div id="p3" class="tab-pane fade in #p3">
+                                    <ol>
+                                        <li>Тест 1</li>
+                                        <li>Тест 2</li>
+                                        <li>Тест 3</li>
+                                        <li>Тест 4</li>
+                                    </ol>
+                                </div>
+                                <div id="p4" class="tab-pane fade in #4">
+                                    <ol>
+                                        <li>Тест 1</li>
+                                        <li>Тест 2</li>
+                                        <li>Тест 3</li>
+                                        <li>Тест 4</li>
+                                        <li>Тест 5</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
 <footer class="container">
     <div id="footer-container">
         <nav id="footer-menu">

@@ -91,6 +91,14 @@ footer {
 	font-size: 0.8em;
 	text-align: center;
 }
+.progress{
+	margin-top: 10px;
+}
+.score-number{
+	font-size: 30px;
+	opacity: 0.8;
+	color: green;
+}
 .name{
 	float: left;
 }
@@ -99,11 +107,11 @@ footer {
 }
 .question{
 	float: left;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 article{
 	text-align: justify;
-	padding: 50px 10px 10px 10px;
+	padding: 50px 10px 10px 20px;
 	font-family: 'Droid Serif', serif;
 }
 .name{
@@ -121,23 +129,23 @@ article{
 .progress{
 	font-size: 10px;
 }
-.result-wrong{
-	background: #F58C8C;
-	border-radius: 5px;
-}
-.result-right{
-	background: #98FA84;
-	border-radius: 5px;
-}
 .answer{
 	float: left;
-	margin: 0px 10px 0px 10px;
+	margin: 10px 10px 0px 20px;
 }
 .right-answer{
 	float: left;
-	margin: 0px 10px 0px 10px;
+	margin: 0px 10px 0px 20px;
 }
 .more-about{
 	float: left;
-	margin: 20px 10px 0px 10px;
+	margin: 50px 10px 0px 20px;
+}
+.blockcolor{
+	background: #9AF67E;
+	border-radius: 7px;
+}
+.blockcolor-wrong{
+	background: #F67E8A;
+	border-radius: 7px;
 }
