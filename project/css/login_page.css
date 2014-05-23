@@ -75,3 +75,9 @@ body {
     #modal-login-box {
         width: 400px;
     }
+
+    .error-block {
+        height: 20px;
+        color: red;
+        margin-bottom: 15px;
+    }

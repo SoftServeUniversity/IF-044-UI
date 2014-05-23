@@ -1,19 +1,26 @@
-var Users = [{
+var Users = [
+{
         username: 'admin',
         location: 'Ukraine',
         group: 3,
-        name: 'John',
-        level: 5,
+        firstName: 'John',
+	lastName: 'Dou',
+        org_level: 5,
         password: 'admin',
-        email: 'admin@admin.com'
+        email: 'admin@admin.com',
+	org_troop: 'value',
+	org_group: 2
     }, {
         username: 'guest',
         location: 'Ukraine',
         group: 3,
-        name: 'Jake',
-        level: 5,
+        firstName: 'Jake',
+	lastName: 'Smith',
+        org_level: 5,
         password: 'guest',
-        email: 'guest@guest.com'
+        email: 'guest@guest.com',
+	org_troop: 'value',
+	org_group: 3
     }
 
 

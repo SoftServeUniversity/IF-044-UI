@@ -4,26 +4,22 @@
       var password = document.getElementById('inputPassword3');
       var closeButton = document.getElementById('closeButton');
       var res1, res2, currentUser;
+      var errorBlock = document.getElementsByClassName('error-block')[0]
 
-      function errorEmail() {
-          console.log('Не правильно введенна Пароль або Пошта');
-      };
-
-      function errorPassword() {
-          console.log('Не правильно введенний Пароль або Пошта');
+      function errorWrite() {
+          errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
       };
 
       function postWishMsg() {
-          alert('Вітаю ' + Users[currentUser].name + '!')
+          alert('Вітаю ' + Users[currentUser].firstName + '!')
       }
 
       function clearForms() {
-          closeButton.onclick = function() {
-              return true;
-          };
+
       }
 
       loginButton.onclick = function() {
+          errorBlock.innerHTML = '';
 
 
           for (var i = 0; i < Users.length; i++) {
@@ -41,15 +37,12 @@
 
           };
 
-
-
           if (currentUser >= 0) {
               if (Users[currentUser].password == password.value) {
                   res2 = true;
               } else {
                   res2 = false;
               };
-
           };
 
 
@@ -59,12 +52,12 @@
 
 
           if (res1 == false) {
-              errorEmail();
+              errorWrite();
               Error = true;
           };
 
           if (res2 == false) {
-              errorPassword()
+              errorWrite();
               Error = true;
           };
 
