@@ -68,5 +68,6 @@
             postWishMsg();
             clearForms();
         };
+        return false;
     };
 })()
