@@ -1,22 +1,20 @@
-var Users = [ 
-{
-	username: 'admin',
-	location: 'Ukraine',
+var Users = [{
+        username: 'admin',
+        location: 'Ukraine',
         group: 3,
-	name: 'John',
-	level: 5,
-	password: 'admin',
-	email: 'admin@admin.com'
-},
-{
-	username: 'guest',
-	location: 'Ukraine',
+        name: 'John',
+        level: 5,
+        password: 'admin',
+        email: 'admin@admin.com'
+    }, {
+        username: 'guest',
+        location: 'Ukraine',
         group: 3,
-	name: 'Jake',
-	level: 5,
-	password: 'guest',
-	email: 'guest@guest.com'
-}
+        name: 'Jake',
+        level: 5,
+        password: 'guest',
+        email: 'guest@guest.com'
+    }
 
 
 ]
