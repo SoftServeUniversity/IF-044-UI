@@ -15,8 +15,8 @@ body {
 	}
 
 	#login-button {
- 		float: right;
-        position: relative;
+ 		right: 0px;
+        position: absolute;
         bottom: 90px;
 	}
 
