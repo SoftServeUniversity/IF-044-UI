@@ -16,7 +16,10 @@
  }
 
  #test-list .test {
+ 	display: inline-block;
 	padding-bottom: 22px;
+	width: 28%;
+	margin: 0 2%;
  }
 
  #test-list .test p {
