@@ -1,4 +1,6 @@
-  (function() {
+'use strict'
+
+function loginModule() {
       var loginButton = document.getElementById('loginButton');
       var email = document.getElementById('inputEmail3');
       var password = document.getElementById('inputPassword3');
@@ -15,7 +17,8 @@
       }
 
       function clearForms() {
-
+          email.value = '';
+          password.value = '';
       }
 
       loginButton.onclick = function() {
@@ -62,9 +65,10 @@
           };
 
           if (!Error) {
-              postWishMsg();
               clearForms();
+              postWishMsg();
           };
+
           return false;
       };
-  })()
+  }
