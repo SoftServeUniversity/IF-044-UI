@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Статистика</title>
+  <script src="data.json"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -12,9 +13,10 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <script src="http://code.highcharts.com/highcharts.js"></script>
-  <script src="js/hightchart.js"></script>
+ 
+    
 </head>
-<body class="container-fluid">
+<body class="container-fluid" onload="statisticmodule()">
   <div id="outer-wrapper" class="container">
     <div id="inner-wrapper" class="container">
       <header class="row">
@@ -38,10 +40,10 @@
       </header>
       <main>
         <div class="container">
-          <div class="head">Назва категорії</div>
+        <h2 style="text-align:center;"> Назва категорії</h2>
           <div style="text-align:center;">
-          <span id="result">Середній бал: 5.76</span>
-          <span id="result">Брали участь: 17людей</span>
+           <p> <span id="result1"></span></p>
+          <p><span id="result"></span></p>
 </div>
           <div class="row" id="category">
             
@@ -124,4 +126,5 @@
     </div>
   </footer>
 </body>
+ <script type="text/javascript" src="js/statistic.js"></script>
 </html>

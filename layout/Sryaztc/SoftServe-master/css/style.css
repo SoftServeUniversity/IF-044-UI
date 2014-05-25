@@ -11,7 +11,7 @@ body {
 body>#outer-wrapper{
     height: 100%;
 }
-
+ 
 #outer-wrapper {
 	padding-left: 0;
 	min-height: 100%;
@@ -127,6 +127,13 @@ footer {
 
 /*testpage style start*/
 
+/*input[type=checkbox] ~ input[type=checkbox] + label {
+    color: red;
+}
+/* Стиль первого слайда в состоянии «выбран» 
+input[type=checkbox]:checked ~ input[type=checkbox] + label { 
+    border: 1px solid black;
+}*/
 
 .bnt-next {
   width: 200px;  
@@ -137,7 +144,9 @@ footer {
   text-align: center;
 }
 
-  
+input[type=checkbox]{
+  display: none;
+}
 input[type=checkbox]:checked + label {
   color: #3276B1;
   font-style: italic;
@@ -179,9 +188,7 @@ input[type=checkbox] + label {
 }
 
 #result{
-    display: inline-block;
-    font: 25px arial ;
-    margin:15px 10px;
+    
 
 }
 
