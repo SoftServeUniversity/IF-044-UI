@@ -35,22 +35,91 @@
 
 
 ]
+/*
+question:
+	id - унікальний номер запитання в полі question, в межах одного обєкта з масиву Tests
+	text - текст самого запитання
+answers
+	id - унікальний номер відповіді в полі answers, в межах одного обєкта з масиву Tests
+	question_id - вказує на запитання, якому належить дана відповід(тобто якшо question_id = 1 то це означає шо ця відповідь відноситься до запитання яке має id=1)
+	text_answer - текст самої відповіді
+correct_answers
+	question_id - вказує  до якого запитання належить
+	answer_id - вказує яка відповідь є правильна(тобто якшо question_id = 1 і answer_id = 3 то це означає шо для запитання (question) з id = 1 правильна відповідь буде з (answers) id = 3)
 
+	
+	впринципі можна було б обійтися без поля question_id в correct_answers, але так буде лекше  формувати дані...	
+	*/
 var Tests = [
-{	
-	name: 'Правила дорожнього руху',
-	tags: ['тег1','тег4','тег3', 'тег5', 'тег2'],
-	descr: 'Представляємо екзаменаційні білети ДАІ по 20 питань у кожному. Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!',
-	author: 'John Dou',
-	question: ['Lorem ipsum dolor sit amet?'],
-	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
-	info: ['info1','info2'],
-	subcategory: 4,
-	category: 1,
-	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test1.html',
-	date: '1'	
-    },
+{
+    name: 'Правила дорожнього руху',
+    tags: ['зупинитися', 'тег4', 'тег3', 'тег5', 'тег2'],
+    descr: 'Представляємо екзаменаційні білети ДАІ по 20 питань у кожному. Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!',
+    author: 'John Dou',
+    question: [{
+        id: 1,
+        text: 'Чи мають перевагу сигнали регулювальника перед вимогами дорожніх знаків?'
+    }, {
+        id: 2,
+        text: 'Чи дозволяється керувати автомобілем в темну пору доби або в умовах недостатньої видимості, якщо включені тільки габаритні ліхтарі?'
+    }, {
+        id: 3,
+        text: ' Ви наближаєтеся до нерегульованого пішохідного переходу, перед яким на суміжній з Вами смузі зупинився транспортний засіб. Ви повинні'
+    }],
+    answers: [{
+        id: 1,
+        question_id: 1,
+        text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+    }, {
+        id: 2,
+        question_id: 1,
+        text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+    }, {
+        id: 3,
+        question_id: 1,
+        text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+    }, {
+        id: 4,
+        question_id: 2,
+        text_answer: ' Дозволяється на освітленій дорозі у населених пунктах'
+    }, {
+        id: 5,
+        question_id: 2,
+        text_answer: 'Дозволяється на освітленій дорозі у населених пунктах.'
+    }, {
+        id: 6,
+        question_id: 2,
+        text_answer: 'Дозволяється під час швидкості руху не більше 50 км/год.'
+    }, {
+        id: 7,
+        question_id: 3,
+        text_answer: ' Проїхати пішохідний перехід безупинно, але з особливою обережністю.'
+    }, {
+        id: 8,
+        question_id: 3,
+        text_answer: 'Проїхати пішохідний перехід беззупинно.'
+    }, {
+        id: 9,
+        question_id: 3,
+        text_answer: 'Обовязково зупинитися. При появі пішоходів пропустити їх.'
+    }],
+    correct_answers: [{
+        question_id: 1,
+        answer_id: 2
+    },{
+        question_id: 2,
+        answer_id: 3
+    },{
+        question_id: 3,
+        answer_id: 1
+    }],
+    info: ['info1', 'info2'],
+    subcategory: 4,
+    category: 1,
+    correct_answers: ['Aenean ut consequat velit'],
+    url: 'tests/test1.html',
+    date: '1'
+},
 {	
 	name: 'Тест №2',
 	tags: ['tag1','tag2','tag3'],
@@ -163,6 +232,20 @@ var Tests = [
 	url: 'tests/test9.html',
 	date: '8'	
     },
+{	
+	name: 'Правила дорожнього руху',
+	tags: ['tag1','tag2','tag3'],
+	descr: 'info',
+	author: 'John Dou',
+	question: ['Lorem ipsum dolor sit amet?'],
+	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
+	info: ['info1','info2'],
+	subcategory: 1,
+	category: 1,
+	correct_answers: ['Aenean ut consequat velit'],
+	url: 'tests/test9.html',
+	date: '8'	
+    }	
 ]
 var Categories = [
 	{

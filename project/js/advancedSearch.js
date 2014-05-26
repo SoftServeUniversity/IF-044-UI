@@ -41,12 +41,12 @@ showAllcontaining = function(value, category, sub_category){
         for(index in Tests){
             for(inner_index in Tests[index]){
                 if(filter){
-                    if(typeof Tests[index][inner_index]!= 'number' && Tests[index][inner_index].toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && sub_category.indexOf(Tests[index]['subcategory'].toString())+1 && category.indexOf(Tests[index]['category'].toString())+1){
+                    if(Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && sub_category.indexOf(Tests[index]['subcategory'].toString())+1 && category.indexOf(Tests[index]['category'].toString())+1){
                         result_array.push(index);
                         break;
                     }
                 }else{
-                    if(typeof Tests[index][inner_index]!= 'number' && Tests[index][inner_index].toString().toLowerCase().indexOf(value.toLowerCase()) + 1){
+                    if(Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1){
                         result_array.push(index);
                         break;
                     }                
