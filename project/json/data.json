@@ -32,15 +32,15 @@ var Users = [
 
 var Tests = [
 {	
-	name: 'Test Name1',
-	tags: ['tag1','tag2','tag3'],
-	descr: 'info',
+	name: 'Правила дорожнього руху',
+	tags: ['тест','Пдр','порушення', 'категорія', 'врер'],
+	descr: 'Представляємо екзаменаційні білети ДАІ по 20 питань у кожному. Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!',
 	author: 'John Dou',
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 4,
+	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test1.html'	
     },
@@ -52,7 +52,7 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 7,
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test2.html'	
@@ -65,8 +65,8 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 10,
+	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test3.html'	
     },
@@ -78,8 +78,8 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 11,
+	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test4.html'	
     },
@@ -91,8 +91,8 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 5,
+	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test5.html'	
     },
@@ -104,8 +104,8 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 11,
+	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test6.html'	
     },
@@ -117,7 +117,7 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 8,
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test7.html'	
@@ -130,7 +130,7 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 8,
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test8.html'	
@@ -144,8 +144,71 @@ var Tests = [
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
 	subcategory: 1,
-	category: 2,
+	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test9.html'	
     },
 ]
+var Categories = [
+	{
+		id: 1,
+		name: "спорт",
+		parent_id: 0
+	},
+	{
+		id: 2,
+		name: "туризм",
+		parent_id: 0
+	},
+	{
+		id: 3,
+		name: "Правила дорожнього руху",
+		parent_id: 0
+	},
+	{
+		id: 4,
+		name: "підкатегорія1",
+		parent_id:1 
+	},
+	{
+		id: 5,
+		name: "підкатегорія1",
+		parent_id:1 
+	},
+	{
+		id: 6,
+		name: "підкатегорія1",
+		parent_id:1 
+	},
+	{
+		id: 7,
+		name: "підкатегорія2",
+		parent_id:2 
+	},
+	{
+		id: 8,
+		name: "підкатегорія2",
+		parent_id:2
+	},
+	{
+		id: 9,
+		name: "підкатегорія2",
+		parent_id:2 
+	},
+	{
+		id: 10,
+		name: "підкатегорія3",
+		parent_id:3 
+	},
+	{
+		id: 11,
+		name: "підкатегорія3",
+		parent_id:3 
+	},
+	{
+		id: 12,
+		name: "підкатегорія3",
+		parent_id:3 
+	}	
+	
+];
