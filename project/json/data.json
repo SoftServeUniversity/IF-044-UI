@@ -5,10 +5,12 @@ var Users = [
         group: 3,
         firstName: 'John',
 	lastName: 'Dou',
-        org_level: 5,
+        org_level: 3,
         password: 'admin',
         email: 'admin@admin.com',
-	org_troop: 'value',
+        birthday: '20.05.2001',
+	org_troop: 'same_value',
+	org_region: 'same_value',
 	org_group: 2
     }, {
          username: 'guest',
@@ -16,15 +18,22 @@ var Users = [
         group: 3,
         firstName: 'Jake',
 	lastName: 'Smith',
-        org_level: 5,
+        org_level: 2,
         password: 'guest',
         email: 'guest@guest.com',
+<<<<<<< HEAD
+        birthday: '08.05.1987',
+	org_troop: '_same_value',
+	org_region: 'same_value',
+	org_group: 3
+=======
 	org_troop: 'value',
 	org_group: 3,
 	testScore:[5, 7, 4, 3, 9],
 	testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
 	testDate:[]
 	
+>>>>>>> 3720000b46b93356904708e3a8e7f078e394913c
     }
 
 
