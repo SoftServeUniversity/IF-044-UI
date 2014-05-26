@@ -80,6 +80,13 @@ function loginModule() {
      var textBox = document.getElementById('testBox');
      var select = document.getElementById('selectForm');
 
+     var subcategory1 = document.getElementById('vmil1');
+     var subcategory2 = document.getElementById('vmil2');
+     var subcategory3 = document.getElementById('vmil3');
+     var subcategory4 = document.getElementById('vmil4');
+     var subcategory5 = document.getElementById('vmil5');
+
+
      function createTestElement(i) {
        var newDiv = document.createElement('div');
        newDiv.className = 'test';
@@ -131,4 +138,60 @@ function loginModule() {
         };
 
      }; 
+
+     function showSubcategory() {
+        textBox.innerHTML = '';
+
+        if(this.id === 'vmil1'){
+
+          for(var i = 0; i<Tests.length; i++) {
+            if(Tests[i].subcategory === 8){
+              createTestElement(i);
+            }
+          };
+        };
+
+        if(this.id === 'vmil2'){
+
+          for(var i = 0; i<Tests.length; i++) {
+            if(Tests[i].subcategory === 11){
+              createTestElement(i);
+            }
+          };
+        };
+
+        if(this.id === 'vmil3'){
+
+          for(var i = 0; i<Tests.length; i++) {
+            if(Tests[i].subcategory === 1){
+              createTestElement(i);
+            }
+          };
+        };
+
+        if(this.id === 'vmil4'){
+
+          for(var i = 0; i<Tests.length; i++) {
+            if(Tests[i].subcategory === 5){
+              createTestElement(i);
+            }
+          };
+        };
+
+        if(this.id === 'vmil5'){
+
+          for(var i = 0; i<Tests.length; i++) {
+            if(Tests[i].subcategory === 7){
+              createTestElement(i);
+            }
+          };
+        };                          
+          return false;      
+     }
+
+     subcategory1.onclick = showSubcategory;
+     subcategory2.onclick = showSubcategory;
+     subcategory3.onclick = showSubcategory;
+     subcategory4.onclick = showSubcategory;
+     subcategory5.onclick = showSubcategory;
   }
