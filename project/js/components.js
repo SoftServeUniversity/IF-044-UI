@@ -127,16 +127,6 @@ function loginModule() {
           };
         };
 
-        if(this.value === '3') {
-
-          Tests.sort(function (a, b) {return a.category - b.category});
-            
-            for(var i = 0; i<Tests.length; i++) {
-            createTestElement(i);
-          };
-
-        };
-
      }; 
 
      function showSubcategory() {

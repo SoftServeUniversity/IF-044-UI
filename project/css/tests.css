@@ -47,3 +47,13 @@
  	font-size: 0.8em;
  	margin: 0 10px;
  } 
+
+ #vmilosti a, #proby a, #patrony a {
+ 	padding: 2px 5px;
+ }
+
+ #vmilosti a:hover, #proby a:hover, #patrony a:hover {
+	text-decoration: none;
+	background-color: #0490ba;
+	color: white;
+ }
