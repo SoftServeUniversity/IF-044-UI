@@ -10,7 +10,6 @@ var Users = [
         email: 'admin@admin.com',
 	org_troop: 'value',
 	org_group: 2
-
     }, {
         username: 'guest',
         location: 'Ukraine',
@@ -21,12 +20,9 @@ var Users = [
         password: 'guest',
         email: 'guest@guest.com',
 	org_troop: 'value',
-	org_group: 3,
-	testScore:[5, 7, 4, 3, 9],
-	testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
-	testDate:[]
-    }     
-    
+	org_group: 3
+    }
+
 
 ]
 

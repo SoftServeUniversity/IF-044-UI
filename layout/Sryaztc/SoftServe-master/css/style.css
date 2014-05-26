@@ -1,76 +1,71 @@
+ /*layoutstyle*/
 
-
-html, body{
-	height: 100%;
-}
-
-body {
-	background-color: #eae8e8
-}
-
-body>#outer-wrapper{
-    height: 100%;
+ html, body {
+  height: 100%;
 }
  
+body {
+  background-color: #eae8e8
+}
+
 #outer-wrapper {
-	padding-left: 0;
-	min-height: 100%;
-    height: 100%;
-    height: auto !important;
+  padding-left: 0;
+  min-height: 100%;
+    height: auto;
     margin: 0 auto -57px;
     padding: 0 0 57px;
-
 }
 
 #inner-wrapper {
     background-color: white;
-	box-shadow: 0 0 10px #c0bfbf; 
-	margin-top: 20px;
+  box-shadow: 0 0 10px #c0bfbf; 
+  margin-top: 20px;
 }
 
 #header-container {
-	height: 87px;
-	padding-left: 0;
-	border-bottom:1px solid #eae8e8;
-  margin-right: 8%;
+  padding-left: 0;
+  border-bottom:1px solid #eae8e8;
+  height: 135px;
 }
 
-
-#header-container a img{
- margin-top: 2%;
-  float: left;
+#header-container a {
+  display: inline-block;
 } 
 
-#header-menu {	
-    padding: 0px 0px 0px 25%;
-	margin:auto;
+#header-menu {
+  display: block;
+  width: 50%;
+
 }
 
-#header-menu>ul{
-  width: 100%;
-    margin-top:4%;
+#header-menu>ul, #footer-menu>ul {
+  list-style: none;
 }
-
 
 #header-menu>ul>li {
- display: table-cell;
- float: none;
- position: relative;
- width: 40%;
+  display: inline-block;
+  margin-right: 9%; 
 }
 
 #header-menu>ul>li>a {
-	font-size: 1.5em;
-	color: black;
+  font-size: 1.5em;
+  color: #5bc0de;
+}
+
+#header-menu>ul>li>a:hover {
+  text-decoration: none;
+  color: #0490ba;
 }
 
 main {
-	margin: 0px 0;
-	background-color: white;
+  margin: 20px 0;
+  background-color: white;
+  text-align: center;
+
 }
 
 footer {
-	height: 57px;
+  height: 57px;
 }
 
 #footer-container {
@@ -83,137 +78,47 @@ footer {
 }
 
 #footer-menu>ul {
-	padding-left: 25px;
-	margin-bottom: 2px;
+  padding-left: 25px;
+  margin-bottom: 2px;
 }
 
 #footer-menu>ul>li {
-	display: inline-block;
-	margin-right: 5px;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 #footer-menu>ul>li>a {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 #footer-container>p {
-	font-size: 0.8em;
-	text-align: center;
-}
-/*index page style start*/;
-    
-.desrpiption{
-    font: 18px italic arial;     
-    color: #9b9a9a;
-}
-
-.name {    
-    font: 16px times new roman;
-    color: #a5a1a1;
-  }
-.line { 
-    border-left: 2px solid #ccc; 
-    margin-left: 20px; 
-    padding-left: 10px; 
-   }
-
-.count {
-    color: #a5a1a1;
-  font-family: 'Roboto Slab', serif;
-    font-size: 15px;
-}
-
-/*index page style end*/
-
-/*testpage style start*/
-
-/*input[type=checkbox] ~ input[type=checkbox] + label {
-    color: red;
-}
-/* Стиль первого слайда в состоянии «выбран» 
-input[type=checkbox]:checked ~ input[type=checkbox] + label { 
-    border: 1px solid black;
-}*/
-
-.bnt-next {
-  width: 200px;  
-}
-
-.center{
-  margin-top: 10px;
+  font-size: 0.8em;
   text-align: center;
 }
-
-input[type=checkbox]{
-  display: none;
-}
-input[type=checkbox]:checked + label {
-  color: #3276B1;
-  font-style: italic;
-  text-decoration: underline;
+#select1 {
+    margin-top: 10px;
 }
 
-input[type=checkbox] + label {
-  margin-left: 3px;
-}
-.pos{
-    float: left;
-    display: inline-block;
-    margin-bottom: 70px;
-    margin-right: 5px;
+#title-block {
+  position: relative;
+  left: 3%;
+  display: inline-block;
+  bottom: 25px;
 }
 
-.answer-spase{
- margin-top: 5px;
+#header-menu {
+  position: absolute;
+  bottom: 5px;
+  left: 25%; 
+  
 }
 
-/*testpage style end*/
 
-.head{
-    color: #3276B1;
-    text-align: center;
-    font: 25px arial;
-}
 
-#graph{
-   display: none;
-}
 
-#show>input[type=checkbox]:checked + #graph{
-    display: inline;
-}
-#show{
-    display: inline-block;
-    float: right;
-}
 
-#result{
-    
 
-}
-
-input[type=date]{
-height: 25px;
-width: 155px;
-width: 105px;
-}
-#subcategory{
-    display: inline-block;
-    margin: 15px 10px;
-    font: 12px arial;
-    color: #000;
-}
-.graphic>img{
-    margin: 10px;
-    display: none;
-}
-#subcategory>input[type=checkbox]{
-    margin-left: 5px;
-}
-
-input[type=checkbox]:checked+.graphic>img{
-    display: inline-block;     
-}
+/**/
 
 .ava{
   display: inline-block;
@@ -253,4 +158,5 @@ input[type=checkbox]:checked+.graphic>img{
   margin: auto;
 }
 
-/*http://javascript.crockford.com/
+
+
