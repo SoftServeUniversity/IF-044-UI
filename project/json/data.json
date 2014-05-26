@@ -5,10 +5,12 @@ var Users = [
         group: 3,
         firstName: 'John',
 	lastName: 'Dou',
-        org_level: 5,
+        org_level: 3,
         password: 'admin',
         email: 'admin@admin.com',
-	org_troop: 'value',
+        birthday: '20.05.2001',
+	org_troop: 'same_value',
+	org_region: 'same_value',
 	org_group: 2
     }, {
         username: 'guest',
@@ -16,10 +18,12 @@ var Users = [
         group: 3,
         firstName: 'Jake',
 	lastName: 'Smith',
-        org_level: 5,
+        org_level: 2,
         password: 'guest',
         email: 'guest@guest.com',
-	org_troop: 'value',
+        birthday: '08.05.1987',
+	org_troop: '_same_value',
+	org_region: 'same_value',
 	org_group: 3
     }
 
