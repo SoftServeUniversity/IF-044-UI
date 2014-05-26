@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Статистика</title>
+  <script src="json/data.json"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/gueststatistic.css" rel="stylesheet">
+  <link href="css/login_page.css" rel="stylesheet">
+
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+
+</head>
+<body class="container-fluid" onload="statisticmodule()">
+  <div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
+
+      <header class="row">
+        <div id="header-container"
+                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <a href="index.html">
+            <img src="pic/logo3.png" alt="YunakQuize"></a>
+          <div id="title-block">
+            <h4>Система Пластових електронних опитників</h4>
+          </div>
+          <nav id="header-menu">
+            <ul>
+              <li>
+                <a href="#">Проби</a>
+              </li>
+              <li>
+                <a href="#">Пошук</a>
+              </li>
+              <li>
+                <a href="contacts.html">Контакти</a>
+              </li>
+              <li>
+                <a href="#">Ввійти</a>
+              </li>
+            </ul>
+          </nav>
+          <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
+            <img src="pic/login.jpg" alt="login" width="35" height="35"></a>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+        <h2><a href="">Назва категорії</a></h2>
+          <div>
+            <p>
+              <span id="result1"></span>
+            </p>
+            <p>
+              <span id="result"></span>
+            </p>
+          </div>
+          <div class="row" id="category">
+
+            <div class="col-sm-4">
+              <span id="subcategory">
+                Період часу:від
+                <input type="date">
+                до
+                <input type="date">
+                <br></span>
+              <br>
+              <span id="subcategory">
+                Вибір підкатегорії:
+                <select>
+                  <option>Підкатегорія 1</option>
+                  <option>Підкатегорія 2</option>
+                  <option>Підкатегорія 3</option>
+                </select>
+              </span>
+              <br>
+              <span id="subcategory">
+                Вік учасників:від
+                <select>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+                до
+                <select>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                </select>
+              </span>
+              <br>
+              <span id="subcategory">
+                Ступінь Учасника:
+                <select>
+                  <option>Підкатегорія 1</option>
+                  <option>Підкатегорія 2</option>
+                  <option>Підкатегорія 3</option>
+                </select>
+              </span>
+              <br>
+              <span id="subcategory">Максимальний бал за тест:10</span>
+              <span id="subcategory">Мінімальний бал за тест:1</span>
+              <br></div>
+            <div class="col-sm-8">
+              <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="container">
+    <div id="footer-container">
+      <nav id="footer-menu">
+        <ul>
+          <li>
+            <a href="#">Тести</a>
+            &nbsp|
+          </li>
+          <li>
+            <a href="#">Про нас</a>
+            &nbsp|
+          </li>
+          <li>
+            <a href="#">Контакти</a>
+          </li>
+        </ul>
+      </nav>
+      <p>
+        Copyright@ 2014 <b>IF-044</b>
+      </p>
+    </div>
+  </footer>
+</body>
+  <script type="text/javascript" src="js/statistic.js"></script>
+</html>

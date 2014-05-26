@@ -1,0 +1,47 @@
+/*testpage style start*/
+
+/*input[type=checkbox] ~ input[type=checkbox] + label {
+    color: red;
+}
+/* Стиль первого слайда в состоянии «выбран» 
+input[type=checkbox]:checked ~ input[type=checkbox] + label { 
+    border: 1px solid black;
+}*/
+
+main{
+  text-align: left;
+}
+.bnt-next {
+  width: 200px;  
+}
+
+.center{
+  margin-top: 10px;
+  text-align: center;
+}
+
+input[type=checkbox]{
+  display: none;
+}
+input[type=checkbox]:checked + label {
+  color: #3276B1;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+input[type=checkbox] + label {
+  margin-left: 3px;
+}
+.pos{
+    float: left;
+    display: inline-block;
+    margin-bottom: 70px;
+    margin-right: 5px;
+}
+
+.answer-spase{
+ margin-top: 5px;
+}
+
+/*testpage style end*/
+
