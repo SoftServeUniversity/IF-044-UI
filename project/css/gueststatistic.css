@@ -1,0 +1,30 @@
+/*gueststatistic style start*/
+main{
+	text-align: left;
+	margin-top: 0px;
+}
+
+input[type=date]{
+height: 25px;
+width: 155px;
+width: 105px;
+}
+#subcategory{
+    display: inline-block;
+    margin: 15px 10px;
+    font: 12px arial;
+    color: #000;
+}
+
+#subcategory>input[type=checkbox]{
+    margin-left: 5px;
+}
+
+h2{
+	text-align: center;
+}
+
+h2+div{
+	text-align: center;
+}
+/*gueststatistic style end*/

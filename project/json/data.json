@@ -13,7 +13,7 @@ var Users = [
 	org_region: 'same_value',
 	org_group: 2
     }, {
-        username: 'guest',
+         username: 'guest',
         location: 'Ukraine',
         group: 3,
         firstName: 'Jake',
@@ -21,10 +21,19 @@ var Users = [
         org_level: 2,
         password: 'guest',
         email: 'guest@guest.com',
+<<<<<<< HEAD
         birthday: '08.05.1987',
 	org_troop: '_same_value',
 	org_region: 'same_value',
 	org_group: 3
+=======
+	org_troop: 'value',
+	org_group: 3,
+	testScore:[5, 7, 4, 3, 9],
+	testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
+	testDate:[]
+	
+>>>>>>> 3720000b46b93356904708e3a8e7f078e394913c
     }
 
 
@@ -32,43 +41,46 @@ var Users = [
 
 var Tests = [
 {	
-	name: 'Test Name1',
-	tags: ['tag1','tag2','tag3'],
-	descr: 'info',
+	name: 'Правила дорожнього руху',
+	tags: ['Ñ‚ÐµÑÑ‚','ÐŸÐ´Ñ€','Ð¿Ð¾Ñ€ÑƒÑˆÐµÐ½Ð½Ñ', 'ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ', 'Ð²Ñ€ÐµÑ€'],
+	descr: 'Представляємо екзаменаційні білети ДАІ по 20 питань у кожному. Тести з ПДР містять пояснення до правильних відповідей, інтерактивні посилання на відповідні пункти Правил дорожнього руху, можливість задати питання і отримати відповідь, вибір режиму перевірки знань. Пройдеш усі — сміливо здавай екзамен у ДАІ!',
 	author: 'John Dou',
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 4,
+	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test1.html'	
+	url: 'tests/test1.html',
+	date: '1'	
     },
 {	
-	name: 'Test Name2',
+	name: 'Тест №2',
 	tags: ['tag1','tag2','tag3'],
 	descr: 'info',
 	author: 'John Dou',
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 7,
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test2.html'	
+	url: 'tests/test2.html',
+	date: '3'	
     },
 {	
-	name: 'Test Name3',
+	name: 'Тестування',
 	tags: ['tag1','tag2','tag3'],
 	descr: 'info',
 	author: 'John Dou',
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 10,
+	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test3.html'	
+	url: 'tests/test3.html',
+	date: '2'	
     },
 {	
 	name: 'Test Name4',
@@ -78,23 +90,25 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 11,
+	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test4.html'	
+	url: 'tests/test4.html',
+	date: '4'	
     },
 {	
-	name: 'Test Name5',
+	name: 'Початковий тест',
 	tags: ['tag1','tag2','tag3'],
 	descr: 'info',
 	author: 'John Dou',
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 5,
+	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test5.html'	
+	url: 'tests/test5.html',
+	date: '7'	
     },
 {	
 	name: 'Test Name6',
@@ -104,10 +118,11 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
-	category: 2,
+	subcategory: 11,
+	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test6.html'	
+	url: 'tests/test6.html',
+	date: '9'	
     },
 {	
 	name: 'Test Name7',
@@ -117,10 +132,11 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 8,
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test7.html'	
+	url: 'tests/test7.html',
+	date: '5'	
     },
 {	
 	name: 'Test Name8',
@@ -130,10 +146,11 @@ var Tests = [
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 8,
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test8.html'	
+	url: 'tests/test8.html',
+	date: '6'	
     },
 {	
 	name: 'Test Name9',
@@ -144,8 +161,72 @@ var Tests = [
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
 	subcategory: 1,
-	category: 2,
+	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
-	url: 'tests/test9.html'	
+	url: 'tests/test9.html',
+	date: '8'	
     },
 ]
+var Categories = [
+	{
+		id: 1,
+		name: "ÑÐ¿Ð¾Ñ€Ñ‚",
+		parent_id: 0
+	},
+	{
+		id: 2,
+		name: "Ñ‚ÑƒÑ€Ð¸Ð·Ð¼",
+		parent_id: 0
+	},
+	{
+		id: 3,
+		name: "ÐŸÑ€Ð°Ð²Ð¸Ð»Ð° Ð´Ð¾Ñ€Ð¾Ð¶Ð½ÑŒÐ¾Ð³Ð¾ Ñ€ÑƒÑ…Ñƒ",
+		parent_id: 0
+	},
+	{
+		id: 4,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ1",
+		parent_id:1 
+	},
+	{
+		id: 5,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ1",
+		parent_id:1 
+	},
+	{
+		id: 6,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ1",
+		parent_id:1 
+	},
+	{
+		id: 7,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ2",
+		parent_id:2 
+	},
+	{
+		id: 8,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ2",
+		parent_id:2
+	},
+	{
+		id: 9,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ2",
+		parent_id:2 
+	},
+	{
+		id: 10,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ3",
+		parent_id:3 
+	},
+	{
+		id: 11,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ3",
+		parent_id:3 
+	},
+	{
+		id: 12,
+		name: "Ð¿Ñ–Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ3",
+		parent_id:3 
+	}	
+	
+];
