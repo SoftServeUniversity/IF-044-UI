@@ -185,3 +185,31 @@ function loginModule() {
      subcategory4.onclick = showSubcategory;
      subcategory5.onclick = showSubcategory;
   }
+
+
+  function searchModule() {
+    var searchInput = document.getElementById('searchForm');
+    var textBox = document.getElementById('testBox');
+    
+    textBox.innerHTML = '';
+
+    function createTestElement(i) {
+       var newDiv = document.createElement('div');
+       newDiv.className = 'test';
+       var p = document.createElement('p');
+       p.innerHTML = 'Тест: ';
+       var a = document.createElement('a');
+       a.innerHTML = Tests[i].name;
+       p.appendChild(a);
+       newDiv.appendChild(p);
+       textBox.appendChild(newDiv);
+     };
+
+    for(var i = 0; i<Tests.length; i++) {
+      if(Tests[i].name.toLowerCase().indexOf(searchInput.value.toLowerCase()) >= 0) {
+        createTestElement(i)
+      };
+    };
+   
+    return false;
+  }
