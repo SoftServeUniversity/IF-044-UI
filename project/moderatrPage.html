@@ -12,7 +12,8 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <script src="json/data.json"></script>
+    <script src="json/data.json"></script>
+    <script src="js/moderatrPage.js"></script>
 
 </head>
 
@@ -63,106 +64,19 @@
 //     place_for_filter.innerHTML += content;    
     
     
-    var place_for_test = document.querySelectorAll('.content-test')[0];
-    var content = '';
-    content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none">'+Tests[0].name+'</h3>';
-    var number_question = 0;
-        for(var i = 0;i<Tests[0].question.length;i++){
-        var number_answer = 0;
-        number_question++;
-        var question_id = Tests[0].question[i].id 
-        content+='<div class="row well"><div class="col-lg-12 text-justify testDouble">'+number_question+'. '+Tests[0].question[i].text+'</div>';
-        for(var j = 0;j<Tests[0].answers.length;j++){
-             number_answer++;
-             if(Tests[0].answers[j].question_id == question_id){
-                 content+= '<div class="col-lg-10 col-lg-offset-2 text-justify testDouble">'+number_answer+') '+Tests[0].answers[j].text_answer+'</div>';
-             }
-        }
-    content += '</div>';
-    }
-    place_for_test.innerHTML += content;
+
     //console.log(content);
 </script>                          
     </div>
-    <script>
-        //var content_for_edit = document.querySelectorAll('.edit-content');
 
-
-
-
-//create function, it expects 2 values.
-function insertAfter(newElement,targetElement) {
-	//target is what you want it to go after. Look for this elements parent.
-	var parent = targetElement.parentNode;
- 
-	//if the parents lastchild is the targetElement...
-	if(parent.lastchild == targetElement) {
-		//add the newElement after the target element.
-		parent.appendChild(newElement);
-		} else {
-		// else the target has siblings, insert the new element between the target and it's next sibling.
-		parent.insertBefore(newElement, targetElement.nextSibling);
-		}
-}
-        
-                
-                        
-                                
-                                                
-        var content_for_edit = document.querySelectorAll('.testDouble');
-        for(var i = 0;i<content_for_edit.length;i++){
-            content_for_edit[i].addEventListener('dblclick', function(){
-                 //console.log(this.textContent);
-                 //console.log(this);
-                // console.log(editText);
-                var that = this;
-                var editText = document.createElement('textarea')
-                    editText.rows = '4';
-                    editText.cols = "60";
-                    editText.className = 'edit-textarea';
-
-                    editText.textContent = this.textContent;
-                    console.log(editText);
-                   insertAfter(editText, this);
-                    function saveChange(){
-                       console.log(window.event);
-                       console.log(document.querySelectorAll('.edit-textarea')[0]);
-                       var changeText = document.querySelectorAll('.edit-textarea')[0].value;
-                       if(window.event.srcElement.className!=='edit-textarea'){
-                           document.querySelectorAll('.edit-textarea')[0].parentNode.removeChild(document.querySelectorAll('.edit-textarea')[0]);
-                           that.textContent = changeText;
-                           document.querySelectorAll('body')[0].removeEventListener('click',saveChange);
-                       //console.log(that);
-                       }
-                   }                   
-                   document.querySelectorAll('body')[0].addEventListener('click',saveChange);
-                   
-            });
-            
-        }
-       
-    </script>
     <div class="col-lg-3">
         <h3 class="title-post-name col-xs-12">Коментарі</h3>
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 well place_for_comment">
-                <div class="col-lg-10 text-justify">ше шось... </div>
+<!--                <div class="col-lg-10 text-justify">ше шось... </div>-->
                 <div class="col-xs-12 form-group">
                 <script>
-                    function addComment(e){
-                        var comment = e.querySelectorAll('textarea')[0].value;
-                         aaa = e;
-                        console.log(e.parentNode);
-                        //parentElem.insertBefore(newDiv, parentElem.firstChild);
-                        //e.parentNode.parentNode.innerHTML += '<div class="col-lg-10 text-justify">'+comment+'</div>';
-                       // comment = '<div class="col-lg-10 text-justify">'+comment+'</div>';
-                        var newDiv = document.createElement('div');
-                        newDiv .className = "col-lg-10 text-justify";
-                        newDiv.innerHTML = comment;
-                        document.querySelectorAll('.place_for_comment')[0].insertBefore(newDiv, e.parentNode);
-                        
-                        //console.log(e.querySelectorAll('textarea')[0].value());
-                    }
+
                 </script>       
                 <form action="" id="add-comment" onsubmit="addComment(this);return false;">
                 <textarea class="form-control" rows="4">hello world</textarea><br>
