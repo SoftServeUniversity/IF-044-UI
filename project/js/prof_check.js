@@ -5,6 +5,11 @@ function redirect () {
 }
 
 function check_input () {
+	var first_name = document.getElementById('first_name');
+	var	last_name = document.getElementById('last_name');
+	var org_troop1 = document.getElementById('org_troop1');
+	var	org_region1 = document.getElementById('org_region1');
+	var	org_level1 = document.getElementById('org_level1');
 	var user = document.getElementById('username');
 	var	passwd = document.getElementById('passwd');
 	var	re_passwd = document.getElementById('re_passwd');
@@ -44,7 +49,18 @@ function check_input () {
 	} 
 }
 	else 
+	
 	window.location = "profile.html"
+	localStorage.setItem('username', user.value);
+	localStorage.setItem('password', passwd.value);
+	localStorage.setItem('re_passwd', re_passwd.value);
+	localStorage.setItem('email', email.value);
+	localStorage.setItem('birthday', birthday.value);
+	localStorage.setItem('first_name', first_name.value);
+	localStorage.setItem('last_name', last_name.value);
+	localStorage.setItem('org_troop1', org_troop1.value);
+	localStorage.setItem('org_region1', org_region1.value);
+	localStorage.setItem('org_level1', org_level1.value);
 }
 
 	
