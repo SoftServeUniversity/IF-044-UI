@@ -95,11 +95,11 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="center-block">
-                            <h3>Статистика</h3>
+                            <h3 id="pageTitle">Статистика</h3>
                         </div>
                     </div>
                     <div id="filters-box" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <label>
+                    <!-- <label>
                       <span>Фільтр 1</span>
                       <select class="form-control">
                         <option>Даті</option>
@@ -117,22 +117,42 @@
                         <option>Категорії</option>
                         <option>Автору</option>
                       </select>
-                    </label>
+                    </label> -->
+
+                    <nav class="sort-list">
+                        <span>Вік</span>
+                        <ul>
+                            <li><a href="">До 14 років</a></li>
+                            <li><a href="">15 - 18</a></li>
+                            <li><a href="">19 - 25</a></li>
+                            <li><a href="">25 і більше</a></li>
+                        </ul>
+                    </nav>
                     <br>
-                    <label>
+                    <nav class="sort-list" id="gradeList">
+                        <span>Ступінь</span>
+                        <ul>
+                            <li><a href="">Ступінь 1</a></li>
+                            <li><a href="">Ступінь 2</a></li>
+                            <li><a href="">Ступінь 3</a></li>
+                            <li><a href="">Ступінь 4</a></li>
+                        </ul>
+                    </nav>
+                    <br>
+                    <label class="datepicker-label">
                         <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <span class="add-on"><i class="icon-th">від</i></span>
-                            <input class="datepicker span2" id="dp1" size="16" type="text" placeholder="12-02-2012" > 
+                            <span class="add-on"><i class="icon-th">Від</i></span>
+                            <input class="datepicker span2" id="dp1" size="16" type="text" placeholder="12/02/2012" > 
                         </div>
                     </label>
-                    <label>
+                    <label class="datepicker-label">
                         <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <span class="add-on"><i class="icon-th">до</i></span>
-                            <input class="datepicker span2" id="dp2" size="16" type="text" placeholder="12-02-2012">
+                            <span class="add-on"><i class="icon-th">До</i></span>
+                            <input class="datepicker span2" id="dp2" size="16" type="text" placeholder="12/02/2012">
                         </div>
                     </label>
                     <br>
-                    <button onclick="generalStatisticModule()">OK</button>
+                    <a onclick="generalStatisticModule()" class="btn btn-primary">OK</a>
                     </div>
                     <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                     </div>
