@@ -38,22 +38,6 @@
  	margin: 0 10px;
  }
 
-  #search-sort label:nth-child(2) {
-  	margin-right: 0px;
-  }
-
-   #search-sort label:nth-child(2) input {
-   	border-top-right-radius: 0;
-   	border-bottom-right-radius: 0; 
-   }
- 
- #search-sort img {
- 	cursor: pointer;
- 	display: inline-block;
- 	margin-left: -4px;
- 	margin-top: -3px;
- }
-
  .categories-block .sub-category {
  	font-size: 1.4em;
  	margin: 0 10px;

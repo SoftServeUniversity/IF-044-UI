@@ -1,52 +1,35 @@
 ﻿var Users = [
 {
-		id: '0',
         username: 'admin',
         location: 'Ukraine',
         group: 3,
         firstName: 'John',
-		lastName: 'Dou',
+	lastName: 'Dou',
         org_level: 3,
         password: 'admin',
         email: 'admin@admin.com',
         birthday: '20.05.2001',
-		org_troop: 'same_value',
-		org_region: 'Богородчани',
-		org_group: 2
-    },
-    {
-		id: '1',
-        username: 'AUser',
-        location: 'Ukraine',
-        group: 3,
-        firstName: 'Петро',
-		lastName: 'Петрович',
-        org_level: 3,
-        password: '1111',
-        email: 'admin@admin.com',
-        birthday: '20.05.1991',
-		org_troop: 'same_value',
-		org_region: 'Івано-Франківськ',
-		org_group: 2
+	org_troop: 'same_value',
+	org_region: 'same_value',
+	org_group: 2
     }, {
-    	id: '2',
-        username: 'guest',
+         username: 'guest',
         location: 'Ukraine',
         group: 3,
         firstName: 'Jake',
-		lastName: 'Smith',
+	lastName: 'Smith',
         org_level: 2,
         password: 'guest',
         email: 'guest@guest.com',
         birthday: '08.05.1987',
-		org_troop: '_same_value',
-		org_region: 'same_value',
-		org_group: 3,
-		org_troop: 'value',
-		org_group: 3,
-		testScore:[5, 7, 4, 3, 9],
-		testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
-		testDate:[]
+	org_troop: '_same_value',
+	org_region: 'same_value',
+	org_group: 3,
+	org_troop: 'value',
+	org_group: 3,
+	testScore:[5, 7, 4, 3, 9],
+	testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
+	testDate:[]
 	
     }
 
@@ -135,8 +118,7 @@ var Tests = [
     category: 1,
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
-    date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    date: '1'
 },
 {	
 	name: 'Тест №2',
@@ -150,8 +132,7 @@ var Tests = [
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test2.html',
-	date: '3',
-	passed_date: [1394031824657, 1389031824657, 1416000224657]	
+	date: '3'	
     },
 {	
 	name: 'Тестування',
@@ -165,8 +146,7 @@ var Tests = [
 	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test3.html',
-	date: '2',
-	passed_date: [1394531824657, 1401431224657, 1411000224657]	
+	date: '2'	
     },
 {	
 	name: 'Test Name4',
@@ -180,8 +160,7 @@ var Tests = [
 	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test4.html',
-	date: '4',
-	passed_date: [1394031824657, 1392031824657, 1394531824657]	
+	date: '4'	
     },
 {	
 	name: 'Початковий тест',
@@ -195,8 +174,7 @@ var Tests = [
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test5.html',
-	date: '7',
-	passed_date: [1389031824657, 1394531824657, 1201431224657, 1412281224657]	
+	date: '7'	
     },
 {	
 	name: 'Test Name6',
@@ -210,8 +188,7 @@ var Tests = [
 	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test6.html',
-	date: '9',
-	passed_date: [1379031224657, 1397531824657, 1389031224657, 1412011224657]	
+	date: '9'	
     },
 {	
 	name: 'Test Name7',
@@ -225,8 +202,7 @@ var Tests = [
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test7.html',
-	date: '5',
-	passed_date: [1371031224657, 1394531824657, 1389031224657]	
+	date: '5'	
     },
 {	
 	name: 'Test Name8',
@@ -240,8 +216,7 @@ var Tests = [
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test8.html',
-	date: '6',
-	passed_date: [1389031224657, 1399031224657]	
+	date: '6'	
     },
 {	
 	name: 'Test Name9',
@@ -255,8 +230,7 @@ var Tests = [
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test9.html',
-	date: '8',
-	passed_date: [1301231224657, 1371231224657]	
+	date: '8'	
     },
 {	
 	name: 'Правила дорожнього руху',
@@ -270,8 +244,7 @@ var Tests = [
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test9.html',
-	date: '8',
-	passed_date: [1391431224657, 1381431224657, 1499031224657]	
+	date: '8'	
     }	
 ]
 var Categories = [

@@ -1,16 +1,5 @@
 window.onload = function(){
-if(localStorage.Tests == "undefined" || !localStorage.Tests){
-    console.log('tests storage false');
-    localStorage.Tests = JSON.stringify(Tests);
-}
-if(localStorage.Categories == "undefined" || !localStorage.Categories){
-    console.log('categs storage false');
-    localStorage.Categories = JSON.stringify(Categories); 
-}     
-
- Tests = JSON.parse(localStorage.Tests);
- Categories = JSON.parse(localStorage.Categories);
-    
+ console.log("document.onload");     
 var place_for_filter = document.querySelectorAll('.filter-search')[0];
 var content = '';
 var list_categories = [];

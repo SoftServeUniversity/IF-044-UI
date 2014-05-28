@@ -1,6 +1,3 @@
-
-'use strict'
-
 function EditUserController() {
 	this.currentUser;
 }
@@ -17,15 +14,22 @@ EditUserController.prototype.fillData = function(index) {
 	var	re_passwd = this.getElement('re_passwd');
 	var	email = this.getElement('email');
 	var	birthday = this.getElement('birthday1');
-
+	
+	
 	if(Users && Users.length > 0 && Users[index]) {
 		this.currentUser = Users[index];
+		
 		//alert('Location is ' + this.currentUser.location);
 	first_name.value = this.currentUser.firstName;
 	last_name.value = this.currentUser.lastName;
 	org_level1.value = this.currentUser.org_level;
 	org_troop1.value = this.currentUser.org_troop;
 	org_region1.value = this.currentUser.org_region;
+	
+
+	
+	
+	
 
 		if (this.currentUser.username) {
 			user.value = this.currentUser.username;
@@ -50,11 +54,6 @@ EditUserController.prototype.fillData = function(index) {
 		
 	}
 };
-
-function myfunction () {
-	alert ("Page was delete");
-	window.location = "index.html"
-}
 
 EditUserController.prototype.bindEvents = function(element) {
 	element.onchange = function(e) {
