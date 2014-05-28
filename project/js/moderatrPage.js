@@ -79,11 +79,11 @@ if(localStorage.Tests == "undefined" || !localStorage.Tests){
                             var number_answer = 0;
                             number_question++;
                             var question_id = Tests[0].question[i].id
-                            content += '<div class="row well"><div class="col-lg-12 text-justify testDouble" forLocalstorage="globalTests[0].question['+i+'].text">' + number_question + '. ' + Tests[0].question[i].text + '</div>';
+                            content += '<div class="row well"><div class="col-lg-1 text-justify">'+ number_question + '. '+'</div><div class="col-lg-11 text-justify testDouble" forLocalstorage="globalTests[0].question['+i+'].text">' + Tests[0].question[i].text + '</div>';
                             for (var j = 0; j < Tests[0].answers.length; j++) {
                                 number_answer++;
                                 if (Tests[0].answers[j].question_id == question_id) {
-                                    content += '<div class="col-lg-10 col-lg-offset-2 text-justify testDouble" forLocalstorage="globalTests[0].answers['+j+'].text_answer">' + number_answer + ') ' + Tests[0].answers[j].text_answer + '</div>';
+                                    content += '<div class="col-lg-1 col-lg-offset-2">' + number_answer + ') '+'</div>'+'<div class="col-lg-9 text-justify testDouble" forLocalstorage="globalTests[0].answers['+j+'].text_answer">' + Tests[0].answers[j].text_answer + '</div>';
                                 }
                             }
                             content += '</div>';
