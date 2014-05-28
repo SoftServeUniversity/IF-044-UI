@@ -1,35 +1,52 @@
 ﻿var Users = [
 {
+		id: '0',
         username: 'admin',
         location: 'Ukraine',
         group: 3,
         firstName: 'John',
-	lastName: 'Dou',
+		lastName: 'Dou',
         org_level: 3,
         password: 'admin',
         email: 'admin@admin.com',
         birthday: '20.05.2001',
-	org_troop: 'same_value',
-	org_region: 'same_value',
-	org_group: 2
+		org_troop: 'same_value',
+		org_region: 'Богородчани',
+		org_group: 2
+    },
+    {
+		id: '1',
+        username: 'AUser',
+        location: 'Ukraine',
+        group: 3,
+        firstName: 'Петро',
+		lastName: 'Петрович',
+        org_level: 3,
+        password: '1111',
+        email: 'admin@admin.com',
+        birthday: '20.05.1991',
+		org_troop: 'same_value',
+		org_region: 'Івано-Франківськ',
+		org_group: 2
     }, {
-         username: 'guest',
+    	id: '2',
+        username: 'guest',
         location: 'Ukraine',
         group: 3,
         firstName: 'Jake',
-	lastName: 'Smith',
+		lastName: 'Smith',
         org_level: 2,
         password: 'guest',
         email: 'guest@guest.com',
         birthday: '08.05.1987',
-	org_troop: '_same_value',
-	org_region: 'same_value',
-	org_group: 3,
-	org_troop: 'value',
-	org_group: 3,
-	testScore:[5, 7, 4, 3, 9],
-	testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
-	testDate:[]
+		org_troop: '_same_value',
+		org_region: 'same_value',
+		org_group: 3,
+		org_troop: 'value',
+		org_group: 3,
+		testScore:[5, 7, 4, 3, 9],
+		testPast:['Test Name1','Test Name2','Test Name3','Test Name4','Test Name5',],
+		testDate:[]
 	
     }
 
