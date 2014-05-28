@@ -13,7 +13,6 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="js/administration.js"></script>
 
 </head>
 <body class="container-fluid">
@@ -108,11 +107,7 @@
                 </div>
             </div>
 
-<div class='panel panel-primary'>
-        <div class='panel-heading'>
-            <h3 class='panel-titl'>Адміністративна панель</h3>
-        </div>
-        <div class='panel-body'>
+
           <div class="container-fluid">
 
                 <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
@@ -141,11 +136,13 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th><span>Сортувати по<span></th>
                                                 <th><select class='form-control'>
                                                     <option>Алфавіту</oprtion>
+                                                    <option>Даті реєстрації</oprtion>
+                                                    <option>Країні</oprtion>
                                                     <option>Статусу</oprtion>
                                                 </select></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -156,68 +153,73 @@
                                         </thead>
                                     <tr>
                                         <td><a href='#'>Гарі Олдман</a></td>
-                                        <td><a href="#">Harry55@gmail.com</a></td>                    
-                                        <td><span class='user' id='change'><strong>Модератор</strong></span></td>
+                                        <td>США</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
                                     <tr>
                                         <td><a href='#'>Жан Дю Жар Ден</a></td>
-                                        <td><a href='#'>Jan@mail.ru</a></td>                     
-                                        <td><span class='user' id='change1'><strong>Користувач</strong></span></td>
+                                        <td>Франція</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='moderator'><strong>Модератор</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus1()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
                                     <tr>
                                         <td><a href='#'>Адріано Чілінтано</a></td>
-                                        <td><a href='#'>Adriano@mail.uk</a></td>                     
-                                        <td><span class='user' id='change2'><strong>Користувач</strong></span></td>
+                                        <td>Італія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus2()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
                                     <tr>
                                         <td><a href='#'>Деніел Редкліф</a></td>
-                                        <td><a href='#'>Deniel@mail.uk</a></td>                          
-                                        <td><span class='user' id='change3'><strong>Модератор</strong></span></td>
+                                        <td>Велика Британія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus3()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
                                     <tr>
                                         <td><a href='#'>Андрій Козловський</a></td>
-                                        <td><a href='#'>Endrew@mail.ru</a></td>                          
-                                       <td><span class='user' id='change4'><strong>Користувач</strong></span></td>
+                                        <td>Росія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='moderator'><strong>Модератор</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus4()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
                                     <tr>
                                         <td><a href='#'>Антоніо Бандерас</a></td>
-                                        <td><a href='#'>Antonio@mail.it</a></td>                            
-                                       <td><span class='user' id='change5'><strong>Модератор</strong></span></td>
+                                        <td>Іспанія</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus5()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
                                     <tr>
                                         <td><a href='#'>Богдан Ступка</a></td>
-                                        <td><a href='#'>Bogdan@i.ua</a></td>                             
-                                        <td><span class='user' id='change6'><strong>Користувач</strong></span></td>
+                                        <td>Україна</td>                     
+                                        <td><a href="#">Статистика тестів</a></td>
+                                        <td><span class='user'><strong>Користувач</strong></span></td>
+                                        <td><button class='btn-primory send #mySend' data-toggle='modal' data-target='#mySend' id='send-button'><span class="glyphicon glyphicon-envelope"></span></button></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus6()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
+                                        
                                         </tbody>
+
+
+                                        
+                                     
                                     </table>
                                        <div class='pageroller'>
                                             <ul class='pagination'>
@@ -235,77 +237,14 @@
                                 </div>
 
                                 <div id="p2" class="tab-pane fade in #p2">
-                                  <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>№</th>
-                                                <th>Назва категорії</th>
-                                                <th>Батьківська</th>
-                                                <th></th>
-                                                <th><button type='button' class='btn btn-primary kategorybutton btn-sm'>Додати категорію</button></th>
-                                            </tr>                                        
-                                        </thead>
-                                    <tr>
-                                        <td><strong>1</strong></td>
-                                        <td>I проба</td>                    
-                                        <td> -------- </td>
-                        
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
-                                    </tr>
-                                          <tr>
-                                        <td><strong>2</strong></td>
-                                        <td>II проба</td>                    
-                                        <td> -------- </td>
-                                
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                         <tr>
-                                        <td><strong>3</strong></td>
-                                        <td>III проба</td>                    
-                                        <td> -------- </td>
-                           
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                         <tr>
-                                        <td><strong>4</strong></td>
-                                        <td>VI проба</td>                    
-                                        <td> -------- </td>
-                          
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                          <tr>
-                                        <td><strong>5</strong></td>
-                                        <td>V проба</td>                    
-                                        <td> -------- </td>
-                                 
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                          <tr>
-                                        <td><strong>6</strong></td>
-                                        <td>VI проба</td>                    
-                                        <td> -------- </td>
-                          
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><strong>7</strong></td>
-                                        <td>VII проба</td>                    
-                                        <td> -------- </td>
-                               
-                                        <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
-                                        <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                        </tbody>
-                                    </table>
+                                    <ol>
+                                        <li>Тест 1</li>
+                                        <li>Тест 2</li>
+                                        <li>Тест 3</li>
+                                    </ol>
                                 </div>
                                 <div id="p3" class="tab-pane fade in #p3">
-                                    <div class='btn-group db'>
+                                    <div class='btn-group'>
                                         <button type='button' class='btn btn-primary data'>Резервне копіювання</button>
                                     </div>
                                 </div>
@@ -321,9 +260,7 @@
                             </div>
                         </div>
                 </div>
-            </div><!--end of container-fluid -->
-        </div><!--end of panel-body -->
-    </div><!--end of panel -->
+            </div>
 <footer class="container">
     <div id="footer-container">
         <nav id="footer-menu">

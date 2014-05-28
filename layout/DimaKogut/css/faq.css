@@ -37,22 +37,7 @@ textarea{
 }
 .data{
 	margin: 40px 0px 40px 0px;
-	opacity: 0.9;
 }
 .localization{
 	margin:40px 0px 40px 0px;
-	opacity: 0.9;
-}
-.kategorybutton{
-	opacity: 0.9;
-}
-.panel{
-	border-bottom: none;
-	border-radius: 4px 4px 0px 0px;
-}
-	.panel-heading{
-		opacity: 0.9;
-	}
-button{
-	opacity: 0.9;
 }

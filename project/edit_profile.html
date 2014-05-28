@@ -14,18 +14,14 @@
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <script src="json/data.json"></script>
 <script src="js/editUserController.js"></script>
+<script src="js/prof_check.js"></script>
 
 <script>
 window.onload = function() {
 	var userController = new EditUserController();
-	
-	userController.fillData(0);
+	userController.fillData(1);
 };
-function myfunction () {
-	alert ("Page was delete");
-}
 </script>
-
 </head>
 <body class="container-fluid">
 	<div id="outer-wrapper" class="container">
@@ -137,7 +133,7 @@ function myfunction () {
 								<button type="button" class="btn btn-danger btn-block" onclick="myfunction()">Видалити</button>
 							</div>
 							<div class="col-md-4">
-								<button type="button" class="btn btn-success btn-block">Редагувати</button>
+								<button type="button" class="btn btn-success btn-block" onclick="check_input()" >Редагувати</button>
 							</div>
 
 						</form>

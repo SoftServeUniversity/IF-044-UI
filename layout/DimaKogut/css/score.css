@@ -18,7 +18,6 @@ body {
     background-color: white;
 	box-shadow: 0 0 10px #c0bfbf; 
 	margin-top: 20px;
-	padding: 0px; 
 }
 
 #header-container {
@@ -106,7 +105,7 @@ footer {
 .fromtopic{
 	float: left;
 }
-#question{
+.question{
 	float: left;
 	margin-top: 20px;
 }
@@ -142,14 +141,11 @@ article{
 	float: left;
 	margin: 50px 10px 0px 20px;
 }
-#blockcolor{
+.blockcolor{
 	background: #9AF67E;
 	border-radius: 7px;
 }
 .blockcolor-wrong{
 	background: #F67E8A;
 	border-radius: 7px;
-}
-.col-xs-12{
-	padding: 0px;
 }
