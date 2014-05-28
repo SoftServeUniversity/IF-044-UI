@@ -1,0 +1,16 @@
+#faq {
+	margin-left: -15px;
+	padding: 0 100px;
+}
+.question-answer {
+	text-align: left;
+	margin-bottom: 30px;
+	padding: 7px;
+	border: 1px solid #eae8e8;
+	border-radius: 7px;
+	background-color: #f1f0f0;
+}
+
+#contentTable {
+	margin-bottom: 50px;
+}
