@@ -135,7 +135,8 @@ var Tests = [
     category: 1,
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
-    date: '1'
+    date: '1',
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {	
 	name: 'Тест №2',
@@ -149,7 +150,8 @@ var Tests = [
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test2.html',
-	date: '3'	
+	date: '3',
+	passed_date: [1394031824657, 1389031824657, 1416000224657]	
     },
 {	
 	name: 'Тестування',
@@ -163,7 +165,8 @@ var Tests = [
 	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test3.html',
-	date: '2'	
+	date: '2',
+	passed_date: [1394531824657, 1401431224657, 1411000224657]	
     },
 {	
 	name: 'Test Name4',
@@ -177,7 +180,8 @@ var Tests = [
 	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test4.html',
-	date: '4'	
+	date: '4',
+	passed_date: [1394031824657, 1392031824657, 1394531824657]	
     },
 {	
 	name: 'Початковий тест',
@@ -191,7 +195,8 @@ var Tests = [
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test5.html',
-	date: '7'	
+	date: '7',
+	passed_date: [1389031824657, 1394531824657, 1201431224657, 1412281224657]	
     },
 {	
 	name: 'Test Name6',
@@ -205,7 +210,8 @@ var Tests = [
 	category: 3,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test6.html',
-	date: '9'	
+	date: '9',
+	passed_date: [1379031224657, 1397531824657, 1389031224657, 1412011224657]	
     },
 {	
 	name: 'Test Name7',
@@ -219,7 +225,8 @@ var Tests = [
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test7.html',
-	date: '5'	
+	date: '5',
+	passed_date: [1371031224657, 1394531824657, 1389031224657]	
     },
 {	
 	name: 'Test Name8',
@@ -233,7 +240,8 @@ var Tests = [
 	category: 2,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test8.html',
-	date: '6'	
+	date: '6',
+	passed_date: [1389031224657, 1399031224657]	
     },
 {	
 	name: 'Test Name9',
@@ -247,7 +255,8 @@ var Tests = [
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test9.html',
-	date: '8'	
+	date: '8',
+	passed_date: [1301231224657, 1371231224657]	
     },
 {	
 	name: 'Правила дорожнього руху',
@@ -261,7 +270,8 @@ var Tests = [
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test9.html',
-	date: '8'	
+	date: '8',
+	passed_date: [1391431224657, 1381431224657, 1499031224657]	
     }	
 ]
 var Categories = [
