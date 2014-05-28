@@ -10,25 +10,25 @@ if(localStorage.Categories == "undefined" || !localStorage.Categories){
 
  Tests = JSON.parse(localStorage.Tests);
  Categories = JSON.parse(localStorage.Categories);
-    
-var place_for_filter = document.querySelectorAll('.filter-search')[0];
-var content = '';
-var list_categories = [];
-for(var i = 0;i<Categories.length;i++){
-if(Categories[i].parent_id == 0){
-    list_categories.push({name:Categories[i].name,id: Categories[i].id}); 
-}
-}
-for(var i = 0;i<list_categories.length;i++){
-    content +='<div class="col-xs-12"><div class=" col-xs-8 col-xs-offset-2 text-left name-category">'+list_categories[i].name+'</div>';
-    for(var j = 0;j<Categories.length;j++){
-    if(Categories[j].parent_id == list_categories[i].id){
-       content +='<div class="row"><div class="col-xs-8 col-xs-offset-1 text-center" sub_categ ="'+Categories[j].id+'"  categ ="'+Categories[j].parent_id+'">                                        '+Categories[j].name+'</div></div>';        
-    }
-    }
-     content += '</div>';
-}
-     place_for_filter.innerHTML += content;
+//    
+//var place_for_filter = document.querySelectorAll('.filter-search')[0];
+//var content = '';
+//var list_categories = [];
+//for(var i = 0;i<Categories.length;i++){
+//if(Categories[i].parent_id == 0){
+//    list_categories.push({name:Categories[i].name,id: Categories[i].id}); 
+//}
+//}
+//for(var i = 0;i<list_categories.length;i++){
+//    content +='<div class="col-xs-12"><div class=" col-xs-8 col-xs-offset-2 text-left name-category">'+list_categories[i].name+'</div>';
+//    for(var j = 0;j<Categories.length;j++){
+//    if(Categories[j].parent_id == list_categories[i].id){
+//       content +='<div class="row"><div class="col-xs-8 col-xs-offset-1 text-center" sub_categ ="'+Categories[j].id+'"  categ ="'+Categories[j].parent_id+'">                                        '+Categories[j].name+'</div></div>';        
+//    }
+//    }
+//     content += '</div>';
+//}
+//     place_for_filter.innerHTML += content;
 
 
 
@@ -169,11 +169,11 @@ console.log(filter_category);
         
     
     }
-var reset = document.querySelectorAll('.reset')[0];
-    reset.addEventListener('click', function(){
-       var curent_filter = document.querySelectorAll('.curent-filter');
-       for(var i = 0;i<curent_filter.length;i++){
-                curent_filter[i].classList.remove("curent-filter");
-       }
-    });
+//var reset = document.querySelectorAll('.reset')[0];
+//    reset.addEventListener('click', function(){
+//       var curent_filter = document.querySelectorAll('.curent-filter');
+//       for(var i = 0;i<curent_filter.length;i++){
+//                curent_filter[i].classList.remove("curent-filter");
+//       }
+//    });
 }   
