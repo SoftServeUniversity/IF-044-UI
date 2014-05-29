@@ -1,6 +1,6 @@
 #statistic {
 	margin-left: -15px;
-	padding: 30px 15px 20px;
+	padding: 20px 15px 20px;
 }
 
 #main-content {
@@ -22,6 +22,13 @@
 #pageTitle {
 	margin-bottom: 20px;
 	margin-top: 10px;
+	color: white;
+}
+
+#pageTitleBox {
+	margin-bottom: 20px;
+	background-color: #0490ba;
+	
 }
 
 .datepicker-label span i{
