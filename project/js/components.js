@@ -369,18 +369,23 @@ function loginModule() {
         };
 
          var newArr = [];
+
          top:
 
-        for(var i = 0; i<monthArr.length; i++) {
-           if(startDateObj.startMonth === monthArr[i]) {
-             newArr.push(monthArr[i]);
-             for(var k = i + 1; monthArr[k] !== startDateObj.endMonth; k++) {
+         if(startDateObj.startMonth === endDateObj.endMonth) {
+           newArr.push(startDateObj.startMonth);
+         } else {
+          for(var i = 0; i<monthArr.length; i++) {
+            if(startDateObj.startMonth === monthArr[i]) {
+              newArr.push(monthArr[i]);
+              for(var k = i + 1; monthArr[k] !== startDateObj.endMonth; k++) {
                 newArr.push(monthArr[k]);
                 if(monthArr[k] === endDateObj.endMonth){
                   break top;
                 };
              };
            };
+          }; 
         };
         
         GlobalObj.xAxis.categories = newArr;
