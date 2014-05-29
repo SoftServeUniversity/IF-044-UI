@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YunakQuize Tests</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login_page.css" rel="stylesheet">
+    <link href="css/general-statistic.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="json/data.json"></script>
+    <script src="js/remove-rows.js"></script>
+    <script src="js/search.js"></script>
+
+</head>
+<body class="container-fluid">
+<div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
+        <header class="row">
+            <div id="header-container"
+                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a>
+                <div id="title-block">
+                    <h4>Система Пластових електронних опитників</h4>
+                </div>
+                <nav id="header-menu">
+                    <ul>
+                        <li><a href="#">Проби</a></li>
+                        <li><a href="#">Пошук</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Ввійти</a></li>
+                    </ul>
+                </nav>
+                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
+                    <img src="pic/login.jpg" alt="login" width="35" height="35">
+                </a>
+            </div>
+        </header>
+        <main>
+<h3 class="text-center">СПИСОК МОЇХ ТЕСТІВ</h3>
+
+
+<div class="container-fluid">
+            
+		<div class="row">
+	            <div class="col-lg-2 col-lg-offset-1 " >
+			<div class="input-group marg">
+                	<input type="text" id="searchTest" class="form-control" placeholder="Пошук" name="q">
+                	<div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" onclick="radioSearch()"><i class="glyphicon glyphicon-search" ></i></button>
+
+                    </div>
+            </div>
+                </div>
+                	
+			<div class="col-lg-2 col-lg-offset-6 marg" >
+	                	                <a href="edit.html" class="btn btn-success text-center" style="text-decoration: no-underline">Додати новий тест</a>
+                </div>
+            </div>
+    <div class="row">
+
+    </div>
+</div>
+            <div class="container-fluid">
+                <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+                    <div class="bs-example bs-example-tabs">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" class="bg-success" href="#p1">Затверджені</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-danger" href="#p2">Відхилені</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-warning" href="#p3">Недоопрацьовані</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-info" href="#p4">Не відправлені</a>
+                                </li>
+                            </ul>
+
+                            <div id="myTabContent" class="tab-content">
+                                <div id="p1" class="tab-pane fade in active">
+                                    <table id="t1" class="table my-table">
+                                        <tr >
+
+                                            <th class="text-center">Назва тесту</th>
+                                            <th class="text-center">Категорія</th>
+                                            <th class="text-center"> Підкатегорія</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+
+                                    </table><br>
+                                </div>
+
+                                <div id="p2" class="tab-pane fade in #p2">
+                                    <table id="t2" class="table my-table">
+                                        <tr >
+
+                                            <th class="text-center">Назва тесту</th>
+                                            <th class="text-center">Категорія</th>
+                                            <th class="text-center"> Підкатегорія</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+
+                                    </table><br>
+                                </div>
+                                <div id="p3" class="tab-pane fade in #p3">
+                                    <table id="t3" class="table my-table">
+                                        <tr >
+
+                                            <th class="text-center">Назва тесту</th>
+                                            <th class="text-center">Категорія</th>
+                                            <th class="text-center"> Підкатегорія</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+
+                                    </table><br>
+                                </div>
+                                <div id="p4" class="tab-pane fade in #4">
+                                    <table id="t4" class="table my-table">
+                                        <tr >
+
+                                            <th class="text-center">Назва тесту</th>
+                                            <th class="text-center">Категорія</th>
+                                            <th class="text-center"> Підкатегорія</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+
+                                    </table><br>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<footer class="container">
+    <div id="footer-container">
+        <nav id="footer-menu">
+            <ul>
+                <li><a href="#">Тести</a> &nbsp|</li>
+                <li><a href="#">Про нас</a>&nbsp|</li>
+                <li><a href="#">Контакти</a></li>
+            </ul>
+        </nav>
+        <p>Copyright@ 2014 <b>IF-044</b></p>
+    </div>
+</footer>
+
+<div id="remove-dialog" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Видалення тесту</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ви дійсно хочите видалити тест "<span id="test-to-remove"></span>"?</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" id="accept-remove-test" class="btn btn-danger" >Видалити</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Відміна</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+</body>
+</html>
