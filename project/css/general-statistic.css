@@ -28,7 +28,7 @@
 #pageTitleBox {
 	margin-bottom: 20px;
 	background-color: #0490ba;
-	
+
 }
 
 .datepicker-label span i{
@@ -86,5 +86,9 @@
 
 #gradeList ul li a {
 	padding: 2px 43px 2px 43px;
+}
+
+#statistic .row {
+	padding: 0 15px;
 }
 
