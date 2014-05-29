@@ -9,11 +9,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
-    <link href="css/faq.css" rel="stylesheet">
+    <link href="css/administration.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="json/data.json"></script>
+    <script src='js/administration.js'></script>
 
 </head>
 <body class="container-fluid">
@@ -114,7 +115,7 @@
 
 <div class='panel panel-primary'>
         <div class='panel-heading'>
-            <h3 class='panel-titl'>Адміністративна панель</h3>
+            <h3 class='panel-title'>Адміністративна панель</h3>
         </div>
         <div class='panel-body'>
           <div class="container-fluid">
@@ -159,8 +160,8 @@
                                             </tr>                                        
                                         </thead>
                                     <tr>
-                                        <td><a href='#'>Гарі Олдман</a></td>
-                                        <td><a href="#">Harry55@gmail.com</a></td>                    
+                                        <td><span id='firstName'></span></td>
+                                        <td><span id='mail'>Harry55@gmail.com</span></td>                    
                                         <td><span class='user' id='change'><strong>Модератор</strong></span></td>
                                         <td></td>
                                         <td><button  class="btn btn-success btn-xs" onclick='changestatus()'>ЗМіНИТИ СТАТУС</button></td>
@@ -168,8 +169,8 @@
                                         <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
                                     <tr>
-                                        <td><a href='#'>Жан Дю Жар Ден</a></td>
-                                        <td><a href='#'>Jan@mail.ru</a></td>                     
+                                        <td><span id='firstName1'></span></td>
+                                        <td><span id='mail1'>Harry55@gmail.com</span></td>                     
                                         <td><span class='user' id='change1'><strong>Користувач</strong></span></td>
                                         <td></td>
                                         <td><button  class="btn btn-success btn-xs" onclick='changestatus1()'>ЗМіНИТИ СТАТУС</button></td>
@@ -177,8 +178,8 @@
                                         <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
                                     <tr>
-                                        <td><a href='#'>Адріано Чілінтано</a></td>
-                                        <td><a href='#'>Adriano@mail.uk</a></td>                     
+                                        <td><span id='firstName2'></span></td>
+                                        <td><span id='mail2'>Harry55@gmail.com</span></td>                     
                                         <td><span class='user' id='change2'><strong>Користувач</strong></span></td>
                                         <td></td>
                                         <td><button  class="btn btn-success btn-xs" onclick='changestatus2()'>ЗМіНИТИ СТАТУС</button></td>
@@ -186,40 +187,40 @@
                                         <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
                                     <tr>
-                                        <td><a href='#'>Деніел Редкліф</a></td>
-                                        <td><a href='#'>Deniel@mail.uk</a></td>                          
-                                        <td><span class='user' id='change3'><strong>Модератор</strong></span></td>
+                                        <td><a href='#'></a></td>
+                                        <td><a href='#'></a></td>                          
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus3()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td></td>
+                                        <td></td>
+                                        <td></td> 
+                                        <td></td> 
                                     </tr>
                                     <tr>
-                                        <td><a href='#'>Андрій Козловський</a></td>
-                                        <td><a href='#'>Endrew@mail.ru</a></td>                          
-                                       <td><span class='user' id='change4'><strong>Користувач</strong></span></td>
+                                        <td><a href='#'></a></td>
+                                        <td><a href='#'></a></td>                          
+                                       <td></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus4()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td></td>
+                                        <td></td>
+                                        <td></td> 
                                     </tr>
                                     <tr>
-                                        <td><a href='#'>Антоніо Бандерас</a></td>
-                                        <td><a href='#'>Antonio@mail.it</a></td>                            
-                                       <td><span class='user' id='change5'><strong>Модератор</strong></span></td>
+                                        <td><a href='#'></a></td>
+                                        <td><a href='#'></a></td>                            
+                                       <td><span class='user' id='change5'><strong></strong></span></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus5()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td></td>
+                                        <td></td>
+                                        <td></td> 
                                     </tr>
                                     <tr>
-                                        <td><a href='#'>Богдан Ступка</a></td>
-                                        <td><a href='#'>Bogdan@i.ua</a></td>                             
-                                        <td><span class='user' id='change6'><strong>Користувач</strong></span></td>
+                                        <td><a href='#'></a></td>
+                                        <td><a href='#'></a></td>                             
+                                        <td><span class='user' id='change6'><strong></strong></span></td>
                                         <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus6()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
+                                        <td></td>
+                                        <td></td>
+                                        <td></td> 
                                     </tr>
                                         </tbody>
                                     </table>
@@ -345,6 +346,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-<script src='js/administration.js'></script>
+
 </body>
 </html>

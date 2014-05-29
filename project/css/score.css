@@ -106,13 +106,14 @@ footer {
 .fromtopic{
 	float: left;
 }
-#question{
+.question{
 	float: left;
-	margin-top: 20px;
+	margin: 20px 0px 10px 10px;
+	text-align: left;
 }
 article{
 	text-align: justify;
-	padding: 50px 10px 10px 20px;
+	margin: 50px 20px 20px 27px;
 	font-family: 'Droid Serif', serif;
 }
 .name{
@@ -121,30 +122,25 @@ article{
 .name >i{
 	float: left;
 }
-.result-wrong{
-	color: red;
-}
-.result-right{
-	color: green;
-}
 .progress{
 	font-size: 10px;
 }
 .answer{
-	float: left;
-	margin: 10px 10px 0px 20px;
+	text-align: left;
+	margin: 0px 0px 0px 27px;
 }
 .right-answer{
-	float: left;
-	margin: 0px 10px 0px 20px;
+	text-align: left;
+	margin: 0px 0px 30px 27px;
 }
 .more-about{
-	float: left;
-	margin: 50px 10px 0px 20px;
+	text-align: left;
+	margin: 10px 10px 0px 27px;
 }
-#blockcolor{
+.blockcolor{
 	background: #9AF67E;
 	border-radius: 7px;
+	display: block;
 }
 .blockcolor-wrong{
 	background: #F67E8A;

@@ -1,78 +1,30 @@
-function changestatus(){ 
-	var u = 10;
-	var q = document.getElementById('change').length;
-	if(q == u){
-	document.getElementById('change').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change').innerHTML = '<strong>Користувач</strong>';
-	}
-}
-function changestatus1(){ 
-	var u = 10;
-	var q = document.getElementById('change1').length;
-	if(q != u){
-	document.getElementById('change1').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change1').innerHTML = '<strong>Користувач</strong>';
-	}
-}
-function changestatus2(){ 
-	var u = 10;
-	var q = document.getElementById('change2').length;
-	if(q != u){
-	document.getElementById('change2').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change2').innerHTML = '<strong>Користувач</strong>';
-	}
-}
-function changestatus3(){ 
-	var u = 10;
-	var q = document.getElementById('change3').length;
-	if(q == u){
-	document.getElementById('change3').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change3').innerHTML = '<strong>Користувач</strong>';
-	}
-}
-function changestatus4(){ 
-	var u = 10;
-	var q = document.getElementById('change4').length;
-	if(q != u){
-	document.getElementById('change4').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change4').innerHTML = '<strong>Користувач</strong>';
-	}
-}
-function changestatus5(){ 
-	var u = 10;
-	var q = document.getElementById('change5').length;
-	if(q == u){
-	document.getElementById('change5').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change5').innerHTML = '<strong>Користувач</strong>';
-	}
-}
-function changestatus6(){ 
-	var u = 10;
-	var q = document.getElementById('change6').length;
-	if(q != u){
-	document.getElementById('change6').innerHTML = '<strong>Модератор</strong>';
-	}
-	else
-	{
-	document.getElementById('change6').innerHTML = '<strong>Користувач</strong>';
-	}
-}
+
+'use strict' 
+
+window.onload= function List() {
+	var first_name=Users[0].firstName;
+	var mail=Users[0].email;
+	var status=Users[0].statusname;
+
+	var first_name1=Users[1].firstName;
+	var mail1=Users[1].email;
+	var status1=Users[1].statusname;
+
+	var first_name2=Users[2].firstName;
+	var mail2=Users[2].email;
+	var status2=Users[2].statusname;
+
+	document.getElementById('firstName').innerHTML=first_name;
+	document.getElementById('mail').innerHTML=mail;
+	document.getElementById('change').innerHTML=status;
+
+	document.getElementById('firstName1').innerHTML=first_name1;
+	document.getElementById('mail1').innerHTML=mail1;
+	document.getElementById('change1').innerHTML=status1;
+
+	document.getElementById('firstName2').innerHTML=first_name2;
+	document.getElementById('mail2').innerHTML=mail2;
+	document.getElementById('change2').innerHTML=status2;
+
+};
 
