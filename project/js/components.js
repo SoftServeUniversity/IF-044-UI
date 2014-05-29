@@ -16,6 +16,10 @@ function loginModule() {
           alert('Вітаю ' + Users[currentUser].firstName + '!')
       }
 
+      function changeLoginStatus() {
+        Users[currentUser].login_status = 1;
+      }
+
       function clearForms() {
           email.value = '';
           password.value = '';
@@ -65,6 +69,7 @@ function loginModule() {
           };
 
           if (!Error) {
+              changeLoginStatus();
               clearForms();
               postWishMsg();
           };
@@ -230,7 +235,7 @@ function loginModule() {
            
             var GlobalObj = {
             title: {
-                text: 'Кількість зданих тестів',
+                text: 'Кількість пройдених тестів',
                 x: -20 //center
             },
             subtitle: {
@@ -349,7 +354,8 @@ function loginModule() {
         };     
       }
 
-
+/*       модуль бере дату початку пошуку і дату кінця, заповнює простір між ними потрібними місяцями і
+       відсортовує кожну дату проходження тесту по приналежності до певного місяця*/
 
       function monthParser() {
      
