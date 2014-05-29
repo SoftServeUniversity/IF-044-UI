@@ -108,12 +108,32 @@
                         <li class="tags"><div class="col-xs-12">курінь: <span id="org_troop1"> Бурлаки </span></div></li>
                         <li class="tags"><div class="col-xs-12">гурток: Лілеї</div></li>
                         </ul>
-                </div>             
-            </div>            
-    	 </div>                 
+                </div> 
+
+            </div>   
+
+    	 </div> 
+          
+                <div class="col-sm-4 col-sm-offset-2" >
+                    <button type="button" class="btn btn-danger btn-block" onclick="rEdit()">Редагувати</button>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-success btn-block" onclick="rIndex()">OK</button>
+                </div>                  
 		</div>
+
 	</div>
             </main>
+            <script>
+                function rEdit () {
+                window.location = "edit_profile.html"
+                }
+
+                function rIndex () {
+                window.location = "index.html"
+                }
+
+            </script>
 
             <style>
 .profile 
