@@ -67,17 +67,17 @@
             <div class="col-sm-4">
               <span id="subcategory">
                 Період часу:від
-                <input type="date">
+                <input type="date" id="date1">
                 до
-                <input type="date">
+                <input type="date" id="date2">
                 <br></span>
               <br>
               <span id="subcategory">
                 Вибір підкатегорії:
-                <select>
-                  <option>Підкатегорія 1</option>
-                  <option>Підкатегорія 2</option>
-                  <option>Підкатегорія 3</option>
+                <select id="subcat"> 
+                  <option>4</option>
+                  <option>11</option>
+                  <option>1</option>
                 </select>
               </span>
               <br>
@@ -99,15 +99,16 @@
               <span id="subcategory">
                 Ступінь Учасника:
                 <select>
-                  <option>Підкатегорія 1</option>
-                  <option>Підкатегорія 2</option>
-                  <option>Підкатегорія 3</option>
+                  <option value="rank1" id="rank1">Підкатегорія 1</option>
+                  <option value="rank2">Підкатегорія 2</option>
+                  <option value="rank3">Підкатегорія 3</option>
                 </select>
               </span>
               <br>
-              <span id="subcategory">Максимальний бал за тест:10</span>
-              <span id="subcategory">Мінімальний бал за тест:1</span>
-              <br></div>
+              <span ><p class="col-sm-offset-2">Максимальний бал за тест:10</p></span>
+              <span><p class="col-sm-offset-2">Мінімальний бал за тест:1</p></span>          
+              <button class="col-sm-offset-3" onclick="filterLoad()">Застосувати</button>
+              </div>
             <div class="col-sm-8">
               <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
             </div>

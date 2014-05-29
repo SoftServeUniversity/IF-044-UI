@@ -75,17 +75,10 @@ var result = function(){
 getDay();
 getMonth();
 result();    
-    
-var a = [1, 2, 3];
-alert(a.concat(4, 5, 6));
-alert(a.concat([4, 5], [6]));     
-var b = Score[1]+Score[2]+Score[3]+Score[4]+Score[5]+Score[6];
-console.log(b);
+ Math.min.apply({},Score) 
+Math.max.apply({},Score)    
 
-for (var i = 1; i < Score.length; i++) {
-    var c =+ Score[i];
-};
-console.log(c);
+
 $(function () {
         $('#container').highcharts({
             title: {
@@ -128,4 +121,85 @@ $(function () {
         });
     });
     
+}
+
+var filterLoad = function(){
+    var scoreSubcat = [],
+        testSubcat = [],
+        daySubcat = [],
+        monthSubcat = [],
+        res = [];
+    var fromDate = document.getElementById('date1').valueAsDate;
+    var toDate = document.getElementById('date2').valueAsDate;
+  
+    var x = document.getElementById("subcat").selectedIndex;
+var activeSubcat = parseInt(document.getElementsByTagName("option")[x].value) ;
+/*for (var i = 0; i < Result.length; i++) {
+    if (Result[i]) {
+        res.push(i);
+};*/
+
+
+
+    var subcatlisten = function (){
+        for (var i=0; i<Tests.length; i++){
+            if (activeSubcat === Tests[i].subcategory) {
+                testSubcat.push(Tests[i].name)
+            }
+        }
+    }
+var resultFind = function(){
+    for (var i = 0; i < testSubcat.length; i++) {
+            for (var item in Result) {
+                if (testSubcat[i] === Result[item].name) {
+                scoreSubcat.push(Result[item].score);
+                daySubcat.push(Result[item].day);
+                monthSubcat.push(Result[item].month);
+                }
+            }
+        };
+    };
+
+subcatlisten();
+resultFind(); 
+$(function () {
+        $('#container').highcharts({
+            title: {
+                text: 'Фільтри(підкатегорія, вік, ступінь)',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: [daySubcat[0]+'.'+monthSubcat[0], daySubcat[1]+'.'+monthSubcat[1]]
+            },
+            yAxis: {
+                title: {
+                    text: 'Користувачів'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Користувачі',
+                data: [scoreSubcat[0],scoreSubcat[1]]
+            }, {
+            name: 'Середній бал',
+                data: [scoreSubcat[0],scoreSubcat[1]]
+            }]
+        });
+    });
+
 }

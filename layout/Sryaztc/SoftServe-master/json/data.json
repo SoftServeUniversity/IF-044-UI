@@ -131,14 +131,14 @@ var Tests = [
 	url: 'tests/test8.html'	
     },
 {	
-	name: 'Test Name9',
+	name: 'lolka',
 	tags: ['tag1','tag2','tag3'],
 	descr: 'info',
 	author: 'John Dou',
 	question: ['Lorem ipsum dolor sit amet?'],
 	answers: ['consectetur adipiscing elit', 'Aenean ut consequat velit', 'Mauris gravida sed turpis sit'],
 	info: ['info1','info2'],
-	subcategory: 1,
+	subcategory: 1,	
 	category: 1,
 	correct_answers: ['Aenean ut consequat velit'],
 	url: 'tests/test9.html'	
@@ -217,14 +217,14 @@ var Result = [
 	},
 	{
 		u_id : 3,
-		name : 'Test Name1',
+		name : 'Test Name2',
 		day : 27,
 		month : 4,
 		score : 4,
 	},
 	{
 		u_id : 2,
-		name : 'Test Name1',
+		name : 'Test Name2',
 		day : 26,
 		month : 4,
 		score : 3,
@@ -238,14 +238,14 @@ var Result = [
 	},
 	{
 		u_id : 4,
-		name : 'Test Name2',
+		name : 'Test Name6',
 		day : 24,
 		month : 4,
 		score : 7,
 	},
 	{
 		u_id : 5,
-		name : 'Test Name3',
+		name : 'Test Name4',
 		day : 23,
 		month : 4,
 		score : 8,
