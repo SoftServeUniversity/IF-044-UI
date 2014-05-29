@@ -229,6 +229,11 @@ function loginModule() {
          end: dateEndInput.value
       };
       var categories = [[],[],[]];
+      var monthObjectsArr = [];
+      var monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var variableYear;
+      var tempArr = [];
 
 
         /* обєкт який ми передаємо в highcharts */
@@ -359,8 +364,6 @@ function loginModule() {
 
       function monthParser() {
      
-         var monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
          var startDateArr = new Date(dateInterval.startMiliseconds).toDateString().split(' ');
          var startDateObj = {
@@ -373,19 +376,50 @@ function loginModule() {
           endMonth: endDateArr[1],
           endYear: endDateArr[3]
         };
-
+        variableYear  = startDateObj.startYear;
          var newArr = [];
 
          top:
 
-         if(startDateObj.startMonth === endDateObj.endMonth) {
-           newArr.push(startDateObj.startMonth);
+         if(startDateObj.startMonth === endDateObj.endMonth && startDateObj.startYear === endDateObj.endYear) {
+           newArr.push({ month: startDateObj.startMonth,
+                         year: startDateObj.startYear
+                       });
+         } else if(startDateObj.startYear !== endDateObj.endYear) {
+               for(var i = 0; i<monthArr.length; i++) {
+                 if(startDateObj.startMonth === monthArr[i]) {
+                        newArr.push({
+                                     month: monthArr[i],
+                                     year: variableYear
+                                   });
+                    for(var k = i + 1; monthArr[k] !== startDateObj.endMonth; k++) {
+
+                       newArr.push({
+                                     month: monthArr[k],
+                                     year: variableYear
+                                   });
+                       if(monthArr[k] === 'Dec'){
+                           k = -1, variableYear = endDateObj.endYear;
+                        };
+                       if(monthArr[k] === endDateObj.endMonth){
+                         break top;               
+                       };
+                    };
+                  };
+               };              
+               
          } else {
           for(var i = 0; i<monthArr.length; i++) {
             if(startDateObj.startMonth === monthArr[i]) {
-              newArr.push(monthArr[i]);
+              newArr.push({
+                             month: monthArr[i],
+                             year: variableYear
+                          });
               for(var k = i + 1; monthArr[k] !== startDateObj.endMonth; k++) {
-                newArr.push(monthArr[k]);
+                       newArr.push({
+                                     month: monthArr[k],
+                                     year: variableYear
+                                   });
                 if(monthArr[k] === endDateObj.endMonth){
                   break top;
                 };
@@ -393,20 +427,21 @@ function loginModule() {
            };
           }; 
         };
-        
-        GlobalObj.xAxis.categories = newArr;
-
+          tempArr = newArr;
+          for(var i = 0; i<newArr.length; i++){
+           GlobalObj.xAxis.categories.push(newArr[i].month);
+          };
       }
 
 
       function passedTestsCounter() {
-         for(var m = 0; m<GlobalObj.xAxis.categories.length; m++){
+         for(var m = 0; m<tempArr.length; m++){
             var newArr = []
 
               for(var i = 0; i<categories.length; i++){
                  for(var k = 0; k<categories[i].length; k++) {
                     var val = new Date(categories[i][k]).toDateString().split(' ');                
-                    if(val[1] === GlobalObj.xAxis.categories[m]){
+                    if(val[1] === tempArr[m].month && val[3] === tempArr[m].year){
                       newArr.push(categories[i][k]);
                   };
               };
