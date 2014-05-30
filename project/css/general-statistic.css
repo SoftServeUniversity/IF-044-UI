@@ -55,7 +55,7 @@
 	background-color: #5bc0de;
 }
 
-.sort-list ul li:nth-child(n+1) {
+.sort-list ul li:nth-child(n+2) {
 	border-top: none;
 }
 
