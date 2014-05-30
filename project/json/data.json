@@ -378,3 +378,32 @@ var Result = [
 		score : 8,
 	}
 ];
+
+var newCategories = [
+	{
+		id:1,
+		name:"Category1",
+		type:"Category",
+		items:[]
+	},
+
+	{
+		id:2,
+		name:"Category2",
+		type:"Category",
+		items:[
+			{
+				id:11,
+				name:"SubCategory1",
+				type:"SubCategory",
+				items:[]
+			},
+			{
+				id:12,
+				name:"SubCategory2",
+				type:"SubCategory",
+				items:[]
+			}
+		]
+	}
+];
