@@ -5,17 +5,79 @@
 
 #main-content {
 	text-align: center;
-	border-left: 1px solid #eae8e8;
+    padding-left: 30px;
 } 
 
-#main-content img {
-	margin: 15px 0;
-}
 
 #filters-box {
 	text-align: center;
+	border-right: 1px solid #eae8e8;
+	padding-bottom: 40px;
 }
 #filters-box label {
-	width: 80%;
+	width: 60%;
 	margin-bottom: 30px;
 }
+
+#pageTitle {
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.datepicker-label span i{
+	float: left;
+	margin-top: 8px;
+}
+
+.sort-list {
+	position: relative;
+	width: 60%;
+	margin: 0 auto;
+	padding-right: 3%;
+}
+
+.sort-list ul {
+	display: inline-block;
+	list-style: none;
+	padding-left: 0;
+}
+
+.sort-list ul li {
+	text-align: left;
+	border: 1px solid #0490ba;
+	background-color: #5bc0de;
+}
+
+.sort-list ul li:nth-child(n+1) {
+	border-top: none;
+}
+
+.sort-list span {
+	font-weight: bold;
+    position: relative;
+    bottom: 75px;
+	display: inline-block;
+	right: 5%;
+}
+
+.sort-list ul li a {
+	padding: 2px 38px 2px 38px;
+	display: block;
+	color: white;
+}
+
+.sort-list ul li a:hover {
+	text-decoration: none;
+	background-color: #0490ba;
+	color: white;
+} 
+
+#gradeList {
+	width: 80%;
+	padding-right: 11%;
+}
+
+#gradeList ul li a {
+	padding: 2px 43px 2px 43px;
+}
+

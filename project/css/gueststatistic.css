@@ -1,30 +1,79 @@
-/*gueststatistic style start*/
 main{
+	margin-top: 10px;
+}
+#main-content {
+	text-align: center;
+    padding-left: 30px;
+} 
+
+
+#filters-box {
+	text-align: center;
+	border-right: 1px solid #eae8e8;
+	padding-bottom: 40px;
+	padding-right: 70px;
+}
+#filters-box label {
+	width: 60%;
+	margin-bottom: 30px;
+	float: right;
+}
+
+#pageTitle {
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.datepicker-label span i{
+	float: left;
+	margin-top: 8px;
+}
+
+
+
+.sort-list ul {
+	display: inline-block;
+	list-style: none;
+	padding-left: 0;
+}
+
+.sort-list ul li {
 	text-align: left;
-	margin-top: 0px;
+	border: 1px solid #0490ba;
+	background-color: #5bc0de;
 }
 
-input[type=date]{
-height: 25px;
-width: 155px;
-width: 105px;
-}
-#subcategory{
-    display: inline-block;
-    margin: 15px 10px;
-    font: 12px arial;
-    color: #000;
+.sort-list ul li:nth-child(n+1) {
+	border-top: none;
+	
 }
 
-#subcategory>input[type=checkbox]{
-    margin-left: 5px;
+.sort-list span {
+	font-weight: bold;
+    
+	display: inline-block;
+	
 }
 
-h2{
+.sort-list ul li a {
+	padding: 2px 38px 2px 38px;
+	display: block;
+	color: white;
 	text-align: center;
 }
 
-h2+div{
-	text-align: center;
+.sort-list ul li a:hover {
+	text-decoration: none;
+	background-color: #0490ba;
+	color: white;
+} 
+
+
+#gradeList ul li a {
+	padding: 2px 10px 2px 10px;
 }
-/*gueststatistic style end*/
+
+.btn{
+	
+
+}
