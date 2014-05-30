@@ -33,7 +33,7 @@ function searchTests () {
 
 
             cell[numberOfCell] = row.insertCell(numberOfCell);
-            cell[numberOfCell].innerHTML = '<a href="#">Редагувати</a>';
+            cell[numberOfCell].innerHTML = '<a href="moderatrPage.html">Редагувати</a>';
             numberOfCell += 1;
 
             cell[numberOfCell] = row.insertCell(numberOfCell);
@@ -124,7 +124,7 @@ function applyFilter(element) {
         numberOfCell += 1;
 
         cell[numberOfCell] = row.insertCell(numberOfCell);
-        cell[numberOfCell].innerHTML = '<a href="#">Редагувати</a>';
+        cell[numberOfCell].innerHTML = '<a href="moderatrPage.html">Редагувати</a>';
         numberOfCell += 1;
 
         cell[numberOfCell] = row.insertCell(numberOfCell);
