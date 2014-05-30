@@ -23,21 +23,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="administration panel.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/administration panel.html">
+      <file leaf-file-name="general-statistic.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general-statistic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="6035">
+            <state vertical-scroll-proportion="-7.6153846" vertical-offset="2454" max-vertical-offset="3043">
+              <caret line="156" column="9" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_my_test.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user_my_test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="3332">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="moderator_filtertests.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moderator_filtertests.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="4556">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general-statistic.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/general-statistic.html">
+      <file leaf-file-name="guest_tetststatistic.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/guest_tetststatistic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5541958" vertical-offset="2811" max-vertical-offset="3383">
-              <caret line="184" column="71" selection-start-line="183" selection-start-column="0" selection-end-line="184" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.34615386" vertical-offset="941" max-vertical-offset="1513">
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,9 +66,14 @@
       <file leaf-file-name="components.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/components.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6698" max-vertical-offset="7905">
-              <caret line="411" column="35" selection-start-line="411" selection-start-column="25" selection-end-line="411" selection-end-column="35" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6885" max-vertical-offset="8092">
+              <caret line="422" column="35" selection-start-line="422" selection-start-column="25" selection-end-line="422" selection-end-column="35" />
+              <folding>
+                <marker date="1401354750179" expanded="true" signature="10569:10899" placeholder="{...}" />
+                <marker date="1401354750179" expanded="true" signature="10635:10888" placeholder="{...}" />
+                <marker date="1401354750179" expanded="true" signature="10775:10876" placeholder="{...}" />
+                <marker date="1401354750179" expanded="true" signature="10853:10863" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,22 +132,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prof_change.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/prof_change.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="true" />
     </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/general-statistic.html" />
+        <option value="$PROJECT_DIR$/user_my_test.html" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1" />
@@ -314,16 +337,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/components.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6698" max-vertical-offset="7905">
-          <caret line="411" column="35" selection-start-line="411" selection-start-column="25" selection-end-line="411" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6885" max-vertical-offset="8092">
+          <caret line="422" column="35" selection-start-line="422" selection-start-column="25" selection-end-line="422" selection-end-column="35" />
+          <folding>
+            <marker date="1401354750179" expanded="true" signature="10569:10899" placeholder="{...}" />
+            <marker date="1401354750179" expanded="true" signature="10635:10888" placeholder="{...}" />
+            <marker date="1401354750179" expanded="true" signature="10775:10876" placeholder="{...}" />
+            <marker date="1401354750179" expanded="true" signature="10853:10863" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/general-statistic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5541958" vertical-offset="2811" max-vertical-offset="3383">
-          <caret line="184" column="71" selection-start-line="183" selection-start-column="0" selection-end-line="184" selection-end-column="71" />
+        <state vertical-scroll-proportion="-7.6153846" vertical-offset="2454" max-vertical-offset="3043">
+          <caret line="156" column="9" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_my_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="3332">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/moderator_filtertests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4556">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guest_tetststatistic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34615386" vertical-offset="941" max-vertical-offset="1513">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding />
         </state>
       </provider>

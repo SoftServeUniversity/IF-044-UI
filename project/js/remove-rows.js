@@ -1,6 +1,22 @@
 // Видалення цілого елементу <tr>
 function deleteTr1(element) {
     var parentRow = getParentTr(element);
+    var currentTestNameCol = null;
+    var currentTestName = "";
+    for (var i = 0; i < parentRow.childNodes.length; i++) {
+        if (parentRow.childNodes[i].className == "test-name-col") {
+            currentTestNameCol = parentRow.childNodes[i];
+            for (var j = 0; j < currentTestNameCol.childNodes.length; j++) {
+                if (currentTestNameCol.childNodes[j].className == "test-name") {
+                    currentTestName = currentTestNameCol.childNodes[j].text;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+
+    document.getElementById("test-to-remove").textContent = currentTestName;
     document.getElementById('accept-remove-test').onclick = function() {
         document.getElementById("t1").deleteRow(parentRow.rowIndex);
         $("#remove-dialog").modal("hide");
@@ -10,6 +26,22 @@ function deleteTr1(element) {
 }
 function deleteTr3(element) {
     var parentRow = getParentTr(element);
+    var currentTestNameCol = null;
+    var currentTestName = "";
+    for (var i = 0; i < parentRow.childNodes.length; i++) {
+        if (parentRow.childNodes[i].className == "test-name-col") {
+            currentTestNameCol = parentRow.childNodes[i];
+            for (var j = 0; j < currentTestNameCol.childNodes.length; j++) {
+                if (currentTestNameCol.childNodes[j].className == "test-name") {
+                    currentTestName = currentTestNameCol.childNodes[j].text;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+
+    document.getElementById("test-to-remove").textContent = currentTestName;
     document.getElementById('accept-remove-test').onclick = function() {
         document.getElementById("t3").deleteRow(parentRow.rowIndex);
         $("#remove-dialog").modal("hide");
@@ -56,7 +88,7 @@ function getParentTr(removeButton) {
     } while (true)
 }
 
- window.onload = function generateObjects(){
+window.onload = function generateObjects(){
     var categories = ["Історія", "Географія", "Природа", "Столиці", "Музика", "Пустелі"];
     var objectsForTest = [];
     var numberOfObjects;
@@ -87,8 +119,8 @@ function getParentTr(removeButton) {
             objectForTest.name = "Test " + arrayStatus[tableSwap-1] + i;
             cell[j] = row.insertCell(j);
             //if (tableId = table1) {
-                cell[j].innerHTML = '<a class="test-name" href="#"> ' + objectForTest.name + '</a>'; //testName;
-                cell[j].className = "test-name-col";
+            cell[j].innerHTML = '<a class="test-name" href="#"> ' + objectForTest.name + '</a>'; //testName;
+            cell[j].className = "test-name-col";
             //} else {cell[j].innerHTML = objectForTest.name;}
             j += 1;
 
@@ -104,25 +136,25 @@ function getParentTr(removeButton) {
 
             if (tableId != table2) {
                 if (tableId != table3 && tableId != table4) {
-                cell[j] = row.insertCell(j);
-                cell[j].innerHTML = '<a href="#">Статистика</a>';
-                j += 1;
+                    cell[j] = row.insertCell(j);
+                    cell[j].innerHTML = '<a href="#">Статистика</a>';
+                    j += 1;
                 }
 
-            cell[j] = row.insertCell(j);
-            cell[j].innerHTML = '<a href="#">Редагувати</a>';
-            j += 1;
+                cell[j] = row.insertCell(j);
+                cell[j].innerHTML = '<a href="#">Редагувати</a>';
+                j += 1;
 
 
-            cell[j] = row.insertCell(j);
+                cell[j] = row.insertCell(j);
                 if (tableId == table1)
                 {cell[j].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + i + '" onclick="deleteTr1(this)" >ВИДАЛИТИ</button></div>';}
-                 else if(tableId == table3)
+                else if(tableId == table3)
                 { cell[j].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + i + '" onclick="deleteTr3(this)" >ВИДАЛИТИ</button></div>';}
                 else
                 {cell[j].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + i + '" onclick="deleteTr4(this)" >ВИДАЛИТИ</button></div>';}
 
-            objectsForTest.push(objectForTest);
+                objectsForTest.push(objectForTest);
 
             }
 

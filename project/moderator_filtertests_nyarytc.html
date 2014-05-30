@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YunakQuize Tests</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login_page.css" rel="stylesheet">
+    <link href="css/general-statistic.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="json/data.json"></script>
+    <script src="js/remove-rows.js"></script>
+    <script src="js/search.js"></script>
+
+</head>
+
+<body class="container-fluid">
+<div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
+        <header class="row">
+            <div id="header-container"
+                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a>
+                <div id="title-block">
+                    <h4>Система Пластових електронних опитників</h4>
+                </div>
+                <nav id="header-menu">
+                    <ul>
+                        <li><a href="#">Проби</a></li>
+                        <li><a href="#">Пошук</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Ввійти</a></li>
+                    </ul>
+                </nav>
+                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
+                    <img src="pic/login.jpg" alt="login" width="35" height="35">
+                </a>
+            </div>
+        </header>
+        <main>
+            <div class="container-fluid">
+
+                <div class="row">
+                    <h4>КАБІНЕТ МОДЕРАТОРА <a href="#"><i><strong>NYARYTC</strong></i></a></h4>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-xs-12 col-lg-11 col-md-11 col-sm-11 col-xs-offset-0 col-lg-offset-1 col-md-offset-1  col-sm-offset-1">
+                        <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="whatToSearch" class="form-control" placeholder="Пошук" onkeyup="applyFilter(this)">
+                                <div class="input-group-btn">
+                                    <button id="search-test" class="btn btn-info" type="button" onclick="searchTests()"><i class="glyphicon glyphicon-search" ></i></button>
+                                </div>
+                            </div>
+                            <div id="search-by"  class="radio text-left">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Radios" id="All"  value="" checked> Усі
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Radios" id="radio-names" value=""> Ім'я тест
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Radios" id="radio-categories" value="" /> Категорія
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Radios" id="radio-subcategories" value="" /> Підкатегорія
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8">
+                            <p><strong class="text-left">Результат пошуку:</strong></p><br>
+
+                            <table id="search-table" class="table">
+                                <tbody class="text-center">
+                                <tr >
+                                    <th class="text-center">Назва тесту</th>
+                                    <th class="text-center">Категорія</th>
+                                    <th class="text-center"> Підкатегорія</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a>
+                                    </li>
+                                    <li><a href="#">1</a>
+                                    </li>
+
+                                    <li><a href="#">&raquo;</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="remove-dialog" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Видалення тесту</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Ви дійсно хочите видалити тест <span id="test-to-remove"></span>?</p>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" id="accept-remove-test" class="btn btn-danger" >Видалити</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Відміна</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </main>
+    </div>
+</div>
+<footer class="container">
+    <div id="footer-container">
+        <nav id="footer-menu">
+            <ul>
+                <li><a href="#">Тести</a> &nbsp|</li>
+                <li><a href="#">Про нас</a>&nbsp|</li>
+                <li><a href="#">Контакти</a></li>
+            </ul>
+        </nav>
+        <p>Copyright@ 2014 <b>IF-044</b></p>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/paintdiagrams.js"></script>
+</body>
+</html>

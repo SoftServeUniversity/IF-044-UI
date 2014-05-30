@@ -1,49 +1,24 @@
-function searchTests() {
-    /*if(document.getElementById('radio-Name').checked == true) {
-     var sizeObjectTests = Tests.length;
-     console.log(sizeObjectTests);
-     var inputText= document.getElementById('whatToSearch').value;
-     for (var i=0; i<sizeObjectTests; i++){
-     if (inputText == Tests[i].name){
-     alert ("Знайшов");}
-     else alert ("Незнайшов");
-     }
-
-     }
-
-     else if (document.getElementById('radio-categories').checked == true) {
-     console.log('cat');
-     }
-
-     else  if (document.getElementById('radio-subcategories').checked == true){
-     console.log('subcat');
-     }
-     else {alert ("Виберіть тип пошуку")}
-     */
-}
-
-
-
-/*  Tests
- var x = document.getElementById('whatToSearch').value;
- console.log(x);
- var y = Users.length;
-
- console.log(  y);*/
+var ri = 0;
 
 function searchTests () {
     if(document.getElementById('All').checked == true){
+        if (ri > 1) {
+            deleteRows();
+        }
         var row;
         var cell = [];
-        //var objectForTest = new Object();
         var tableId = "search-table"
         var table = document.getElementById(tableId);
+        var
 
+
+            numberOfRow = 1;
         for (var i=0; i<Tests.length; i++) {
-            var numberOfRow = i;
             var numberOfCell = 0;
+
+
             //var cell [];
-            row = table.insertRow(numberOfRow+1);
+            row = table.insertRow(numberOfRow);
             cell[numberOfCell] = row.insertCell(numberOfCell);
             cell[numberOfCell].innerHTML = Tests[i].name;
             numberOfCell += 1;
@@ -55,62 +30,87 @@ function searchTests () {
             cell[numberOfCell] = row.insertCell(numberOfCell);
             cell[numberOfCell].innerHTML = Tests[i].subcategory;
             numberOfCell += 1;
-            console.log("Знайшов on name - " + Tests[i].name);
+
+
+            cell[numberOfCell] = row.insertCell(numberOfCell);
+            cell[numberOfCell].innerHTML = '<a href="#">Редагувати</a>';
+            numberOfCell += 1;
+
+            cell[numberOfCell] = row.insertCell(numberOfCell);
+            cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
             numberOfRow = numberOfRow + 1;
+            console.log(numberOfRow);
+
         }
-
+        console.log(Tests.length);
+        ri = Tests.length;
     }
-}
-/*window.onload() = function cweqe() {
- document.getElementById('All').checked = true;
- document.getElementById('radio-Name').checked = false;
- document.getElementById('radio-categories').checked = false;
- document.getElementById('radio-subcategories').checked = false;
- }*/
+    function deleteRows () {
 
+        console.log(ri + "World");
+        var h;
+        for (h = 1; h <= ri; h++){table.deleteRow(1);}
+        ri = 0;}
+}
 
 function applyFilter(element) {
-
-
+    var tableId = "search-table"
+    var table = document.getElementById(tableId);
+    var h =0;
     var found = [];
-
-
-    // search by name
+    var tId = "search-table"
+    var table1 = document.getElementById(tId);
+    if (ri > 1) {
+        deleteTableRows();
+    }
+// search by name
     if (element.value != "") {
         var row;
         var cell = [];
-        //var objectForTest = new Object();
-        var tableId = "search-table"
-        var table = document.getElementById(tableId);
-        if(document.getElementById('radio-names').checked == true) {
-            for (var i=0; i<Tests.length; i++){
-                if (Tests[i].name.toString().toLowerCase().indexOf(element.value.toLowerCase) != -1){
+
+        if (document.getElementById('radio-names').checked == true) {
+            for (var i = 0; i < Tests.length; i++) {
+                if (Tests[i].name.toString().toLowerCase().indexOf(element.value.toLowerCase()) != -1) {
                     found.push(Tests[i]);
                     creatTable();
                 }
 
             }
         } else if (document.getElementById('radio-categories').checked == true) {
-            for (var i=0; i<Tests.length; i++){
-                if (Tests[i].category.toString().toLowerCase.indexOf(element.value.toLowerCase) != -1){
+            for (var i = 0; i < Tests.length; i++) {
+                if (Tests[i].category.toString().toLowerCase().indexOf(element.value.toLowerCase()) != -1) {
                     found.push(Tests[i]);
                     creatTable();
+
                 }
+
             }
         } else {
-            for (var i=0; i<Tests.length; i++){
-                if (Tests[i].subcategory.toString().indexOf(element.value.toLowerCase) != -1){
+            for (var i = 0; i < Tests.length; i++) {
+                if (Tests[i].subcategory.toString().toLowerCase().indexOf(element.value.toLowerCase()) != -1) {
                     found.push(Tests[i]);
                     creatTable();
                 }
             }
         }
-    } else {console.log("empty")}
+    } else {
+        console.log("empty");
+    }
+
+
+    function deleteTableRows () {
+
+        console.log(ri + "World");
+        var h;
+        for (h = 1; h <= ri; h++){table.deleteRow(1);}
+        ri = 0;
+    }
+
     function creatTable() {
         var numberOfRow = 1;
         var numberOfCell = 0;
-        //var cell [];
         row = table.insertRow(numberOfRow);
+
         cell[numberOfCell] = row.insertCell(numberOfCell);
         cell[numberOfCell].innerHTML = Tests[i].name;
         numberOfCell += 1;
@@ -122,10 +122,58 @@ function applyFilter(element) {
         cell[numberOfCell] = row.insertCell(numberOfCell);
         cell[numberOfCell].innerHTML = Tests[i].subcategory;
         numberOfCell += 1;
+
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = '<a href="#">Редагувати</a>';
+        numberOfCell += 1;
+
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
+
         console.log("Знайшов on name - " + Tests[i].name);
-        numberOfRow = numberOfRow + 1 ;
+        ri = ri +  1;
+
+    }
+    return ri;
+}
+
+function deleteTrin(element) {
+
+    var parentRow = getParentTr(element);
+    var currentTestNameCol = null;
+    var currentTestName = "";
+    for (var i = 0; i < parentRow.childNodes.length; i++) {
+        if (parentRow.childNodes[i].className == "test-name-col") {
+            currentTestNameCol = parentRow.childNodes[i];
+            for (var j = 0; j < currentTestNameCol.childNodes.length; j++) {
+                if (currentTestNameCol.childNodes[j].className == "test-name") {
+                    currentTestName = currentTestNameCol.childNodes[j].text;
+                    break;
+                }
+            }
+            break;
+        }
     }
 
+    document.getElementById("test-to-remove").textContent = currentTestName;
+    document.getElementById('accept-remove-test').onclick = function() {
+        document.getElementById("search-table").deleteRow(parentRow.rowIndex);
+        $("#remove-dialog").modal("hide");
+    }
+    $("#remove-dialog").modal();
+    ri= ri -1;
+    console.log(ri);
+}
+
+function getParentTr(removeButton) {
+    var n = removeButton;
+    do {
+        n = n.parentNode;
+        if (n.tagName == 'TR') {
+            return n;
+        }
+        if (n.tagName =='BODY') {return undefined; }
+    } while (true)
 }
 
 
