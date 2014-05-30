@@ -368,13 +368,13 @@ function loginModule() {
          var startDateArr = new Date(dateInterval.startMiliseconds).toDateString().split(' ');
          var startDateObj = {
           startMonth: startDateArr[1],
-          startYear: startDateArr[3]
+          startYear: parseInt(startDateArr[3], 10)
         };
 
          var endDateArr = new Date(dateInterval.endMiliseconds).toDateString().split(' ');
          var endDateObj = {
           endMonth: endDateArr[1],
-          endYear: endDateArr[3]
+          endYear: parseInt(endDateArr[3], 10)
         };
         variableYear  = startDateObj.startYear;
          var newArr = [];
@@ -398,10 +398,10 @@ function loginModule() {
                                      month: monthArr[k],
                                      year: variableYear
                                    });
-                       if(monthArr[k] === 'Dec'){
-                           k = -1, variableYear = endDateObj.endYear;
+                       if(monthArr[k] === 'Dec' && endDateObj.endYear !== variableYear ){
+                           k = -1, variableYear +=  1;
                         };
-                       if(monthArr[k] === endDateObj.endMonth){
+                       if(monthArr[k] === endDateObj.endMonth && endDateObj.endYear === variableYear ){
                          break top;               
                        };
                     };
@@ -441,7 +441,7 @@ function loginModule() {
               for(var i = 0; i<categories.length; i++){
                  for(var k = 0; k<categories[i].length; k++) {
                     var val = new Date(categories[i][k]).toDateString().split(' ');                
-                    if(val[1] === tempArr[m].month && val[3] === tempArr[m].year){
+                    if(val[1] === tempArr[m].month && parseInt(val[3], 10) === tempArr[m].year){
                       newArr.push(categories[i][k]);
                   };
               };
