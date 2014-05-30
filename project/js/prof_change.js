@@ -14,5 +14,6 @@ window.onload = function prof_change() {
     document.getElementById("birthday").innerHTML=birthday;
     document.getElementById("org_troop1").innerHTML=org_troop1;
     document.getElementById("org_region1").innerHTML=org_region1;
+    document.getElementById("org_level1").innerHTML=org_level1;
     
 }; 

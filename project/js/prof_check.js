@@ -23,7 +23,6 @@ function check_input () {
 	} else {
 		user.style.borderColor = ""
 	}
-
 	if(passwd.value.length === 0){
 	passwd.style.borderColor = "red";
 	} else {
@@ -35,7 +34,6 @@ function check_input () {
 	} else {
 		re_passwd.style.borderColor = ""
 	}
-
 	if(email.value.length === 0){
 	email.style.borderColor = "red";
 	} else {
@@ -47,8 +45,11 @@ function check_input () {
 	} else {
 		birthday.style.borderColor = ""
 	} 
-}
-	else 
+	} else if (passwd.value != re_passwd.value) {
+	passwd.style.borderColor = "red";
+	re_passwd.style.borderColor = "red";
+	
+	} else 
 	
 	window.location = "profile.html"
 	localStorage.setItem('username', user.value);
