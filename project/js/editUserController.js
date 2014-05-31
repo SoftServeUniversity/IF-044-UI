@@ -1,4 +1,3 @@
-
 'use strict'
 
 function EditUserController() {
@@ -13,19 +12,19 @@ EditUserController.prototype.getElement = function(id) {
 
 EditUserController.prototype.fillData = function(index) {
 	var user = this.getElement('username');
-	var	passwd = this.getElement('passwd');
-	var	re_passwd = this.getElement('re_passwd');
-	var	email = this.getElement('email');
-	var	birthday = this.getElement('birthday1');
+	var passwd = this.getElement('passwd');
+	var re_passwd = this.getElement('re_passwd');
+	var email = this.getElement('email');
+	var birthday = this.getElement('birthday1');
 
-	if(Users && Users.length > 0 && Users[index]) {
+	if (Users && Users.length > 0 && Users[index]) {
 		this.currentUser = Users[index];
-		//alert('Location is ' + this.currentUser.location);
-	first_name.value = this.currentUser.firstName;
-	last_name.value = this.currentUser.lastName;
-	org_level1.value = this.currentUser.org_level;
-	org_troop1.value = this.currentUser.org_troop;
-	org_region1.value = this.currentUser.org_region;
+		// alert('Location is ' + this.currentUser.location);
+		first_name.value = this.currentUser.firstName;
+		last_name.value = this.currentUser.lastName;
+		org_level1.value = this.currentUser.org_level;
+		org_troop1.value = this.currentUser.org_troop;
+		org_region1.value = this.currentUser.org_region;
 
 		if (this.currentUser.username) {
 			user.value = this.currentUser.username;
@@ -47,18 +46,18 @@ EditUserController.prototype.fillData = function(index) {
 			birthday.value = this.currentUser.birthday;
 			this.bindEvents(birthday);
 		}
-		
+
 	}
 };
 
-function myfunction () {
-	alert ("Page was delete");
+function myfunction() {
+	alert("Page was delete");
 	window.location = "index.html"
 }
 
 EditUserController.prototype.bindEvents = function(element) {
 	element.onchange = function(e) {
-		if(!e.target.value) {
+		if (!e.target.value) {
 			alert(e.target.placeholder + ' value cannot be empty!');
 		}
 	}
