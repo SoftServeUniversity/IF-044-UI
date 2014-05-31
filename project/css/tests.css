@@ -30,8 +30,9 @@
  	padding-top: 20px;
  }
 
- #search-sort select {
- 	display: inline-block;
+ #searchForm {
+  display: inline-block;
+  width: 70%;
  }
 
  #search-sort label {
@@ -47,11 +48,11 @@
    	border-bottom-right-radius: 0; 
    }
  
- #search-sort img {
- 	cursor: pointer;
+ #search-sort .input-group-btn {
  	display: inline-block;
- 	margin-left: -4px;
- 	margin-top: -3px;
+  margin-left: -4px;
+  margin-bottom: 2px;
+
  }
 
  .categories-block .sub-category {
