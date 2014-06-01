@@ -1,10 +1,18 @@
+	if(localStorage.currentIndexTest){
+		var currentIndexTest = JSON.parse(localStorage.currentIndexTest);
+	}else{
+		var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
+		//var currentIndexTest = 2;
+	}
 function printComments(e, place_for_comment, lastIndexComment, comments) {
     var newDiv = document.createElement('div');
     newDiv.className = "col-lg-10 text-justify";
     if (comments && lastIndexComment) {
         if (lastIndexComment === true) lastIndexComment = 0;
         for (var i = lastIndexComment; i < comments.length; i++) {
-            newDiv.innerHTML += "<b>" + comments[i].comment + "</b><br />" + "<div class='text-left'><i>" + comments[i].timeCreate + " Moderator</i></div>";
+            if(currentIndexTest == comments[i].test_id){
+                newDiv.innerHTML += "<b>" + comments[i].comment + "</b><br />" + "<div class='text-left'><i>" + comments[i].timeCreate + " Moderator</i></div>";
+            }
         }
         document.querySelectorAll(place_for_comment)[0].insertBefore(newDiv, e.parentNode);
     }
@@ -29,12 +37,12 @@ function addComment(e) {
     month[11] = "гру";
     var timeCreateComments = day.getDate() + " " + month[day.getMonth()] + " о " + day.getHours() + ":" + day.getMinutes();
     console.log(timeCreateComments);
-    //localStorage.comment = JSON.stringify(comment);
     if (localStorage.comment) {
         console.log('local true');
         commentArray = JSON.parse(localStorage.comment);
         commentArray.push({
             comment: comment,
+            test_id : currentIndexTest,
             timeCreate: timeCreateComments
         })
         //console.log(commentArray);
@@ -43,6 +51,7 @@ function addComment(e) {
         console.log('local false');
         var commentArray = [{
             comment: comment,
+            test_id : currentIndexTest,
             timeCreate: timeCreateComments
         }];
         localStorage.comment = JSON.stringify(commentArray);
@@ -79,17 +88,17 @@ window.onload = function() {
 
     var place_for_test = document.querySelectorAll('.content-test')[0];
     var content = '';
-    content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="globalTests[0].name">' + Tests[0].name + '</h3>';
+    content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="globalTests[0].name">' + Tests[currentIndexTest].name + '</h3>';
     var number_question = 0;
-    for (var i = 0; i < Tests[0].question.length; i++) {
+    for (var i = 0; i < Tests[currentIndexTest].question.length; i++) {
         var number_answer = 0;
         number_question++;
-        var question_id = Tests[0].question[i].id
-        content += '<div class="row well"><div class="col-lg-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 text-justify testDouble" forLocalstorage="globalTests[0].question[' + i + '].text">' + Tests[0].question[i].text + '</div>';
-        for (var j = 0; j < Tests[0].answers.length; j++) {
+        var question_id = Tests[currentIndexTest].question[i].id
+        content += '<div class="row well"><div class="col-lg-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].question[' + i + '].text">' + Tests[currentIndexTest].question[i].text + '</div>';
+        for (var j = 0; j < Tests[currentIndexTest].answers.length; j++) {
             number_answer++;
-            if (Tests[0].answers[j].question_id == question_id) {
-                content += '<div class="col-lg-1 col-lg-offset-2">' + number_answer + ') ' + '</div>' + '<div class="col-lg-9 text-justify testDouble" forLocalstorage="globalTests[0].answers[' + j + '].text_answer">' + Tests[0].answers[j].text_answer + '</div>';
+            if (Tests[currentIndexTest].answers[j].question_id == question_id) {
+                content += '<div class="col-lg-1 col-lg-offset-2">' + number_answer + ') ' + '</div>' + '<div class="col-lg-9 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].answers[' + j + '].text_answer">' + Tests[currentIndexTest].answers[j].text_answer + '</div>';
             }
         }
         content += '</div>';
@@ -154,5 +163,15 @@ window.onload = function() {
         }
         //console.log(place_for_comment);
     })()
+    document.getElementById('public1').addEventListener('click',function(){
+        var globalTests = JSON.parse(localStorage.Tests);
+        globalTests[currentIndexTest].public = 1;
+        localStorage.Tests = JSON.stringify(globalTests);
+    })
+    document.getElementById('public0').addEventListener('click',function(){
+        var globalTests = JSON.parse(localStorage.Tests);
+        globalTests[currentIndexTest].public = 0;
+        localStorage.Tests = JSON.stringify(globalTests);
+    })    
 
 }
