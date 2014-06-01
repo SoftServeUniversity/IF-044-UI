@@ -95,23 +95,26 @@
         <div id="search-panel" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="categories-block">
                 <span class="sub-category"><b>Вмілість1</b></span>
-                <span class="category"><i>Вмілості</i></span>
             </div>
-            <div id="search-sort">
-                <label>
-                    <span>Сортування по</span>
-                    <select id="selectForm" class="form-control">
-                        <option value="1">Даті</option>
-                        <option value="2">Алфавіту</option>
-                    </select>
-                </label>
-                <label>
+            <div id="search-sort" class="row">
+                <div class="col-lg-3 col-lg-offset-8" id="searchBox">
+                  <label>
                     <input id="searchForm" type="search" class="form-control" placeholder="Пошук">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit" onclick="searchModule()"><i class="glyphicon glyphicon-search" ></i>
                         </button>
                     </div>                    
-                </label>
+                  </label>
+                </div> 
+                <div class="col-lg-3 col-lg-offset-2" id="sortBox">
+                  <label>
+                    <span>Сортування по</span>
+                    <select id="selectForm" class="form-control">
+                        <option value="1">Даті</option>
+                        <option value="2">Алфавіту</option>
+                    </select>
+                  </label>
+                </div>
             </div>                
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
