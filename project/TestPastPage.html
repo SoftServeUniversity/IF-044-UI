@@ -14,7 +14,23 @@
 
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<style type="text/css">
+  .MyClass:before{
+    content: '\2714';
+    position: relative;
+    right: 10px;
+  }
 
+  .MyClass{
+    color: green;
+  font-style: italic;
+  position: relative;
+  right: 12px;
+      }
+    .noclass{
+
+    }
+</style>
 </head>
 <body class="container-fluid">
   <div id="outer-wrapper" class="container">
@@ -73,14 +89,14 @@
                   Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
                   <br></div>
                 <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="slide_switch">
-                  <a class="btn" onClick="answer()">Відповідь 1</a>
+                  
+                  <label onClick="answer(this)" class="aq1">Відповідь 1</label>
                   <br>
-                  <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+               
+                  <label onClick="answer(this)" class="aq1">Відповідь 1</label>
                   <br>
-                  <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                 
+                  <label onClick="answer(this)" class="aq1">Відповідь 1</label>
                   <br></div>
               </div>
 
@@ -94,13 +110,13 @@
                   <br></div>
                 <div class="col-lg-5 answer-spase">
                   <input type="checkbox" name="q">
-                  <label>Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br></div>
               </div>
             </div>
@@ -114,34 +130,13 @@
                   <br></div>
                 <div class="col-lg-5 answer-spase">
                   <input type="checkbox" name="q">
-                  <label>Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
-                  <br></div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1">
-                <div>
-                  <div class="pos">
-                    <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="q">
-                  <label>Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br></div>
               </div>
 
@@ -156,13 +151,13 @@
                   <br></div>
                 <div class="col-lg-5 answer-spase">
                   <input type="checkbox" name="q">
-                  <label>Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br></div>
               </div>
 
@@ -177,19 +172,40 @@
                   <br></div>
                 <div class="col-lg-5 answer-spase">
                   <input type="checkbox" name="q">
-                  <label>Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br>
                   <input type="checkbox" name="q">
-                  <label >Відповідь 1</label>
+                  <label onClick="answer(this)">Відповідь 1</label>
+                  <br></div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-lg-10 col-sm-offset-1">
+                <div>
+                  <div class="pos">
+                    <strong>1.</strong>
+                  </div>
+                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
+                  <br></div>
+                <div class="col-lg-5 answer-spase">
+                  <input type="checkbox" name="q">
+                  <label onClick="answer(this)">Відповідь 1</label>
+                  <br>
+                  <input type="checkbox" name="q">
+                  <label onClick="answer(this)">Відповідь 1</label>
+                  <br>
+                  <input type="checkbox" name="q">
+                  <label onClick="answer(this)">Відповідь 1</label>
                   <br></div>
               </div>
 
             </div>
             <div class="center">
-              <button class="btn-lg btn-success bnt-next" onClick='but1()'>Результат</button>
+            <a href="score.html"><button class="btn-lg btn-success bnt-next" onClick='result()'>Результат</button></a>
             </div>
             <br></div>
         </div>
