@@ -14,7 +14,7 @@
 	border-right: 1px solid #eae8e8;
 	padding-bottom: 40px;
 }
-#filters-box label {
+#filters-box .datepicker-label {
 	width: 60%;
 	margin-bottom: 30px;
 }
@@ -67,13 +67,19 @@
 	right: 5%;
 }
 
-.sort-list ul li a {
-	padding: 2px 38px 2px 38px;
+.sort-list ul li label {
+	padding: 2px 25px 2px 18px;
 	display: block;
 	color: white;
+	font-weight: 300;
+	margin-bottom: 0;
 }
 
-.sort-list ul li a:hover {
+.sort-list ul li label input {
+    margin-right: 20px;
+}
+
+.sort-list ul li label:hover {
 	text-decoration: none;
 	background-color: #0490ba;
 	color: white;
@@ -84,8 +90,8 @@
 	padding-right: 11%;
 }
 
-#gradeList ul li a {
-	padding: 2px 43px 2px 43px;
+#gradeList ul li label {
+	padding: 2px 35px 2px 18px;
 }
 
 #statistic .row {
