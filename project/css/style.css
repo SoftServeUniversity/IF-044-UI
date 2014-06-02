@@ -34,6 +34,9 @@ body {
 #header-menu {
 	display: block;
 	width: 50%;
+    position: absolute;
+	bottom: 5px;
+	left: 31%; 
 
 }
 
@@ -105,9 +108,6 @@ footer {
 	bottom: 25px;
 }
 
-#header-menu {
-	position: absolute;
-	bottom: 5px;
-	left: 25%; 
-	
+#title-block h4 {
+    font-size: 1.9em;
 }

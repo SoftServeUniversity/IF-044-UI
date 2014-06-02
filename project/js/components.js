@@ -468,8 +468,26 @@ function generalStatisticModule() {
 
 
     $('#main-content').highcharts(GlobalObj);
+
+    var filtersBox = document.getElementById('filtersBox');
+    filtersBox.onclick = function(e) {
+        var target = e && e.target || event.srcElement;
+
+         if (target.nodeName != 'LABEL') return;
+
+         if(target.children[0].checked) {
+                    target.parentNode.style.backgroundColor = '#5bc0de'
+         } else {
+                    target.parentNode.style.backgroundColor = '#0490ba';
+                };
+    };
 }
 
+//
+//
+//
+//
+//
 
 
 
@@ -516,3 +534,6 @@ function generalStatisticModule() {
                 data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
             }]
         }*/
+
+
+ 
