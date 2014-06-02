@@ -15,14 +15,9 @@
 <script
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <script src="json/data.json"></script>
-<script src="js/categories-controller.js"></script>
+<script src="js/category_search.js"></script>
 
-<script>
-window.onload = function() {
-	var categoriesController = new CategoriesController();
-	categoriesController.renderHTML();
-};
-</script>
+
 
 </head>
 <body class="container-fluid">
@@ -115,7 +110,6 @@ label {
 	font-weight: normal;
 }
 </style>
-
 			<h3>Перевірка тестів</h3>
 			<hr>
 			<div class="row">
@@ -140,8 +134,13 @@ label {
 	cursor: pointer;
 	/*                                border-right:solid 2px blue; ; */
 }
+
 .categorySelected {
-color: #5bc0de;
+	color: #5bc0de;
+}
+
+.categoryParentSelected {
+	color: #5bc0de;
 }
 
 .curent-filter {
@@ -149,59 +148,29 @@ color: #5bc0de;
 	border-right: solid 3px;
 }
 </style>
-					<div id="categoriesContainer" class="row">
 
-		
-					</div>
-				</div>
-
-
-				<script>
+					<div id="categoriesContainer" class="row"></div>
 					
-				</script>
+				<!--button class="btn btn-primary btn-xs 
+glyphicon glyphicon-search" onclick="printResult()"></button-->
+				</div>
+				
 				<div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
 					<div class="row">
-
-						<table class="table table-striped">
-							<thead>
-								<tr>
-
-									<th>Назва тесту</th>
-									<th>Автор</th>
-									<th>Перевірити</th>
-
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-
-									<td>тест 1</td>
-									<td>Петро</td>
-									<td><a href="#modal-edit" data-toggle="modal"
-										data-target="#modal-edit" class="btn btn-success btn-mini">Check</a>
-									</td>
-
-								</tr>
-								<tr>
-
-									<td>тест 2</td>
-									<td>Василь</td>
-									<td><a href="#modal-edit" data-toggle="modal"
-										data-target="#modal-edit" class="btn btn-success btn-mini">Check</a>
-									</td>
-
-								</tr>
-								<tr>
-
-									<td>тест 3</td>
-									<td>Іван</td>
-									<td><a href="#modal-edit" data-toggle="modal"
-										data-target="#modal-edit" class="btn btn-success btn-mini">Check</a>
-									</td>
-
-								</tr>
-							</tbody>
-						</table>
+					
+					<table id="table_result" class="table">
+                                <tbody class="text-center">
+                                <tr >
+                                    <th class="text-center">Назва тесту</th>
+                                    <th class="text-center">Автор</th>
+                                    <th class="text-center">Перевірити</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tbody>
+                            </table>
+						
 					</div>
 				</div>
 				<br>
@@ -239,5 +208,8 @@ color: #5bc0de;
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/components.js"></script>
+	<script>
+	
+</script>
 </body>
 </html>
