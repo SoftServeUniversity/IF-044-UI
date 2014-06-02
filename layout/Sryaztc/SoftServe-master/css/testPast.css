@@ -20,14 +20,7 @@ main{
   text-align: center;
 }
 
-input[type=checkbox]{
-  display: none;
-}
-input[type=checkbox]:checked + label {
-  color: #3276B1;
-  font-style: italic;
-  text-decoration: underline;
-}
+
 
 input[type=checkbox] + label {
   margin-left: 3px;
