@@ -7,16 +7,16 @@ var addTest = function(item) {
 }
 
 function printResult () {
-	console.log(testsResult);
+	//console.log(testsResult[0][0].name);
 	var table = document.getElementById("table_result");
-    for(i=0; i < Tests.length;i++) {
+    for(i=0; i < testsResult.length;i++) {
       var row = table.insertRow(table.rows.length);
       var cell = row.insertCell(-1);
-      cell.innerHTML = Tests[i].name;
+      cell.innerHTML = testsResult[i][i].name;
       var cell = row.insertCell(-1);
-      cell.innerHTML = Tests[i].author;
+      cell.innerHTML = testsResult[i][i].author;
       var cell = row.insertCell(-1);
-      cell.innerHTML = '<a href=" '+ Tests[i].url +' ">Перевірити</a>';
+      cell.innerHTML = '<a href=" '+ testsResult[i][i].url +' ">Перевірити</a>';
       
     }
 }
