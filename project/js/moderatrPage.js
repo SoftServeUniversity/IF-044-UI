@@ -134,18 +134,21 @@ window.onload = function() {
             editText.textContent = this.textContent;
             insertAfter(editText, this);
 
-            function saveChange() {
+            function saveChange(e) {
                 var test = that.getAttribute("forLocalstorage");
-                console.log(test);
+              //  console.log(test);
                 var globalTests = JSON.parse(localStorage.Tests);
                 var changeText = document.querySelectorAll('.edit-textarea')[0].value;
-                if (window.event.srcElement.className !== 'edit-textarea') {
+                var e = e||window.event;
+                console.log(e);
+                console.log(e.target.className);
+                if (e.target.className !== 'edit-textarea') {
                     document.querySelectorAll('.edit-textarea')[0].parentNode.removeChild(document.querySelectorAll('.edit-textarea')[0]);
                     that.textContent = changeText;
                     eval(test + '="' + changeText + '"');
-                    console.log(test + '="' + changeText + '"');
-                    console.log('_______');
-                    console.log(globalTests);
+                    //console.log(test + '="' + changeText + '"');
+                    //console.log('_______');
+                   // console.log(globalTests);
                     localStorage.Tests = JSON.stringify(globalTests);
                     document.querySelectorAll('body')[0].removeEventListener('click', saveChange);
                 }
