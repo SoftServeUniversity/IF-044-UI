@@ -474,13 +474,13 @@ function generalStatisticModule() {
 
  
     
-function changeCssOnCheckboxes() {
+function changeCssOnElements() {
 
     var filtersBox = document.getElementById('filtersBox');
     var tabs = document.getElementsByClassName('tabs');
     var tabsNav = document.getElementsByClassName('nav-tabs')[0];
 
-    //   делегує подію на чекбоксах на загального батька, і роздає або забирає лейблам бекгрунд-колор
+    //   делегує подію з чекбокса на загального батька, і роздає або забирає лейблам бекгрунд-колор
     // відповідно до того на якому чекбоксі відбулась подія
 
     filtersBox.onclick = function(e) {
@@ -495,6 +495,8 @@ function changeCssOnCheckboxes() {
                 };
     };
 
+
+    // провіряє наявність класу в певного обєкта і видаляє його
     
     function removeClass(obj, cls) {
         var classes = obj.className.split(' ');
@@ -511,7 +513,7 @@ function changeCssOnCheckboxes() {
 }
 
 
-
+  // перевіряє таби на наявність класу Актів і в відповідності до нього відображає/скриває сорт лісти
 
     tabsNav.onclick = function(e) {
         var ageList = document.getElementById('ageList');
