@@ -14,12 +14,13 @@
 
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="json/data.json"></script>
 <style type="text/css">
   .MyClass:before{
-    content: '\2714';
+    content: '\2714'; 
     position: relative;
-    right: 10px;
-  }
+    right: 10px;}
+  
 
   .MyClass{
     color: green;
@@ -32,7 +33,7 @@
     }
 </style>
 </head>
-<body class="container-fluid">
+<body class="container-fluid" onload="testStructure(0)">
   <div id="outer-wrapper" class="container">
     <div id="inner-wrapper" class="container">
     <header class="row">
@@ -68,150 +69,30 @@
           <div class="row">
             <div class="col-lg-5 col-sm-offset-1">
 
-              <h2>Види куренів</h2>
-
-              <a href="#"> <u><i>Курені</i></u> 
+              <h2 ></h2>
+              <a href="#"> <u><i id="Category"></i></u> 
               </a>
               >
-              <a href="#"> <u><i>Підкатегорія</i></u> 
+              <a href="#"> <u><i id="SubCategory"></i></u> 
               </a>
 
             </div>
           </div>
           <br>
           <br>
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1">
-                <div >
-                  <div class="pos"> <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  
-                  <label onClick="answer(this)" class="aq1">Відповідь 1</label>
-                  <br>
-               
-                  <label onClick="answer(this)" class="aq1">Відповідь 1</label>
-                  <br>
-                 
-                  <label onClick="answer(this)" class="aq1">Відповідь 1</label>
-                  <br></div>
-              </div>
+          <div class="col-lg-12 page">
+          </div>
 
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1 block">
-                <div>
-                  <div class="pos"> <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1">
-                <div>
-                  <div class="pos">
-                    <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br></div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1">
-                <div>
-                  <div class="pos">
-                    <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br></div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1">
-                <div>
-                  <div class="pos">
-                    <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br></div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-sm-offset-1">
-                <div>
-                  <div class="pos">
-                    <strong>1.</strong>
-                  </div>
-                  Loreum Impasium - це текст "Риба", що використовується в друкурстві та дизайні. Loreum Impasium є фактично стандартною 'рибою' аж до XVI сторіччя, коли невідмий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів
-                  <br></div>
-                <div class="col-lg-5 answer-spase">
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br>
-                  <input type="checkbox" name="q">
-                  <label onClick="answer(this)">Відповідь 1</label>
-                  <br></div>
-              </div>
-
-            </div>
             <div class="center">
-            <a href="score.html"><button class="btn-lg btn-success bnt-next" onClick='result()'>Результат</button></a>
+            
+            <a href="score.html" id="next"><button class="btn-lg btn-success bnt-next"  onClick='result()'>Результат</button></a>
             </div>
             <br></div>
         </div>
+
       </main>
     </div>
-  </div>
+
   <footer class="container">
     <div id="footer-container">
       <nav id="footer-menu">
