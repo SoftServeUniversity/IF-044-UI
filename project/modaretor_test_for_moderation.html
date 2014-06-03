@@ -14,10 +14,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<script src="json/data.json"></script>
-<script src="js/category_search.js"></script>
-
-
 
 </head>
 <body class="container-fluid">
@@ -96,13 +92,9 @@
 			</div>
 			<main>
 			<style>
-.filter-title {
-	font-size: 24px;
-	color: #428bca;
-}
-
-.reset {
-	color: #428bca;
+			
+.categorySelected {
+	color: #5bc0de;
 }
 
 label {
@@ -114,63 +106,27 @@ label {
 			<hr>
 			<div class="row">
 				<div class="col-xs-12 col-lg-4 col-md-4 col-sm-4">
-					<style>
-.filter-title {
-	font-size: 24px;
-	color: #428bca;
-}
-
-.reset {
-	color: #428bca;
-}
-
-label {
-	margin: 0;
-	font-weight: normal;
-}
-
-.filter-search>div {
-	color: #5bc0de;
-	cursor: pointer;
-	/*                                border-right:solid 2px blue; ; */
-}
-
-.categorySelected {
-	color: #5bc0de;
-}
-
-.categoryParentSelected {
-	color: #5bc0de;
-}
-
-.curent-filter {
-	font-weight: bold;
-	border-right: solid 3px;
-}
-</style>
 
 					<div id="categoriesContainer" class="row"></div>
-					
-				<!--button class="btn btn-primary btn-xs 
-glyphicon glyphicon-search" onclick="printResult()"></button-->
+
+					<button class="btn btn-primary btn-xs glyphicon glyphicon-search"
+						onclick="printResult()"></button>
 				</div>
-				
+
 				<div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
 					<div class="row">
-					
-					<table id="table_result" class="table">
-                                <tbody class="text-center">
-                                <tr >
-                                    <th class="text-center">Назва тесту</th>
-                                    <th class="text-center">Автор</th>
-                                    <th class="text-center">Перевірити</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                                </tbody>
-                            </table>
-						
+
+						<table id="table_result" class="table">
+							<tbody class="text-center">
+								<tr>
+									<th class="text-center">Назва тесту</th>
+									<th class="text-center">Автор</th>
+									<th class="text-center">Перевірити</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<br>
@@ -202,14 +158,11 @@ glyphicon glyphicon-search" onclick="printResult()"></button-->
 			</p>
 		</div>
 	</footer>
-
-
+	<script src="json/data.json"></script>
+	<script src="js/category_search.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/components.js"></script>
-	<script>
-	
-</script>
 </body>
 </html>

@@ -52,7 +52,7 @@ function check_input() {
 		re_passwd.style.borderColor = "red";
 
 	} else
-
+		window.location = "profile.html"
 		localStorage.setItem('username', user.value);
 	localStorage.setItem('password', passwd.value);
 	localStorage.setItem('re_passwd', re_passwd.value);
@@ -63,7 +63,7 @@ function check_input() {
 	localStorage.setItem('org_troop1', org_troop1.value);
 	localStorage.setItem('org_region1', org_region1.value);
 	localStorage.setItem('org_level1', org_level1.value);
-	window.location = "profile.html"
+	
 }
 
 	
