@@ -370,8 +370,7 @@ function generalStatisticModule() {
         };
     }
 
-    /*       модуль бере дату початку пошуку і дату кінця, заповнює простір між ними потрібними місяцями і
-       відсортовує кожну дату проходження тесту по приналежності до певного місяця*/
+    /*       модуль бере дату початку пошуку і дату кінця, заповнює простір між ними потрібними місяцями */
 
     function monthParser() {
 
@@ -401,7 +400,7 @@ function generalStatisticModule() {
             for (var i = 0; i < monthArr.length; i++) {
                 if (startDateObj.startMonth === monthArr[i]) {
                     newArr.push({
-                        month: monthArr[i],
+                        month: monthArr[i], 
                         year: variableYear
                     });
                     for (var k = i + 1; monthArr[k] !== startDateObj.endMonth; k++) {
@@ -446,6 +445,8 @@ function generalStatisticModule() {
     }
 
 
+ /*      відсортовує кожну дату проходження тесту по приналежності до певного місяця*/
+
     function passedTestsCounter() {
         for (var m = 0; m < tempArr.length; m++) {
             var newArr = []
@@ -467,9 +468,21 @@ function generalStatisticModule() {
 
 
 
-    $('#main-content').highcharts(GlobalObj);
+    $('#stat1').highcharts(GlobalObj);
+}
+
+
+ 
+    
+function changeCssOnCheckboxes() {
 
     var filtersBox = document.getElementById('filtersBox');
+    var tabs = document.getElementsByClassName('tabs');
+    var tabsNav = document.getElementsByClassName('nav-tabs')[0];
+
+    //   делегує подію на чекбоксах на загального батька, і роздає або забирає лейблам бекгрунд-колор
+    // відповідно до того на якому чекбоксі відбулась подія
+
     filtersBox.onclick = function(e) {
         var target = e && e.target || event.srcElement;
 
@@ -481,6 +494,42 @@ function generalStatisticModule() {
                     target.parentNode.style.backgroundColor = '#0490ba';
                 };
     };
+
+    
+    function removeClass(obj, cls) {
+        var classes = obj.className.split(' ');
+ 
+        for(var i=0; i<classes.length; i++) {
+           if (classes[i] == cls) {
+              classes.splice(i, 1); // удалить класс  
+
+               i--; // (*)
+            }
+        }
+  obj.className = classes.join(' ');
+    
+}
+
+
+
+
+    tabsNav.onclick = function(e) {
+        var ageList = document.getElementById('ageList');
+        var gradeList = document.getElementById('gradeList');
+        
+            if(tabs[0].className === 'tabs active' || tabs[1].className === 'tabs active' ) {
+                gradeList.className += ' hideElem';
+                ageList.className += ' hideElem';
+            } else if(tabs[2].className === 'tabs active') {
+                gradeList.className += ' hideElem';
+                removeClass(ageList, 'hideElem');
+            } else if(tabs[3].className === 'tabs active') {
+                ageList.className += ' hideElem';
+                removeClass(gradeList, 'hideElem');
+            };
+
+        };
+
 }
 
 //

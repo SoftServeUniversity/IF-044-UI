@@ -83,12 +83,13 @@
 .sort-list ul li label:hover {
 	text-decoration: none;
 	background-color: #0490ba;
-	color: white;
-} 
+}
 
 #gradeList {
 	width: 80%;
-	padding-right: 11%;
+	padding-right: 12%;
+	margin-top: -20px;
+	padding-bottom: 20px;
 }
 
 #gradeList ul li label {
@@ -97,5 +98,9 @@
 
 #statistic .row {
 	padding: 0 15px;
+}
+
+.hideElem {
+	display: none;
 }
 

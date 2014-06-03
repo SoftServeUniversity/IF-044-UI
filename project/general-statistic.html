@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div id="filtersBox" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <nav class="sort-list">
+                    <nav class="sort-list" id="ageList">
                         <span>Вік</span>
                         <ul>
                             <li><label><input type="checkbox">До 14 років</label></li>
@@ -135,6 +135,18 @@
                     <a onclick="generalStatisticModule()" class="btn btn-primary">OK</a>
                     </div>
                     <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <ul class="nav nav-tabs">
+                          <li class="active tabs"><a href="#stat1">Home</a></li>
+                          <li class="tabs"><a href="#stat2">Profile</a></li>
+                          <li class="tabs"><a href="#stat3">Messages</a></li>
+                          <li class="tabs"><a href="#stat4">News</a></li>
+                        </ul>
+                        <div class="tab-content">
+                           <div class="tab-pane active" id="stat1"></div>
+                           <div class="tab-pane" id="stat2"></div>
+                           <div class="tab-pane" id="stat3"></div>
+                           <div class="tab-pane" id="stat4"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -169,6 +181,13 @@
         weekStart: 1,
         viewMode:'months'
     });
+
+    $('.nav-tabs a').click(function (e) {
+        e.preventDefault()
+       $(this).tab('show')
+    });
+
+    changeCssOnCheckboxes();
 </script>
 </body>
 </html>
