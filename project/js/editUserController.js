@@ -17,8 +17,8 @@ EditUserController.prototype.fillData = function(index) {
 	var email = this.getElement('email');
 	var birthday = this.getElement('birthday1');
 
-	if (Users && Users.length > 0 && Users[index]) {
-		this.currentUser = Users[index];
+	if (Model.date.Users && Model.date.Users.length > 0 && Model.date.Users[index]) {
+		this.currentUser = Model.date.Users[index];
 		// alert('Location is ' + this.currentUser.location);
 		first_name.value = this.currentUser.firstName;
 		last_name.value = this.currentUser.lastName;
