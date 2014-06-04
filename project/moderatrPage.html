@@ -13,9 +13,14 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/data.json"></script>
+<!--    <script src="json/data.json"></script>-->
+    <script src="json/new_data.js"></script>
     <script src="js/moderatrPage.js"></script>
-
+<script>
+    if(JSON.parse(localStorage.user_session).user_role!==2){
+        window.location = "index.html";
+    }
+</script>
 </head>
 <body class="container-fluid">
 <div id="outer-wrapper" class="container">

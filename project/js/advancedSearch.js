@@ -8,8 +8,9 @@ if(localStorage.Categories == "undefined" || !localStorage.Categories){
     localStorage.Categories = JSON.stringify(Categories); 
 }     
 
- Tests = JSON.parse(localStorage.Tests);
- Categories = JSON.parse(localStorage.Categories);
+ Tests = Model.date.Tests;
+ //Categories = JSON.parse(localStorage.Categories);
+ Categories =  Model.date.Tests_categories;
     
 var place_for_filter = document.querySelectorAll('.filter-search')[0];
 var content = '';
@@ -76,7 +77,7 @@ showAllcontaining = function(value, category, sub_category){
                tags += '<li><a href="">' + Tests[i].tags[j] + '</a></li>'; 
             }
         }
-        row_results.innerHTML += '                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well">                                <h3 class="title-post-name">          <a style="text-decoration: none;" href="#">'+Tests[i].name+'</a>                              </h3>                                <p class="text-justify ">'+Tests[i].descr+'</p><div class="col-xs-12"><ul class="search-teg">'+tags+' </ul>                                </div></div>';          
+        row_results.innerHTML += '                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well">                                <h3 class="title-post-name">          <a style="text-decoration: none;" href="#">'+Tests[i].name+'</a>                              </h3>                                <p class="text-justify ">'+Tests[i].description+'</p><div class="col-xs-12"><ul class="search-teg">'+tags+' </ul>                                </div></div>';          
       }  
         } else{
            showEmpty(); 

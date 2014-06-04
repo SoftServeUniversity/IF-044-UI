@@ -1,9 +1,11 @@
 	if(localStorage.currentIndexTest){
 		var currentIndexTest = JSON.parse(localStorage.currentIndexTest);
 	}else{
-		var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
-		//var currentIndexTest = 2;
+		//var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
 	}
+		var currentIndexTest = 0;
+		
+		
 function printComments(e, place_for_comment, lastIndexComment, comments) {
     var newDiv = document.createElement('div');
     newDiv.className = "col-lg-10 text-justify";
@@ -23,30 +25,20 @@ function addComment(e) {
     var coments;
     var day = new Date();
     var month = [];
-    month[0] = "січ";
-    month[1] = "лют";
-    month[2] = "бер";
-    month[3] = "кві";
-    month[4] = "тра";
-    month[5] = "чер";
-    month[6] = "лип";
-    month[7] = "сер";
-    month[8] = "вер";
-    month[9] = "жов";
-    month[10] = "лис";
-    month[11] = "гру";
+    month[0] = "січ"; month[1] = "лют";  month[2] = "бер";  month[3] = "кві"; month[4] = "тра"; month[5] = "чер"; month[6] = "лип"; month[7] = "сер"; month[8] = "вер"; month[9] = "жов"; month[10] = "лис"; month[11] = "гру";
     var timeCreateComments = day.getDate() + " " + month[day.getMonth()] + " о " + day.getHours() + ":" + day.getMinutes();
     console.log(timeCreateComments);
-    if (localStorage.comment) {
+    if (Model.date.comment) {
         console.log('local true');
-        commentArray = JSON.parse(localStorage.comment);
+        commentArray = Model.date.comment;
         commentArray.push({
             comment: comment,
             test_id : currentIndexTest,
             timeCreate: timeCreateComments
         })
         //console.log(commentArray);
-        localStorage.comment = JSON.stringify(commentArray);
+        //localStorage.comment = JSON.stringify(commentArray);
+		Model.save_localStorage();
     } else {
         console.log('local false');
         var commentArray = [{
@@ -54,9 +46,11 @@ function addComment(e) {
             test_id : currentIndexTest,
             timeCreate: timeCreateComments
         }];
-        localStorage.comment = JSON.stringify(commentArray);
+		Model.date.comment = commentArray;
+		Model.save_localStorage();
+        //localStorage.comment = JSON.stringify(commentArray);
     }
-    comments = JSON.parse(localStorage.comment);
+    comments = Model.date.comment;
     console.log(coments);
     var lastIndexComment = comments.length - 1;
     if (lastIndexComment == 0) {
@@ -67,23 +61,25 @@ function addComment(e) {
     } catch (e) {
         console.log(e);
     }
+	return false;
 
 }
 window.onload = function() {
-    if (localStorage.comment) {
+    if (Model.date.comment) {
         var lastIndexComment = true;
-        var comments = JSON.parse(localStorage.comment)
+        var comments = Model.date.comment;
     } else {
         var comments = null;
     }
     console.log(comments);
     printComments(document.getElementById("add-comment"), '.place_for_comment', lastIndexComment, comments);
     console.log("document.onload");
-    if (localStorage.Tests == "undefined" || !localStorage.Tests) {
+    if (!Model.date.Tests) {
         console.log('tests storage false');
         localStorage.Tests = JSON.stringify(Tests);
     }
-    Tests = JSON.parse(localStorage.Tests);
+    //Tests = JSON.parse(localStorage.Tests);
+    Tests = Model.date.Tests;
 
 
     var place_for_test = document.querySelectorAll('.content-test')[0];
@@ -136,8 +132,8 @@ window.onload = function() {
 
             function saveChange(e) {
                 var test = that.getAttribute("forLocalstorage");
-              //  console.log(test);
-                var globalTests = JSON.parse(localStorage.Tests);
+//                var globalTests = JSON.parse(localStorage.Tests);
+                var globalTests = Model.date.Tests;
                 var changeText = document.querySelectorAll('.edit-textarea')[0].value;
                 var e = e||window.event;
                 console.log(e);
@@ -149,7 +145,11 @@ window.onload = function() {
                     //console.log(test + '="' + changeText + '"');
                     //console.log('_______');
                    // console.log(globalTests);
-                    localStorage.Tests = JSON.stringify(globalTests);
+//                    localStorage.Tests = JSON.stringify(globalTests);
+					  Model.date.Tests = globalTests;
+					  Model.save_localStorage();
+					  
+                    
                     document.querySelectorAll('body')[0].removeEventListener('click', saveChange);
                 }
             }
@@ -167,14 +167,19 @@ window.onload = function() {
         //console.log(place_for_comment);
     })()
     document.getElementById('public1').addEventListener('click',function(){
-        var globalTests = JSON.parse(localStorage.Tests);
-        globalTests[currentIndexTest].public = 1;
-        localStorage.Tests = JSON.stringify(globalTests);
+//        var globalTests = JSON.parse(localStorage.Tests);
+        var globalTests = Model.date.Tests;
+        globalTests[currentIndexTest].status.id = 4;
+		globalTests[currentIndexTest].status.name_status = "опублікований";
+		Model.save_localStorage();
+        //localStorage.Tests = JSON.stringify(globalTests);
     })
     document.getElementById('public0').addEventListener('click',function(){
-        var globalTests = JSON.parse(localStorage.Tests);
-        globalTests[currentIndexTest].public = 0;
-        localStorage.Tests = JSON.stringify(globalTests);
+        var globalTests = Model.date.Tests;
+        globalTests[currentIndexTest].status.id = 0;
+        globalTests[currentIndexTest].status.name_status = "завернутий";
+		Model.save_localStorage();
+        //localStorage.Tests = JSON.stringify(globalTests);
     })    
 
 }
