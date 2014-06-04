@@ -172,7 +172,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361],
+status:3
 },
 {   test_id: 2,
     name: 'Тест 2',
@@ -243,7 +244,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
+status:2
 },
 {   test_id: 3,
     name: 'Тест 3',
@@ -314,7 +316,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
+status:1
 },
 {   test_id: 4,
     name: 'Тест 4',
@@ -385,7 +388,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
+status:0
 },
 {   test_id: 5,
     name: 'Тест 5',
@@ -456,7 +460,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
+status:3
 },
 {   test_id: 6,
     name: 'Тест 6',
@@ -527,7 +532,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
+status:3
 },
 {   test_id: 7,
     name: 'Тест 7',
@@ -598,7 +604,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
+status:3
 },
 {   test_id: 8,
     name: 'тест 8',
@@ -669,7 +676,8 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1390718456676, 1401431224657, 1301431224657, 1201431224657]
+    passed_date: [1401211224657, 1390718456676, 1401431224657, 1301431224657, 1201431224657],
+    status:2
 }
 
 ]
