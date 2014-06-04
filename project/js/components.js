@@ -301,7 +301,7 @@ function generalStatisticModule() {
 
         graphicTitles('Загальний середній бал', 'По часу', 'Середній бал', '');
 
-        crateSingleSeries('загальний середній бал');
+        crateSingleSeries('заг. сер. бал');
 
         dateParser();
 
@@ -324,17 +324,18 @@ function generalStatisticModule() {
             for(var k = 0; k<categories.length; k++){
                 for(var m = 0; m<categories[k].length; m++){
                     var val = new Date(categories[k][m].passed_date).toDateString().split(' ');
-                    if (val[1] === tempArr[m].month && parseInt(val[3], 10) === tempArr[m].year) {
-                        newArr.push(categories[i][k].score);
+                    if (val[1] === tempArr[i].month && parseInt(val[3], 10) === tempArr[i].year) {
+                        newArr.push(categories[k][m].score);
                 };
             };
 
                 for(var l = 0; l<newArr.length; l++){
                     a += newArr[l];
                 }
+                
+              if(a === 0){a = 0} else {a = a / newArr.length};
 
-                a = (a / newArr.length);
-                GlobalObj.series[i].data.push(a);
+                GlobalObj.series[k].data.push(a);
                 newArr = []; 
             };    
         };
