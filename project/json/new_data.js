@@ -1,19 +1,84 @@
 ﻿var Application = {
 	Users: [
 				  {id:1,
-                  username: 'Taras',
-                  lastName: '',
-				  role_id :1,
+          username: 'Tolik',
+          firstName: 'dsfgdfg',
+          lastName: 'dfgfdg',
+          group: '',
+				  role_id:1,
 				  location: "Ukraine",
+          username: "some login",
+          name: "Клюшта Тарас Васильович", 
 				  email: "tarasklyushta@gmail.com",
 				  password: "1234",
-				  birthday: "28.12.1990",
+          re_passwd: "1234",
+				  birthday: "28-12-1990",
+          statusname: '',
+          org_level: '',
 				  org_troop: "some troop",
 				  org_region: "Івано-Франківськ",
 				  org_group: "some group",
-				  login_status: "don't know"
+				  login_status: 0
 					
-				  }
+				  },
+                  {id:2,
+                  username: 'Vasyl',
+                  firstName: 'jkghjdfg',
+                  lastName: 'fdghfgdjj',
+                  group: '',
+                  role_id:1,
+                  location: "Ukraine",
+                  email: "tarasklyushta@gmail.com",
+                  password: "4321",
+                  re_passwd: "4321",
+                  birthday: "28-12-1990",
+                  statusname: '',
+                  org_level: '',
+                  org_troop: "some troop",
+                  org_region: "Івано-Франківськ",
+                  org_group: "some group",
+                  login_status: 0
+                    
+                  },
+                  {id:3,
+                  username: 'Valera',
+                  firstName: 'sdgdh',
+                  lastName: 'sdfdgg',
+                  group: '',
+                  role_id:1,
+                  location: "Ukraine",
+                  email: "tarasklyushta@gmail.com",
+                  password: "1234",
+                  re_passwd: "1234",
+                  birthday: "28-12-1990",
+                  statusname: '',
+                  org_level: '',
+                  org_troop: "some troop",
+                  org_region: "Івано-Франківськ",
+                  org_group: "some group",
+                  login_status: 0
+                    
+                  },
+                  {id:4,
+                  username: 'Vova',
+                  firstName: 'dfsgjfj',
+                  lastName: 'fgsjgjgj',
+                  group: '',
+                  role_id:1,
+                  location: "Ukraine",
+                  email: "tarasklyushta@gmail.com",
+                  password: "1234",
+                  re_passwd: "1234",
+                  birthday: "28-12-1990",
+                  statusname: '',
+                  org_level: '',
+                  org_troop: "some troop",
+                  org_region: "Івано-Франківськ",
+                  org_group: "some group",
+                  login_status: 0
+                    
+                  }
+                                
 			],
 	Tests: [
 				 {id: 1,
@@ -103,7 +168,8 @@
 						  },
 				  subcategory: 4,
 				  category: 1,
-				  date: "some  date create..."
+				  date: "some  date create...",
+                  passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
 				 }
 			],
 	Tests_categories: [
@@ -277,68 +343,74 @@
 						}	
 						
 					],
-     Result : [
-    {
+ Result: [
+    {   id: 1,
         u_id : 1,
         name : 'Test Name1',
         test_id: 1,
         passed_date: 1391431224657,
-        score : 11
+        score : 11,
+        user_rank: ''
     },
-    {
+    {   id: 2,
         u_id : 3,
         name : 'Test Name2',
         test_id: 2,
         passed_date: 1301431224657, 
-        score : 4
+        score : 4,
+        user_rank: ''
     },
-    {
+    {   id: 3,
         u_id : 2,
         name : 'Test Name2',
         test_id: 2,
         passed_date:1390718456676,
-        score : 3
+        score : 3,
+        user_rank: ''
     },
-    {
+    {   id: 4,
         u_id : 2,
         name : 'Test Name2',
         test_id: 2,
         passed_date:1499031224657,
-        score : 1
+        score : 1,
+        user_rank: ''
     },
-    {
+    {   id: 5,
         u_id : 4,
         test_id: 6,
         name : 'Test Name6',
         passed_date:1201431224657,
-        score : 7
+        score : 7,
+        user_rank: ''
     },
-    {
+    {   id: 6,
         u_id : 2,
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
-        score : 8
+        score : 8,
+        user_rank: ''
     }
 ],
     User_roles: [
 					{
-						id: 1,
-						role_name: "авторизований користувач"
+						id: 0,
+						role_name: "авторизований користувач",
 					},
 					{
-						id: 2,
-						role_name: "модератор"
+						id: 1,
+						role_name: "модератор",
 					},	
 					{
-						id: 3,
-						role_name: "адміністратор"
+						id: 2,
+						role_name: "адміністратор",
 					}					
-				]
+				],		
 }
 function model(date_in){
 	if(!localStorage.Application){
-		console.log('loc false')
+		console.log('loc false');
 		localStorage.Application = JSON.stringify(date_in);
 	}
 	this.save_localStorage = function(){
@@ -351,7 +423,7 @@ function model(date_in){
 var Model = new model(Application);
 Model.load_localStorage();
 
-console.log(Model.date);
+//console.log(Model.date);
 
 
 
