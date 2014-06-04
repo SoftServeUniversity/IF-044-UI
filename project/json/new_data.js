@@ -2,8 +2,7 @@
 	Users: [
 				  {id:1,
                   username: '',
-                  lastName:
-				  role_id:1,
+				  role_id: 1,
 				  location: "Ukraine",
                   username: "some login",
                   name: "Клюшта Тарас Васильович", 
@@ -305,7 +304,7 @@
 						}	
 						
 					],
-    var Result = [
+     Result : [
     {
         u_id : 1,
         name : 'Test Name1',
@@ -346,9 +345,9 @@
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
-        score : 8,
+        score : 8
     }
-];
+],
     User_roles: [
 					{
 						id: 0,
