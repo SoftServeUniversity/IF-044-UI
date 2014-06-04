@@ -25,7 +25,7 @@ function chengestatus(){
 function showAll(){
 	var content_table = '';
 	for(var i = 0;i<Model.date.Users.length;i++){
-		content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].name+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs button_change_status' >ЗМІНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
+		content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].username+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs button_change_status' >ЗМІНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
 		console.log(Model.date.Users[i]);
 	}
 	place_for_table.innerHTML = content_table;
