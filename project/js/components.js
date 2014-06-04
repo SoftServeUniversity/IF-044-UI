@@ -313,6 +313,23 @@ function generalStatisticModule() {
 
         $('#stat2').highcharts(GlobalObj);
          
+    } else if(tabs[2].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу та віку', 'Середній бал', '');
+
+        activeCheckboxChecking('ageList-checkbox');
+
+        dateParser();
+
+
+    } else if(tabs[3].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу та ступені', 'Середній бал', '');
+
+        activeCheckboxChecking('gradeList-checkbox');
+
+        dateParser();
+
     }
 
 
@@ -351,7 +368,22 @@ function generalStatisticModule() {
                 categories[0].push(Result[i]);
             };
         };
-     }
+     };
+
+     function fillSeries2() {
+        for(var i = 0; i<Result.length; i++) {
+            if(dateInterval.startMiliseconds < Result[i].passed_date && Result[i].passed_date < dateInterval.endMiliseconds) {
+               for(var k = 0; k<Users.length; k++) {
+                  if(Result[i].u_id === Users[k].id){
+                       var a = Date.parse(Users[k].birthday);
+                       if(a){}
+                   }
+                }
+
+              /*  categories[0].push(Result[i]);*/
+            };
+        };
+     };
 
 
     
@@ -368,6 +400,17 @@ function generalStatisticModule() {
         GlobalObj.yAxis.title.text = yAxisTitle;
         GlobalObj.tooltip.valueSuffix = tooltip;
 
+    }
+
+
+    function activeCheckboxChecking(className){
+       var checkboxes = document.getElementsByClassName(className);
+
+        for(var i =0; i<checkboxes.length; i++) {
+            if(checkboxes[i].checked) {
+                crateSingleSeries(checkboxes[i].parentNode.childNodes[1].data);  
+            };
+        };
     }
 
 
