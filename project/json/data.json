@@ -680,32 +680,86 @@ var Categories = [
 	{
 		id: 1,
 		name: "Спорт",
-		parent_id: 0
+		parent_id: 0,
+        getSubcategories: function(id) {
+            var result = [];
+            for ( var i = 0 ; i < Categories.length ; i++ ) {
+                if ( Categories[i].parent_id === id) {
+                    result.push(Categories[i]);
+                };
+            };
+            return result;
+        }
 	},
 	{
 		id: 2,
 		name: "туризм",
-		parent_id: 0
+		parent_id: 0,
+        getSubcategories: function(id) {
+            var result = [];
+            for ( var i = 0 ; i < Categories.length ; i++ ) {
+                if ( Categories[i].parent_id === id) {
+                    result.push(Categories[i]);
+                };
+            };
+            return result;
+        }
 	},
 	{
 		id: 3,
 		name: "пдр",
-		parent_id: 0
+		parent_id: 0,
+        getSubcategories: function(id) {
+            var result = [];
+            for ( var i = 0 ; i < Categories.length ; i++ ) {
+                if ( Categories[i].parent_id === id) {
+                    result.push(Categories[i]);
+                };
+            };
+            return result;
+        }
 	},
 	{
 		id: 4,
 		name: "підкатегорія",
-		parent_id:1 
+		parent_id:1,
+        getSubcategories: function(id) {
+            var result = [];
+            for ( var i = 0 ; i < Categories.length ; i++ ) {
+                if ( Categories[i].parent_id === id) {
+                    result.push(Categories[i]);
+                };
+            };
+            return result;
+        } 
 	},
 	{
 		id: 5,
 		name: "підкатегорія",
-		parent_id:1 
+		parent_id:1,
+        getSubcategories: function(id) {
+            var result = [];
+            for ( var i = 0 ; i < Categories.length ; i++ ) {
+                if ( Categories[i].parent_id === id) {
+                    result.push(Categories[i]);
+                };
+            };
+            return result;
+        } 
 	},
 	{
 		id: 6,
 		name: "підкатегорія",
-		parent_id:1 
+		parent_id:1,
+        getSubcategories: function(id) {
+            var result = [];
+            for ( var i = 0 ; i < Categories.length ; i++ ) {
+                if ( Categories[i].parent_id === id) {
+                    result.push(Categories[i]);
+                };
+            };
+            return result;
+        } 
 	},
 	{
 		id: 7,

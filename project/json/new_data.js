@@ -1,6 +1,8 @@
 ﻿var Application = {
 	Users: [
 				  {id:1,
+                  username: '',
+                  lastName:
 				  role_id:1,
 				  location: "Ukraine",
                   username: "some login",
@@ -136,65 +138,217 @@
 						{
 							id: 1,
 							name: "Спорт",
-							parent_id: 0
+							parent_id: 0,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            }
 						},
 						{
 							id: 2,
 							name: "туризм",
-							parent_id: 0
+							parent_id: 0,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            }
 						},
 						{
 							id: 3,
 							name: "пдр",
-							parent_id: 0
+							parent_id: 0,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            }
 						},
 						{
 							id: 4,
 							name: "підкатегорія",
-							parent_id:1 
+							parent_id:1,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 5,
 							name: "підкатегорія",
-							parent_id:1 
+							parent_id:1,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 6,
 							name: "підкатегорія",
-							parent_id:1 
+							parent_id:1,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 7,
 							name: "підкатегорія",
-							parent_id:2 
+							parent_id:2,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 8,
 							name: "підкатегорія",
-							parent_id:2
+							parent_id:2,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            }
 						},
 						{
 							id: 9,
 							name: "підкатегорія",
-							parent_id:2 
+							parent_id:2,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 10,
 							name: "підкатегорія",
-							parent_id:3 
+							parent_id:3,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 11,
 							name: "підкатегорія",
-							parent_id:3 
+							parent_id:3,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						},
 						{
 							id: 12,
 							name: "підкатегорія",
-							parent_id:3 
+							parent_id:3,
+                            getSubcategories: function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Categories.length ; i++ ) {
+                                    if ( Categories[i].parent_id === id) {
+                                        result.push(Categories[i]);
+                                    };
+                                };
+                                return result;
+                            } 
 						}	
 						
 					],
+    var Result = [
+    {
+        u_id : 1,
+        name : 'Test Name1',
+        test_id: 1,
+        passed_date: 1391431224657,
+        score : 11,
+    },
+    {
+        u_id : 3,
+        name : 'Test Name2',
+        test_id: 2,
+        passed_date: 1301431224657, 
+        score : 4,
+    },
+    {
+        u_id : 2,
+        name : 'Test Name2',
+        test_id: 2,
+        passed_date:1390718456676,
+        score : 3,
+    },
+    {
+        u_id : 2,
+        name : 'Test Name2',
+        test_id: 2,
+        passed_date:1499031224657,
+        score : 1,
+    },
+    {
+        u_id : 4,
+        test_id: 6,
+        name : 'Test Name6',
+        passed_date:1201431224657,
+        score : 7,
+    },
+    {
+        u_id : 2,
+        name : 'Test Name4',
+        test_id: 4,
+        passed_date:1401818456676,
+        score : 8,
+    }
+];
     User_roles: [
 					{
 						id: 0,
@@ -208,17 +362,7 @@
 						id: 2,
 						role_name: "адміністратор",
 					}					
-				],
-   Passed_tests_date: [
-							{
-								test_id: "",
-								date: ""
-							},
-							{
-								test_id: "",
-								date: ""
-							}							
-					  ]				
+				],		
 }
 function model(date_in){
 	if(!localStorage.Application){
