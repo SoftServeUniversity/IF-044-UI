@@ -339,7 +339,7 @@
 						}	
 						
 					],
- Result = [
+ Result: [
     {   id: 1,
         u_id : 1,
         name : 'Test Name1',
@@ -388,7 +388,7 @@
         score : 8,
         user_rank: ''
     }
-]
+],
     User_roles: [
 					{
 						id: 0,
@@ -406,7 +406,7 @@
 }
 function model(date_in){
 	if(!localStorage.Application){
-		console.log('loc false')
+		console.log('loc false');
 		localStorage.Application = JSON.stringify(date_in);
 	}
 	this.save_localStorage = function(){
