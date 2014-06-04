@@ -1,9 +1,31 @@
 var place_for_table = document.getElementById('usersTable');
 console.log(Model.date.Users);
+
+
+function chengestatus(){
+	var current_user = get_user_by_id(1)
+	if(current_user.role_id == 0){
+		current_user.role_id = 1;
+		Model.save_localStorage();
+		showAll();
+	}
+	else{
+		if(Model.date.Users.role_id == 1){
+			Model.date.Users.role_id = 2;
+			Model.save_localStorage();
+			showAll();
+		}
+		else{
+			Model.date.Users.role_id = 0;
+			Model.save_localStorage();
+			showAll();
+		}
+	}
+	}
 function showAll(){
 	var content_table = '';
 	for(var i = 0;i<Model.date.Users.length;i++){
-		content_table+="<tr class='col-12 xs'><td><span id='firstName'>"+Model.date.Users[i].name+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs' onclick='changestatus()'>ЗМіНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
+		content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].name+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs button_change_status' >ЗМІНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
 		console.log(Model.date.Users[i]);
 	}
 	place_for_table.innerHTML = content_table;
@@ -21,19 +43,27 @@ search_user.addEventListener("keyup", function(){
 		}else{
 		for(var i = 0;i<Model.date.Users.length;i++){
 			if(Model.date.Users[i].name.toString().toLowerCase().indexOf(value.toLowerCase())+1){
-				content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].name+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user' id='change'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs' onclick='changestatus()'>ЗМіНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
+				content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].name+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs button_change_status'>ЗМІНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
 			}
 		}
 		place_for_table.innerHTML = content_table;
 		}
 
 })
+console.log(document.querySelectorAll('.button_change_status'));
+var buttons_status =document.querySelectorAll('.button_change_status');
+for(var i = 0;i<buttons_status.length;i++){
+	buttons_status[i].addEventListener("click", chengestatus);
+}
+function get_user_by_id(user_id){
+	var Users = Model.date.Users;
+	for(var i = 0;i<Users.length;i++){
+		if(Users[i].id == user_id){
+			var catch_user = Users[i];
+			break
+		}
+	}
+	return catch_user;
+}
 
-// function chengestatus(){
-// 	tr.parant.child('user')
-// 	if(Modal.data.Users_roles.roles_id = 0){
-// 		Modal.data.Users[0].role_id = 1;
-// 		Modal.save.localStorage();
-// 	}else{if(Modal.data.)
-// 	}
-// }
+

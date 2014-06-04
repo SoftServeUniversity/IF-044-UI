@@ -13,11 +13,13 @@ function loginModule() {
     };
 
     function postWishMsg() {
-        alert('Вітаю ' + Users[currentUser].firstName + '!')
+        alert('Вітаю ' + Model.date.Users[currentUser].firstName + '!')
     }
 
     function changeLoginStatus() {
-        Users[currentUser].login_status = 1;
+        Model.date.session_user_id = Model.date.Users[currentUser].id;
+        Model.save_localStorage();
+        console.log(Model.date.Users[currentUser].id);
     }
 
     function clearForms() {
@@ -29,12 +31,12 @@ function loginModule() {
         errorBlock.innerHTML = '';
 
 
-        for (var i = 0; i < Users.length; i++) {
-            if (email.value == Users[i].email) {
+        for (var i = 0; i < Model.date.Users.length; i++) {
+            if (email.value == Model.date.Users[i].email) {
                 res1 = true;
                 currentUser = i;
                 break;
-            } else if (email.value == Users[i].username) {
+            } else if (email.value == Model.date.Users[i].username) {
                 res1 = true;
                 currentUser = i;
                 break;
@@ -45,7 +47,7 @@ function loginModule() {
         };
 
         if (currentUser >= 0) {
-            if (Users[currentUser].password == password.value) {
+            if (Model.date.Users[currentUser].password === password.value) {
                 res2 = true;
             } else {
                 res2 = false;

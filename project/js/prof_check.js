@@ -3,7 +3,6 @@
 function redirect() {
 	window.location = "index.html"
 }
-console.log(Model.date);
 	
 function check_input() {
 	var str1 = document.getElementById('txtCaptcha').value;
@@ -57,24 +56,32 @@ function check_input() {
 	} else if (str1 !== str2) { 
 		alert  ('Число провірки не співпадає');
 	} 
-	else
-	Model.date.Users.push(  
-	             {id:3,
+	else{
+			var new_user_id = Model.date.Users[Model.date.Users.length-1].id +1;
+			Model.date.Users.push(  
+             	 {id:new_user_id,
                   role_id:0,
                   location: "Ukraine",
                   username: user.value, 
-                  name: first_name.value+" "+last_name.value,
+                  first_name: first_name.value,
+                  last_name: last_name.value,
                   email: email.value,
                   password: passwd.value,
+                  re_passwd: re_passwd.value,
                   birthday: birthday.value,
                   org_troop: org_troop1.value,
                   org_region: org_region1.value,
+                  org_level: org_level1.value,
                   org_group: "some group",
                   login_status: ""
                     
-                  } )
-		//window.location = "profile.html"
-	localStorage.setItem('username', user.value);
+                  } );
+		Model.save_localStorage();
+
+
+		window.location = "profile.html"
+	}	
+	/*localStorage.setItem('username', user.value);
 	localStorage.setItem('password', passwd.value);
 	localStorage.setItem('re_passwd', re_passwd.value);
 	localStorage.setItem('email', email.value);
@@ -84,6 +91,7 @@ function check_input() {
 	localStorage.setItem('org_troop1', org_troop1.value);
 	localStorage.setItem('org_region1', org_region1.value);
 	localStorage.setItem('org_level1', org_level1.value);
+	*/
 }
 
 	
