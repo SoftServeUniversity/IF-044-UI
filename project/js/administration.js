@@ -1,8 +1,11 @@
 
 'use strict' 
 
+localStorage.Users = JSON.stringify(Users);
+Users = JSON.parse(localStorage.Users);
+
 window.onload= function List() {
-	var first_name=Users[0].firstName;
+	var first_name= Users[0].firstName;
 	var mail=Users[0].email;
 	var status=Users[0].statusname;
 

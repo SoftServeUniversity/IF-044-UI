@@ -141,11 +141,22 @@ article{
 	background: #9AF67E;
 	border-radius: 7px;
 	display: block;
+	opacity: 0.9;
+	margin-top: 20px;
 }
 .blockcolor-wrong{
 	background: #F67E8A;
 	border-radius: 7px;
+	opacity: 0.9;
+	margin-top: 20px;
 }
 .col-xs-12{
 	padding: 0px;
+}
+.answerpanel{
+	margin: 0px 40px 0px 40px;
+}
+.progress{
+	height: 10px;
+	margin: 0px 10px 30px 10px;
 }

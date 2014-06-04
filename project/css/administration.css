@@ -59,3 +59,29 @@ textarea{
 button{
 	opacity: 0.9;
 }
+.language{
+	margin: 100px 0px 50px 0px;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: Georgia, serif;
+	opacity: 0.9;
+}
+.language select{
+	border: none;
+}
+.control{
+	border: none;
+}
+#p1 .form-control option{
+	font-style: bold;
+}
+.addcategory{
+	float: right;
+}
+.table td button{
+	float: right;
+	margin-left: 2px;
+}
+#p4 .language select option{
+	font-weight: bold;
+}

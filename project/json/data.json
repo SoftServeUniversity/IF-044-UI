@@ -9,6 +9,7 @@
         org_level: 'початківець',
         password: 'admin',
         email: 'admin@admin.com',
+        statusname: 'administrator',
         birthday: '2001-05-10',
 		org_troop: 'бурлаки',
 		org_region: 'вовчинці',
@@ -28,6 +29,7 @@
         org_level: 3,
         password: '1111',
         email: 'admin@admin.com',
+        statusname: 'moderator',
         birthday: '1991-05-19',
 		org_troop: 'same_value',
 		org_region: 'Івано-Франківськ',
@@ -47,6 +49,7 @@
         org_level: 2,
         password: 'guest',
         email: 'guest@guest.com',
+        statusname: 'user',
         birthday: '2008-05-21',
 		org_troop: '_same_value',
 		org_region: 'same_value',
@@ -172,8 +175,7 @@ var Tests = [
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361],
-status:3
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361]
 },
 {   test_id: 2,
     name: 'Тест 2',
@@ -244,8 +246,7 @@ status:3
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
-status:2
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {   test_id: 3,
     name: 'Тест 3',
@@ -316,8 +317,7 @@ status:2
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
-status:1
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {   test_id: 4,
     name: 'Тест 4',
@@ -388,8 +388,7 @@ status:1
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
-status:0
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {   test_id: 5,
     name: 'Тест 5',
@@ -460,8 +459,7 @@ status:0
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
-status:3
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {   test_id: 6,
     name: 'Тест 6',
@@ -532,8 +530,7 @@ status:3
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
-status:3
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {   test_id: 7,
     name: 'Тест 7',
@@ -604,8 +601,7 @@ status:3
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657],
-status:3
+    passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657]
 },
 {   test_id: 8,
     name: 'тест 8',
@@ -676,8 +672,7 @@ status:3
     correct_answers: ['Aenean ut consequat velit'],
     url: 'tests/test1.html',
     date: '1',
-    passed_date: [1401211224657, 1390718456676, 1401431224657, 1301431224657, 1201431224657],
-    status:2
+    passed_date: [1401211224657, 1390718456676, 1401431224657, 1301431224657, 1201431224657]
 }
 
 ]
