@@ -28,7 +28,7 @@
                   role_id:1,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
-                  password: "1234",
+                  password: "4321",
                   birthday: "28-12-1990",
                   statusname: '',
                   org_level: '',

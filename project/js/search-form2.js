@@ -29,11 +29,11 @@ search_user.addEventListener("keyup", function(){
 
 })
 
-function chengestatus(){
-	tr.parant.child('user')
-	if(Modal.data.Users_roles.roles_id = 0){
-		Modal.data.Users[0].role_id = 1;
-		Modal.save.localStorage();
-	}else{if(Modal.data.)
-	}
-}
+// function chengestatus(){
+// 	tr.parant.child('user')
+// 	if(Modal.data.Users_roles.roles_id = 0){
+// 		Modal.data.Users[0].role_id = 1;
+// 		Modal.save.localStorage();
+// 	}else{if(Modal.data.)
+// 	}
+// }
