@@ -3,8 +3,10 @@
 function redirect() {
 	window.location = "index.html"
 }
-
+	
 function check_input() {
+	var str1 = document.getElementById('txtCaptcha').value;
+	var str2 = document.getElementById('txtInput').value;
 	var first_name = document.getElementById('first_name');
 	var last_name = document.getElementById('last_name');
 	var org_troop1 = document.getElementById('org_troop1');
@@ -51,7 +53,10 @@ function check_input() {
 		passwd.style.borderColor = "red";
 		re_passwd.style.borderColor = "red";
 
-	} else
+	} else if (str1 !== str2) { 
+		alert  ('Число провірки не співпадає');
+	} 
+	else
 		window.location = "profile.html"
 		localStorage.setItem('username', user.value);
 	localStorage.setItem('password', passwd.value);
@@ -63,7 +68,6 @@ function check_input() {
 	localStorage.setItem('org_troop1', org_troop1.value);
 	localStorage.setItem('org_region1', org_region1.value);
 	localStorage.setItem('org_level1', org_level1.value);
-	
 }
 
 	

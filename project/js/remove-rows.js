@@ -89,75 +89,44 @@ function getParentTr(removeButton) {
 }
 
 window.onload = function generateObjects(){
-    var categories = ["Історія", "Географія", "Природа", "Столиці", "Музика", "Пустелі"];
-    var objectsForTest = [];
-    var numberOfObjects;
-
-
-    var testName = document.getElementById("searchTest").value;
-    //   numberOfObjects = 1;
-
-
-
+    var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
+    var numberOfObjects = Tests.length;
+    var countStatus=3;
     for (var tableSwap = 1; tableSwap <= 4; tableSwap++) {
         var row;
-        var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
         var cell = [];
-        var objectForTest = new Object();
         var tableId = 't' + tableSwap;
-        //   console.log(tableId);
         var table = document.getElementById(tableId);
-        var numberOfObjects = Math.floor((Math.random() * 8) + 1) ;
+        var numberOfRow = 1;
+        for (var i = 0; i < numberOfObjects; i++) {
 
-        for (var i = 1; i <= numberOfObjects; i++) {
-            var arrayStatus = [' ', 'deleted ','toedit ','notsend ']
-            var j = 0;
-            row = table.insertRow(i);
+            if ( Tests[i].status == countStatus){
 
+                var numberOfCell = 0;
+                row = table.insertRow(numberOfRow);
 
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = Tests[i].name;
+                numberOfCell += 1;
 
-            objectForTest.name = "Test " + arrayStatus[tableSwap-1] + i;
-            cell[j] = row.insertCell(j);
-            //if (tableId = table1) {
-            cell[j].innerHTML = '<a class="test-name" href="#"> ' + objectForTest.name + '</a>'; //testName;
-            cell[j].className = "test-name-col";
-            //} else {cell[j].innerHTML = objectForTest.name;}
-            j += 1;
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = Tests[i].category;
+                numberOfCell += 1;
 
-            objectForTest.category_name = categories[ Math.floor((Math.random() * 5) + 1)];
-            cell[j] = row.insertCell(j);
-            cell[j].innerHTML = objectForTest.category_name;
-            j += 1;
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = Tests[i].subcategory;
+                numberOfCell += 1;
 
-            objectForTest.subcategory_name = "Підкатегорія " + Math.floor((Math.random() * 4) + 1);
-            cell[j] = row.insertCell(j);
-            cell[j].innerHTML = objectForTest.subcategory_name
-            j += 1;
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = '<a href="moderatrPage.html">Редагувати</a>';
+                numberOfCell += 1;
 
-            if (tableId != table2) {
-                if (tableId != table3 && tableId != table4) {
-                    cell[j] = row.insertCell(j);
-                    cell[j].innerHTML = '<a href="#">Статистика</a>';
-                    j += 1;
-                }
-
-                cell[j] = row.insertCell(j);
-                cell[j].innerHTML = '<a href="#">Редагувати</a>';
-                j += 1;
-
-
-                cell[j] = row.insertCell(j);
-                if (tableId == table1)
-                {cell[j].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + i + '" onclick="deleteTr1(this)" >ВИДАЛИТИ</button></div>';}
-                else if(tableId == table3)
-                { cell[j].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + i + '" onclick="deleteTr3(this)" >ВИДАЛИТИ</button></div>';}
-                else
-                {cell[j].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + i + '" onclick="deleteTr4(this)" >ВИДАЛИТИ</button></div>';}
-
-                objectsForTest.push(objectForTest);
-
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
+                numberOfRow = numberOfRow + 1;
             }
-
         }
+        countStatus= countStatus -1 ;
     }
+
 }

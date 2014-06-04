@@ -235,9 +235,6 @@ function generalStatisticModule() {
         end: dateEndInput.value
     };
     var categories = [
-        [],
-        [],
-        []
     ];
     var monthObjectsArr = [];
     var monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -245,17 +242,18 @@ function generalStatisticModule() {
     ];
     var variableYear;
     var tempArr = [];
+    var tabs = document.getElementsByClassName('tabs');
 
 
     /* обєкт який ми передаємо в highcharts */
 
     var GlobalObj = {
         title: {
-            text: 'Кількість пройдених тестів',
+            text: '',
             x: -20 //center
         },
         subtitle: {
-            text: 'По часу та категоріях',
+            text: '',
             x: -20
         },
         xAxis: {
@@ -263,7 +261,7 @@ function generalStatisticModule() {
         },
         yAxis: {
             title: {
-                text: 'Кількість тестів'
+                text: ''
             },
             plotLines: [{
                 value: 0,
@@ -272,7 +270,7 @@ function generalStatisticModule() {
             }]
         },
         tooltip: {
-            valueSuffix: 'шт'
+            valueSuffix: ''
         },
         legend: {
             layout: 'vertical',
@@ -280,22 +278,166 @@ function generalStatisticModule() {
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        series: [{
-            name: 'Категорія 1',
-            data: []
-        }, {
-            name: 'Категорія 2',
-            data: []
-        }, {
-            name: 'Категорія 3',
-            data: []
-        }]
+        series: []
     };
+     
+     if(tabs[0].className === 'tabs active') {
 
+        graphicTitles('Кількість пройдених тестів', 'По часу та категоріях', 'Кількість тестів', 'шт');
+
+        dateSortByCategories();
+
+        dateParser();
+
+        checkDateInterval();
+
+        monthParser();
+
+        passedTestsCounter();
+
+        $('#stat1').highcharts(GlobalObj);
+
+    } else if(tabs[1].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу', 'Середній бал', '');
+
+        crateSingleSeries('заг. сер. бал');
+
+        dateParser();
+
+        fillSeries();
+
+        monthParser();
+       
+        generalScorePerMonth();
+
+        $('#stat2').highcharts(GlobalObj);
+         
+    } else if(tabs[2].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу та віку', 'Середній бал', '');
+
+        activeCheckboxChecking('ageList-checkbox');
+
+        dateParser();
+
+
+    } else if(tabs[3].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу та ступені', 'Середній бал', '');
+
+        activeCheckboxChecking('gradeList-checkbox');
+
+        dateParser();
+
+    }
+
+
+    function generalScorePerMonth() {
+        for(var i = 0; i<tempArr.length; i++) {
+            var newArr = [];
+            var a = 0;
+
+            for(var k = 0; k<categories.length; k++){
+                for(var m = 0; m<categories[k].length; m++){
+                    var val = new Date(categories[k][m].passed_date).toDateString().split(' ');
+                    if (val[1] === tempArr[i].month && parseInt(val[3], 10) === tempArr[i].year) {
+                        newArr.push(categories[k][m].score);
+                };
+            };
+
+                for(var l = 0; l<newArr.length; l++){
+                    a += newArr[l];
+                }
+                
+              if(a === 0){a = 0} else {a = a / newArr.length};
+
+                GlobalObj.series[k].data.push(a);
+                newArr = []; 
+            };    
+        };
+    };
+ 
+
+     
+//  перебирає обєкт Резалт і вертає всі його дочерні обєкти які попадають по часу складення тесту у вибраний інтервал часу
+
+     function fillSeries() {
+        for(var i = 0; i<Result.length; i++) {
+            if(dateInterval.startMiliseconds < Result[i].passed_date && Result[i].passed_date < dateInterval.endMiliseconds) {
+                categories[0].push(Result[i]);
+            };
+        };
+     };
+
+     function fillSeries2() {
+        for(var i = 0; i<Result.length; i++) {
+            if(dateInterval.startMiliseconds < Result[i].passed_date && Result[i].passed_date < dateInterval.endMiliseconds) {
+               for(var k = 0; k<Users.length; k++) {
+                  if(Result[i].u_id === Users[k].id){
+                       var a = Date.parse(Users[k].birthday);
+                       if(a){}
+                   }
+                }
+
+              /*  categories[0].push(Result[i]);*/
+            };
+        };
+     };
+
+
+    
+    function crateSingleSeries(elemName) {
+
+            createSeriesElem(elemName);
+            categories.push([]);
+
+    }
+
+    function graphicTitles(titleText, subtitleText, yAxisTitle, tooltip) {
+        GlobalObj.title.text = titleText;
+        GlobalObj.subtitle.text = subtitleText;
+        GlobalObj.yAxis.title.text = yAxisTitle;
+        GlobalObj.tooltip.valueSuffix = tooltip;
+
+    }
+
+
+    function activeCheckboxChecking(className){
+       var checkboxes = document.getElementsByClassName(className);
+
+        for(var i =0; i<checkboxes.length; i++) {
+            if(checkboxes[i].checked) {
+                crateSingleSeries(checkboxes[i].parentNode.childNodes[1].data);  
+            };
+        };
+    }
+
+
+// Функція створює і записує елементи series обєкта GlobalObj
+
+     function createSeriesElem(elemName) {
+        var a = {
+            name: elemName,
+            data: []
+        };
+        GlobalObj.series.push(a);
+     }
+    
 
     /* розкидує дати проходження тестів по категоріях до яких вони належать*/
 
-    (function dateSortByCategories() {
+    function dateSortByCategories() {
+     
+// створюєму потрібну кількість категорій
+
+        for (var i = 0; i < 3; i++) {
+            var elemName = 'Категорія ' + (i+1);
+            createSeriesElem(elemName);
+            categories.push([]);
+        };
+
+
         for (var i = 0; i < Tests.length; i++) {
 
             if (Tests[i].category === 1) {
@@ -319,16 +461,7 @@ function generalStatisticModule() {
 
             };
         };
-
-        dateParser();
-
-        checkDateInterval();
-
-        monthParser();
-
-        passedTestsCounter();
-
-    })();
+    }
 
     /* створює в обєкті dateInterval ще два свойства - початок і кінець інтервалу в мілісекундах*/
 
@@ -465,10 +598,6 @@ function generalStatisticModule() {
 
         };
     }
-
-
-
-    $('#stat1').highcharts(GlobalObj);
 }
 
 

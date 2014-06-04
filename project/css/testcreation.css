@@ -1,0 +1,26 @@
+.center{
+	margin-left: 28%;
+}
+.btn-center{
+	margin-right: 8%;
+}
+
+.textarea{
+	width: 69%;
+	height: 50px;
+}
+
+.btn-xs{
+	height: 15px;
+	width: 17px;
+}
+.glyphicon{
+	position: relative;
+	right: 3px;
+	top:-2px;
+}
+
+.glyphicon-minus{
+	position: relative;
+	right: 4px;
+}

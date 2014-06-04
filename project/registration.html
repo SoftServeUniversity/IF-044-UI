@@ -164,6 +164,14 @@
     								<input type="file" id="exampleInputFile">
     							</div>
   						</div>
+  						<div class="form-group">
+    						 <label class="col-sm-4 control-label" for="exampleInputFile">Введіть число:</label>
+    							<div class="col-sm-3" >
+    							<span id="txtCaptchaDiv" style="color:#0000"> </span>
+    								<input type="hidden" id="txtCaptcha"> </label>
+									<input type="text" name="txtInput" id="txtInput" size="5" />
+    							</div>
+  						</div>
           
 
 
@@ -201,5 +209,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/components.js"></script>    
+    <script>
+    	window.onload = function(){
+		var a = Math.ceil(Math.random() * 9);
+		var b = Math.ceil(Math.random() * 9);
+		var c = Math.ceil(Math.random() * 9);
+		var d = Math.ceil(Math.random() * 9);
+		var e = Math.ceil(Math.random() * 9);
+		var code = a * b * c * d * e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("txtCaptchaDiv").innerHTML = code;
+	}
+    </script>
   </body>
 </html>

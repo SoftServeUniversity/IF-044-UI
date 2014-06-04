@@ -10,7 +10,7 @@ window.onload = function CategoriesController () {
 		}
 	}
 	for(var i = 0; i<cat_array.length; i++){
-	    content +='<div class="col-xs-12"><div class=" col-xs-8 col-xs-offset-2 text-left">'+cat_array[i].name+'</div>';
+	    content +='<div class="col-xs-12"><div class=" col-xs-8 col-xs-offset-2 text-left" id="cat'+i+'">'+cat_array[i].name+'</div>';
 	    for(var j = 0;j<Categories.length;j++){
 	    if(Categories[j].parent_id == cat_array[i].id){
 	       content +='<div class="row"><div class="col-xs-8 col-xs-offset-1 text-center">'+Categories[j].name+'</div></div>';        
@@ -28,10 +28,19 @@ window.onload = function CategoriesController () {
 	       var cell = row.insertCell(-1);
 	       cell.innerHTML = Tests[i].author;
 	       var cell = row.insertCell(-1);
-	       cell.innerHTML = '<a href=" '+ Tests[i].url +' ">Перевірити</a>';
+	       cell.innerHTML = '<a href="moderatrPage.html" onclick="IndexTest('+i+')" id="test'+i+'">Перевірити</a>';
 	       
 	     }
-	    
+	     //for (i=0; i<cat_array.length; i++) {
+	    //	 document.getElementById('cat'+i).onclick=function(){
+	    //		 document.getElementById('cat'+i).classList.add('categorySelected');
+	    //		 }
+//currentIndexTest="'+i+'" onclick="redirectModerator)
+	    	 //console.log(document.getElementById('cat'+i))
+
+	   //  }
+	     
+
 }
 
 

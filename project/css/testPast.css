@@ -20,18 +20,6 @@ main{
   text-align: center;
 }
 
-input[type=checkbox]{
-  display: none;
-}
-input[type=checkbox]:checked + label {
-  color: #3276B1;
-  font-style: italic;
-  text-decoration: underline;
-}
-
-input[type=checkbox] + label {
-  margin-left: 3px;
-}
 .pos{
     float: left;
     display: inline-block;
@@ -42,6 +30,23 @@ input[type=checkbox] + label {
 .answer-spase{
  margin-top: 5px;
 }
+ .MyClass:before{
+    content: '\2714'; 
+    position: relative;
+    right: 10px;}
+  
 
+  .MyClass{
+    color: green;
+  font-style: italic;
+  position: relative;
+  right: 12px;
+      }
+    .noclass{
+
+    }
+  .bnt-next{
+  margin-top: 25px;
+  }
 /*testpage style end*/
 
