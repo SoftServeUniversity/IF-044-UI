@@ -431,14 +431,31 @@ function generalStatisticModule() {
      
 // створюєму потрібну кількість категорій
 
-        for (var i = 0; i < 3; i++) {
+ /*       for (var i = 0; i < 3; i++) {
             var elemName = 'Категорія ' + (i+1);
             createSeriesElem(elemName);
             categories.push([]);
+        };*/
+
+        var roots = Categories.getSubcategories(null);
+        var root_subcategories = [];
+        for (var i = roots.length - 1; i >= 0; i--) {
+            root_subcategories[i] = Categories.getSubcategories(roots[i]);
         };
 
-
         for (var i = 0; i < Tests.length; i++) {
+
+            for (var j = 0; j < roots.length ; j++) {
+                if (root_subcategories[j].indexOf(Tests[i].subcategory) >= 0) {
+                    
+                    for (var k = 0; k < Tests[i].passed_date.length; k++) {
+                        categories[j].push(Tests[i].passed_date[k]);
+                    };
+
+                };
+            };
+/*            
+
 
             if (Tests[i].category === 1) {
 
@@ -460,7 +477,9 @@ function generalStatisticModule() {
                 };
 
             };
-        };
+        */
+        }
+
     }
 
     /* створює в обєкті dateInterval ще два свойства - початок і кінець інтервалу в мілісекундах*/
