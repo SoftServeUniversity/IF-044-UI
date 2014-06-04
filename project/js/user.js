@@ -6,6 +6,10 @@ function User(name) {
     }
 
     this.seed = function(controll_user) {
-
+        arr = []
+        for () {
+            arr[i] = new User();
+        }
+        controll_user.user = []
     }
 }
