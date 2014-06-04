@@ -3,6 +3,7 @@
 function redirect() {
 	window.location = "index.html"
 }
+console.log(Model.date);
 	
 function check_input() {
 	var str1 = document.getElementById('txtCaptcha').value;
@@ -57,8 +58,23 @@ function check_input() {
 		alert  ('Число провірки не співпадає');
 	} 
 	else
-		window.location = "profile.html"
-		localStorage.setItem('username', user.value);
+	Model.date.Users.push(  
+	             {id:3,
+                  role_id:0,
+                  location: "Ukraine",
+                  username: user.value, 
+                  name: first_name.value+" "+last_name.value,
+                  email: email.value,
+                  password: passwd.value,
+                  birthday: birthday.value,
+                  org_troop: org_troop1.value,
+                  org_region: org_region1.value,
+                  org_group: "some group",
+                  login_status: ""
+                    
+                  } )
+		//window.location = "profile.html"
+	localStorage.setItem('username', user.value);
 	localStorage.setItem('password', passwd.value);
 	localStorage.setItem('re_passwd', re_passwd.value);
 	localStorage.setItem('email', email.value);
