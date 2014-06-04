@@ -3,6 +3,8 @@
 				  {id:1,
 				  role_id:1,
 				  location: "Ukraine",
+                  username: "some login",
+                  name: "Клюшта Тарас Васильович", 
 				  email: "tarasklyushta@gmail.com",
 				  password: "1234",
 				  birthday: "28.12.1990",
@@ -11,7 +13,33 @@
 				  org_group: "some group",
 				  login_status: "don't know"
 					
-				  }
+				  },
+                  {id:2,
+                  role_id:2,
+                  location: "Ukraine",
+                  name: "Петро", 
+                  email: "masterullo@gmail.com",
+                  password: "1234",
+                  birthday: "28.12.1970",
+                  org_troop: "some troop",
+                  org_region: "Івано-Франківськ",
+                  org_group: "some group",
+                  login_status: "don't know"
+                    
+                  },
+                  {id:3,
+                  role_id:0,
+                  location: "Ukraine",
+                  name: "Іван", 
+                  email: "kviberon@rambler.ru",
+                  password: "1234",
+                  birthday: "28.12.1970",
+                  org_troop: "some troop",
+                  org_region: "Івано-Франківськ",
+                  org_group: "some group",
+                  login_status: "don't know"
+                    
+                  }                                     
 			],
 	Tests: [
 				 {id: 1,
@@ -169,15 +197,15 @@
 					],
     User_roles: [
 					{
-						id: 1,
+						id: 0,
 						role_name: "авторизований користувач",
 					},
 					{
-						id: 2,
+						id: 1,
 						role_name: "модератор",
 					},	
 					{
-						id: 3,
+						id: 2,
 						role_name: "адміністратор",
 					}					
 				],
@@ -207,7 +235,7 @@ function model(date_in){
 var Model = new model(Application);
 Model.load_localStorage();
 
-console.log(Model.date);
+//console.log(Model.date);
 
 
 

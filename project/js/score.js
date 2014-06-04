@@ -11,7 +11,7 @@ function calculate(){
 	wrongEl.style.width = (100 - correctPercentage) + '%';
  }
 
- 
+
  	var answerArray = {};
  	answerArray = JSON.parse(localStorage.QuestionObject);
  	var resulttext = document.getElementsByClassName('result');
