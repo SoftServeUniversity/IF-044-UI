@@ -73,7 +73,7 @@ function toGo(element) {
     //Model.save_localStorage();
    // var t_id = localStorage.getItem('note');
     console.log(t_id);
-  //  window.location = "moderatrPage.html";
+    window.location = "moderatrPage.html";
 }
 
 function deletetabRows() {
