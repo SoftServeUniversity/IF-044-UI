@@ -168,7 +168,7 @@
 				  subcategory: 4,
 				  category: 1,
 				  date: "some  date create...",
-                  passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
+          passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
 				 }
 			],
 	Tests_categories: [
@@ -218,7 +218,7 @@
 							id: 4,
 							name: "підкатегорія",
 							parent_id:1,
-                            getSubcategories: function(id) {
+              getSubcategories: function(id) {
                                 var result = [];
                                 for ( var i = 0 ; i < Categories.length ; i++ ) {
                                     if ( Categories[i].parent_id === id) {
