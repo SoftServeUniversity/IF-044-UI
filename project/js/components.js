@@ -332,6 +332,8 @@ function generalStatisticModule() {
 
         generalScorePerMonth();
 
+        clearEmptySeries();
+
         $('#stat3').highcharts(GlobalObj);
 
 
@@ -347,19 +349,37 @@ function generalStatisticModule() {
 
         monthParser();
 
+        clearEmptySeries();
+
         generalScorePerMonth();
 
         $('#stat4').highcharts(GlobalObj);
 
+    };
+  
+  // перебирає масив чекбоксів і якшо чекбокс - чекед, пушає відповідну серію з глобал обєкта і ню аррей і потім заміняє ним серії в глобал обєкті 
+
+    function clearEmptySeries() {
+        var newArr = []
+        for(var i = 0; i< checkboxes.length; i++){
+           if(checkboxes[i].checked) {
+               newArr.push(GlobalObj.series[i]);
+
+           };
+
+        };
+      
+        GlobalObj.series = newArr;  
     }
 
 
     function generalScorePerMonth() {
         for(var i = 0; i<tempArr.length; i++) {
-            var newArr = [];
-            var a = 0;
+
 
             for(var k = 0; k<categories.length; k++){
+                var newArr = [];
+                var a = 0;
                 for(var m = 0; m<categories[k].length; m++){
                     var val = new Date(categories[k][m].passed_date).toDateString().split(' ');
                     if (val[1] === tempArr[i].month && parseInt(val[3], 10) === tempArr[i].year) {
