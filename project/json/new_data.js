@@ -1,11 +1,37 @@
 var Application = {
 	Users: [
+				  
+                  {id:1,
+                  username: 'Tolik',
+                  firstName: 'jkghjdfg',
+                  lastName: 'fdghfgdjj',
+                  group: '',
+                  role_id: 1,
+                  location: "Ukraine",
+                  email: "tarasklyushta@gmail.com",
+                  password: "4321",
+                  re_passwd: "4321",
+                  birthday: "28-12-1990",
+                  statusname: '',
+                  org_level: '',
+
+                  org_troop: "some troop",
+                  org_region: "Івано-Франківськ",
+                  org_group: "some group",
+                  login_status: 0
+                    
+
+                     
+
+                  },
+
+
                   {id:2,
                   username: 'Vasyl',
                   firstName: 'jkghjdfg',
                   lastName: 'fdghfgdjj',
                   group: '',
-                  role_id:2,
+                  role_id: 2,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "4321",
@@ -24,7 +50,7 @@ var Application = {
                   firstName: 'sdgdh',
                   lastName: 'sdfdgg',
                   group: '',
-                  role_id:3,
+                  role_id: 3,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "1234",
@@ -43,7 +69,7 @@ var Application = {
                   firstName: 'dfsgjfj',
                   lastName: 'fgsjgjgj',
                   group: '',
-                  role_id:4,
+                  role_id: 4,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "1234",
@@ -84,17 +110,17 @@ var Application = {
 								{
 									id: 1,
 									question_id: 1,
-									text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+									text_answer: '!!!!!!!!!!!!!!!!!!!!!Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
 								}, 
 								{
 									id: 2,
 									question_id: 1,
-									text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+									text_answer: '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
 								},
 								{
 									id: 3,
 									question_id: 1,
-									text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+									text_answer: '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
 								},
 								{
 									id: 4,
@@ -134,11 +160,11 @@ var Application = {
 									},
 									{
 										question_id: 2,
-										answer_id: 3
+										answer_id: 5
 									},
 									{
 										question_id: 3,
-										answer_id: 1
+										answer_id: 7
 									}
 								  ],
 				  info: ['info1', 'info2'],
@@ -147,11 +173,13 @@ var Application = {
 							name_status: "опублікований"
 						  },
 				  subcategory: 4,
- 			  //category: 1,
+
+				  //category: 1,
 				  date: "some  date create...",
+
 				  category: 1,
 				  date: "some  date create...",
-          passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
+                  passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
 
 				 }
 			],
@@ -202,7 +230,7 @@ var Application = {
 							id: 4,
 							name: "підкатегорі",
 							parent_id:1,
-              getSubcategories: function(id) {
+                            getSubcategories: function(id) {
                                 var result = [];
                                 for ( var i = 0 ; i < Categories.length ; i++ ) {
                                     if ( Categories[i].parent_id === id) {
@@ -326,7 +354,8 @@ var Application = {
 						}	
 						
 					],
- 
+
+    
 
  Result: [
     {   id: 1,
@@ -335,9 +364,6 @@ var Application = {
         name : 'Test Name1',
         test_id: 1,
         passed_date: 1391431224657,
-
-        score : 11,
-
         score : 11,
         user_rank: ''
 
@@ -348,6 +374,7 @@ var Application = {
         test_id: 2,
         passed_date: 1301431224657, 
 
+
         score : 4,
         user_rank: ''
 
@@ -357,8 +384,6 @@ var Application = {
         name : 'Test Name2',
         test_id: 2,
         passed_date:1390718456676,
-
-        
         score : 3,
         user_rank: ''
 
@@ -379,15 +404,16 @@ var Application = {
         passed_date:1201431224657,
         score : 7,
         user_rank: ''
-   },
+
+    },
     {   id: 6,
         u_id : 2,
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
-        
-       score : 8,
+        score : 8,
         user_rank: ''
+
     }
 ],
     User_roles: [
@@ -402,16 +428,9 @@ var Application = {
 					{
 						id: 3,
 						role_name: "адміністратор"
-						
-					},
-					{
-						id: 1,
-						role_name: "модератор"
-					},	
-					{
-						id: 2,
-						role_name: "адміністратор"
-					}					
+
+					}
+					
 				]
 }
 function model(date_in){

@@ -147,13 +147,13 @@ article{
 .blockcolor-wrong{
 	background: #F67E8A;
 	border-radius: 7px;
-	opacity: 0.9;
+	opacity: 0.8;
 	margin-top: 20px;
 }
 .col-xs-12{
 	padding: 0px;
 }
-.answerpanel{
+#answerpanel{
 	margin: 0px 40px 0px 40px;
 }
 .progress{
