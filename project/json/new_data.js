@@ -2,8 +2,8 @@
 	Users: [
 				  {id:1,
                   username: '',
-                  lastName:
-				  role_id:1,
+                  lastName: '',
+				  role_id :1,
 				  location: "Ukraine",
 				  email: "tarasklyushta@gmail.com",
 				  password: "1234",
@@ -98,11 +98,11 @@
 								  ],
 				  info: ['info1', 'info2'],
 				  status: {
-							id:4,
+							id:1,
 							name_status: "опублікований"
 						  },
 				  subcategory: 4,
-				  category: 1,
+				  //category: 1,
 				  date: "some  date create..."
 				 }
 			],
@@ -151,7 +151,7 @@
 						},
 						{
 							id: 4,
-							name: "підкатегорія",
+							name: "підкатегорі",
 							parent_id:1,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -277,64 +277,64 @@
 						}	
 						
 					],
-    var Result = [
+     Result : [
     {
         u_id : 1,
         name : 'Test Name1',
         test_id: 1,
         passed_date: 1391431224657,
-        score : 11,
+        score : 11
     },
     {
         u_id : 3,
         name : 'Test Name2',
         test_id: 2,
         passed_date: 1301431224657, 
-        score : 4,
+        score : 4
     },
     {
         u_id : 2,
         name : 'Test Name2',
         test_id: 2,
         passed_date:1390718456676,
-        score : 3,
+        score : 3
     },
     {
         u_id : 2,
         name : 'Test Name2',
         test_id: 2,
         passed_date:1499031224657,
-        score : 1,
+        score : 1
     },
     {
         u_id : 4,
         test_id: 6,
         name : 'Test Name6',
         passed_date:1201431224657,
-        score : 7,
+        score : 7
     },
     {
         u_id : 2,
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
-        score : 8,
+        score : 8
     }
-];
+],
     User_roles: [
 					{
 						id: 1,
-						role_name: "авторизований користувач",
+						role_name: "авторизований користувач"
 					},
 					{
 						id: 2,
-						role_name: "модератор",
+						role_name: "модератор"
 					},	
 					{
 						id: 3,
-						role_name: "адміністратор",
+						role_name: "адміністратор"
 					}					
-				],		
+				]
 }
 function model(date_in){
 	if(!localStorage.Application){
