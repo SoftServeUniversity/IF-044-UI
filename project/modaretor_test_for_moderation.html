@@ -15,11 +15,23 @@
 <script
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <script>
-	function IndexTest(test) {
+	//function IndexTest(test) {
 		//alert (test);
-		localStorage.setItem("currentIndexTest", test);
-	}
+	//	localStorage.setItem("currentIndexTest", test);
+	//}
 </script>
+<style>
+	                            .filter-search > div {
+                                color: #5bc0de;
+                                cursor: pointer;
+                            }
+                            .curent-filter {
+                                font-weight: bold;
+                                background: #5bc0de;
+                                color: #fff;
+                                border-right: solid 3px;
+                            }
+</style>
 </head>
 <body class="container-fluid">
 	<div id="outer-wrapper" class="container">
@@ -96,17 +108,7 @@
 				</div>
 			</div>
 			<main>
-			<style>
 			
-.categorySelected {
-	color: #5bc0de;
-}
-
-label {
-	margin: 0;
-	font-weight: normal;
-}
-</style>
 			<h3>Перевірка тестів</h3>
 			<hr>
 			<div class="row">
