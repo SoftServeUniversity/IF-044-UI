@@ -1,28 +1,5 @@
-﻿var Application = {
+var Application = {
 	Users: [
-
-				
-                  {
-                    id:1,
-                  username: 'Tolik',
-                  firstName: 'jkghjdfg',
-                  lastName: 'fdghfgdjj',
-                  group: '',
-                  role_id:1,
-                  location: "Ukraine",
-                  email: "tarasklyushta@gmail.com",
-                  password: "4321",
-                  re_passwd: "4321",
-                  birthday: "28-12-1990",
-                  statusname: '',
-                  org_level: '',
-                  org_troop: "some troop",
-                  org_region: "Івано-Франківськ",
-                  org_group: "some group",
-                  login_status: 0
-                    
-                  },
-
                   {id:2,
                   username: 'Vasyl',
                   firstName: 'jkghjdfg',
