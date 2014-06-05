@@ -1,10 +1,10 @@
-	if(localStorage.currentIndexTest){
-		var currentIndexTest = JSON.parse(localStorage.currentIndexTest);
+	if(Model.date.Moderator_test_edit){
+		var currentIndexTest = Model.date.Moderator_test_edit;
 	}else{
 		//var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
-	}
 		var currentIndexTest = 0;
-		
+    }
+		console.log(currentIndexTest);
 		
 function printComments(e, place_for_comment, lastIndexComment, comments) {
     var newDiv = document.createElement('div');
