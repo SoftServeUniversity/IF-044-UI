@@ -32,7 +32,7 @@ function loginModule() {
 
 
         for (var i = 0; i < Model.date.Users.length; i++) {
-            if (email.value == Model.date.Users[i].email) {
+            if (email.value === Model.date.Users[i].email) {
                 res1 = true;
                 currentUser = i;
                 break;
@@ -365,19 +365,19 @@ function generalStatisticModule() {
 //  перебирає обєкт Резалт і вертає всі його дочерні обєкти які попадають по часу складення тесту у вибраний інтервал часу
 
      function fillSeries() {
-        for(var i = 0; i<Result.length; i++) {
-            if(dateInterval.startMiliseconds < Result[i].passed_date && Result[i].passed_date < dateInterval.endMiliseconds) {
-                categories[0].push(Result[i]);
+        for(var i = 0; i<Model.date.Result.length; i++) {
+            if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
+                categories[0].push(Model.date.Result[i]);
             };
         };
      };
 
      function fillSeries2() {
-        for(var i = 0; i<Result.length; i++) {
-            if(dateInterval.startMiliseconds < Result[i].passed_date && Result[i].passed_date < dateInterval.endMiliseconds) {
-               for(var k = 0; k<Users.length; k++) {
-                  if(Result[i].u_id === Users[k].id){
-                       var a = Date.parse(Users[k].birthday);
+        for(var i = 0; i<Model.date.Result.length; i++) {
+            if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
+               for(var k = 0; k<Model.date.Users.length; k++) {
+                  if(Model.date.Result[i].u_id === Model.date.Users[k].id){
+                       var a = Date.parse(Model.date.Users[k].birthday);
                        if(a){}
                    }
                 }
@@ -439,19 +439,19 @@ function generalStatisticModule() {
             categories.push([]);
         };*/
 
-        var roots = Categories.getSubcategories(null);
+        var roots = Model.date.Categories.getSubcategories(null);
         var root_subcategories = [];
         for (var i = roots.length - 1; i >= 0; i--) {
-            root_subcategories[i] = Categories.getSubcategories(roots[i]);
+            root_subcategories[i] = Model.date.Categories.getSubcategories(roots[i]);
         };
 
-        for (var i = 0; i < Tests.length; i++) {
+        for (var i = 0; i < Model.date.Tests.length; i++) {
 
             for (var j = 0; j < roots.length ; j++) {
-                if (root_subcategories[j].indexOf(Tests[i].subcategory) >= 0) {
+                if (root_subcategories[j].indexOf(Model.date.Tests[i].subcategory) >= 0) {
                     
-                    for (var k = 0; k < Tests[i].passed_date.length; k++) {
-                        categories[j].push(Tests[i].passed_date[k]);
+                    for (var k = 0; k < Model.date.Tests[i].passed_date.length; k++) {
+                        categories[j].push(Model.date.Tests[i].passed_date[k]);
                     };
 
                 };
