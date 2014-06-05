@@ -1,10 +1,9 @@
-	if(Model.date.Moderator_test_edit){
-		var currentIndexTest = Model.date.Moderator_test_edit;
+	if(Model.date.Moderator_test_id){
+		var get_test_id = Model.date.Moderator_test_id;
 	}else{
 		//var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
-		var currentIndexTest = 0;
+		var get_test_id = 0;
     }
-		console.log(currentIndexTest);
 		
 function printComments(e, place_for_comment, lastIndexComment, comments) {
     var newDiv = document.createElement('div');
@@ -29,7 +28,6 @@ function addComment(e) {
     var timeCreateComments = day.getDate() + " " + month[day.getMonth()] + " о " + day.getHours() + ":" + day.getMinutes();
     console.log(timeCreateComments);
     if (Model.date.comment) {
-        console.log('local true');
         commentArray = Model.date.comment;
         commentArray.push({
             comment: comment,
@@ -51,7 +49,6 @@ function addComment(e) {
         //localStorage.comment = JSON.stringify(commentArray);
     }
     comments = Model.date.comment;
-    console.log(coments);
     var lastIndexComment = comments.length - 1;
     if (lastIndexComment == 0) {
         var lastIndexComment = true;
@@ -64,7 +61,32 @@ function addComment(e) {
 	return false;
 
 }
+
+function getTestById(test_it){
+    for(var i = 0;i<Model.date.Tests.length;i++){
+        if(Model.date.Tests[i].id == test_it){
+            var catchTest = Model.date.Tests[i];
+            break;
+        }
+    }
+    return catchTest;
+}
+function getIndexTestById(test_it){
+    for(var i = 0;i<Model.date.Tests.length;i++){
+        if(Model.date.Tests[i].id == test_it){
+            var index = i;
+            break;
+        }
+    }
+    return index;    
+}
 window.onload = function() {
+    
+
+    var currentTest = getTestById(get_test_id);
+    var currentIndexTest = getIndexTestById(get_test_id);
+    console.log(currentTest);
+
     if (Model.date.comment) {
         var lastIndexComment = true;
         var comments = Model.date.comment;
@@ -84,16 +106,16 @@ window.onload = function() {
 
     var place_for_test = document.querySelectorAll('.content-test')[0];
     var content = '';
-    content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="globalTests[0].name">' + Tests[currentIndexTest].name + '</h3>';
+    content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="globalTests['+currentIndexTest+'].name">' + currentTest.name + '</h3>';
     var number_question = 0;
-    for (var i = 0; i < Tests[currentIndexTest].question.length; i++) {
+    for (var i = 0; i < currentTest.question.length; i++) {
         var number_answer = 0;
         number_question++;
-        var question_id = Tests[currentIndexTest].question[i].id
-        content += '<div class="row well"><div class="col-lg-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].question[' + i + '].text">' + Tests[currentIndexTest].question[i].text + '</div>';
-        for (var j = 0; j < Tests[currentIndexTest].answers.length; j++) {
+        var question_id = currentTest.question[i].id
+        content += '<div class="row well"><div class="col-lg-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].question[' + i + '].text">' + currentTest.question[i].text + '</div>';
+        for (var j = 0; j < currentTest.answers.length; j++) {
             number_answer++;
-            if (Tests[currentIndexTest].answers[j].question_id == question_id) {
+            if (currentTest.answers[j].question_id == question_id) {
                 content += '<div class="col-lg-1 col-lg-offset-2">' + number_answer + ') ' + '</div>' + '<div class="col-lg-9 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].answers[' + j + '].text_answer">' + Tests[currentIndexTest].answers[j].text_answer + '</div>';
             }
         }
