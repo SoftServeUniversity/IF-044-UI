@@ -36,7 +36,7 @@ var Application = {
                   email: "tarasklyushta@gmail.com",
                   password: "4321",
                   re_passwd: "4321",
-                  birthday: "28-12-1990",
+                  birthday: "28-12-2001",
                   statusname: '',
                   org_level: '',
                   org_troop: "some troop",
@@ -55,7 +55,7 @@ var Application = {
                   email: "tarasklyushta@gmail.com",
                   password: "1234",
                   re_passwd: "1234",
-                  birthday: "28-12-1990",
+                  birthday: "28-12-1998",
                   statusname: '',
                   org_level: '',
                   org_troop: "some troop",
@@ -74,7 +74,7 @@ var Application = {
                   email: "tarasklyushta@gmail.com",
                   password: "1234",
                   re_passwd: "1234",
-                  birthday: "28-12-1990",
+                  birthday: "28-12-1984",
                   statusname: '',
                   org_level: '',
                   org_troop: "some troop",
@@ -359,7 +359,6 @@ var Application = {
 
  Result: [
     {   id: 1,
-
         u_id : 1,
         name : 'Test Name1',
         test_id: 1,
@@ -373,8 +372,6 @@ var Application = {
         name : 'Test Name2',
         test_id: 2,
         passed_date: 1301431224657, 
-
-
         score : 4,
         user_rank: ''
 

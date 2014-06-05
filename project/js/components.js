@@ -247,6 +247,7 @@ function generalStatisticModule() {
     var variableYear;
     var tempArr = [];
     var tabs = document.getElementsByClassName('tabs');
+    var checkboxes;
 
 
     /* обєкт який ми передаємо в highcharts */
@@ -325,6 +326,14 @@ function generalStatisticModule() {
 
         dateParser();
 
+        fillSeries2();
+
+        monthParser();
+
+        generalScorePerMonth();
+
+        $('#stat3').highcharts(GlobalObj);
+
 
     } else if(tabs[3].className === 'tabs active') {
 
@@ -333,6 +342,14 @@ function generalStatisticModule() {
         activeCheckboxChecking('gradeList-checkbox');
 
         dateParser();
+
+        fillSeries2();
+
+        monthParser();
+
+        generalScorePerMonth();
+
+        $('#stat4').highcharts(GlobalObj);
 
     }
 
@@ -379,10 +396,31 @@ function generalStatisticModule() {
             if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
                for(var k = 0; k<Model.date.Users.length; k++) {
                   if(Model.date.Result[i].u_id === Model.date.Users[k].id){
-                       var a = Date.parse(Model.date.Users[k].birthday);
-                       if(a){}
-                   }
-                }
+                       var valDate = Model.date.Users[k].birthday.split('-');
+                       var nowDate = new Date().getFullYear();
+                       var res = parseInt(nowDate, 10) - parseInt(valDate[2], 10);
+                       if(checkboxes[0].checked && res <= 14){
+
+                           categories[0].push(Model.date.Result[i]);
+
+                       } else if(checkboxes[1].checked && 15 <= res && res <= 18) {
+
+                           categories[1].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[2].checked && 19 <= res && res <= 25) {
+
+                           categories[2].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[1].checked && 25 <= res) {
+
+                           categories[1].push(Model.date.Result[i]);
+                            
+                       } else { 
+
+                           alert('не коректно вказано вік ' + Model.date.Users[k].firstName + ' ' + Model.date.Users[k].lastName)
+                       };
+                   };
+                };
 
               /*  categories[0].push(Result[i]);*/
             };
@@ -408,12 +446,11 @@ function generalStatisticModule() {
 
 
     function activeCheckboxChecking(className){
-       var checkboxes = document.getElementsByClassName(className);
+        checkboxes = document.getElementsByClassName(className);
 
         for(var i =0; i<checkboxes.length; i++) {
-            if(checkboxes[i].checked) {
-                crateSingleSeries(checkboxes[i].parentNode.childNodes[1].data);  
-            };
+            categories.push([]);
+            createSeriesElem(checkboxes[i].parentNode.childNodes[1].data);  
         };
     }
 
