@@ -90,8 +90,9 @@ function getParentTr(removeButton) {
 
 window.onload = function generateObjects(){
     var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
-    var numberOfObjects = Tests.length;
-    var countStatus=3;
+    var numberOfObjects = Model.date.Tests.length;
+        var countStatus=4;
+    //console.log(Model.date.Tests[0].status.id);
     for (var tableSwap = 1; tableSwap <= 4; tableSwap++) {
         var row;
         var cell = [];
@@ -99,22 +100,24 @@ window.onload = function generateObjects(){
         var table = document.getElementById(tableId);
         var numberOfRow = 1;
         for (var i = 0; i < numberOfObjects; i++) {
+            var subcatid = Model.date.Tests[i].subcategory;
+            var categoryId = Model.date.Tests_categories[subcatid - 1].parent_id;
 
-            if ( Tests[i].status == countStatus){
+            if ( Model.date.Tests[i].status.id == countStatus){
 
                 var numberOfCell = 0;
                 row = table.insertRow(numberOfRow);
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Tests[i].name;
+                cell[numberOfCell].innerHTML = Model.date.Tests[i].name;
                 numberOfCell += 1;
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Tests[i].category;
+                cell[numberOfCell].innerHTML = Model.date.Tests_categories[categoryId - 1].name;
                 numberOfCell += 1;
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Tests[i].subcategory;
+                cell[numberOfCell].innerHTML = Model.date.Tests_categories[subcatid - 1].name;
                 numberOfCell += 1;
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);

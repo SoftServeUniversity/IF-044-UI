@@ -1,6 +1,8 @@
 var Application = {
 	Users: [
+<<<<<<< HEAD
 				  {id:1,
+<<<<<<< HEAD
                 username: 'Tolik',
                  firstName: 'dsfgdfg',
                  lastName: 'dfgfdg',
@@ -35,19 +37,53 @@ var Application = {
                   birthday: "28-12-1990",
                  statusname: '',
                      org_level: '',
+=======
+                  username: '',
+                  lastName: '',
+				  role_id :1,
+				  location: "Ukraine",
+				  email: "tarasklyushta@gmail.com",
+				  password: "1234",
+				  birthday: "28.12.1990",
+				  org_troop: "some troop",
+				  org_region: "Івано-Франківськ",
+				  org_group: "some group",
+				  login_status: "don't know"
+					
+				  }
+=======
+                  {id:1,
+                  username: 'Tolik',
+                  firstName: 'jkghjdfg',
+                  lastName: 'fdghfgdjj',
+                  group: '',
+                  role_id:1,
+                  location: "Ukraine",
+                  email: "tarasklyushta@gmail.com",
+                  password: "4321",
+                  re_passwd: "4321",
+                  birthday: "28-12-1990",
+                  statusname: '',
+                  org_level: '',
+>>>>>>> 71061561ffb76a741338783e0e17f7d24cc83a36
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
                   login_status: 0
                     
+<<<<<<< HEAD
                      },
 				 
+=======
+                  },
+
+>>>>>>> 71061561ffb76a741338783e0e17f7d24cc83a36
                   {id:2,
                   username: 'Vasyl',
                   firstName: 'jkghjdfg',
                   lastName: 'fdghfgdjj',
                   group: '',
-                  role_id:1,
+                  role_id:2,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "4321",
@@ -66,7 +102,7 @@ var Application = {
                   firstName: 'sdgdh',
                   lastName: 'sdfdgg',
                   group: '',
-                  role_id:1,
+                  role_id:3,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "1234",
@@ -85,7 +121,7 @@ var Application = {
                   firstName: 'dfsgjfj',
                   lastName: 'fgsjgjgj',
                   group: '',
-                  role_id:1,
+                  role_id:4,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "1234",
@@ -100,6 +136,7 @@ var Application = {
                     
                   }
                                 
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
 			],
 	Tests: [
 				 {id: 1,
@@ -184,13 +221,18 @@ var Application = {
 								  ],
 				  info: ['info1', 'info2'],
 				  status: {
-							id:4,
+							id:1,
 							name_status: "опублікований"
 						  },
 				  subcategory: 4,
+<<<<<<< HEAD
+				  //category: 1,
+				  date: "some  date create..."
+=======
 				  category: 1,
 				  date: "some  date create...",
                   passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
 				 }
 			],
 	Tests_categories: [
@@ -238,7 +280,7 @@ var Application = {
 						},
 						{
 							id: 4,
-							name: "підкатегорія",
+							name: "підкатегорі",
 							parent_id:1,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -364,58 +406,99 @@ var Application = {
 						}	
 						
 					],
+<<<<<<< HEAD
+     Result : [
+    {
+=======
  Result: [
     {   id: 1,
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
         u_id : 1,
         name : 'Test Name1',
         test_id: 1,
         passed_date: 1391431224657,
+<<<<<<< HEAD
+        score : 11
+=======
         score : 11,
         user_rank: ''
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
     },
     {   id: 2,
         u_id : 3,
         name : 'Test Name2',
         test_id: 2,
         passed_date: 1301431224657, 
+<<<<<<< HEAD
+        score : 4
+=======
         score : 4,
         user_rank: ''
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
     },
     {   id: 3,
         u_id : 2,
         name : 'Test Name2',
         test_id: 2,
         passed_date:1390718456676,
+<<<<<<< HEAD
+        score : 3
+=======
         score : 3,
         user_rank: ''
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
     },
     {   id: 4,
         u_id : 2,
         name : 'Test Name2',
         test_id: 2,
         passed_date:1499031224657,
+<<<<<<< HEAD
+        score : 1
+=======
         score : 1,
         user_rank: ''
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
     },
     {   id: 5,
         u_id : 4,
         test_id: 6,
         name : 'Test Name6',
         passed_date:1201431224657,
+<<<<<<< HEAD
+        score : 7
+=======
         score : 7,
         user_rank: ''
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
     },
     {   id: 6,
         u_id : 2,
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
+<<<<<<< HEAD
+        score : 8
+=======
         score : 8,
         user_rank: ''
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
     }
 ],
     User_roles: [
 					{
+<<<<<<< HEAD
+						id: 1,
+						role_name: "авторизований користувач"
+					},
+					{
+						id: 2,
+						role_name: "модератор"
+					},	
+					{
+						id: 3,
+						role_name: "адміністратор"
+=======
 						id: 0,
 						role_name: "авторизований користувач",
 					},
@@ -426,8 +509,9 @@ var Application = {
 					{
 						id: 2,
 						role_name: "адміністратор",
+>>>>>>> fd0e5bd1c53d6f2ed7cc9079780783025555c1a5
 					}					
-				],		
+				]
 }
 function model(date_in){
 	if(!localStorage.Application){
