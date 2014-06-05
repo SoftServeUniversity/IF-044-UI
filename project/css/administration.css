@@ -72,9 +72,6 @@ button{
 .control{
 	border: none;
 }
-#p1 .form-control option{
-	font-style: bold;
-}
 .addcategory{
 	float: right;
 }
@@ -82,6 +79,6 @@ button{
 	float: right;
 	margin-left: 2px;
 }
-#p4 .language select option{
+#p1 .control option{
 	font-weight: bold;
 }

@@ -11,12 +11,14 @@
     <link href="css/faq.css" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/data.json"></script>
+   <!-- <script src="json/data.json"></script>-->
+    <script src="json/new_data.js"></script>
 	<script src="js/editUserController.js"></script>
 	<script src="js/prof_check.js"></script>
 	<script>
 		window.onload = function() {
 		var userController = new EditUserController();
+			
 			userController.fillData(0);
 			var a = Math.ceil(Math.random() * 9);
 		var b = Math.ceil(Math.random() * 9);
