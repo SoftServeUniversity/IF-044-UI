@@ -19,8 +19,10 @@ function calculate(){
  			resulttext[i].innerHTML = answerArray['question'+i];
  		};
 
- 	var TestStructure = function(testNum){
 
+ 	var TestStructure = function(testNum){
+ 	var testNum = 1;
+ 	
  		var num = document.getElementsByClassName('questiontext');
  		var rightanswer = document.getElementsByClassName('true')
  			for(var i = 0; i < Tests[testNum].question.length; i++){
