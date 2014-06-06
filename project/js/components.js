@@ -345,13 +345,13 @@ function generalStatisticModule() {
 
         dateParser();
 
-        fillSeries2();
+        fillSeries3();
 
         monthParser();
 
-        clearEmptySeries();
-
         generalScorePerMonth();
+
+        clearEmptySeries();
 
         $('#stat4').highcharts(GlobalObj);
 
@@ -431,22 +431,48 @@ function generalStatisticModule() {
 
                            categories[2].push(Model.date.Result[i]);
                             
-                       } else if(checkboxes[1].checked && 25 <= res) {
+                       } else if(checkboxes[3].checked && 25 <= res) {
 
-                           categories[1].push(Model.date.Result[i]);
+                           categories[3].push(Model.date.Result[i]);
                             
                        } else { 
 
-                           alert('не коректно вказано вік ' + Model.date.Users[k].firstName + ' ' + Model.date.Users[k].lastName)
+                           console.log('не коректно вказано вік ' + Model.date.Users[k].firstName + ' ' + Model.date.Users[k].lastName)
                        };
                    };
                 };
-
-              /*  categories[0].push(Result[i]);*/
             };
         };
      };
 
+
+    function fillSeries3() {
+            for(var i = 0; i<Model.date.Result.length; i++) {
+                 if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
+                      
+                      if(checkboxes[0].checked && Model.date.Result[i].user_rank === 1){
+
+                           categories[0].push(Model.date.Result[i]);
+
+                       } else if(checkboxes[1].checked && Model.date.Result[i].user_rank === 2) {
+
+                           categories[1].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[2].checked && Model.date.Result[i].user_rank === 3) {
+
+                           categories[2].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[3].checked && Model.date.Result[i].user_rank === 4) {
+
+                           categories[3].push(Model.date.Result[i]);
+                            
+                       } else { 
+
+                           console.log('не коректно вказана категорія')
+                       };
+                 } 
+            }           
+    }    
 
     
     function crateSingleSeries(elemName) {
