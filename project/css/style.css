@@ -21,9 +21,9 @@ body {
 }
 
 #header-container {
-	padding-left: 150px;
+	/* padding-left: 150px; */
 	border-bottom:1px solid #eae8e8;
-	height: 135px;
+	height: 110px;
 }
 
 #header-container a {
@@ -35,8 +35,8 @@ body {
 	display: block;
 	width: 50%;
     position: absolute;
-	bottom: 5px;
-	left: 32%; 
+	bottom: 10px; /* 5px */
+	left: 28%; /* 32px */
 
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 main {
-	margin: 20px 0;
+	margin: 20px; 0;
 	background-color: white;
 	text-align: center;
 
@@ -107,9 +107,9 @@ footer {
 
 #title-block {
 	position: relative;
-	left: 3%;
+	left: 22%;
 	display: inline-block;
-	bottom: 25px;
+	bottom: -15px;
 }
 
 #title-block h4 {
