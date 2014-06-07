@@ -99,11 +99,13 @@ function testsFilter() {
     function createTestElement(i) {
         var newDiv = document.createElement('div');
         newDiv.className = 'test';
-        var p = document.createElement('p');
-        p.innerHTML = 'Тест: ';
+        var h3 = document.createElement('h3');
         var a = document.createElement('a');
-        a.innerHTML =Model.date.Tests[i].name;
-        p.appendChild(a);
+        a.innerHTML = Model.date.Tests[i].name;
+        var p = document.createElement('p');
+        p.innerHTML = Model.date.Tests[i].description;
+        h3.appendChild(a);
+        newDiv.appendChild(h3);
         newDiv.appendChild(p);
         textBox.appendChild(newDiv);
     };
@@ -211,11 +213,13 @@ function searchModule() {
     function createTestElement(i) {
         var newDiv = document.createElement('div');
         newDiv.className = 'test';
-        var p = document.createElement('p');
-        p.innerHTML = 'Тест: ';
+        var h3 = document.createElement('h3');
         var a = document.createElement('a');
         a.innerHTML = Model.date.Tests[i].name;
-        p.appendChild(a);
+        var p = document.createElement('p');
+        p.innerHTML = Model.date.Tests[i].description;
+        h3.appendChild(a);
+        newDiv.appendChild(h3);
         newDiv.appendChild(p);
         textBox.appendChild(newDiv);
     };

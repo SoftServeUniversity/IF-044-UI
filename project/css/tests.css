@@ -16,15 +16,30 @@
  }
 
  #test-list .test {
- 	display: inline-block;
-	padding-bottom: 22px;
-	width: 28%;
-	margin: 0 2%;
+ 	display:block;
+	width: 86%;
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+ }
+
+ #test-list .test:hover {
+  border: solid 2px rgb(221, 219, 219);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .6);
+  border-radius: 5px;
+  padding: 8px 18px;
+ }
+
+ #test-list .test a:hover {
+     text-decoration: none;
+     cursor: pointer;
  }
 
  #test-list .test p {
- 	margin-bottom: 2px;
- }
+  text-align: justify;
+ } 
+
 
  #search-sort {
  	padding-top: 20px;
@@ -90,3 +105,37 @@
   background-color: #0490ba;
   color: white;
 } 
+
+
+
+.search-result {
+                                border: solid 2px transparent;
+                                padding: 0 19px;
+                                -moz-transition: all .2s linear 0.1s;
+                                /*                                transition-timing-function: steps(0.8) */
+                                -webkit-transition: all .8s linear 0.1s;
+                                -o-transition: all .2s linear 0.1s;
+                                transition: all .2s linear 0.1s;
+                            }
+                            .search-result:hover {
+                                border: solid 2px rgb(221, 219, 219);
+                                box-shadow: 0 3px 6px rgba(0, 0, 0, .6);
+                                border-radius: 5px;
+                            }
+                            .filter-search > div {
+                                color: #5bc0de;
+                                cursor: pointer;
+                                /*                                border-right:solid 2px blue; ; */
+                            }
+                            .curent-filter {
+                                font-weight: bold;
+                                background: #5bc0de;
+                                color: #fff;
+                                border-right: solid 3px;
+                            }
+                            .search-tag {
+                                list-style: none;
+                            }
+                            .search-teg li {
+                                display: inline-block;
+                            }
