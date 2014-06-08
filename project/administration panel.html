@@ -13,8 +13,9 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/data.json"></script>
-    <script src='js/administration.js'></script>
+    <script src="json/new_data.js"></script>
+    <!--<script src="json/data.json"></script>-->
+    <!--<script src='js/administration.js'></script>-->
 
 </head>
 <body class="container-fluid">
@@ -23,7 +24,7 @@
         <header class="row">
             <div id="header-container"
                  class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a>
+           <!--      <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
                 <div id="title-block">
                     <h4>Система Пластових електронних опитників</h4>
                 </div>
@@ -115,7 +116,7 @@
 
 <div class='panel panel-primary'>
         <div class='panel-heading'>
-            <h3 class='panel-title'>Адміністративна панель</h3>
+            <h3 class='panel-title'><strong>Адміністративна панель</strong></h3>
         </div>
         <div class='panel-body'>
           <div class="container-fluid">
@@ -125,7 +126,7 @@
 
 
                         <div class="bs-example bs-example-tabs">
-                            <ul id="myTab" class="nav nav-tabs">
+                            <ul id="myTab" class="nav nav-tabs paneltitle">
                                 <li class="active">
                                     <a data-toggle="tab" class="bg-info" href="#p1">Користувачі</a>
                                 </li>
@@ -138,7 +139,9 @@
                                 <li class="">
                                     <a data-toggle="tab" class="bg-info" href="#p4">Локалізація</a>
                                 </li>
-
+                                <li>
+                                    <a data-toggle='tab' class='bg-info' href='#p5'>Про нас</a>
+                                </li>
                             </ul>
 
                             <div id="myTabContent" class="tab-content panel">
@@ -146,20 +149,22 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th><span>Сортувати по<span></th>
-                                                <th><select class='form-control'>
-                                                    <option>Алфавіту</oprtion>
+                                                <th><span class='sort'>Сортувати по</span></th>
+                                                <th><select class='form-control control'>
+                                                    <option><strong>Алфавіту</strong></oprtion>
                                                     <option>Статусу</oprtion>
                                                 </select></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <th><input type='search' class='form-control' placeholder='Пошук'>
+                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
                                                 </th>
                                             </tr>                                        
                                         </thead>
-                                    <tr>
+                                        <tbody id="usersTable">
+                                 
+                                 <!--   <tr>
                                         <td><span id='firstName'></span></td>
                                         <td><span id='mail'>Harry55@gmail.com</span></td>                    
                                         <td><span class='user' id='change'><strong>Модератор</strong></span></td>
@@ -221,7 +226,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td> 
-                                    </tr>
+                                    </tr>-->
                                         </tbody>
                                     </table>
                                        <div class='pageroller'>
@@ -247,14 +252,18 @@
                                                 <th>Назва категорії</th>
                                                 <th>Батьківська</th>
                                                 <th></th>
-                                                <th><button type='button' class='btn btn-primary kategorybutton btn-sm'>Додати категорію</button></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'>Додати категорію</button></th>
                                             </tr>                                        
                                         </thead>
                                     <tr>
                                         <td><strong>1</strong></td>
                                         <td>I проба</td>                    
                                         <td> -------- </td>
-                        
+                                        <td></td>
+                                        <td></td>
+                                           <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
@@ -262,7 +271,9 @@
                                         <td><strong>2</strong></td>
                                         <td>II проба</td>                    
                                         <td> -------- </td>
-                                
+                                        <td></td>
+                                        <td></td>
+                                           <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
@@ -270,7 +281,9 @@
                                         <td><strong>3</strong></td>
                                         <td>III проба</td>                    
                                         <td> -------- </td>
-                           
+                                        <td></td>
+                                        <td></td>
+                                           <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
@@ -278,15 +291,19 @@
                                         <td><strong>4</strong></td>
                                         <td>VI проба</td>                    
                                         <td> -------- </td>
-                          
+                                        <td></td>
+                                        <td></td>
+                                           <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
-                                          <tr>
+                                    <tr>
                                         <td><strong>5</strong></td>
                                         <td>V проба</td>                    
                                         <td> -------- </td>
-                                 
+                                        <td></td>  
+                                        <td></td>
+                                           <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
@@ -294,7 +311,9 @@
                                         <td><strong>6</strong></td>
                                         <td>VI проба</td>                    
                                         <td> -------- </td>
-                          
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
@@ -302,7 +321,9 @@
                                         <td><strong>7</strong></td>
                                         <td>VII проба</td>                    
                                         <td> -------- </td>
-                               
+                                         <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr>
@@ -315,12 +336,16 @@
                                     </div>
                                 </div>
                                 <div id="p4" class="tab-pane fade in #4">
-                                    <ol>
-                                        <div class='btn-group localization'>
-                                            <button type='button' class='btn btn-primary headerpanel'>Панель навігації</button>
-                                             <button type='button' class='btn btn-primary footerpanel'>Панель футера</button>
+                                        <div class='language'>
+                                            <span>Мова системи: </span>
+                                            <select>
+                                                <option>Українська</option>
+                                                <option>Англійська</option>
+                                            </select>
                                         </div>
-                                    </ol>
+                                </div>
+                                <div id='p5' class='tab-pane fade in #5'>
+                                
                                 </div>
 
                             </div>
@@ -346,6 +371,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-
+<script src='js/search-form2.js'></script>
 </body>
 </html>

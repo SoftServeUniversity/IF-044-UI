@@ -11,13 +11,23 @@
     <link href="css/faq.css" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/data.json"></script>
+   <!-- <script src="json/data.json"></script>-->
+    <script src="json/new_data.js"></script>
 	<script src="js/editUserController.js"></script>
 	<script src="js/prof_check.js"></script>
 	<script>
 		window.onload = function() {
 		var userController = new EditUserController();
+			
 			userController.fillData(0);
+			var a = Math.ceil(Math.random() * 9);
+		var b = Math.ceil(Math.random() * 9);
+		var c = Math.ceil(Math.random() * 9);
+		var d = Math.ceil(Math.random() * 9);
+		var e = Math.ceil(Math.random() * 9);
+		var code = a * b * c * d * e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("txtCaptchaDiv").innerHTML = code;
 		};
 	</script>
 </head>
@@ -27,7 +37,7 @@
         <header class="row">
             <div id="header-container"
                  class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a>
+        <!--         <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
                 <div id="title-block">
                     <h4>Система Пластових електронних опитників</h4>
                 </div>
@@ -184,7 +194,14 @@
     									<input type="file" id="exampleInputFile">
     								</div>
   							</div>
-
+							<div class="form-group">
+    						 <label class="col-sm-4 control-label" for="exampleInputFile">Введіть число:</label>
+    							<div class="col-sm-3" >
+    							<span id="txtCaptchaDiv" style="color:#0000"> </span>
+    								<input type="hidden" id="txtCaptcha"> </label>
+									<input type="text" name="txtInput" id="txtInput" size="5" />
+    							</div>
+  						</div>
 
 							<hr class="colorgraph">
 							<div class="col-md-4 col-sm-offset-2">
@@ -218,6 +235,6 @@
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/components.js"></script>    
+	<script src="js/components.js"></script> 
 </body>
 </html>

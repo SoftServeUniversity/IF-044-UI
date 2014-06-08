@@ -13,11 +13,13 @@ function loginModule() {
     };
 
     function postWishMsg() {
-        alert('Вітаю ' + Users[currentUser].firstName + '!')
+        alert('Вітаю ' + Model.date.Users[currentUser].firstName + '!')
     }
 
     function changeLoginStatus() {
-        Users[currentUser].login_status = 1;
+        Model.date.session_user_id = Model.date.Users[currentUser].id;
+        Model.save_localStorage();
+        console.log(Model.date.Users[currentUser].id);
     }
 
     function clearForms() {
@@ -28,13 +30,15 @@ function loginModule() {
     loginButton.onclick = function () {
         errorBlock.innerHTML = '';
 
-
-        for (var i = 0; i < Users.length; i++) {
-            if (email.value == Users[i].email) {
+        
+        console.log(email.value);
+        console.log(Model.date.Users[0].username);
+        for (var i = 0; i < Model.date.Users.length; i++) {
+            if (email.value === Model.date.Users[i].email) {
                 res1 = true;
                 currentUser = i;
                 break;
-            } else if (email.value == Users[i].username) {
+            } else if (email.value == Model.date.Users[i].username) {
                 res1 = true;
                 currentUser = i;
                 break;
@@ -45,7 +49,7 @@ function loginModule() {
         };
 
         if (currentUser >= 0) {
-            if (Users[currentUser].password == password.value) {
+            if (Model.date.Users[currentUser].password == password.value) {
                 res2 = true;
             } else {
                 res2 = false;
@@ -95,20 +99,22 @@ function testsFilter() {
     function createTestElement(i) {
         var newDiv = document.createElement('div');
         newDiv.className = 'test';
-        var p = document.createElement('p');
-        p.innerHTML = 'Тест: ';
+        var h3 = document.createElement('h3');
         var a = document.createElement('a');
-        a.innerHTML = Tests[i].name;
-        p.appendChild(a);
+        a.innerHTML = Model.date.Tests[i].name;
+        var p = document.createElement('p');
+        p.innerHTML = Model.date.Tests[i].description;
+        h3.appendChild(a);
+        newDiv.appendChild(h3);
         newDiv.appendChild(p);
         textBox.appendChild(newDiv);
     };
 
-    Tests.sort(function (a, b) {
+    Model.date.Tests.sort(function (a, b) {
         return a.date - b.date
     });
 
-    for (var i = 0; i < Tests.length; i++) {
+    for (var i = 0; i < Model.date.Tests.length; i++) {
         createTestElement(i);
     };
 
@@ -117,11 +123,11 @@ function testsFilter() {
 
         if (this.value === '1') {
 
-            Tests.sort(function (a, b) {
+            Model.date.Tests.sort(function (a, b) {
                 return a.date - b.date
             });
 
-            for (var i = 0; i < Tests.length; i++) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
                 createTestElement(i);
             };
 
@@ -129,11 +135,11 @@ function testsFilter() {
 
         if (this.value === '2') {
 
-            Tests.sort(function (a, b) {
+            Model.date.Tests.sort(function (a, b) {
                 return a.name > b.name
             });
 
-            for (var i = 0; i < Tests.length; i++) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
                 createTestElement(i);
             };
         };
@@ -145,8 +151,8 @@ function testsFilter() {
 
         if (this.id === 'vmil1') {
 
-            for (var i = 0; i < Tests.length; i++) {
-                if (Tests[i].subcategory === 8) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+                if (Model.date.Tests[i].subcategory === 8) {
                     createTestElement(i);
                 }
             };
@@ -154,8 +160,8 @@ function testsFilter() {
 
         if (this.id === 'vmil2') {
 
-            for (var i = 0; i < Tests.length; i++) {
-                if (Tests[i].subcategory === 11) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+                if (Model.date.Tests[i].subcategory === 11) {
                     createTestElement(i);
                 }
             };
@@ -163,8 +169,8 @@ function testsFilter() {
 
         if (this.id === 'vmil3') {
 
-            for (var i = 0; i < Tests.length; i++) {
-                if (Tests[i].subcategory === 1) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+                if (Model.date.Tests[i].subcategory === 1) {
                     createTestElement(i);
                 }
             };
@@ -172,8 +178,8 @@ function testsFilter() {
 
         if (this.id === 'vmil4') {
 
-            for (var i = 0; i < Tests.length; i++) {
-                if (Tests[i].subcategory === 5) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+                if (Model.date.Tests[i].subcategory === 5) {
                     createTestElement(i);
                 }
             };
@@ -181,8 +187,8 @@ function testsFilter() {
 
         if (this.id === 'vmil5') {
 
-            for (var i = 0; i < Tests.length; i++) {
-                if (Tests[i].subcategory === 7) {
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+                if (Model.date.Tests[i].subcategory === 7) {
                     createTestElement(i);
                 }
             };
@@ -207,17 +213,19 @@ function searchModule() {
     function createTestElement(i) {
         var newDiv = document.createElement('div');
         newDiv.className = 'test';
-        var p = document.createElement('p');
-        p.innerHTML = 'Тест: ';
+        var h3 = document.createElement('h3');
         var a = document.createElement('a');
-        a.innerHTML = Tests[i].name;
-        p.appendChild(a);
+        a.innerHTML = Model.date.Tests[i].name;
+        var p = document.createElement('p');
+        p.innerHTML = Model.date.Tests[i].description;
+        h3.appendChild(a);
+        newDiv.appendChild(h3);
         newDiv.appendChild(p);
         textBox.appendChild(newDiv);
     };
 
-    for (var i = 0; i < Tests.length; i++) {
-        if (Tests[i].name.toLowerCase().indexOf(searchInput.value.toLowerCase()) >= 0) {
+    for (var i = 0; i < Model.date.Tests.length; i++) {
+        if (Model.date.Tests[i].name.toLowerCase().indexOf(searchInput.value.toLowerCase()) >= 0) {
             createTestElement(i)
         };
     };
@@ -243,6 +251,7 @@ function generalStatisticModule() {
     var variableYear;
     var tempArr = [];
     var tabs = document.getElementsByClassName('tabs');
+    var checkboxes;
 
 
     /* обєкт який ми передаємо в highcharts */
@@ -301,7 +310,7 @@ function generalStatisticModule() {
 
         graphicTitles('Загальний середній бал', 'По часу', 'Середній бал', '');
 
-        crateSingleSeries('загальний середній бал');
+        crateSingleSeries('заг. сер. бал');
 
         dateParser();
 
@@ -313,28 +322,82 @@ function generalStatisticModule() {
 
         $('#stat2').highcharts(GlobalObj);
          
+    } else if(tabs[2].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу та віку', 'Середній бал', '');
+
+        activeCheckboxChecking('ageList-checkbox');
+
+        dateParser();
+
+        fillSeries2();
+
+        monthParser();
+
+        generalScorePerMonth();
+
+        clearEmptySeries();
+
+        $('#stat3').highcharts(GlobalObj);
+
+
+    } else if(tabs[3].className === 'tabs active') {
+
+        graphicTitles('Загальний середній бал', 'По часу та ступені', 'Середній бал', '');
+
+        activeCheckboxChecking('gradeList-checkbox');
+
+        dateParser();
+
+        fillSeries3();
+
+        monthParser();
+
+        generalScorePerMonth();
+
+        clearEmptySeries();
+
+        $('#stat4').highcharts(GlobalObj);
+
+    };
+  
+  // перебирає масив чекбоксів і якшо чекбокс - чекед, пушає відповідну серію з глобал обєкта і ню аррей і потім заміняє ним серії в глобал обєкті 
+
+    function clearEmptySeries() {
+        var newArr = []
+        for(var i = 0; i< checkboxes.length; i++){
+           if(checkboxes[i].checked) {
+               newArr.push(GlobalObj.series[i]);
+
+           };
+
+        };
+      
+        GlobalObj.series = newArr;  
     }
 
 
     function generalScorePerMonth() {
         for(var i = 0; i<tempArr.length; i++) {
-            var newArr = [];
-            var a = 0;
+
 
             for(var k = 0; k<categories.length; k++){
+                var newArr = [];
+                var a = 0;
                 for(var m = 0; m<categories[k].length; m++){
                     var val = new Date(categories[k][m].passed_date).toDateString().split(' ');
-                    if (val[1] === tempArr[m].month && parseInt(val[3], 10) === tempArr[m].year) {
-                        newArr.push(categories[i][k].score);
+                    if (val[1] === tempArr[i].month && parseInt(val[3], 10) === tempArr[i].year) {
+                        newArr.push(categories[k][m].score);
                 };
             };
 
                 for(var l = 0; l<newArr.length; l++){
                     a += newArr[l];
                 }
+                
+              if(a === 0){a = 0} else {a = a / newArr.length};
 
-                a = (a / newArr.length);
-                GlobalObj.series[i].data.push(a);
+                GlobalObj.series[k].data.push(a);
                 newArr = []; 
             };    
         };
@@ -345,13 +408,75 @@ function generalStatisticModule() {
 //  перебирає обєкт Резалт і вертає всі його дочерні обєкти які попадають по часу складення тесту у вибраний інтервал часу
 
      function fillSeries() {
-        for(var i = 0; i<Result.length; i++) {
-            if(dateInterval.startMiliseconds < Result[i].passed_date && Result[i].passed_date < dateInterval.endMiliseconds) {
-                categories[0].push(Result[i]);
+        for(var i = 0; i<Model.date.Result.length; i++) {
+            if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
+                categories[0].push(Model.date.Result[i]);
             };
         };
-     }
+     };
 
+     function fillSeries2() {
+        for(var i = 0; i<Model.date.Result.length; i++) {
+            if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
+               for(var k = 0; k<Model.date.Users.length; k++) {
+                  if(Model.date.Result[i].u_id === Model.date.Users[k].id){
+                       var valDate = Model.date.Users[k].birthday.split('-');
+                       var nowDate = new Date().getFullYear();
+                       var res = parseInt(nowDate, 10) - parseInt(valDate[2], 10);
+                       if(checkboxes[0].checked && res <= 14){
+
+                           categories[0].push(Model.date.Result[i]);
+
+                       } else if(checkboxes[1].checked && 15 <= res && res <= 18) {
+
+                           categories[1].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[2].checked && 19 <= res && res <= 25) {
+
+                           categories[2].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[3].checked && 25 <= res) {
+
+                           categories[3].push(Model.date.Result[i]);
+                            
+                       } else { 
+
+                           console.log('не коректно вказано вік ' + Model.date.Users[k].firstName + ' ' + Model.date.Users[k].lastName)
+                       };
+                   };
+                };
+            };
+        };
+     };
+
+
+    function fillSeries3() {
+            for(var i = 0; i<Model.date.Result.length; i++) {
+                 if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
+                      
+                      if(checkboxes[0].checked && Model.date.Result[i].user_rank === 1){
+
+                           categories[0].push(Model.date.Result[i]);
+
+                       } else if(checkboxes[1].checked && Model.date.Result[i].user_rank === 2) {
+
+                           categories[1].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[2].checked && Model.date.Result[i].user_rank === 3) {
+
+                           categories[2].push(Model.date.Result[i]);
+                            
+                       } else if(checkboxes[3].checked && Model.date.Result[i].user_rank === 4) {
+
+                           categories[3].push(Model.date.Result[i]);
+                            
+                       } else { 
+
+                           console.log('не коректно вказана категорія')
+                       };
+                 } 
+            }           
+    }    
 
     
     function crateSingleSeries(elemName) {
@@ -367,6 +492,16 @@ function generalStatisticModule() {
         GlobalObj.yAxis.title.text = yAxisTitle;
         GlobalObj.tooltip.valueSuffix = tooltip;
 
+    }
+
+
+    function activeCheckboxChecking(className){
+        checkboxes = document.getElementsByClassName(className);
+
+        for(var i =0; i<checkboxes.length; i++) {
+            categories.push([]);
+            createSeriesElem(checkboxes[i].parentNode.childNodes[1].data);  
+        };
     }
 
 
@@ -393,30 +528,49 @@ function generalStatisticModule() {
             categories.push([]);
         };
 
+/*        var roots = Model.date.Categories.getSubcategories(null);
+        var root_subcategories = [];
+        for (var i = roots.length - 1; i >= 0; i--) {
+            root_subcategories[i] = Model.date.Categories.getSubcategories(roots[i]);
+        };*/
 
-        for (var i = 0; i < Tests.length; i++) {
+        for (var i = 0; i < Model.date.Tests.length; i++) {
 
-            if (Tests[i].category === 1) {
+/*            for (var j = 0; j < roots.length ; j++) {
+                if (root_subcategories[j].indexOf(Model.date.Tests[i].subcategory) >= 0) {
+                    
+                    for (var k = 0; k < Model.date.Tests[i].passed_date.length; k++) {
+                        categories[j].push(Model.date.Tests[i].passed_date[k]);
+                    };
 
-                for (var k = 0; k < Tests[i].passed_date.length; k++) {
-                    categories[0].push(Tests[i].passed_date[k]);
+                };
+            };*/
+            
+
+
+            if (Model.date.Tests[i].category === 1) {
+
+                for (var k = 0; k < Model.date.Tests[i].passed_date.length; k++) {
+                    categories[0].push(Model.date.Tests[i].passed_date[k]);
                 };
 
 
-            } else if (Tests[i].category === 2) {
+            } else if (Model.date.Tests[i].category === 2) {
 
-                for (var l = 0; l < Tests[i].passed_date.length; l++) {
-                    categories[1].push(Tests[i].passed_date[l]);
+                for (var l = 0; l < Model.date.Tests[i].passed_date.length; l++) {
+                    categories[1].push(Model.date.Tests[i].passed_date[l]);
                 };
 
-            } else if (Tests[i].category === 3) {
+            } else if (Model.date.Tests[i].category === 3) {
 
-                for (var m = 0; m < Tests[i].passed_date.length; m++) {
-                    categories[2].push(Tests[i].passed_date[m]);
+                for (var m = 0; m < Model.date.Tests[i].passed_date.length; m++) {
+                    categories[2].push(Model.date.Tests[i].passed_date[m]);
                 };
 
             };
-        };
+        
+        }
+
     }
 
     /* створює в обєкті dateInterval ще два свойства - початок і кінець інтервалу в мілісекундах*/
