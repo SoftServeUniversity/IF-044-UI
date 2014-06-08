@@ -1,26 +1,31 @@
 .center{
-	margin-left: 28%;
+	margin-left: 20%;
 }
 .btn-center{
 	margin-right: 8%;
 }
 
-.textarea{
-	width: 69%;
-	height: 50px;
-}
+
 
 .btn-xs{
 	height: 15px;
 	width: 17px;
 }
-.glyphicon{
-	position: relative;
-	right: 3px;
-	top:-2px;
+
+.myForm{
+padding: 5px;
+border: 1px solid #ccc;
+border-radius: 4px;
+width: 73%;
+float: right;
+position: relative;
+bottom:5px;
 }
 
-.glyphicon-minus{
-	position: relative;
-	right: 4px;
+.barel{
+	padding-top: 15px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	margin-left: 15px;
+
 }
