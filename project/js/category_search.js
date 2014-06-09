@@ -81,7 +81,7 @@ window.onload = function CategoriesController() {
 
 
     }
-    var table = document.getElementById("table_result");
+   /* var table = document.getElementById("table_result");
     for (i = 0; i < Model.date.Tests.length; i++) {
         var row = table.insertRow(table.rows.length);
         var cell = row.insertCell(-1);
@@ -89,8 +89,8 @@ window.onload = function CategoriesController() {
         var cell = row.insertCell(-1);
         cell.innerHTML = Model.date.Tests[i].author;
         var cell = row.insertCell(-1);
-        cell.innerHTML = '<a href="moderatrPage.html" onclick="IndexTest(' + i + ')">Перевірити</a>';
-    }
+        cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
+    } */
 
 }
 
@@ -139,8 +139,8 @@ function change_moder_search_selected(i) {
 	        cell.innerHTML = Model.date.Tests[i].name;
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = Model.date.Tests[i].author;
-	       // var cell = row.insertCell(-1);
-	       // cell.innerHTML = '<a href="moderatrPage.html" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
+	        var cell = row.insertCell(-1);
+	        cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
 	        }
 	    }
 	  }else{
@@ -152,8 +152,24 @@ function change_moder_search_selected(i) {
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = Model.date.Tests[i].author;
 	        var cell = row.insertCell(-1);
-	        cell.innerHTML = '<a href="moderatrPage.html" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
+	        cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
 	    }	  	
-	  }          
+	  }   
+    function toGo(element) {
+    var test_id = element
+    console.log(test_id);
+    var t_id = test_id.dataset.testid;
+    console.log(Model.date);
+    console.log(typeof Model.date);
+    Model.date.Moderator_test_id=t_id;
+    Model.save_localStorage();
+    //Model.date.Moderator_test_id
+   // localStorage.setItem("note", Moderator_test_id);
+
+    //Model.save_localStorage();
+   // var t_id = localStorage.getItem('note');
+    console.log(t_id);
+    window.location = "moderatrPage.html";
+}       
 
     }
