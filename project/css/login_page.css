@@ -81,3 +81,14 @@ body {
         color: red;
         margin-bottom: 15px;
     }
+
+
+    #userMenuButton {
+        display: none;
+        right: 0px;
+        position: absolute;
+        bottom: 55px;
+        font-size: 1.3em;
+        color: #5bc0de; 
+        cursor: pointer;
+    }
