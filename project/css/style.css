@@ -26,7 +26,7 @@ body {
 	height: 110px;
 }
 
-#header-container a {
+#header-container #header-menu a {
 	display: inline-block;
 	margin-top: 5px;
 } 

@@ -1,25 +1,41 @@
 'use strict'
 
-function loginModule() {
+function loginModule(e) {
     var loginButton = document.getElementById('loginButton');
     var email = document.getElementById('inputEmail3');
     var password = document.getElementById('inputPassword3');
     var closeButton = document.getElementById('closeButton');
     var res1, res2, currentUser;
-    var errorBlock = document.getElementsByClassName('error-block')[0]
+    var errorBlock = document.getElementsByClassName('error-block')[0];
+    var userMenuButton = document.getElementById('userMenuButton');
+    var loginUserPic = document.getElementById('login-button');
+    loginButton.removeAttribute('data-dismiss');
 
     function errorWrite() {
         errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
     };
 
-    function postWishMsg() {
-        alert('Вітаю ' + Model.date.Users[currentUser].firstName + '!')
+    function changeLoginPic() {
+       loginUserPic.style.display = 'none';
+       userMenuButton.style.display = 'inline-block';
+       userMenuButton.innerHTML = getCurrrentUserName();
+       document.querySelector('#header-menu a[href="#myModal"]').innerHTML = 'Вийти'; 
+       document.querySelector('#header-menu a[href="#myModal"]').removeAttribute('data-toggle');
+       document.querySelector('#header-menu a[href="#myModal"]').setAttribute('onclick', 'logOutModule()');
+
+        function getCurrrentUserName() {
+             for(var i = 0; i< Model.date.Users.length; i++) {
+                if(Model.date.Users[i].id === Model.date.session_user_id){
+                    return Model.date.Users[i].username;
+                };
+             };
+        }
+        
     }
 
     function changeLoginStatus() {
         Model.date.session_user_id = Model.date.Users[currentUser].id;
         Model.save_localStorage();
-        console.log(Model.date.Users[currentUser].id);
     }
 
     function clearForms() {
@@ -27,12 +43,14 @@ function loginModule() {
         password.value = '';
     }
 
+    function hideModalBox() {
+        loginButton.setAttribute('data-dismiss', 'modal');
+    }
+
     loginButton.onclick = function () {
         errorBlock.innerHTML = '';
 
         
-        console.log(email.value);
-        console.log(Model.date.Users[0].username);
         for (var i = 0; i < Model.date.Users.length; i++) {
             if (email.value === Model.date.Users[i].email) {
                 res1 = true;
@@ -73,9 +91,10 @@ function loginModule() {
         };
 
         if (!Error) {
+            hideModalBox();
             changeLoginStatus();
             clearForms();
-            postWishMsg();
+            changeLoginPic();
         };
 
         return false;
