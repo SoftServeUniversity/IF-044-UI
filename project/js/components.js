@@ -101,6 +101,13 @@ function loginModule(e) {
     };
 }
 
+function headerUserNavPanel() {
+    var MenuButton = document.getElementById('userMenuButton');
+    var NavPanel = document.getElementById('userNavPanel');
+
+    
+}
+
 
 
 function testsFilter() {

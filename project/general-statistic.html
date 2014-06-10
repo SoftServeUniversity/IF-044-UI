@@ -39,7 +39,12 @@
                 <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
                     <img src="pic/login.jpg" alt="login" width="35" height="35">
                 </a>
-                <span id="userMenuButton"></span>
+                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                <ul id="userNavPanel">
+                    <li><a href="edit_profile.html">Особистий кабінет</a></li>
+                    <li><a href="#">бла-бла-бла</a></li>
+                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
+                </ul>
             </div>
         </header>
         <main>
