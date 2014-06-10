@@ -42,7 +42,7 @@
                 <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
                 <ul id="userNavPanel">
                     <li><a href="edit_profile.html">Особистий кабінет</a></li>
-                    <li><a href="#">бла-бла-бла</a></li>
+                    <li><a href="#" id="changedA">бла-бла-бла</a></li>
                     <li><a href="#" onclick="logOutModule()">Вихід</a></li>
                 </ul>
             </div>
@@ -195,6 +195,9 @@
     });
 
     changeCssOnElements();
+</script>
+<script>
+    window.onload = changeLoginPic();
 </script>
 </body>
 </html>

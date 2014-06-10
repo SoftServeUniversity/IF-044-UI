@@ -69,7 +69,7 @@ var Application = {
                   firstName: 'dfsgjfj',
                   lastName: 'fgsjgjgj',
                   group: '',
-                  role_id: 4,
+                  role_id: 1,
                   location: "Ukraine",
                   email: "tarasklyushta@gmail.com",
                   password: "1234",

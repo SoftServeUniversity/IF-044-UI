@@ -8,30 +8,12 @@ function loginModule(e) {
     var res1, res2, currentUser;
     var errorBlock = document.getElementsByClassName('error-block')[0];
     var userMenuButton = document.getElementById('userMenuButton');
-    var loginUserPic = document.getElementById('login-button');
     loginButton.removeAttribute('data-dismiss');
 
     function errorWrite() {
         errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
     };
 
-    function changeLoginPic() {
-       loginUserPic.style.display = 'none';
-       userMenuButton.style.display = 'inline-block';
-       userMenuButton.innerHTML = getCurrrentUserName();
-       document.querySelector('#header-menu a[href="#myModal"]').innerHTML = 'Вийти'; 
-       document.querySelector('#header-menu a[href="#myModal"]').removeAttribute('data-toggle');
-       document.querySelector('#header-menu a[href="#myModal"]').setAttribute('onclick', 'logOutModule()');
-
-        function getCurrrentUserName() {
-             for(var i = 0; i< Model.date.Users.length; i++) {
-                if(Model.date.Users[i].id === Model.date.session_user_id){
-                    return Model.date.Users[i].username;
-                };
-             };
-        }
-        
-    }
 
     function changeLoginStatus() {
         Model.date.session_user_id = Model.date.Users[currentUser].id;
@@ -95,6 +77,7 @@ function loginModule(e) {
             changeLoginStatus();
             clearForms();
             changeLoginPic();
+            changeUserNavPanel()
         };
 
         return false;
@@ -105,8 +88,85 @@ function headerUserNavPanel() {
     var MenuButton = document.getElementById('userMenuButton');
     var NavPanel = document.getElementById('userNavPanel');
 
-    
+    if(NavPanel.style.display === 'none' || NavPanel.style.display === '') {
+        NavPanel.style.display = 'block';
+    } else {
+        NavPanel.style.display = 'none';
+    }
 }
+
+function getCurrrentUserName() {
+    if(Model.date.session_user_id){
+       for(var i = 0; i< Model.date.Users.length; i++) {
+          if(Model.date.Users[i].id === Model.date.session_user_id){
+             userMenuButton.innerHTML = Model.date.Users[i].username;
+          };
+       };
+     } else {return};
+ }
+
+ function changeLoginPic() {
+    var LogInOutButt = document.querySelector('#header-menu a[href="#myModal"]');
+    var loginUserPic = document.getElementById('login-button');
+    var NavPanel = document.getElementById('userNavPanel');
+
+    if(Model.date.session_user_id){
+
+        loginUserPic.style.display = 'none';
+        userMenuButton.style.display = 'inline-block';
+        getCurrrentUserName();
+        changeUserNavPanel();
+        LogInOutButt.innerHTML = 'Вийти'; 
+        LogInOutButt.removeAttribute('data-toggle');
+        LogInOutButt.setAttribute('onclick', 'logOutModule()');
+
+    } else {
+        loginUserPic.style.display = 'block';
+        userMenuButton.style.display = 'none';
+        LogInOutButt.innerHTML = 'Ввійти'; 
+        LogInOutButt.setAttribute('data-toggle', 'modal');
+        LogInOutButt.setAttribute('onclick', 'loginModule()');
+        NavPanel.style.display = 'none';
+    };
+}
+
+  function changeUserNavPanel() {
+    var currentUser;
+    var changedA = document.getElementById('changedA')
+      for (var i = 0 ; i< Model.date.Users.length; i++) {
+        if(Model.date.Users[i].id === Model.date.session_user_id){
+            currentUser = Model.date.Users[i];
+        };
+      };
+
+      if(currentUser.role_id === 1){
+        changedA.style.display = 'none';
+      } else if(currentUser.role_id === 2){
+         changedA.style.display = 'inline-block';
+         changedA.innerHTML = 'Кабінет Модератора';
+         changedA.href = 'moderatrPage.html';
+      } else if(currentUser.role_id === 3){
+          changedA.style.display = 'inline-block';
+          changedA.innerHTML = 'Панель Адміністратора';
+          changedA.href = 'administration_panel.html';
+      } else {return}
+  }
+
+function logOutModule() {
+    delete Model.date.session_user_id;
+    Model.save_localStorage();
+    changeLoginPic();
+    return false;
+}
+
+
+
+
+
+
+
+
+
 
 
 
