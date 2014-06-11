@@ -1,5 +1,3 @@
-'use strict'
-
 var moderator_search_caterogies = [];
 for (var i = 0; i <= Model.date.Tests_categories.length; i++) {
     moderator_search_caterogies[i] = 0;
@@ -89,7 +87,7 @@ window.onload = function CategoriesController() {
         var cell = row.insertCell(-1);
         cell.innerHTML = Model.date.Tests[i].author;
         var cell = row.insertCell(-1);
-        cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
+        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
     }
 
 }
@@ -140,7 +138,7 @@ function change_moder_search_selected(i) {
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = Model.date.Tests[i].author;
 	        var cell = row.insertCell(-1);
-	        cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
+	        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
 	        }
 	    }
 	  }else{
@@ -152,9 +150,12 @@ function change_moder_search_selected(i) {
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = Model.date.Tests[i].author;
 	        var cell = row.insertCell(-1);
-	        cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
+	        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
 	    }	  	
 	  }   
+      
+
+    }
     function toGo(element) {
     var test_id = element
     console.log(test_id);
@@ -170,6 +171,4 @@ function change_moder_search_selected(i) {
    // var t_id = localStorage.getItem('note');
     console.log(t_id);
     window.location = "moderatrPage.html";
-}       
-
-    }
+} 
