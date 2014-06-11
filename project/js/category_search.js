@@ -81,7 +81,7 @@ window.onload = function CategoriesController() {
 
 
     }
-   /* var table = document.getElementById("table_result");
+    var table = document.getElementById("table_result");
     for (i = 0; i < Model.date.Tests.length; i++) {
         var row = table.insertRow(table.rows.length);
         var cell = row.insertCell(-1);
@@ -90,7 +90,7 @@ window.onload = function CategoriesController() {
         cell.innerHTML = Model.date.Tests[i].author;
         var cell = row.insertCell(-1);
         cell.innerHTML = '<a href="moderatrPage.html" data-testid="' + Model.date.Tests[i].id + '" onclick="IndexTest(' + i + ')" id="test' + i + '">Перевірити</a>';
-    } */
+    }
 
 }
 

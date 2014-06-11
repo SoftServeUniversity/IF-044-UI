@@ -21,7 +21,7 @@
 	//}
 </script>
 <style>
-	                            .filter-search > div {
+	                        .filter-search > div {
                                 color: #5bc0de;
                                 cursor: pointer;
                             }
@@ -31,10 +31,11 @@
                                 color: #fff;
                                 border-right: solid 3px;
                             }
-                            #inline {
-                            	
-                            	text-align: center;
-                            	
+                            .table_result {
+                            	text-align: left;
+                            }
+                            .ablock {
+                            	margin-right: 17%;
                             }
 </style>
 </head>
@@ -126,27 +127,25 @@
 				<div class="col-xs-12 col-lg-4 col-md-4 col-sm-4">
 
 					<div id="categoriesContainer" class="row"></div>
+					</br>
 
-					<button class="btn btn-primary btn-xs glyphicon glyphicon-search"
-						onclick="get_results()"></button>
+					<button class="ablock btn btn-primary btn-xs"
+						onclick="get_results()">Результат пошуку</button>
 				</div>
 
-				<div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
+				<div class="col-xs-12 col-lg-7 col-md-7 col-sm-7">
 					<div class="row">
 
-						<table class="table" >
-							<tbody>
-								<tr>
-									<th id="inline">Назва тесту</th>
-									<th id="inline">Автор</th>
-									<th id="inline">Перевірити</th>
-									
+						<table class="table">
+						  <theader class="table_result">
+						  		<tr>
+									<th >Назва тесту</th>
+									<th >Автор</th>
+									<th >Перевірити</th>
 								</tr>
+						  </theader>
+							<tbody id="table_result" class="table_result">
 							</tbody>
-						</table>
-						
-						<table id="table_result" class="table">
-							
 						</table>
 					</div>
 				</div>
@@ -155,8 +154,6 @@
 					<ul class="pagination">
 						<li><a href="#">&laquo;</a></li>
 						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
 						<li><a href="#">&raquo;</a></li>
 					</ul>
 				</div>
