@@ -906,7 +906,7 @@ function changeCssOnElements() {
            elem1.innerHTML = i + 1;
            table.children[i].appendChild(elem1);
            var elem2 = document.createElement('td')
-           elem2.innerHTML = newTestsArrElement[0].name;
+           elem2.innerHTML = '<a href="TestPastPage.html?t_id=' + newTestsArrElement[0].test_id + '">' + newTestsArrElement[0].name + '</a>';
            table.children[i].appendChild(elem2);
            var elem3 = document.createElement('td')
            elem3.innerHTML = newTestsArrElement.length;
