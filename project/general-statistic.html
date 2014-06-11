@@ -39,7 +39,12 @@
                 <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
                     <img src="pic/login.jpg" alt="login" width="35" height="35">
                 </a>
-                <span id="userMenuButton"></span>
+                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                <ul id="userNavPanel">
+                    <li><a href="edit_profile.html">Особистий кабінет</a></li>
+                    <li><a href="#" id="changedA">бла-бла-бла</a></li>
+                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
+                </ul>
             </div>
         </header>
         <main>
@@ -140,14 +145,43 @@
                         <ul class="nav nav-tabs">
                           <li class="tabs active"><a href="#stat1">Тести</a></li>
                           <li class="tabs"><a href="#stat2">Бали</a></li>
-                          <li class="tabs"><a href="#stat3">Messages</a></li>
-                          <li class="tabs"><a href="#stat4">News</a></li>
+                          <li class="tabs"><a href="#stat3">Бали/Вік</a></li>
+                          <li class="tabs"><a href="#stat4">Бали/Ступінь</a></li>
+                          <li class="tabs"><a href="#stat5">К-ть спроб</a></li>
+                          <li class="tabs"><a href="#stat6">Сер. бал</a></li>
                         </ul>
                         <div class="tab-content">
                            <div class="tab-pane active" id="stat1"></div>
                            <div class="tab-pane" id="stat2"></div>
                            <div class="tab-pane" id="stat3"></div>
                            <div class="tab-pane" id="stat4"></div>
+                           <div class="tab-pane" id="stat5">
+                               <table class="table table-hover" id="Table1">
+                                <thead>
+                                 <tr>
+                                  <td>№</td>
+                                  <td>Назва</td>
+                                  <td>Кількість</td>
+                                  <td>Сер. бал</td>
+                                  <td>Категорія</td>
+                                  <td>Підкатегорія</td>
+                                 </tr>
+                                </thead>
+                                <tbody>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>                                    
+                                </tbody>
+                              </table>
+                           </div>
+                           <div class="tab-pane" id="stat6"></div>
                         </div>
                     </div>
                 </div>
@@ -190,6 +224,9 @@
     });
 
     changeCssOnElements();
+</script>
+<script>
+    window.onload = changeLoginPic();
 </script>
 </body>
 </html>

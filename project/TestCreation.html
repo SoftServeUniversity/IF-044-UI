@@ -48,25 +48,75 @@
                 </div>
                 <nav id="header-menu">
                     <ul>
-                        <li>
-                            <a href="#">Головна</a>
-                        </li>
-                        <li>
-                            <a href="#">Пошук</a>
-                        </li>
-                        <li>
-                            <a href="#">Контакти</a>
-                        </li>
-                        <li>
-                            <a href="#">Ввійти</a>
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="#">Пошук</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="#myModal" onclick="loginModule()" data-toggle="modal">Ввійти</a>
                         </li>
                     </ul>
                 </nav>
                 <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
-                    <img src="pic/login.jpg" alt="login" width="35" height="35"></a>
+                    <img src="pic/login.jpg" alt="login" width="35" height="35">
+                </a>
+                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                <ul id="userNavPanel">
+                    <li><a href="edit_profile.html">Особистий кабінет</a></li>
+                    <li><a href="#" id="changedA">бла-бла-бла</a></li>
+                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
+                </ul>
             </div>
         </header>
         <main>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-login-form" class="modal-content">
+                        <div class="modal-header">
+                            <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="error-block"></p>
+                            <form id="signin-form" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputPassword3"
+                                               placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">Запамятати
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-1 col-sm-10">
+                                        <a href="registration.html"><button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button></a>
+                                        <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
             <div class="container-fluid">
                 <h3>Створити тест</h3>
 
@@ -232,5 +282,9 @@ Copyright@ 2014 <b>IF-044</b>
 <script type="text/javascript" src="js/testCreation.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/components.js"></script>
+<script>
+    window.onload = changeLoginPic();
+</script>
 </body>
 </html>

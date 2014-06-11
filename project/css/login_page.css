@@ -15,7 +15,7 @@ body {
 	}
 
 	#login-button {
- 		right: 0px;
+ 		right: 100px;
         position: absolute;
         bottom: 50px;
 	}
@@ -85,10 +85,27 @@ body {
 
     #userMenuButton {
         display: none;
-        right: 0px;
+        right: 100px;
         position: absolute;
         bottom: 55px;
         font-size: 1.3em;
         color: #5bc0de; 
         cursor: pointer;
+    }
+
+    #userNavPanel {
+        display: none;
+        list-style: none;
+        width: 180px;
+        padding-left: 10px;
+        float: right;
+        position: relative;
+        top: 33px;
+        left: 95px;
+        font-size: 0.9em;
+    }
+
+    #userNavPanel a {
+        display: inline-block;
+        text-decoration: none;
     }

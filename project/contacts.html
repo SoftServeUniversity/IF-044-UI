@@ -47,6 +47,12 @@
                 <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
                     <img src="pic/login.jpg" alt="login" width="35" height="35">
                 </a>
+                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                <ul id="userNavPanel">
+                    <li><a href="edit_profile.html">Особистий кабінет</a></li>
+                    <li><a href="#" id="changedA">бла-бла-бла</a></li>
+                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
+                </ul>
             </div>
         </header>
             <main>
@@ -215,6 +221,9 @@
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/components.js"></script>
+    <script>
+    window.onload = changeLoginPic();
+   </script>
 </body>
 
 </html>

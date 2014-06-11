@@ -30,15 +30,21 @@
                 </div>
                 <nav id="header-menu">
                     <ul>
-                        <li><a href="#">Проби</a></li>
+                        <li><a href="index.html">Головна</a></li>
                         <li><a href="#">Пошук</a></li>
-                        <li><a href="#">Контакти</a></li>
-                        <li><a href="#">Ввійти</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="#myModal" onclick="loginModule()" data-toggle="modal">Ввійти</a>
                     </ul>
                 </nav>
                 <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
                     <img src="pic/login.jpg" alt="login" width="35" height="35">
                 </a>
+                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                <ul id="userNavPanel">
+                    <li><a href="edit_profile.html">Особистий кабінет</a></li>
+                    <li><a href="#" id="changedA">бла-бла-бла</a></li>
+                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
+                </ul>
             </div>
         </header>
         <main>
@@ -51,6 +57,7 @@
                             <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
                         </div>
                         <div class="modal-body">
+                            <p class="error-block"></p>
                             <form id="signin-form" class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
@@ -79,7 +86,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-offset-1 col-sm-10">
                                         <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
-                                        <button type="submit" class="btn btn-primary">Увійти</button>
+                                        <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
                                     </div>
                                 </div>
                             </form>
@@ -494,6 +501,12 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
 <script src='js/search-form2.js'></script>
+<<<<<<< HEAD:project/administration panel.html
 <script src='js/categories_form.js'></script>
+=======
+<script>
+    window.onload = changeLoginPic();
+</script>
+>>>>>>> c4aba3b84f7f516388e6d1b0ea20c212b4f9bc68:project/administration_panel.html
 </body>
 </html>
