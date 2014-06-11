@@ -27,7 +27,9 @@
 	color: #4FDC8C;
 	border-radius: 2px;
 	font-family: Arial;
-	
+}
+.admin-panel{
+	left: 50px;
 }
 .text{
 	padding: 5px;
@@ -84,4 +86,16 @@ button{
 }
 .paneltitle{
 	font-weight: bold;
+}
+#modal-edit-form{
+	width: 500px;
+}
+	#input_of_cotegory, #choose_main_category{
+		margin: 0px 0px 5px 0px;  
+	}
+.edit-button{
+	margin: 70px 0px 30px 70px;
+}
+.control-label{
+	padding-top: 10px;
 }

@@ -30,10 +30,11 @@ function showAll(){
 	var content_table = '';
 	Model.load_localStorage();
 	for(var i = 0;i<Model.date.Users.length;i++){
-		content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button  class='btn btn-success btn-xs button_change_status' id_user='"+Model.date.Users[i].id+"'>ЗМІНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
+		content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+Model.date.User_roles[Model.date.Users[i].role_id].role_name+"</strong></span></td> <td></td><td><button class='btn btn-success btn-xs button_change_status' id_user='"+Model.date.Users[i].id+"'>ЗМІНИТИ СТАТУС</button></td><td><button  class='btn btn-warning btn-xs'>В ЧОРНИЙ СПИСОК</button></td><td><button  class='btn btn-danger btn-xs'>ВИДАЛИТИ</button></td></tr>";
 		//console.log(Model.date.Users[i]);
 	}
 	place_for_table.innerHTML = content_table;
+	
 var buttons_status =document.querySelectorAll('.button_change_status');
 for(var i = 0;i<buttons_status.length;i++){
 	buttons_status[i].addEventListener("click", chengestatus);
@@ -57,7 +58,7 @@ search_user.addEventListener("keyup", function(){
 			}
 		}
 		place_for_table.innerHTML = content_table;
-	place_for_table.innerHTML = content_table;
+
 var buttons_status =document.querySelectorAll('.button_change_status');
 for(var i = 0;i<buttons_status.length;i++){
 	buttons_status[i].addEventListener("click", chengestatus);
@@ -77,7 +78,7 @@ function get_user_by_id(user_id){
 	for(var i = 0;i<Users.length;i++){
 		if(Users[i].id == user_id){
 			var catch_user = Users[i];
-			break
+			break;
 		}
 	}
 	return catch_user;

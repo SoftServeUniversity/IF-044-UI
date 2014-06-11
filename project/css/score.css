@@ -136,18 +136,16 @@ article{
 .more-about{
 	text-align: left;
 	margin: 10px 10px 0px 27px;
+	padding-bottom: 15px;
 }
 .blockcolor{
-	background: #9AF67E;
+	background: rgba(154, 246, 126, 0.6);
 	border-radius: 7px;
-	display: block;
-	opacity: 0.8;
 	margin-top: 20px;
 }
-.blockcolor-wrong{
-	background: #F67E8A;
+.blockcolorwrong{
+	background: rgba(246, 136, 138, 0.6);
 	border-radius: 7px;
-	opacity: 0.8;
 	margin-top: 20px;
 }
 .col-xs-12{
@@ -159,4 +157,8 @@ article{
 .progress{
 	height: 10px;
 	margin: 0px 10px 30px 10px;
+}
+.pass_again{
+	margin: 20px 0px 20px 0px;
+	opacity: 0.9;
 }

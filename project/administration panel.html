@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </div>
-             <div class="modal fade" id="mySend" tabindex="-1" role="dialog" aria-labelledby="mySendlLabel" aria-hidden="true">
+<!--              <div class="modal fade" id="mySend" tabindex="-1" role="dialog" aria-labelledby="mySendlLabel" aria-hidden="true">
                 <div id="modal-send-box" class="modal-dialog">
                     <div id="modal-send-form" class="modal-content">
                         <div class="modal-header">
@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-
+ -->
 <div class='panel panel-primary'>
         <div class='panel-heading'>
             <h3 class='panel-title'><strong>Адміністративна панель</strong></h3>
@@ -121,7 +121,7 @@
         <div class='panel-body'>
           <div class="container-fluid">
 
-                <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+                <div class="col-lg-11 col-md-11 admin-panel">
 
 
 
@@ -131,16 +131,22 @@
                                     <a data-toggle="tab" class="bg-info" href="#p1">Користувачі</a>
                                 </li>
                                 <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p2">Категорії тестів</a>
+                                    <a data-toggle="tab" class="bg-info" href="#p2">Чорний список</a>
                                 </li>
                                 <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p3">Бази даних</a>
+                                    <a data-toggle="tab" class="bg-info" href="#p3">Адміністрація</a>
                                 </li>
                                 <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p4">Локалізація</a>
+                                    <a data-toggle="tab" class="bg-info" href="#p4">Категорії тестів</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-info" href="#p5">Бази даних</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-info" href="#p6">Локалізація</a>
                                 </li>
                                 <li>
-                                    <a data-toggle='tab' class='bg-info' href='#p5'>Про нас</a>
+                                    <a data-toggle='tab' class='bg-info' href='#p7'>Про нас</a>
                                 </li>
                             </ul>
 
@@ -149,7 +155,7 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th><span class='sort'>Сортувати по</span></th>
+                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
                                                 <th><select class='form-control control'>
                                                     <option><strong>Алфавіту</strong></oprtion>
                                                     <option>Статусу</oprtion>
@@ -245,25 +251,141 @@
                                 </div>
 
                                 <div id="p2" class="tab-pane fade in #p2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
+                                                <th><select class='form-control control'>
+                                                    <option><strong>Алфавіту</strong></oprtion>
+                                                    <option>Статусу</oprtion>
+                                                </select></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
+                                                </th>
+                                            </tr>                                        
+                                        </thead>
+                                        <tbody id="usersTable">
+                      
+                                        </tbody>
+                                    </table>
+                                       <div class='pageroller'>
+                                            <ul class='pagination'>
+                                                <li><a href='#'>&laquo;</a></li>
+                                                <li class='active'><a href='#'>1</a></li>
+                                                <li><a href='#'>2</a></li>
+                                                <li><a href='#'>3</a></li>
+                                                <li><a href='#'>4</a></li>
+                                                <li><a href='#'>5</a></li>
+                                                <li><a href='#'>6</a></li>
+                                                <li><a href='#'>7</a></li>
+                                                <li><a href='#'>&raquo</a></li>
+                                            </ul>
+                                        </div>
+                                </div>
+
+                                <div id="p3" class="tab-pane fade in #p3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
+                                                <th><select class='form-control control'>
+                                                    <option><strong>Алфавіту</strong></oprtion>
+                                                    <option>Статусу</oprtion>
+                                                </select></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
+                                                </th>
+                                            </tr>                                        
+                                        </thead>
+                                        <tbody id="usersTable">
+                      
+                                        </tbody>
+                                    </table>
+                                       <div class='pageroller'>
+                                            <ul class='pagination'>
+                                                <li><a href='#'>&laquo;</a></li>
+                                                <li class='active'><a href='#'>1</a></li>
+                                                <li><a href='#'>2</a></li>
+                                                <li><a href='#'>3</a></li>
+                                                <li><a href='#'>4</a></li>
+                                                <li><a href='#'>5</a></li>
+                                                <li><a href='#'>6</a></li>
+                                                <li><a href='#'>7</a></li>
+                                                <li><a href='#'>&raquo</a></li>
+                                            </ul>
+                                        </div>
+                                </div>
+
+
+
+                                <div id="p4" class="tab-pane fade in #p4">
                                   <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>№</th>
-                                                <th>Назва категорії</th>
-                                                <th>Батьківська</th>
+                                                <th class="number_of_categories text-center">№</th>
+                                                <th class="name_of_categories text-center">Назва категорії</th>
+                                                <th class="name_of_main_categories text-center">Батьківська</th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <th><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'>Додати категорію</button></th>
+                                                <th><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button2" onclick="loginModule()"><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'>Додати категорію</button></a></th>
                                             </tr>                                        
                                         </thead>
-                                    <tr>
+
+                     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-edit-form" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Нова категорія</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-form" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="name_of_category" class="col-sm-5 control-label required">Назва категорії</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="input_of_cotegory" placeholder="Веддіть назву категорії....">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
+                                    <div class="col-sm-7" id='choose_main_category'>
+                                        <select class='form-control'>
+                                            <option>Спорт</option>
+                                            <option>Туризм</option>
+                                            <option>пдр</option>
+                                            <option selected>-------</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-1 col-sm-10 edit-button">
+                                        <button id="registration-button" type="button" class="btn btn-primary">Додати категорію</button>
+                                        <button type="submit" class="btn btn-primary">Скасувати</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                                        <tbody id='usersCategories'>
+                                    <!-- <tr>
                                         <td><strong>1</strong></td>
                                         <td>I проба</td>                    
                                         <td> -------- </td>
                                         <td></td>
                                         <td></td>
-                                           <td></td>
+                                        <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td>
                                     </tr>
@@ -326,16 +448,16 @@
                                         <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
+                                    </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
-                                <div id="p3" class="tab-pane fade in #p3">
+                                <div id="p5" class="tab-pane fade in #p5">
                                     <div class='btn-group db'>
                                         <button type='button' class='btn btn-primary data'>Резервне копіювання</button>
                                     </div>
                                 </div>
-                                <div id="p4" class="tab-pane fade in #4">
+                                <div id="p6" class="tab-pane fade in #p6">
                                         <div class='language'>
                                             <span>Мова системи: </span>
                                             <select>
@@ -344,7 +466,7 @@
                                             </select>
                                         </div>
                                 </div>
-                                <div id='p5' class='tab-pane fade in #5'>
+                                <div id='p7' class='tab-pane fade in #p7'>
                                 
                                 </div>
 
@@ -372,5 +494,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
 <script src='js/search-form2.js'></script>
+<script src='js/categories_form.js'></script>
 </body>
 </html>
