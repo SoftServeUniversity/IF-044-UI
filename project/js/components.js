@@ -892,22 +892,34 @@ function changeCssOnElements() {
     function createTableElements(newTestsArr) {
         for (var i = 0; i<newTestsArr.length; i++) {
             if(newTestsArr[i].length > 0){
-                buildTableElements(newTestsArr[i]);
+                buildTableElements(newTestsArr[i], i);
             };
         };
     }
 
-    function buildTableElements(newTestsArrElement) {
+    function buildTableElements(newTestsArrElement, i) {
         var table = document.querySelector('#Table1 tbody');
+        var a = 0;
 
-        for(var i = 0; i<table.children.length; i++) {
+     
            var elem1 = document.createElement('td')
            elem1.innerHTML = i + 1;
            table.children[i].appendChild(elem1);
            var elem2 = document.createElement('td')
            elem2.innerHTML = newTestsArrElement[0].name;
            table.children[i].appendChild(elem2);
-        }
+           var elem3 = document.createElement('td')
+           elem3.innerHTML = newTestsArrElement.length;
+           table.children[i].appendChild(elem3);
+           var elem3 = document.createElement('td')
+           for(var k = 0; k<newTestsArrElement.length; k++){
+              a += newTestsArrElement[k].score;
+           }
+           a = a / newTestsArrElement.length;
+
+           elem3.innerHTML = a.toPrecision(3);
+           table.children[i].appendChild(elem3);
+        
         
     }
 
