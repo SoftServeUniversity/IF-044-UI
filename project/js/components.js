@@ -869,6 +869,7 @@ function changeCssOnElements() {
        var labels = document.querySelectorAll('#gradeList label');
 
        for(var i = 0; i<labels.length; i++) {
+        labels[i].lastChild.data = '';
         if(i === Model.date.Ranks[i].id - 1) {
             labels[i].innerHTML += Model.date.Ranks[i].name;
           };

@@ -63,7 +63,7 @@ main {
 	border-top: none;
 }
 
-.sort-list span {
+.sort-list>span {
 	font-weight: bold;
     position: relative;
     bottom: 75px;
@@ -98,7 +98,9 @@ main {
 
 #gradeList ul li label {
 	padding: 2px 45px 2px 28px;
+	z-index: 5;
 }
+
 
 #statistic .row {
 	padding: 0 0;
