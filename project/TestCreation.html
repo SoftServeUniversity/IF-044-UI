@@ -118,13 +118,13 @@
             </div>            
 
             <div class="container-fluid">
-                <h3>Створити тест</h3>
+                <h3 class="col-sm-offset-1">Створити тест</h3>
 
                 <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
                     <div class="row ">
                         <br>
 
-                        <div class="col-lg-5 col-md-5 center">
+                        <div class="col-lg-5 col-md-5 col-sm-offset-3">
 
                             <div class="row">
                                 Назва тесту:
@@ -153,26 +153,29 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-sm-4"></div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-11 well">
-                            <div class="row col-sm-offset-1">
-
-                                <label style="float:left">Питання</label>
-                                <div class="col-md-11">
-
-                                    <input type="text" class="form-control question"   placeholder="Відповідь" 
+                            <div class="row">
+                            
+                                <div class="col-md-12">
+                                 
+                                    <input type="text" class="form-control question"   placeholder="Purannya" 
                                     text="Application.Tests[2].question[0].text" 
-                                    aid="Application.Tests[2].question[0].id" required ></div>
-
+                                    aid="Application.Tests[2].question[0].id" required >
+                                    
+                                    </div>
+                                       <div class="col-sm-1"></div> 
                             </div>
                             <br>
-                            <div class="row col-md-offset-2">
+                            <div class="row">
 
-                                <div class="col-sm-11 "  >
+                                <div class="col-sm-12 "  >
                                     <div class="row">
-                                        <div class="col-sm-11" >
+                                  
+                                        <div class="col-sm-11 col-sm-offset-1" >
                                             <div class="input-group">
                                                 <input type="text" class="form-control answer" 
                                             text="Application.Tests[2].answers[0].text_answer"
@@ -186,10 +189,11 @@
                                             </div>
 
                                         </div>
+                                    
                                     </div>
-
                                     <div class="row margintop">
-                                        <div class="col-sm-11 " >
+                                        
+                                        <div class="col-sm-11 col-sm-offset-1" >
                                             <div class="input-group">
                                                 <input type="text" class="form-control answer" 
                                             text="Application.Tests[2].answers[1].text_answer"
@@ -205,9 +209,9 @@
 
                                         </div>
                                     </div>
-
-                                    <button type="button" class="btn btn-sm btn-success margintop" onClick="ansAdd(this)" style="float:left">Додати відповідь</button>
-
+                                 
+                                    <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button>
+                                   
                                 </div>
                             </div>
 
