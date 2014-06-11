@@ -337,7 +337,7 @@
                                             <tr>
                                                 <th class="number_of_categories text-center">№</th>
                                                 <th class="name_of_categories text-center">Назва категорії</th>
-                                                <th class="name_of_main_categories text-center">Батьківська</th>
+                                                <th class="name_of_main_categories text-center">Батьківська категорія</th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -363,7 +363,7 @@
                                 <div class="form-group">
                                     <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
                                     <div class="col-sm-7" id='choose_main_category'>
-                                        <select class='form-control'>
+                                        <select class='form-control' id='select'>
                                             <option>Спорт</option>
                                             <option>Туризм</option>
                                             <option>пдр</option>
@@ -373,7 +373,47 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-1 col-sm-10 edit-button">
-                                        <button id="registration-button" type="button" class="btn btn-primary">Додати категорію</button>
+                                        <button id="registration-button" type="button" class="btn btn-primary" onclick=editbutton() >Додати категорію</button>
+                                        <button type="submit" class="btn btn-primary">Скасувати</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-edit-form" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Редагувати категорію</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-form" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="name_of_category" class="col-sm-5 control-label required">Назва категорії</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" id="name_of_cotegory" placeholder="Веддіть назву категорії....">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
+                                    <div class="col-sm-7" id='choose_main_category'>
+                                        <select class='form-control' id='select'>
+                                            <option>Спорт</option>
+                                            <option>Туризм</option>
+                                            <option>пдр</option>
+                                            <option>-------</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-1 col-sm-10 edit-button">
+                                        <button id="registration-button" type="button" class="btn btn-primary" onclick=editbutton() >Редагувати категорію</button>
                                         <button type="submit" class="btn btn-primary">Скасувати</button>
                                     </div>
                                 </div>
@@ -501,12 +541,11 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
 <script src='js/search-form2.js'></script>
-<<<<<<< HEAD:project/administration panel.html
 <script src='js/categories_form.js'></script>
-=======
+
 <script>
     window.onload = changeLoginPic();
 </script>
->>>>>>> c4aba3b84f7f516388e6d1b0ea20c212b4f9bc68:project/administration_panel.html
+
 </body>
 </html>
