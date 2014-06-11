@@ -853,9 +853,63 @@ function changeCssOnElements() {
             } else if(tabs[3].className === 'tabs active') {
                 ageList.className += ' hideElem';
                 removeClass(gradeList, 'hideElem');
+            } else if(tabs[4].className === 'tabs active') {
+                gradeList.className += ' hideElem';
+                ageList.className += ' hideElem';
+                sortByPassedQuantity()
+            } else if(tabs[5].className === 'tabs active') {
+                gradeList.className += ' hideElem';
+                ageList.className += ' hideElem';
             };
 
         };
+
+
+    function sortByPassedQuantity() {
+        var newPassedTestsArr = [];
+
+        newPassedTestsArr = fillTheNewTestsArr(newPassedTestsArr);
+        newPassedTestsArr.sort(function(a, b){return b.length - a.length});
+        createTableElements(newPassedTestsArr);
+
+    } 
+
+    function fillTheNewTestsArr(newTestsArr) {
+        var newArr = Model.date.Result;
+        newArr.sort(function(a, b){return a.test_id - b.test_id});
+
+        for(var i = 0; i<newArr[newArr.length-1].test_id; i++) {
+           newTestsArr.push([]);
+        }
+
+        for(var k = 0; k<newArr.length; k++){
+           newTestsArr[newArr[k].test_id-1].push(newArr[k]);
+        }
+
+        return newTestsArr;
+    } 
+
+    function createTableElements(newTestsArr) {
+        for (var i = 0; i<newTestsArr.length; i++) {
+            if(newTestsArr[i].length > 0){
+                buildTableElements(newTestsArr[i]);
+            };
+        };
+    }
+
+    function buildTableElements(newTestsArrElement) {
+        var table = document.querySelector('#Table1 tbody');
+
+        for(var i = 0; i<table.children.length; i++) {
+           var elem1 = document.createElement('td')
+           elem1.innerHTML = i + 1;
+           table.children[i].appendChild(elem1);
+           var elem2 = document.createElement('td')
+           elem2.innerHTML = newTestsArrElement[0].name;
+           table.children[i].appendChild(elem2);
+        }
+        
+    }
 
 }
 
