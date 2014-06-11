@@ -521,7 +521,25 @@ var Application = {
 
           }
 
-        ]
+        ],
+    Ranks: [
+          {
+            id:1,
+            name: 'Ступінь 1'
+          },
+          {
+            id:2,
+            name: 'Ступінь 2'
+          },
+          {
+            id:3,
+            name: 'Ступінь 3'
+          },
+          {
+            id:4,
+            name: 'Ступінь 4'
+          },
+    ]    
 }
 function model(date_in){
   if(!localStorage.Application){

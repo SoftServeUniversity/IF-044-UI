@@ -119,10 +119,10 @@
                     <nav class="sort-list hideElem" id="gradeList">
                         <span>Ступінь</span>
                         <ul>
-                            <li><label><input class="gradeList-checkbox" type="checkbox">Ступінь 1</label></li>
-                            <li><label><input class="gradeList-checkbox" type="checkbox">Ступінь 2</label></li>
-                            <li><label><input class="gradeList-checkbox" type="checkbox">Ступінь 3</label></li>
-                            <li><label><input class="gradeList-checkbox" type="checkbox">Ступінь 4</label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"></label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"></label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"></label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"></label></li>
                         </ul>
                     </nav>
                     <br>
@@ -139,7 +139,7 @@
                         </div>
                     </label>
                     <br>
-                    <a onclick="generalStatisticModule()" class="btn btn-primary">OK</a>
+                    <a onclick="generalStatisticModule()" class="btn btn-primary">Згенерувати</a>
                     </div>
                     <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                         <ul class="nav nav-tabs">
@@ -156,6 +156,7 @@
                            <div class="tab-pane" id="stat3"></div>
                            <div class="tab-pane" id="stat4"></div>
                            <div class="tab-pane" id="stat5">
+                              <h4>Топ-10 тестів по кількості проходжень</h4>
                                <table class="table table-hover" id="Table1">
                                 <thead>
                                  <tr>
@@ -181,7 +182,9 @@
                                 </tbody>
                               </table>
                            </div>
-                           <div class="tab-pane" id="stat6"></div>
+                           <div class="tab-pane" id="stat6">
+                               <h4>Топ-10 тестів по набраному середньому балу</h4>
+                           </div>
                         </div>
                     </div>
                 </div>

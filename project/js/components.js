@@ -853,6 +853,7 @@ function changeCssOnElements() {
             } else if(tabs[3].className === 'tabs active') {
                 ageList.className += ' hideElem';
                 removeClass(gradeList, 'hideElem');
+                fillGradeList();
             } else if(tabs[4].className === 'tabs active') {
                 gradeList.className += ' hideElem';
                 ageList.className += ' hideElem';
@@ -863,6 +864,16 @@ function changeCssOnElements() {
             };
 
         };
+
+    function fillGradeList() {
+       var labels = document.querySelectorAll('#gradeList label');
+
+       for(var i = 0; i<labels.length; i++) {
+        if(i === Model.date.Ranks[i].id - 1) {
+            labels[i].innerHTML += Model.date.Ranks[i].name;
+          };
+       };
+    }
 
 
     function sortByPassedQuantity() {
