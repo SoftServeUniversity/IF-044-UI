@@ -11,6 +11,29 @@ function removeChildren(elem) {
   }
 }
 
+//визначення кількості тестів в базі, для стводення останнього в кінці
+function TestLength(){
+	var test =  Application.Tests.length;
+	return test
+}
+
+function Start(i){
+var a = document.getElementsByClassName('input-group');
+a[i].children[0].setAttribute('text',"Application.Tests[].question[0].text");
+a[i].children[0].setAttribute('aid',"Application.Tests["+TestLength()+"].question[0].id");
+
+a[i+1].children[0].setAttribute('text',"Application.Tests["+TestLength()+"].answers[0].text_answer");
+a[i+1].children[0].setAttribute('qid',"Application.Tests["+TestLength()+"].answers[0].question_id");
+a[i+1].children[0].setAttribute('data-qid',1)
+a[i+1].children[0].setAttribute('aid',"Application.Tests["+TestLength()+"].answers[0].id");
+     
+a[i+2].children[0].setAttribute('text',"Application.Tests["+TestLength()+"].answers[1].text_answer");
+a[i+2].children[0].setAttribute('qid',"Application.Tests["+TestLength()+"].answers[1].question_id");
+a[i+2].children[0].setAttribute('data-qid',1)
+a[i+2].children[0].setAttribute('aid',"Application.Tests["+TestLength()+"].answers[1].id");                                     
+                                                                           
+}
+
 
 //знаходить елемент за ід
 function elID(id){
@@ -32,11 +55,7 @@ function answerPatternForQuestion(answer,question,test){
 }
 
 
-//визначення кількості тестів в базі, для стводення останнього в кінці
-function TestLength(){
-	var test =  Application.Tests.length;
-	return test
-}
+
 
 
 //Змінні для визначення позицій питання(i) та відповідей (j)
@@ -45,7 +64,7 @@ var j = 1;
 
 //функція додає нове запитання до списку
 var questionAdd = function(el){ 
-	var mat = '<div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Відповідь" text="Application.Tests['+TestLength()+'].question['+i+'].text" aid="Application.Tests['+TestLength()+'].question['+i+'].id" required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> <div class="col-sm-1"></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">'+answerPatternForQuestion((j+1),(i+1),TestLength())+'</div> <div class="row margintop">'+answerPatternForQuestion((j+2),(i+1),TestLength())+'</div> <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button> </div> </div>'
+	var mat = '<div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Відповідь" text="Application.Tests['+TestLength()+'].question['+i+'].text" aid="Application.Tests['+TestLength()+'].question['+i+'].id" required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">'+answerPatternForQuestion((j+1),(i+1),TestLength())+'</div> <div class="row margintop">'+answerPatternForQuestion((j+2),(i+1),TestLength())+'</div> <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button> </div> </div>'
 	var newdiv = document.createElement('div');
 	newdiv.className = 'col-sm-11 well';
 	newdiv.innerHTML = mat;
@@ -70,6 +89,7 @@ var ansAdd = function(el){
 
 //функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
 var questionremove = function(el){
+	
 	if (i == 1) {alert('Тест має містити мінімум 1 питання!');}
 	else{
 	var Child = el.parentNode.parentNode.parentNode.parentNode;
@@ -172,10 +192,12 @@ return categoryId;
 
 //заповнює категорії
  window.onload = categoryCreation();
+ window.onload = Start(0);
 
 
 //Збирає данні з інпутів по ід і записує їх у базу
 var sendForModeration = function(){
+Start(0);
 var l = TestLength();
 var category = elID('category').value;
 var subcategory = elID('subCategory').value;
