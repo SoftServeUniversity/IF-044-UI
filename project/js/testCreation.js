@@ -20,14 +20,14 @@ return	document.getElementById(id);
 
 //шаблон для вставлення відповідей
 function answerPattern(answer,question,test){
-	var mat = '<div class="col-sm-11" > <div class="input-group"> <input type="text" class="form-control answer" text="Application.Tests['+test+'].answers['+answer+'].text_answer" qid="Application.Tests['+test+'].answers['+answer+'].question_id" data-qid="'+question+'" aid="Application.Tests['+test+'].answers['+answer+'].id" placeholder="Відповідь" required><span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> </div> </div>'
+	var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer" text="Application.Tests['+test+'].answers['+answer+'].text_answer" qid="Application.Tests['+test+'].answers['+answer+'].question_id" data-qid="'+question+'" aid="Application.Tests['+test+'].answers['+answer+'].id" placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>'
 	return mat;
 }
 
 
 //шаблон для вставлення питань
 function answerPatternForQuestion(answer,question,test){
-	var mat = '<div class="col-sm-11" > <div class="input-group"> <input type="text" class="form-control answer" text="Application.Tests['+test+'].answers['+answer+'].text_answer" qid="Application.Tests['+test+'].answers['+answer+'].question_id" data-qid="'+question+'" aid="Application.Tests['+test+'].answers['+answer+'].id" placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> </div> </div>'
+	var mat = ' <div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer" text="Application.Tests['+test+'].answers['+answer+'].text_answer" qid="Application.Tests['+test+'].answers['+answer+'].question_id" data-qid="'+question+'" aid="Application.Tests['+test+'].answers['+answer+'].id" placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span><span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>'
 	return mat;
 }
 
@@ -45,7 +45,7 @@ var j = 1;
 
 //функція додає нове запитання до списку
 var questionAdd = function(el){ 
-	var mat = '<div class="row col-sm-offset-1"> <label style="float:left">Питання</label> <div class="col-md-11"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Відповідь" text="Application.Tests['+TestLength()+'].question['+i+'].text" aid="Application.Tests['+TestLength()+'].question['+i+'].id" required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> </div> <br> <div class="row col-md-offset-2"> <div class="col-sm-11 " > <div class="row"> '+answerPatternForQuestion((j+1),(i+1),TestLength())+' </div> <div class="row margintop"> '+answerPatternForQuestion((j+2),(i+1),TestLength())+' </div> <button type="button" class="btn btn-sm btn-success margintop" onClick="ansAdd(this)" style="float:left">Додати відповідь</button> </div> </div>'
+	var mat = '<div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Відповідь" text="Application.Tests['+TestLength()+'].question['+i+'].text" aid="Application.Tests['+TestLength()+'].question['+i+'].id" required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> <div class="col-sm-1"></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">'+answerPatternForQuestion((j+1),(i+1),TestLength())+'</div> <div class="row margintop">'+answerPatternForQuestion((j+2),(i+1),TestLength())+'</div> <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button> </div> </div>'
 	var newdiv = document.createElement('div');
 	newdiv.className = 'col-sm-11 well';
 	newdiv.innerHTML = mat;
@@ -70,11 +70,13 @@ var ansAdd = function(el){
 
 //функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
 var questionremove = function(el){
+	if (i == 1) {alert('Тест має містити мінімум 1 питання!');}
+	else{
 	var Child = el.parentNode.parentNode.parentNode.parentNode;
 	var Node = Child.parentNode;	
 	Node.removeChild(Child);		
 	var index = 1;
-	var a = el.parentNode.parentNode.parentNode.parentNode.childNodes[4].childNodes[1].childNodes;
+	var a = el.parentNode.parentNode.parentNode.parentNode.childNodes;
 	for (var x = 0; x < a.length; x++) {		
 		if((a[x].className === 'row') || (a[x].className === 'row margintop')){
 			index++;
@@ -83,15 +85,20 @@ var questionremove = function(el){
 	j-=(index-1);
 	i--;
 	console.log(i);
+	}
 }
 
 
 //видаляє відповідь
 var answerRemove = function (el){
+	var a  = el.parentNode.parentNode.parentNode.parentNode.childElementCount
+	if(a === 3){alert("У питання має бути мінімум 2 відповіді!")}
+	else{
 	var Child = el.parentNode.parentNode.parentNode;
 	var Node = Child.parentNode;
 	Node.removeChild(Child);	
 	j--
+	}
 }
 
 
