@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="json/new_data.js"></script>
+	<title></title>
+</head>
+<body>
+
+<input type="text" placeholder ="number of test" id="t_number">
+
+<button onclick="click111()"> Clik to genarate test and save localstoreg </button>
+<button onclick="clear111()"> Clear localstoreg </button>
+
+</body>
+
+<script>
+function clear111(){
+	localStorage.clear();
+}
+
+function click111() {
+	var t_number = document.getElementById("t_number").value;
+	testGenerate(t_number)
+
+}
+	
+	var category = [1,2,3];
+	var subcatecory = [1,2,3,4,5,6,7,8,9,10,11,12];
+	var author = ["Vasyl", "Tolik", "Valera", "Vova"];
+	
+
+function Test(category, subcatecory, author, name) {
+    this.category = category;
+    this.subcatecory = subcatecory;
+    this.author = author;
+    this.name = name;
+    
+}
+function testGenerate(number) {
+for (var i=0; i<number; i++) {
+	var test = new Test(category[Math.floor(Math.random() * 3)], subcatecory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" +i);
+	
+
+				Model.date.Tests.push( 
+
+             	 {category:test.category,
+                  subcatecory:test.subcatecory,
+                  author: test.author, 
+                  name: test.name,
+                  
+                    
+                  } );
+
+				Model.save_localStorage();
+	
+	console.log(test)	
+ };
+}
+</script>
+</html>
