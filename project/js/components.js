@@ -106,7 +106,6 @@ function getCurrrentUserName() {
  }
 
  function changeLoginPic() {
-    var LogInOutButt = document.querySelector('#header-menu a[href="#myModal"]');
     var loginUserPic = document.getElementById('login-button');
     var NavPanel = document.getElementById('userNavPanel');
 
@@ -116,16 +115,10 @@ function getCurrrentUserName() {
         userMenuButton.style.display = 'inline-block';
         getCurrrentUserName();
         changeUserNavPanel();
-        LogInOutButt.innerHTML = 'Вийти'; 
-        LogInOutButt.removeAttribute('data-toggle');
-        LogInOutButt.setAttribute('onclick', 'logOutModule()');
 
     } else {
         loginUserPic.style.display = 'block';
         userMenuButton.style.display = 'none';
-        LogInOutButt.innerHTML = 'Ввійти'; 
-        LogInOutButt.setAttribute('data-toggle', 'modal');
-        LogInOutButt.setAttribute('onclick', 'loginModule()');
         NavPanel.style.display = 'none';
     };
 }

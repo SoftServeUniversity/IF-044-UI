@@ -60,7 +60,7 @@ function check_input() {
 			var new_user_id = Model.date.Users[Model.date.Users.length-1].id +1;
 			Model.date.Users.push(  
              	 {id:new_user_id,
-                  role_id:0,
+                  role_id:1,
                   location: "Ukraine",
                   username: user.value, 
                   firstName: first_name.value,
