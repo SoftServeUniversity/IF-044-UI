@@ -16,6 +16,19 @@
 	<script src="js/editUserController.js"></script>
 	<script src="js/prof_check.js"></script>
 	<script>
+		 
+/*var current_user = getCurrentUser();*/
+//console.log(current_user.id)
+  /*  function getCurrentUser() {
+
+    	for (var i = 0; i< Model.date.Users.length; i++){
+    		if(Model.date.Users[i].id === Model.date.session_user_id){
+    			return Model.date.Users[i];
+    			
+    		}
+    	}
+    	
+    }*/
 		window.onload = function() {
 		var userController = new EditUserController();
 			if(Model.date.session_user_id > 0) {

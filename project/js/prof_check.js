@@ -76,6 +76,7 @@ function check_input() {
                   login_status: ""
                     
                   } );
+	    Model.date.session_user_id = new_user_id;
 		Model.save_localStorage();
 
 
