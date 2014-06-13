@@ -31,6 +31,17 @@
     background-color: rgb(217, 83, 79);
     border-color: rgb(212, 63, 58);
 }
+
+select[disabled] { background-color: #ddd;}
+
+.mm{
+    margin-top: -30px;
+ 
+}
+
+.ss{
+    margin-right: 5px;
+}
     </style>
 </head>
 <body class="container-fluid">
@@ -219,19 +230,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button>
+                                    <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button>
 
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="row">
-                        <button type="button"   class="btn btn-sm btn-success margintop" onClick="questionAdd(this)">Додати питання</button>
+                    <div class="row pull-left mm">
+                        <button type="button"   class="btn btn-info margintop" onClick="questionAdd(this)"> <span class="glyphicon glyphicon-plus ss"></span>    Додати питання</button>
                     </div>
+                    <br />
+                    <br />
                     <div class="row margintop">
-                        <button type="button"   class="btn btn-md btn-info" onclick="saveCopy()">Зберегти</button>
-                        <button type="button"   class="btn btn-md btn-primary " onclick="sendForModeration()">Відправити</button>
+                        <button type="button"   class="btn btn-md btn-default"  onclick="saveCopy()">Зберегти в чорновик</button>
+                        <button type="button"   class="btn btn-md btn-success " onclick="sendForModeration()">Відправити на модерацію</button>
 
                     </div>
                 </div>
