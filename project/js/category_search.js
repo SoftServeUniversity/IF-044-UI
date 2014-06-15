@@ -76,6 +76,13 @@ window.onload = function CategoriesController() {
 
 
         });
+        var reset = document.querySelectorAll('.reset')[0];
+    reset.addEventListener('click', function() {
+        var curent_filter = document.querySelectorAll('.curent-filter');
+        for (var i = 0; i < curent_filter.length; i++) {
+            curent_filter[i].classList.remove("curent-filter");
+        }
+    });
 
 
     }
