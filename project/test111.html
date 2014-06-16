@@ -153,26 +153,20 @@ function resultGenerator() {
   Model.save_localStorage();
 
   function generateResult() {
-
-      var res = {
-        id: 2,
-        u_id : 3,
-        test_id: 2,
-        passed_date: 1301431224657, 
-        score : 4,
-        user_rank: 2
-      }
+      var newArr = Model.date.Result;
 
       for (var i = 0; i < quantity; i++) {
+          var res = {}; 
           res.u_id = Math.floor(Math.random() * Model.date.Users.length) ;
-          res.id = Model.date.Result[Model.date.Result.length - 1].id + i;
+          res.id = Model.date.Result[Model.date.Result.length - 1].id + i - (i-1);
           res.test_id = Model.date.Tests[(Model.date.Tests.length - 1)  - Math.floor(Math.random() * Model.date.Tests.length)].id;
           res.name = 'Test Name' + res.test_id;
           res.score = 12 - Math.floor(Math.random() * 12);
           res.user_rank = 4 - Math.floor(Math.random() * 4);
           res.passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657);
           Model.date.Result.push(res)
-          console.log(new Date(res.passed_date));
+          console.log(res.test_id);
+          console.log('id: ' + res.id);
       }
   }
 
