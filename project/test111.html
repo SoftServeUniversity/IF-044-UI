@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <script src="json/new_data.js"></script>
+
 	<title></title>
 </head>
 <body>
@@ -9,7 +11,11 @@
 <input type="text" placeholder ="number of test" id="t_number">
 
 <button onclick="click111()"> Clik to genarate test and save localstoreg </button>
-<button onclick="clear111()"> Clear localstoreg </button>
+<button onclick="clear111()"> Clear localstoreg </button></br>
+
+<input type="text" placeholder="number of results" id="r_number">
+
+<button onclick="resultGenerator()"> Clik to genarate results and save localstoreg </button> 
 
 </body>
 
@@ -139,6 +145,38 @@ function testGenerate(number) {
 
         console.log(test)
     };
+}
+
+function resultGenerator() {
+  var quantity = document.getElementById('r_number').value;
+  result = generateResult();
+  Model.save_localStorage();
+
+  function generateResult() {
+
+      var res = {
+        id: 2,
+        u_id : 3,
+        test_id: 2,
+        passed_date: 1301431224657, 
+        score : 4,
+        user_rank: 2
+      }
+
+      for (var i = 0; i < quantity; i++) {
+          res.u_id = Math.floor(Math.random() * Model.date.Users.length) ;
+          res.id = Model.date.Result[Model.date.Result.length - 1].id + i;
+          res.test_id = Model.date.Tests[Model.date.Tests.length - Math.floor(Math.random() * Model.date.Tests.length)].id;
+          res.name = 'Test Name' + res.test_id;
+          res.score = 12 - Math.floor(Math.random() * 12);
+          res.user_rank = 4 - Math.floor(Math.random() * 4);
+          res.passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657);
+          Model.date.Result.push(res)
+          console.log(res);
+      }
+  }
+
+
 }
 </script>
 </html>
