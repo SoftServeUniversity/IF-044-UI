@@ -55,7 +55,7 @@ function AgeFilter(options) {
 
 // Filter that is active when only rank option are utilized
 // rank = ступінь в організації
-function RankFilter(options) {
+function RankFilter() {
     var temp = options.rank;
     return function (collection_element) {
         return (temp.indexOf(collection_element.rank) >= 0 ? true : false);
@@ -72,7 +72,7 @@ function DateFilter(options) {
         end = options.date[1]
     }
     return function (collection_element) {
-        var temp = collention_element.date;
+        var temp = collection_element.date;
         if (start != null && end != null) {
             if (end <= temp && temp <= start) {
                 return true;
@@ -92,25 +92,12 @@ function DateFilter(options) {
     };
 }
 
-// TODO maybe here we can implement other pattern
-// we already have filters for Age nad Rank
-// and here we only have combination of them
-function AgeRankFilter(options) {
-    var temp_age = options.age;
-    var temp_rank = options.rank;
-    return function (collection_element) {
-        var first = temp_rank.indexOf(collection_element.rank) >= 0 ? true : false;
-        var second = temp_age.indexOf(collection_element.age) >= 0 ? true : false;
-        return first && second;
-    };
-}
-
 
 // my own pattern =)
 function FilterCompositionFactory(handlers, options) {
     var temp = handlers;
     for (var i = 0; i < handlers.length; i++) {
-        temp[i] = handlers[i](options);
+        temp[i] = new handlers[i](options);
     }
     return function (collection_element) {
         result = true;
