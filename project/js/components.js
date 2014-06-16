@@ -181,6 +181,7 @@ function testsFilter() {
         var h3 = document.createElement('h3');
         var a = document.createElement('a');
         a.innerHTML = Model.date.Tests[i].name;
+        a.href = 'TestPastPage.html?t_id=' + Model.date.Tests[i].id;
         var p = document.createElement('p');
         p.innerHTML = Model.date.Tests[i].description;
         h3.appendChild(a);
