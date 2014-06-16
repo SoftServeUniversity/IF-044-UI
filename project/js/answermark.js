@@ -1,33 +1,63 @@
+'use strict'
+
+function test () {
+	this.id = parseInt(location.search.split('=').slice(1)[0])-1;
+	this.category = function(id){
+	for (var i = 0; i < Application.Tests_categories.length; i++) {
+		console.log(i);
+			if (id === Application.Tests_categories[i].id) { 
+				var name = Application.Tests_categories[i].name;
+			}
+		
+		};	
+			return name;
+	}		
+   this.subcategory = function(id){
+   for (var i = 0; i < Application.Tests_categories.length; i++) {
+   	console.log(i);
+   	if (id == Application.Tests_categories[i].id) { 
+				var subcatname = Application.Tests_categories[i].name;
+			};
+
+		}
+		return subcatname;
+	}
+	}
+
+var test =  new test();
+
 function nameeee(num){
 	var name1 = document.getElementsByTagName('h2');
-	var Category = document.getElementById('Category')
-	var SubCategory = document.getElementById('SubCategory')
-	name1[0].innerHTML = Tests[num].name;
-	Category.innerHTML = Tests[num].category;
-	SubCategory.innerHTML = Tests[num].subcategory;
+	var Category = document.getElementById('Category');
+	var SubCategory = document.getElementById('SubCategory');
+	name1[0].innerHTML = Application.Tests[num].name;
+	Category.innerHTML = test.category(Application.Tests[num].category);
+	SubCategory.innerHTML = test.subcategory(Application.Tests[num].subcategory);
 }
+
 
 var testStructure = function(testNum) {
 var page = document.getElementsByClassName('page');
-for (var i = 0; i < Tests[testNum].question.length; i++) {
+for (var i = 0; i < Application.Tests[testNum].question.length; i++) {
 	page[0].innerHTML += '<div class="row"><div class="col-lg-10 col-sm-offset-1"><div class="pos"></div><div class="question"><br></div><div class="col-lg-10 answer-spase"></div></div>'}
 var num = document.getElementsByClassName('pos');
 var question = document.getElementsByClassName('question');
 var answer  = document.getElementsByClassName("col-lg-10 answer-spase");
-for (var i = 0; i < Tests[testNum].question.length; i++) {
+for (var i = 0; i < Application.Tests[testNum].question.length; i++) {
 	num[i].innerHTML = "<strong>"+(i+1)+'.'+'</strong>';
-	question[i].innerHTML = Tests[testNum].question[i].text;
-	for (var k = 0; k < Tests[testNum].answers.length; k++) {
-	if (Tests[testNum].answers[k].question_id === (i+1)) {
-	answer[i].innerHTML += '<label onClick="answer(this)" class="aq1">'+Tests[testNum].answers[k].text_answer+'</label><br>';
+	question[i].innerHTML = Application.Tests[testNum].question[i].text;
+	for (var k = 0; k < Application.Tests[testNum].answers.length; k++) {
+	if (Application.Tests[testNum].answers[k].question_id === (i+1)) {
+	answer[i].innerHTML += '<label onClick="answer(this)" class="aq1">'+Application.Tests[testNum].answers[k].text_answer+'</label><br>';
 
-};
-};
-};
-nameeee(testNum);
+}
+}
+}
 }
 
 
+document.onload = testStructure(test.id);
+document.onload = nameeee(test.id);
 
 var answer = function(el){
 

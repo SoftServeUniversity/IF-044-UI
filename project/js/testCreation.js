@@ -17,69 +17,33 @@ function TestLength(){
 	return test
 }
 
-function Start(i){
-var a = document.getElementsByClassName('input-group');
-a[i].children[0].setAttribute('text',"Application.Tests[].question[0].text");
-a[i].children[0].setAttribute('aid',"Application.Tests["+TestLength()+"].question[0].id");
-
-a[i+1].children[0].setAttribute('text',"Application.Tests["+TestLength()+"].answers[0].text_answer");
-a[i+1].children[0].setAttribute('qid',"Application.Tests["+TestLength()+"].answers[0].question_id");
-a[i+1].children[0].setAttribute('data-qid',1)
-a[i+1].children[0].setAttribute('aid',"Application.Tests["+TestLength()+"].answers[0].id");
-     
-a[i+2].children[0].setAttribute('text',"Application.Tests["+TestLength()+"].answers[1].text_answer");
-a[i+2].children[0].setAttribute('qid',"Application.Tests["+TestLength()+"].answers[1].question_id");
-a[i+2].children[0].setAttribute('data-qid',1)
-a[i+2].children[0].setAttribute('aid',"Application.Tests["+TestLength()+"].answers[1].id");                                     
-                                                                           
-}
-
 
 //знаходить елемент за ід
 function elID(id){
 return	document.getElementById(id);
 }
 
-
 //шаблон для вставлення відповідей
-function answerPattern(answer,question,test){
-	var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer" text="Application.Tests['+test+'].answers['+answer+'].text_answer" qid="Application.Tests['+test+'].answers['+answer+'].question_id" data-qid="'+question+'" aid="Application.Tests['+test+'].answers['+answer+'].id" placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>'
+function answerPattern(){
+	var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer"  placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>'
 	return mat;
 }
-
-
-//шаблон для вставлення питань
-function answerPatternForQuestion(answer,question,test){
-	var mat = ' <div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer" text="Application.Tests['+test+'].answers['+answer+'].text_answer" qid="Application.Tests['+test+'].answers['+answer+'].question_id" data-qid="'+question+'" aid="Application.Tests['+test+'].answers['+answer+'].id" placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span><span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>'
-	return mat;
-}
-
-
-
-
-
-//Змінні для визначення позицій питання(i) та відповідей (j)
-var i = 1;
-var j = 1;
 
 //функція додає нове запитання до списку
 var questionAdd = function(el){ 
-	var mat = '<div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Відповідь" text="Application.Tests['+TestLength()+'].question['+i+'].text" aid="Application.Tests['+TestLength()+'].question['+i+'].id" required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">'+answerPatternForQuestion((j+1),(i+1),TestLength())+'</div> <div class="row margintop">'+answerPatternForQuestion((j+2),(i+1),TestLength())+'</div> <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button> </div> </div>'
-	var newdiv = document.createElement('div');
-	newdiv.className = 'col-sm-11 well';
-	newdiv.innerHTML = mat;
-	el.parentNode.insertBefore(newdiv, el) ;
-	i++;
-	j+=2;
 	
+	var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">'+answerPattern()+'</div> <div class="row margintop">'+answerPattern()+'</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
+	var newdiv = document.createElement('div');
+	newdiv.className = 'row';
+	newdiv.innerHTML = mat;
+	el.parentNode.parentNode.insertBefore(newdiv, el.parentNode) ;
+
 }
 
 
 //функція додає нову відповідь для запитання
-var ansAdd = function(el){
-	j++
-	var qdata = parseInt(el.parentNode.childNodes[1].childNodes[1].childNodes[1].childNodes[1].getAttribute('data-qid'));
-	var mat = answerPattern(j,qdata,TestLength())
+var ansAdd = function(el){	
+	var mat = answerPattern()
 	var newdiv = document.createElement('div');
 	newdiv.className = 'row margintop';
 	newdiv.innerHTML = mat;
@@ -90,24 +54,14 @@ var ansAdd = function(el){
 //функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
 var questionremove = function(el){
 	
-	if (i == 1) {alert('Тест має містити мінімум 1 питання!');}
+	if (document.getElementsByClassName('question').length == 1) {alert('Тест має містити мінімум 1 питання!');}
 	else{
 	var Child = el.parentNode.parentNode.parentNode.parentNode;
 	var Node = Child.parentNode;	
 	Node.removeChild(Child);		
-	var index = 1;
-	var a = el.parentNode.parentNode.parentNode.parentNode.childNodes;
-	for (var x = 0; x < a.length; x++) {		
-		if((a[x].className === 'row') || (a[x].className === 'row margintop')){
-			index++;
-		}
-	};
-	j-=(index-1);
-	i--;
-	console.log(i);
+		
 	}
 }
-
 
 //видаляє відповідь
 var answerRemove = function (el){
@@ -117,10 +71,9 @@ var answerRemove = function (el){
 	var Child = el.parentNode.parentNode.parentNode;
 	var Node = Child.parentNode;
 	Node.removeChild(Child);	
-	j--
+	
 	}
 }
-
 
 //Знаходить категорії в базі
 var categoryCreation =  function (){
@@ -161,7 +114,6 @@ for (var key in res) {
 }
 }
 
-
 //Змінює стилі кнопки вибору правильної відповіді
 var correctAnswer = function(el){
 	if (el.className === 'btn input-group-addon default') 
@@ -192,127 +144,56 @@ return categoryId;
 
 //заповнює категорії
  window.onload = categoryCreation();
- window.onload = Start(0);
 
+
+function QuestionSave(obj,question,answer){			
+		obj.question = [];
+		obj.answer = [];
+		obj.correct_answer = [];
+		for (var i = 0; i < question.length; i++) {
+		var a = question[i].parentElement.parentElement.parentElement.parentElement.children[1].children[0].children;
+			for (var s = 0; s < a.length; s++) {				
+			if (a[s].className === "row margintop") {
+					a[s].children[0].children[0].children[0].setAttribute('data-qid',i+1);
+			};
+		};
+			obj.question.push({});			
+			obj.question[i].id = i+1;			
+			obj.question[i].text = question[i].value;
+			for (var j = 0; j < answer.length; j++) {
+				answer[j].setAttribute('aid',(j+1))
+					if (parseInt(answer[j].getAttribute('data-qid')) == i+1) {
+						obj.answer.push({});
+						obj.answer[obj.answer.length-1].text = answer[j].value;						
+						obj.answer[obj.answer.length-1].id = j+1;						
+						obj.answer[obj.answer.length-1].question_id = i+1;
+							if (answer[j].parentElement.children[1].className == 'btn input-group-addon success') {
+								obj.correct_answer.push({});						
+								obj.correct_answer[obj.correct_answer.length-1].answer_id = j+1;
+								obj.correct_answer[obj.correct_answer.length-1].question_id = i+1;
+							};			
+						};
+							
+				};
+		};
+	
+}
 
 //Збирає данні з інпутів по ід і записує їх у базу
-var sendForModeration = function(){
-Start(0);
+var send = function(id){
 var l = TestLength();
 var category = elID('category').value;
 var subcategory = elID('subCategory').value;
 var newTest = {};
+QuestionSave(newTest,document.getElementsByClassName('question'),document.getElementsByClassName('answer'));
 newTest.user_owner_id = 3;
 newTest.name = elID('name').value;
 newTest.description = elID('description').value;
 newTest.categoryId = categorySearch(category);
 newTest.subcategory = subCategorySearch(subcategory);
-newTest.status = 'На модерації';
+newTest.status = id;
 newTest.tags = elID('tags').value.split(',');
 newTest.date = Date.parse(new Date());
 Application.Tests.push(newTest);
-
-//Записує питання в базу
-Application.Tests[l].question = [];
-var Question = document.getElementsByClassName('question');
-for (var z = 0; z < Question.length; z++) {
-Application.Tests[l].question.push({});
-var questionPath = Question[z].getAttribute('text');
-var questionId = Question[z].getAttribute('aid');
-var questionText = Question[z].value;
-eval(questionPath + '=" '+questionText+'"');
-eval(questionId + '=" '+(z+1)+'"');
-};
-
-//записує відповіді в базу
-Application.Tests[l].answers = [];
-var answer = document.getElementsByClassName('answer');
-for (var i = 0; i < answer.length; i++) {
-	Application.Tests[l].answers.push({});
-};
-for (var x = 0; x < answer.length; x++) {
-var answerPath = answer[x].getAttribute('text');
-var answerId = answer[x].getAttribute('aid');
-var questionPath = answer[x].getAttribute('qid');
-var questionId = answer[x].getAttribute('data-qid');
-var answerText = answer[x].value;
-answer[x].setAttribute('ans-data', (x+1));
-eval(answerPath + '=" '+answerText+'"');
-eval(answerId + '=" '+(x+1)+'"');
-eval(questionPath + '=" '+questionId+'"');
-};
-
-//записує правильні відповіді в базу
-var correctAnswers = document.getElementsByClassName('btn input-group-addon success');
-Application.Tests[l].correct_answer = [];
-for (var i = 0; i < correctAnswers.length; i++) {
-	Application.Tests[l].correct_answer.push({});
-	var elem = correctAnswers[i].parentNode.childNodes[1];
-	var answerId = elem.getAttribute('ans-data');
-	var questionId = elem.getAttribute('data-qid');
-	eval('Application.Tests[l].correct_answer[i].question_id="'+questionId+'"');
-	eval('Application.Tests[l].correct_answer[i].answer_id="'+answerId+'"');
-	
-};
-//Model.save_localStorage();
 }
 
-var saveCopy = function(){
-var l = TestLength();
-var category = elID('category').value;
-var subcategory = elID('subCategory').value;
-var newTest = {};
-newTest.user_owner_id = 3;
-newTest.name = elID('name').value;
-newTest.description = elID('description').value;
-newTest.categoryId = categorySearch(category);
-newTest.subcategory = subCategorySearch(subcategory);
-newTest.status = 'Чорновик';
-newTest.tags = elID('tags').value.split(',');
-newTest.date = Date.parse(new Date());
-Application.Tests.push(newTest);
-
-//Записує питання в базу
-Application.Tests[l].question = [];
-var Question = document.getElementsByClassName('question');
-for (var z = 0; z < Question.length; z++) {
-Application.Tests[l].question.push({});
-var questionPath = Question[z].getAttribute('text');
-var questionId = Question[z].getAttribute('aid');
-var questionText = Question[z].value;
-eval(questionPath + '=" '+questionText+'"');
-eval(questionId + '=" '+(z+1)+'"');
-};
-
-//записує відповіді в базу
-Application.Tests[l].answers = [];
-var answer = document.getElementsByClassName('answer');
-for (var i = 0; i < answer.length; i++) {
-	Application.Tests[l].answers.push({});
-};
-for (var x = 0; x < answer.length; x++) {
-var answerPath = answer[x].getAttribute('text');
-var answerId = answer[x].getAttribute('aid');
-var questionPath = answer[x].getAttribute('qid');
-var questionId = answer[x].getAttribute('data-qid');
-var answerText = answer[x].value;
-answer[x].setAttribute('ans-data', (x+1));
-eval(answerPath + '=" '+answerText+'"');
-eval(answerId + '=" '+(x+1)+'"');
-eval(questionPath + '=" '+questionId+'"');
-};
-
-//записує правильні відповіді в базу
-var correctAnswers = document.getElementsByClassName('btn input-group-addon success');
-Application.Tests[l].correct_answer = [];
-for (var i = 0; i < correctAnswers.length; i++) {
-	Application.Tests[l].correct_answer.push({});
-	var elem = correctAnswers[i].parentNode.childNodes[1];
-	var answerId = elem.getAttribute('ans-data');
-	var questionId = elem.getAttribute('data-qid');
-	eval('Application.Tests[l].correct_answer[i].question_id="'+questionId+'"');
-	eval('Application.Tests[l].correct_answer[i].answer_id="'+answerId+'"');
-	
-};
-//Model.save_localStorage();
-}

@@ -369,7 +369,7 @@ var Application = {
           //category: 1,
           date: 1401211224657,
 
-          category: 1,
+          category: 2,
                   passed_date: [1401211224657, 1401231224657, 1401431224657, 1301431224657, 1201431224657, 1401781659361] 
 
          },
@@ -460,7 +460,7 @@ var Application = {
               id:1,
               name_status: "опублікований"
               },
-          subcategory: 8,
+          subcategory: 5,
 
           //category: 1,
           date: 1401211224657,
@@ -487,7 +487,7 @@ var Application = {
             },
             {
               id: 2,
-              name: "туризм",
+              name: "Туризм",
               parent_id: 0,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -501,7 +501,7 @@ var Application = {
             },
             {
               id: 3,
-              name: "пдр",
+              name: "Комп'ютери",
               parent_id: 0,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -515,7 +515,7 @@ var Application = {
             },
             {
               id: 4,
-              name: "підкатегорія",
+              name: "Футбол",
               parent_id:1,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -529,7 +529,7 @@ var Application = {
             },
             {
               id: 5,
-              name: "підкатегорія",
+              name: "Хокей",
               parent_id:1,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -543,7 +543,7 @@ var Application = {
             },
             {
               id: 6,
-              name: "підкатегорія",
+              name: "Баскетбол",
               parent_id:1,
                             getSubcategories: function(id) {
                                 var result = [];
@@ -557,7 +557,7 @@ var Application = {
             },
             {
               id: 7,
-              name: "підкатегорія",
+              name: "Країни",
               parent_id:2,
                             getSubcategories: function(id) {
                                 var result = [];

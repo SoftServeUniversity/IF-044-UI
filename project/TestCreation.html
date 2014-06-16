@@ -42,7 +42,13 @@ select[disabled] { background-color: #ddd;}
 .ss{
     margin-right: 5px;
 }
+
+.width{
+    width: 194px;
+    margin-right: 20px;
+}
     </style>
+
 </head>
 <body class="container-fluid">
     <div id="outer-wrapper" class="container">
@@ -77,6 +83,9 @@ select[disabled] { background-color: #ddd;}
                 </ul>
             </div>
         </header>
+    
+
+
         <main>
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -127,7 +136,7 @@ select[disabled] { background-color: #ddd;}
             </div>
 
             <div class="container-fluid">
-                <h3 class="col-sm-offset-1">Створити тест</h3>
+                <h3 class="col-sm-offset-1">Створення тесту</h3>
 
                 <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
                     <div class="row ">
@@ -157,7 +166,7 @@ select[disabled] { background-color: #ddd;}
                             <div class="row">
                                 Підкатегорія:
                                 <select class="myForm" id="subCategory" disabled="true">
-                                    <option>Обрати підкатегорію</option>
+                                    
 
                                 </select>
                             </div>
@@ -188,7 +197,7 @@ select[disabled] { background-color: #ddd;}
                                                 <input type="text" class="form-control answer" 
                                             
                                                 placeholder="Відповідь" required>
-
+                                                
                                                 <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)">
                                                     <span class="glyphicon glyphicon-ok"></span>
                                                 </span>
@@ -221,52 +230,23 @@ select[disabled] { background-color: #ddd;}
 
                         </div>
                     </div>
+                             
                     <div class="row pull-left mm">
                         <button type="button"   class="btn btn-info margintop" onClick="questionAdd(this)"> <span class="glyphicon glyphicon-plus ss"></span>    Додати питання</button>
                     </div>
                     <br />
                     <br />
                     <div class="row margintop">
-                        <button type="button"   class="btn btn-md btn-default"  onclick="saveCopy()">Зберегти в чорновик</button>
-                        <button type="button"   class="btn btn-md btn-success " onclick="sendForModeration()">Відправити на модерацію</button>
+                        <button type="button"   class="btn btn-md btn-default width"  onclick="send(3)">Зберегти в чорновик</button>
+                        <button type="button"   class="btn btn-md btn-success " onclick="send(2)">Відправити на модерацію</button>
 
                     </div>
                 </div>
 
             </div>
-            <!--    <div class="row">
-            Відповідь 1
-            <input type="text">
-            <button class="btn btn-danger btn-xs" title="Видалити відповідь">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-            <button class="btn btn-default btn-xs" title="Правильна відповідь" onClick="rightAnswer(this)">
-                <span class="glyphicon glyphicon-ok"></span>
-            </button>
-        </div>
-        <div class="row">
-
-            <input type="text">
-            <button class="btn btn-danger btn-xs" title="Видалити відповідь">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-            <button class="btn btn-default btn-xs" title="Правильна відповідь" onClick="rightAnswer(this)">
-                <span class="glyphicon glyphicon-ok"></span>
-            </button>
-        </div>
-        <button type="button" class="btn btn-success btn-center" onClick="questionAdd(this)">Додати запитання</button>
-
-        <br>
-        <button type="button" class="btn btn-primary btn-center" onClick="formTest()">Відправити тест на перевірку</button>
-        -->
+        </main>
     </div>
 </div>
-
-</div>
-</main>
-</div>
-</div>
-
 <footer class="container">
 <div id="footer-container">
 <nav id="footer-menu">
