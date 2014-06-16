@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="json/new_data.js"></script>
+[eq]
+</head>
+<body>
+<div>
+<ul class="cat"></ul>
+</div>
+<div>
+<ul class="cat"></ul>
+</div>
+<div>
+<ul class="cat"></ul>
+</div>
+</body>
+</html>
