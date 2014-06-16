@@ -10,6 +10,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="css/login_page.css" rel="stylesheet">
+        <link href="css/category.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -45,6 +46,7 @@
                 </ul>
               </div>
             </header>
+
             <main class="container-fluid">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
               aria-hidden="true">
@@ -92,30 +94,24 @@
                 </div>
               </div>
             </div>
+
             <div>
               <div class="row">
-                <div class="col-sm-6 col-xs-11 col-sm-offset-1 col-xs-offset-1" >
-                  <h2> <strong>НАЗВА КАТЕГОРІЇ</strong>
-                  </h2>
-                  <p class="desrpiption">
-                  КОРОТКИЙ ОПИС ЦІЄЇ КАТЕГОРІЇ
-                  + не забути Дмитру сказати, щоб до категорії додав короткий опис
-                  </p>
-                  <p class="desrpiption">
-                    <a href="#">Статистика категорії</a>
-                  </p>
-                </div>
-                <div class="col-sm-4 col-xs-9  col-sm-offset-1 col-xs-offset-1" id="tag">
-                  <br>
-                  <p class="line"> <i>Тести доволі легкі та пізнавальні. З радістю пройшла їх і дізналась багато цікавого. Однозначно рекомендую!</i>
-                  </p>
-                  <span class="col-sm-offset-5 col-xs-offset-6 name">Тут якась настановча цитата</span>
+                <div class="text-center">
+                  <h3 class="pageTitle">НАЗВА КАТЕГОРІЇ</h3>
                 </div>
               </div>
-              <br>
-              <br>
+
               <div class="row">
-                <div class="col-sm-2 col-sm-offset-2 col-xs-12 col-xs-offset-3">
+                  <p class="description text-center">
+                    <a href="#">Статистика категорії</a>
+                  </p>
+              </div>
+
+              <br>
+              <br>
+              <div class="row" id="content">
+                <!-- <div class="col-sm-2 col-sm-offset-2 col-xs-12 col-xs-offset-3">
                   <strong>Підкатегорія
                   <a href="#"> <u>1</u>
                   </a>
@@ -199,11 +195,15 @@
                     </a>
                   </ul>
                 </div>
-              </div>
-            <br></div>
+              </div> -->
+            </div>
+
             </main>
+            
           </div>
+
         </div>
+
         <footer class="container">
           <div id="footer-container">
             <nav id="footer-menu">
@@ -230,6 +230,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="js/components.js"></script>
+      <script src="js/utils/category.js"></script>
       <script>
       window.onload = changeLoginPic();
       </script>
