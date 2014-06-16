@@ -14,19 +14,16 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/data.json"></script>
-    <script src="js/search.js"></script>
     <script src="json/new_data.js"></script>
 
 </head>
-
 <body class="container-fluid">
 <div id="outer-wrapper" class="container">
     <div id="inner-wrapper" class="container">
         <header class="row">
             <div id="header-container"
                  class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <!-- <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
+                <!--   <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
                 <div id="title-block">
                     <h4>Система Пластових електронних опитників</h4>
                 </div>
@@ -51,93 +48,7 @@
             </div>
         </header>
         <main>
-            <div class="container-fluid">
-                <div class="row">
-                    <h4>КАБІНЕТ МОДЕРАТОРА <a href="#"><i><strong>NYARYTC</strong></i></a></h4><br>
-                    <p><strong class="text-left">Результат пошуку:</strong></p><br>
-                </div>
 
-                <div class="row">
-                    <div class="col-xs-12 col-lg-11 col-md-11 col-sm-11 col-xs-offset-0 col-lg-offset-1 col-md-offset-1  col-sm-offset-1">
-                        <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
-                            <div class="input-group">
-                                <input type="text" id="whatToSearch" class="form-control" placeholder="Пошук" onkeyup="appFilter(this)">
-                                <div class="input-group-btn">
-                                    <button id="search-test" class="btn btn-info" type="button" onclick="searchTests()"><i class="glyphicon glyphicon-search" ></i></button>
-                                </div>
-                            </div>
-                            <div id="search-by"  class="radio text-left">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="Radios" id="All"  value="" checked> Усі
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="Radios" id="radio-names" value=""> Ім'я тест
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="Radios" id="radio-categories" value="" /> Категорія
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="Radios" id="radio-subcategories" value="" /> Підкатегорія
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8">
-
-
-                            <table id="search-table" class="table">
-                                <tbody class="text-center">
-                                <tr >
-                                    <th class="text-center">Назва тесту</th>
-                                    <th class="text-center">Категорія</th>
-                                    <th class="text-center"> Підкатегорія</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div>
-                                <ul class="pagination">
-                                    <li><a href="#">&laquo;</a>
-                                    </li>
-                                    <li><a href="#">1</a>
-                                    </li>
-
-                                    <li><a href="#">&raquo;</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="remove-dialog" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Видалення тесту</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Ви дійсно хочите видалити тест <span id="test-to-remove"></span>?</p>
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="button" id="accept-remove-test" class="btn btn-danger" >Видалити</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Відміна</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div id="modal-login-box" class="modal-dialog">
@@ -175,7 +86,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-1 col-sm-10">
-                                        <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
+                                        <a href="registration.html"><button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button></a>
                                         <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
                                     </div>
                                 </div>
@@ -186,6 +97,68 @@
                     </div>
                 </div>
             </div>
+
+            <section id="statistic" class="container">
+                <div class="row">
+                    <div id="pageTitleBox" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="centerBlock">
+                            <h3 id="username1"></h3>
+                        </div>
+                    </div>
+
+
+                    </div>
+                    <div id="main-content" class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                        <div class="bs-example bs-example-tabs">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" class="bg-primary" href="#stat1">Cписок пройдених тестів</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-primary" href="#stat2">Останні пройдені тести</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" class="bg-primary" href="#stat3">Статистика</a>
+                                </li>
+                            </ul>
+
+                            <div id="myTabContent" class="tab-content">
+                                <div id="stat1" class="tab-pane fade in active">
+                                    <table id="s1" class="table my-table">
+                                        <tr >
+                                            <th class="text-center">Назва тесту</th>
+                                            <th class="text-center">Кількість спроб</th>
+                                            <th class="text-center">MAX результат</th>
+                                        </tr>
+                                    </table><br>
+                                </div>
+                                <div id="stat2" class="tab-pane fade in #stat3">
+                                    <table id="s1" class="table my-table">
+                                        <tr >
+                                            <th class="text-center">Назва тесту</th>
+                                            <th class="text-center">Дата проходження</th>
+                                            <th class="text-center">Результат</th>
+                                        </tr>
+                                    </table><br>
+                                </div>
+
+                                <div id="stat2" class="tab-pane fade in #stat3">
+                                    <div class="col-lg-4 col-md-4 col-sm-7 col-xs-7 col-lg-offset-2 text-center"  style="margin-top: 10px;">
+                                    <dl id="s2" class="dl-horizontal">
+                                        <dt><b>Пройдено тестів : </b></dt>
+                                        <dd class="text-left"><span id="testsPassed"> 45 </span></dd>
+                                        <dt><b>Середній бал : </b></dt>
+                                        <dd class="text-left"><span id="userScore"> 66% </span></dd>
+                                        <dt><b>Створено тестів : </b></dt>
+                                        <dd class="text-left"><span id="testsCreated"> 1 </span></dd>
+                                    </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 </div>
@@ -193,23 +166,26 @@
     <div id="footer-container">
         <nav id="footer-menu">
             <ul>
-                <li><a href="#">Тести</a> &nbsp|</li>
-                <li><a href="#">Про нас</a>&nbsp|</li>
+                <li><a href="#">Тести </a>&nbsp|</li>
+                <li><a href="#">Про нас </a>&nbsp|</li>
                 <li><a href="#">Контакти</a></li>
             </ul>
         </nav>
         <p>Copyright@ 2014 <b>IF-044</b></p>
     </div>
 </footer>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-<script src="js/paintdiagrams.js"></script>
+<script src="js/stat-for-user.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script>
     window.onload = changeLoginPic();
-    window.onload = searchTests ();
+    window.onload = makePage();
 </script>
 </body>
 </html>

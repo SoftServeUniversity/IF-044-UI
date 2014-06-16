@@ -88,10 +88,10 @@ function getParentTr(removeButton) {
     } while (true)
 }
 
-window.onload = function generateObjects(){
+function showTestByStatus() {
     var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
     var numberOfObjects = Model.date.Tests.length;
-        var countStatus=4;
+        var countStatus=1;
     //console.log(Model.date.Tests[0].status.id);
     for (var tableSwap = 1; tableSwap <= 4; tableSwap++) {
         var row;
@@ -125,11 +125,11 @@ window.onload = function generateObjects(){
                 numberOfCell += 1;
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
+                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTr1(this)" >ВИДАЛИТИ</button></div>';
                 numberOfRow = numberOfRow + 1;
             }
         }
-        countStatus= countStatus -1 ;
+        countStatus= countStatus +1 ;
     }
 
 }
