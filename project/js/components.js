@@ -106,7 +106,6 @@ function getCurrrentUserName() {
  }
 
  function changeLoginPic() {
-    var LogInOutButt = document.querySelector('#header-menu a[href="#myModal"]');
     var loginUserPic = document.getElementById('login-button');
     var NavPanel = document.getElementById('userNavPanel');
 
@@ -116,16 +115,10 @@ function getCurrrentUserName() {
         userMenuButton.style.display = 'inline-block';
         getCurrrentUserName();
         changeUserNavPanel();
-        LogInOutButt.innerHTML = 'Вийти'; 
-        LogInOutButt.removeAttribute('data-toggle');
-        LogInOutButt.setAttribute('onclick', 'logOutModule()');
 
     } else {
         loginUserPic.style.display = 'block';
         userMenuButton.style.display = 'none';
-        LogInOutButt.innerHTML = 'Ввійти'; 
-        LogInOutButt.setAttribute('data-toggle', 'modal');
-        LogInOutButt.setAttribute('onclick', 'loginModule()');
         NavPanel.style.display = 'none';
     };
 }
@@ -857,13 +850,15 @@ function changeCssOnElements() {
             } else if(tabs[4].className === 'tabs active') {
                 gradeList.className += ' hideElem';
                 ageList.className += ' hideElem';
-                sortByPassedQuantity()
+                sortByPassedQuantity();
             } else if(tabs[5].className === 'tabs active') {
                 gradeList.className += ' hideElem';
                 ageList.className += ' hideElem';
+                sortByAverageScore();
             };
 
         };
+
 
     function fillGradeList() {
        var labels = document.querySelectorAll('#gradeList label');
@@ -876,13 +871,43 @@ function changeCssOnElements() {
        };
     }
 
+    function sortByAverageScore() {
+        var newPassedTestsArr = [];
+
+        newPassedTestsArr = fillTheNewTestsArr(newPassedTestsArr);
+        newPassedTestsArr.sort(function(a, b){
+            var currAScore = 0;
+            var currBScore = 0;
+            for(var i = 0; i<a.length; i++){
+               currAScore += a[i].score;
+            }
+            if(currAScore !== 0){
+                currAScore = currAScore / a.length;
+            } else {
+                currAScore = 0;
+            };
+
+            for(var k = 0; k<b.length; k++){
+               currBScore += b[k].score;
+            }
+            if(currBScore !== 0){
+                currBScore = currBScore / b.length;
+            } else {
+                currBScore = 0;
+            };
+
+            return currBScore - currAScore;
+        });
+        createTableElements(newPassedTestsArr, '#Table2 tbody', '#Table2 tbody tr td');
+    }   
+
 
     function sortByPassedQuantity() {
         var newPassedTestsArr = [];
 
         newPassedTestsArr = fillTheNewTestsArr(newPassedTestsArr);
         newPassedTestsArr.sort(function(a, b){return b.length - a.length});
-        createTableElements(newPassedTestsArr);
+        createTableElements(newPassedTestsArr, '#Table1 tbody', '#Table1 tbody tr td');
 
     } 
 
@@ -901,16 +926,22 @@ function changeCssOnElements() {
         return newTestsArr;
     } 
 
-    function createTableElements(newTestsArr) {
-        for (var i = 0; i<newTestsArr.length; i++) {
-            if(newTestsArr[i].length > 0){
-                buildTableElements(newTestsArr[i], i);
+
+    function createTableElements(newTestsArr, tableSelector, indicator) {
+
+        if(!document.querySelector(indicator)){
+            for (var i = 0; i<newTestsArr.length; i++) {
+                if(newTestsArr[i].length > 0){
+                    buildTableElements(newTestsArr[i], i, tableSelector);
+                };
             };
-        };
+        } else {
+            return;
+        };    
     }
 
-    function buildTableElements(newTestsArrElement, i) {
-        var table = document.querySelector('#Table1 tbody');
+    function buildTableElements(newTestsArrElement, i, tableSelector) {
+        var table = document.querySelector(tableSelector);
         var a = 0;
 
      
@@ -923,14 +954,30 @@ function changeCssOnElements() {
            var elem3 = document.createElement('td')
            elem3.innerHTML = newTestsArrElement.length;
            table.children[i].appendChild(elem3);
-           var elem3 = document.createElement('td')
+           var elem4 = document.createElement('td')
            for(var k = 0; k<newTestsArrElement.length; k++){
               a += newTestsArrElement[k].score;
            }
            a = a / newTestsArrElement.length;
 
-           elem3.innerHTML = a.toPrecision(3);
-           table.children[i].appendChild(elem3);
+           elem4.innerHTML = a.toPrecision(3);
+           table.children[i].appendChild(elem4);
+           var elem5 = document.createElement('td')
+           var elem6 = document.createElement('td')
+           for(var k = 0; k<newTestsArrElement.length; k++) {
+               for (var m = 0; m<Model.date.Tests.length; m++) {
+                   if(newTestsArrElement[k].test_id === Model.date.Tests[m].id){
+                       elem5.innerHTML = Model.date.Tests[m].subcategory;
+                       for(var l = 0; l<Model.date.Tests_categories.length; l++){
+                           if(Model.date.Tests[m].subcategory === Model.date.Tests_categories[l].id){
+                               elem6.innerHTML = Model.date.Tests_categories[l].parent_id;
+                           };
+                       };
+                   };
+               };
+           };
+           table.children[i].appendChild(elem5);
+           table.children[i].appendChild(elem6);
         
         
     }

@@ -31,7 +31,24 @@
     background-color: rgb(217, 83, 79);
     border-color: rgb(212, 63, 58);
 }
+
+select[disabled] { background-color: #ddd;}
+
+.mm{
+    margin-top: -30px;
+ 
+}
+
+.ss{
+    margin-right: 5px;
+}
+
+.width{
+    width: 194px;
+    margin-right: 20px;
+}
     </style>
+
 </head>
 <body class="container-fluid">
     <div id="outer-wrapper" class="container">
@@ -49,9 +66,9 @@
                 <nav id="header-menu">
                     <ul>
                         <li><a href="index.html">Головна</a></li>
-                        <li><a href="#">Пошук</a></li>
+                        <li><a href="guest_search_result.html">Пошук</a></li>
                         <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="#myModal" onclick="loginModule()" data-toggle="modal">Ввійти</a>
+                        <li><a href="general-statistic.html">Статистика</a>
                         </li>
                     </ul>
                 </nav>
@@ -60,12 +77,15 @@
                 </a>
                 <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
                 <ul id="userNavPanel">
-                    <li><a href="edit_profile.html">Особистий кабінет</a></li>
-                    <li><a href="#" id="changedA">бла-бла-бла</a></li>
+                    <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a></li>
+                    <li><a href="#" id="changedA"></a></li>
                     <li><a href="#" onclick="logOutModule()">Вихід</a></li>
                 </ul>
             </div>
         </header>
+    
+
+
         <main>
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -83,42 +103,40 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
 
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                    </div>
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
 
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="inputPassword3"
-                                               placeholder="Password">
-                                    </div>
+                                               placeholder="Password"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox">Запам'ятати
-                                            </label>
+                                                <input type="checkbox">Запам'ятати</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-1 col-sm-10">
-                                        <a href="registration.html"><button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button></a>
+                                        <a href="registration.html">
+                                            <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
+                                        </a>
                                         <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="modal-footer">
-                        </div>
+                        <div class="modal-footer"></div>
                     </div>
                 </div>
-            </div>            
+            </div>
 
             <div class="container-fluid">
-                <h3 class="col-sm-offset-1">Створити тест</h3>
+                <h3 class="col-sm-offset-1">Створення тесту</h3>
 
                 <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
                     <div class="row ">
@@ -148,7 +166,7 @@
                             <div class="row">
                                 Підкатегорія:
                                 <select class="myForm" id="subCategory" disabled="true">
-                                    <option>Обрати підкатегорію</option>
+                                    
 
                                 </select>
                             </div>
@@ -158,109 +176,77 @@
                     <br>
                     <div class="row">
                         <div class="col-sm-11 well">
-                            <div class="row">
-                            
-                                <div class="col-md-12">
-                                 
-                                    <input type="text" class="form-control question"   placeholder="Purannya" 
-                                    text="Application.Tests[2].question[0].text" 
-                                    aid="Application.Tests[2].question[0].id" required >
-                                    
-                                    </div>
-                                       <div class="col-sm-1"></div> 
-                            </div>
-                            <br>
-                            <div class="row">
+                            <div class="row ">
 
-                                <div class="col-sm-12 "  >
-                                    <div class="row">
-                                  
-                                        <div class="col-sm-11 col-sm-offset-1" >
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control question"   placeholder="Текст запитання"  required >
+                                        <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-12 ">
+                                    <div class="row margintop">
+                                    <div class="col-sm-11 col-sm-offset-1">
                                             <div class="input-group">
                                                 <input type="text" class="form-control answer" 
-                                            text="Application.Tests[2].answers[0].text_answer"
-                                            qid="Application.Tests[2].answers[0].question_id"
-                                            data-qid="1"
-                                            aid="Application.Tests[2].answers[0].id"
+                                            
                                                 placeholder="Відповідь" required>
+                                                
                                                 <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)">
                                                     <span class="glyphicon glyphicon-ok"></span>
                                                 </span>
+                                                <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
+                                                    <span class="glyphicon glyphicon-remove"></span>
+                                                </span>
                                             </div>
-
                                         </div>
-                                    
                                     </div>
                                     <div class="row margintop">
-                                        
-                                        <div class="col-sm-11 col-sm-offset-1" >
+                                        <div class="col-sm-11 col-sm-offset-1">
                                             <div class="input-group">
                                                 <input type="text" class="form-control answer" 
-                                            text="Application.Tests[2].answers[1].text_answer"
-                                            qid="Application.Tests[2].answers[1].question_id"
-                                            data-qid="1"
-                                            aid="Application.Tests[2].answers[1].id"
+                                           
                                                 placeholder="Відповідь" required>
 
                                                 <span class="btn input-group-addon default" title="Правильна відповідь" onClick="correctAnswer(this)">
                                                     <span class="glyphicon glyphicon-ok"></span>
                                                 </span>
+                                                <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
+                                                    <span class="glyphicon glyphicon-remove"></span>
+                                                </span>
                                             </div>
-
                                         </div>
                                     </div>
-                                 
-                                    <button type="button" class="btn btn-sm btn-success margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">Додати відповідь</button>
-                                   
+                                    <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button>
+
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="row">
-                        <button type="button"   class="btn btn-sm btn-success margintop" onClick="questionAdd(this)">Додати питання</button>
+                             
+                    <div class="row pull-left mm">
+                        <button type="button"   class="btn btn-info margintop" onClick="questionAdd(this)"> <span class="glyphicon glyphicon-plus ss"></span>    Додати питання</button>
                     </div>
+                    <br />
+                    <br />
                     <div class="row margintop">
-                        <button type="button"   class="btn btn-md btn-info" onclick="saveCopy()">Зберегти</button>
-                        <button type="button"   class="btn btn-md btn-primary " onclick="sendForModeration()">Відправити</button>
+                        <button type="button"   class="btn btn-md btn-default width"  onclick="send(3)">Зберегти в чорновик</button>
+                        <button type="button"   class="btn btn-md btn-success " onclick="send(2)">Відправити на модерацію</button>
 
                     </div>
                 </div>
 
             </div>
-            <!--    <div class="row">
-            Відповідь 1
-            <input type="text">
-            <button class="btn btn-danger btn-xs" title="Видалити відповідь">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-            <button class="btn btn-default btn-xs" title="Правильна відповідь" onClick="rightAnswer(this)">
-                <span class="glyphicon glyphicon-ok"></span>
-            </button>
-        </div>
-        <div class="row">
-
-            <input type="text">
-            <button class="btn btn-danger btn-xs" title="Видалити відповідь">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-            <button class="btn btn-default btn-xs" title="Правильна відповідь" onClick="rightAnswer(this)">
-                <span class="glyphicon glyphicon-ok"></span>
-            </button>
-        </div>
-        <button type="button" class="btn btn-success btn-center" onClick="questionAdd(this)">Додати запитання</button>
-
-        <br>
-        <button type="button" class="btn btn-primary btn-center" onClick="formTest()">Відправити тест на перевірку</button>
-        -->
+        </main>
     </div>
 </div>
-
-</div>
-</main>
-</div>
-</div>
-
 <footer class="container">
 <div id="footer-container">
 <nav id="footer-menu">
@@ -287,8 +273,6 @@ Copyright@ 2014 <b>IF-044</b>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-<script>
-    window.onload = changeLoginPic();
-</script>
+<script>window.onload = changeLoginPic();</script>
 </body>
 </html>

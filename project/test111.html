@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="json/new_data.js"></script>
+	<title></title>
+</head>
+<body>
+
+<input type="text" placeholder ="number of test" id="t_number">
+
+<button onclick="click111()"> Clik to genarate test and save localstoreg </button>
+<button onclick="clear111()"> Clear localstoreg </button>
+
+</body>
+
+<script>
+function clear111() {
+    localStorage.clear();
+}
+
+function click111() {
+    var t_number = document.getElementById("t_number").value;
+    testGenerate(t_number)
+
+}
+
+var category = [1, 2, 3];
+var subcatecory = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var author = ["Vasyl", "Tolik", "Valera", "Vova"];
+var question = [
+                {
+                  id: 1,
+                  text: 'Чи мають перевагу сигнали регулювальника перед вимогами дорожніх знаків?'
+                }, 
+                {
+                  id: 2,
+                  text: 'Чи дозволяється керувати автомобілем в темну пору доби або в умовах недостатньої видимості, якщо включені тільки габаритні ліхтарі?'
+                },
+                {
+                  id: 3,
+                  text: ' Ви наближаєтеся до нерегульованого пішохідного переходу, перед яким на суміжній з Вами смузі зупинився транспортний засіб. Ви повинні'
+                }
+              ];
+var answers = [
+                {
+                  id: 1,
+                  question_id: 1,
+                  text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+                }, 
+                {
+                  id: 2,
+                  question_id: 1,
+                  text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+                },
+                {
+                  id: 3,
+                  question_id: 1,
+                  text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+                },
+                {
+                  id: 4,
+                  question_id: 2,
+                  text_answer: ' Дозволяється на освітленій дорозі у населених пунктах'
+                }, 
+                {
+                  id: 5,
+                  question_id: 2,
+                  text_answer: 'Дозволяється на освітленій дорозі у населених пунктах.'
+                },
+                {
+                  id: 6,
+                  question_id: 2,
+                  text_answer: 'Дозволяється під час швидкості руху не більше 50 км/год.'
+                },
+                {
+                  id: 7,
+                  question_id: 3,
+                  text_answer: ' Проїхати пішохідний перехід безупинно, але з особливою обережністю.'
+                },
+                {
+                  id: 8,
+                  question_id: 3,
+                  text_answer: 'Проїхати пішохідний перехід беззупинно.'
+                },
+                {
+                  id: 9,
+                  question_id: 3,
+                  text_answer: 'Обовязково зупинитися. При появі пішоходів пропустити їх.'
+                }
+              ];
+var correct_answer = [
+                  {
+                    question_id: 1,
+                    answer_id: 2
+                  },
+                  {
+                    question_id: 2,
+                    answer_id: 5
+                  },
+                  {
+                    question_id: 3,
+                    answer_id: 7
+                  }
+                  ];
+
+
+function Test(category, subcatecory, author, name, id, question, answers, correct_answer) {
+    this.category = category;
+    this.subcatecory = subcatecory;
+    this.author = author;
+    this.name = name;
+    this.id = id;
+    this.question = question;
+    this.answers = answers;
+    this.correct_answer = correct_answer;
+
+}
+
+function testGenerate(number) {
+    for (var i = 0; i < number; i++) {
+        var test = new Test(category[Math.floor(Math.random() * 3)], 
+        	subcatecory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+6, question, answers, correct_answer);
+
+
+        Model.date.Tests.push(
+
+            {
+                category: test.category,
+                subcatecory: test.subcatecory,
+                author: test.author,
+                name: test.name,
+                id: test.id,
+                question: test.question,
+                answers: test.answers,
+                correct_answer: test.correct_answer,
+            });
+
+        Model.save_localStorage();
+
+        console.log(test)
+    };
+}
+</script>
+</html>

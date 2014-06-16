@@ -33,10 +33,10 @@ body {
 
 #header-menu {
 	display: block;
-	width: 50%;
+	width: 58%;
     position: absolute;
 	bottom: 10px; /* 5px */
-	left: 28%; /* 32px */
+	left: 24%; /* 32px */
 
 }
 

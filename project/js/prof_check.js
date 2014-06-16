@@ -60,11 +60,11 @@ function check_input() {
 			var new_user_id = Model.date.Users[Model.date.Users.length-1].id +1;
 			Model.date.Users.push(  
              	 {id:new_user_id,
-                  role_id:0,
+                  role_id:1,
                   location: "Ukraine",
                   username: user.value, 
-                  first_name: first_name.value,
-                  last_name: last_name.value,
+                  firstName: first_name.value,
+                  lastName: last_name.value,
                   email: email.value,
                   password: passwd.value,
                   re_passwd: re_passwd.value,
@@ -76,6 +76,7 @@ function check_input() {
                   login_status: ""
                     
                   } );
+	    Model.date.session_user_id = new_user_id;
 		Model.save_localStorage();
 
 

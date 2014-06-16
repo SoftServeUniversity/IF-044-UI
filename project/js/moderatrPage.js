@@ -1,8 +1,9 @@
 	if(Model.date.Moderator_test_id){
+		//var get_test_id = Model.date.Moderator_test_id;
 		var get_test_id = Model.date.Moderator_test_id;
 	}else{
 		//var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
-		var get_test_id = 0;
+		var get_test_id = 1;
     }
 		
 function printComments(e, place_for_comment, lastIndexComment, comments) {
@@ -11,7 +12,7 @@ function printComments(e, place_for_comment, lastIndexComment, comments) {
     if (comments && lastIndexComment) {
         if (lastIndexComment === true) lastIndexComment = 0;
         for (var i = lastIndexComment; i < comments.length; i++) {
-            if(currentIndexTest == comments[i].test_id){
+            if(get_test_id == comments[i].test_id){
                 newDiv.innerHTML += "<b>" + comments[i].comment + "</b><br />" + "<div class='text-left'><i>" + comments[i].timeCreate + " Moderator</i></div>";
             }
         }
@@ -31,17 +32,17 @@ function addComment(e) {
         commentArray = Model.date.comment;
         commentArray.push({
             comment: comment,
-            test_id : currentIndexTest,
+            test_id : get_test_id,
             timeCreate: timeCreateComments
         })
         //console.log(commentArray);
         //localStorage.comment = JSON.stringify(commentArray);
 		Model.save_localStorage();
     } else {
-        console.log('local false');
+        //console.log('local false');
         var commentArray = [{
             comment: comment,
-            test_id : currentIndexTest,
+            test_id : get_test_id,
             timeCreate: timeCreateComments
         }];
 		Model.date.comment = commentArray;
@@ -84,8 +85,11 @@ window.onload = function() {
     
 
     var currentTest = getTestById(get_test_id);
+   // var currentIndexTest = getTestById(get_test_id);
     var currentIndexTest = getIndexTestById(get_test_id);
-    console.log(currentTest);
+   // console.log(get_test_id);
+   // console.log("t----------------------------"+currentTest);
+   // console.log("tyt----------------------------"+currentIndexTest);
 
     if (Model.date.comment) {
         var lastIndexComment = true;
@@ -95,7 +99,7 @@ window.onload = function() {
     }
     console.log(comments);
     printComments(document.getElementById("add-comment"), '.place_for_comment', lastIndexComment, comments);
-    console.log("document.onload");
+   // console.log("document.onload");
     if (!Model.date.Tests) {
         console.log('tests storage false');
         localStorage.Tests = JSON.stringify(Tests);
@@ -122,6 +126,42 @@ window.onload = function() {
         content += '</div>';
     }
     place_for_test.innerHTML += content;
+    
+    
+	
+var place_for_list_categories = document.getElementById('listCategories');
+var list_option = '';
+    for(var i = 0;i<Model.date.Tests_categories.length;i++){
+        if(Model.date.Tests_categories[i].parent_id == 0){
+            if(currentTest.category == Model.date.Tests_categories[i].id){
+                list_option+='<option value="'+Model.date.Tests_categories[i].id+'" selected>'+Model.date.Tests_categories[i].name+'</option>'
+            }else{
+                list_option+='<option value="'+Model.date.Tests_categories[i].id+'">'+Model.date.Tests_categories[i].name+'</option>'
+            }
+        }
+    }
+    place_for_list_categories.innerHTML += list_option;
+        console.log(list_option);
+    
+	
+var place_for_list_subCategories = document.getElementById('listSubCategories');
+var list_option = '';
+    for(var i = 0;i<Model.date.Tests_categories.length;i++){
+        if(Model.date.Tests_categories[i].parent_id == currentTest.category){
+            if(currentTest.subcategory == Model.date.Tests_categories[i].id){
+                list_option+='<option value="'+Model.date.Tests_categories[i].id+'" selected>'+Model.date.Tests_categories[i].name+'</option>';
+            }else{
+                    list_option+='<option value="'+Model.date.Tests_categories[i].id+'">'+Model.date.Tests_categories[i].name+'</option>'
+            }
+        }
+    }
+    place_for_list_subCategories.innerHTML += list_option;
+        console.log(list_option);
+    
+    
+        
+    
+    
 
     function insertAfter(newElement, targetElement) {
         //target is what you want it to go after. Look for this elements parent.
@@ -150,6 +190,7 @@ window.onload = function() {
             editText.cols = "60";
             editText.className = 'edit-textarea';
             editText.textContent = this.textContent;
+			this.style.visibility="hidden";
             insertAfter(editText, this);
 
             function saveChange(e) {
@@ -158,9 +199,10 @@ window.onload = function() {
                 var globalTests = Model.date.Tests;
                 var changeText = document.querySelectorAll('.edit-textarea')[0].value;
                 var e = e||window.event;
-                console.log(e);
-                console.log(e.target.className);
+               // console.log(e);
+              //  console.log(e.target.className);
                 if (e.target.className !== 'edit-textarea') {
+					that.style.visibility="visible";
                     document.querySelectorAll('.edit-textarea')[0].parentNode.removeChild(document.querySelectorAll('.edit-textarea')[0]);
                     that.textContent = changeText;
                     eval(test + '="' + changeText + '"');
@@ -184,7 +226,7 @@ window.onload = function() {
         var place_for_comment = document.querySelectorAll('.place_for_comment')[0];
         if (localStorage.getItem('listComment')) {
             var listComment = JSON.parse(localStorage.getItem('listComment'));
-            console.log(listComment);
+            //console.log(listComment);
         }
         //console.log(place_for_comment);
     })()
