@@ -5,6 +5,7 @@ Category.test_path = "test.html";
 Category.content_id = "category-page-content";
 Category.list = Model.date.Tests_categories;
 Category.test_list = Model.date.Tests;
+Category.test_output_limit = 4;
 
 // 
 // Returns list of first child subcategories of a category with specified id
@@ -13,7 +14,7 @@ Category.test_list = Model.date.Tests;
 //  active_categories_list - array of actual categories
 // 
 Category.getSubcategories = function(category_id, active_categories_list) {
-    alert("getSubcategories");
+    // alert("getSubcategories");
     var result = [];
     for (var i = active_categories_list.length - 1; i >= 0; i--) {
         if (active_categories_list[i].parent_id === category_id) {
@@ -39,7 +40,7 @@ Category.getRootCategories = function(active_categories_list) {
 // active_test_array - array of active tests in the system
 //
 Category.getSubCategoryTestsList = function(category, active_test_array) {
-    alert("getSubCategoryTestsList");
+    // alert("getSubCategoryTestsList");
     var result = [];
     console.log("getSubCategoryTestsList ->");
     console.log("   category -> ", category);
@@ -56,25 +57,25 @@ Category.getSubCategoryTestsList = function(category, active_test_array) {
 
 
 Category.generate_category_page = function(category_id, active_category_list) {
-    alert("generate_category_page");
-    console.log("generate_category_page ->");
-    console.log("   category_id -> " + category_id);
-    console.log("   active_category_list - >" + active_category_list.length);
+    // alert("generate_category_page");
+    // console.log("generate_category_page ->");
+    // console.log("   category_id -> " + category_id);
+    // console.log("   active_category_list - >" + active_category_list.length);
     var subcategories = Category.getSubcategories(category_id, active_category_list);
     var content = document.getElementById(Category.content_id);
     var last_j = 0;
 
-    console.log("Subcategories -> " + subcategories.length);
+    // console.log("Subcategories -> " + subcategories.length);
     console.log(subcategories);
-    console.log("DOM -> " + content);
+    // console.log("DOM -> " + content);
 
     for (var i = 0; i < subcategories.length; i++) {
-        console.log("line 67");
-        console.log("Before loop iteration -> ", subcategories)
-        console.log("iteration i -> ", i);
+        // console.log("line 67");
+        // console.log("Before loop iteration -> ", subcategories)
+        // console.log("iteration i -> ", i);
         var subcategory_test_list = Category.getSubCategoryTestsList(subcategories[i], Category.test_list);
-        console.log("After loop iteration -> ", subcategories)
-        console.log("test for " + subcategories[i].name + " -> " + subcategory_test_list.length)
+        // console.log("After loop iteration -> ", subcategories)
+        // console.log("test for " + subcategories[i].name + " -> " + subcategory_test_list.length)
 
         if (i % 3 == 0) {
             content.innerHTML += '<div class="row">\n';
@@ -99,31 +100,32 @@ Category.get_by_id = function(id) {
 }
 
 Category.generate_one_view_item = function(parent, number) {
-    alert("generate_one_view_item");
-    console.log(" Category.generate_one_view_item -> ->")
+    // alert("generate_one_view_item");
+    console.log(" Category.generate_one_view_item -> " + parent.name + "->")
     var items = Category.getSubCategoryTestsList(parent, Category.test_list);
-    var items = [];
+    // var items = [];
     var result = "";
 
     switch (number % 3) {
         case 1:
-            result += '<div class="col-sm-2 col-sm-offset-2 col-xs-12 col-xs-offset-3">';
-            break;
-        case 2:
             result += '<div class="col-sm-2 col-sm-offset-1 col-xs-12 col-xs-offset-3">';
             break;
-        default:
+        case 2:
+            result += '<div class="col-sm-2 col-sm-offset-2 col-xs-12 col-xs-offset-3">';
+            break;
+        case 0:
             result += '<div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3">';
     }
 
     result += "\n";
-    result += "<strong>Підкатегорія";
-    result += '<a href="' + Category.subcategory_path + '?id=' + parent.id + '"> <u></u> </a>\n';
+    result += "<strong>Підкатегорія ";
+    result += '<a href="' + Category.subcategory_path + '?id=' + parent.id + '"> <u>'
+    result += '</u>' + parent.name + ' </a>\n';
     result += '<br>\n</strong>\n';
     result += '<span class="count">' + items.length + ' тестів</span>\n';
     result += '<ul class="list-unstyled col-sm-offset-1">\n';
 
-    for (var i = 0; i < items.length && i < Category; i++) {
+    for (var i = 0; i < items.length && i < Category.test_output_limit; i++) {
         console.log("line 120");
         result += '<a href="' + Category.test_path + '?id=' + parent.id + '"> <li>' + items[i].name + '</li> </a>\n';
     };
