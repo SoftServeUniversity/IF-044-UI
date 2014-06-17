@@ -1,4 +1,8 @@
 // Видалення цілого елементу <tr>
+//window.onload = function myProfile(){
+
+
+
 function deleteTr1(element) {
     var parentRow = getParentTr(element);
     var currentTestNameCol = null;
@@ -88,11 +92,14 @@ function getParentTr(removeButton) {
     } while (true)
 }
 
-function showTestByStatus() {
+function showTestByStatus(){
+    var firstname = Model.date.Users[Model.date.session_user_id].firstName
+    var lastname = Model.date.Users[Model.date.session_user_id].lastName;
+    document.getElementById('username2').innerHTML = firstname + " " + lastname;
+
     var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
     var numberOfObjects = Model.date.Tests.length;
-        var countStatus=1;
-    //console.log(Model.date.Tests[0].status.id);
+    var countStatus=1;
     for (var tableSwap = 1; tableSwap <= 4; tableSwap++) {
         var row;
         var cell = [];
@@ -121,15 +128,15 @@ function showTestByStatus() {
                 numberOfCell += 1;
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = '<a href="moderatrPage.html">Редагувати</a>';
+                cell[numberOfCell].innerHTML = '<a href="#">Редагувати</a>';
                 numberOfCell += 1;
 
                 cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTr1(this)" >ВИДАЛИТИ</button></div>';
+                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
                 numberOfRow = numberOfRow + 1;
             }
         }
-        countStatus= countStatus +1 ;
+        countStatus= countStatus - 1 ;
     }
 
-}
+};
