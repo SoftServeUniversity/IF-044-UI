@@ -36,8 +36,7 @@ function insertList(categories){
 		document.getElementsByClassName('col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-3')[i].appendChild(newul);
 }
 	var catEl = document.getElementsByClassName('cat');	
-	for (var i = 0; i< catEl.length; i++) {	
-	
+	for (var i = 0; i< catEl.length; i++) {		
 		var subcat = Application.Tests_categories[i].getSubcategories(i+1);
 		console.log(subcat);
 		for (var j = 0; j < subcat.length; j++) {

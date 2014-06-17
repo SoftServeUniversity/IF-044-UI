@@ -14,7 +14,6 @@ Category.test_output_limit = 4;
 //  active_categories_list - array of actual categories
 // 
 Category.getSubcategories = function(category_id, active_categories_list) {
-    // alert("getSubcategories");
     var result = [];
     for (var i = active_categories_list.length - 1; i >= 0; i--) {
         if (active_categories_list[i].parent_id === category_id) {
@@ -57,25 +56,14 @@ Category.getSubCategoryTestsList = function(category, active_test_array) {
 
 
 Category.generate_category_page = function(category_id, active_category_list) {
-    // alert("generate_category_page");
-    // console.log("generate_category_page ->");
-    // console.log("   category_id -> " + category_id);
-    // console.log("   active_category_list - >" + active_category_list.length);
     var subcategories = Category.getSubcategories(category_id, active_category_list);
     var content = document.getElementById(Category.content_id);
     var last_j = 0;
 
-    // console.log("Subcategories -> " + subcategories.length);
     console.log(subcategories);
-    // console.log("DOM -> " + content);
 
     for (var i = 0; i < subcategories.length; i++) {
-        // console.log("line 67");
-        // console.log("Before loop iteration -> ", subcategories)
-        // console.log("iteration i -> ", i);
         var subcategory_test_list = Category.getSubCategoryTestsList(subcategories[i], Category.test_list);
-        // console.log("After loop iteration -> ", subcategories)
-        // console.log("test for " + subcategories[i].name + " -> " + subcategory_test_list.length)
 
         if (i % 3 == 0) {
             content.innerHTML += '<div class="row">\n';
@@ -136,7 +124,6 @@ Category.generate_one_view_item = function(parent, number) {
     result += '<ul class="list-unstyled">\n';
 
     for (var i = 0; i < items.length && i < Category.test_output_limit; i++) {
-        console.log("line 120");
         result += '<a href="' + Category.test_path + '?id=' + parent.id + '"> <li>' + items[i].name + '</li> </a>\n';
     };
 
