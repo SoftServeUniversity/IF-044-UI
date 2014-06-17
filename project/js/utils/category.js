@@ -75,21 +75,18 @@ Category.generate_category_page = function(category_id, active_category_list){
     console.log("After loop iteration -> ", subcategories)
     console.log("test for " + subcategories[i].name + " -> " + subcategory_test_list.length)
 
-    for (var j = 0; j < subcategory_test_list.length; j--) {
-      console.log("line 75");
-      if( j % 3 == 0) {
-        content.innerHTML += '<div class="row">\n';
-      }
-      content.innerHTML += Category.generate_one_view_item(subcategories[i], j);
-      if( j % 3 == 2) {
-        content.innerHTML += '</div>\n';
-      }
+    if( i % 3 == 0) {
+     content.innerHTML += '<div class="row">\n';
+    }
+    content.innerHTML += Category.generate_one_view_item(subcategories[i], i);
+    if( i % 3 == 2) {
+    content.innerHTML += '</div>\n';
+    }
 
-      last_j = j;
-    };
-
-    if ( last_j % 3 != 2) { content.innerHTML += '</div>\n'; }
+    last_j = i;
   };
+
+  if ( last_j % 3 != 2) { content.innerHTML += '</div>\n'; }
 };
 
 Category.get_by_id = function(id) {
@@ -123,7 +120,7 @@ Category.generate_one_view_item = function(parent, number) {
   result += '<span class="count">' + items.length + ' тестів</span>\n';
   result += '<ul class="list-unstyled col-sm-offset-1">\n';
 
-  for (var i = 0; i < items.length; i++) {
+  for (var i = 0; i < items.length && i < Category; i++) {
     console.log("line 120");
     result += '<a href="' + Category.test_path + '?id=' + parent.id + '"> <li>' + items[i].name + '</li> </a>\n';
   };
