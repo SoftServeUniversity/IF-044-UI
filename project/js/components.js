@@ -574,14 +574,17 @@ function generalStatisticModule() {
 
     }
 
-
     function activeCheckboxChecking(className){
         checkboxes = document.getElementsByClassName(className);
 
         for(var i =0; i<checkboxes.length; i++) {
             categories.push([]);
-            createSeriesElem(checkboxes[i].parentNode.childNodes[1].data);  
-        };
+            if(className === 'ageList-checkbox'){
+                  createSeriesElem(checkboxes[i].parentNode.childNodes[1].data);  
+            } else {
+                createSeriesElem(Model.date.Ranks[i].name);
+            };      
+        };  
     }
 
 
