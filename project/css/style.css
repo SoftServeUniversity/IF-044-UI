@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-	background-color: #eae8e8
+/* 	background-color: #eae8e8 */
 }
 
 #outer-wrapper {
@@ -16,7 +16,7 @@ body {
 
 #inner-wrapper {
     background-color: white;
-	box-shadow: 0 0 10px #c0bfbf; 
+/* 	box-shadow: 0 0 10px #c0bfbf;  */
 	margin-top: 20px;
 }
 
