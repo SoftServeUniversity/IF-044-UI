@@ -93,25 +93,35 @@ Category.generate_category_page = function(category_id, active_category_list) {
     }
 };
 
+
+//
+//  Function to get Category Object based on it's id
+//
 Category.get_by_id = function(id) {
     for (var i = 0; i < Category.list.length; i++) {
         if (Category.list[i].id == id) return Category.list[i];
     }
 }
 
+//
+//  Generates one block of content for subcategory, count of tests
+//  and number of test names-link-to-them that is regulated by
+//  Category.test_output_limit cvariable in the top
+// 
+//  parent - Object of Subcategory ( Category type )
+//  number - thing that forms three in the row subcategories block 
+//
 Category.generate_one_view_item = function(parent, number) {
-    // alert("generate_one_view_item");
     console.log(" Category.generate_one_view_item -> " + parent.name + "->")
     var items = Category.getSubCategoryTestsList(parent, Category.test_list);
-    // var items = [];
     var result = "";
 
     switch (number % 3) {
         case 1:
-            result += '<div class="col-sm-2 col-sm-offset-1 col-xs-12 col-xs-offset-3">';
+            result += '<div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3">';
             break;
         case 2:
-            result += '<div class="col-sm-2 col-sm-offset-2 col-xs-12 col-xs-offset-3">';
+            result += '<div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3">';
             break;
         case 0:
             result += '<div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3">';
@@ -122,8 +132,8 @@ Category.generate_one_view_item = function(parent, number) {
     result += '<a href="' + Category.subcategory_path + '?id=' + parent.id + '"> <u>'
     result += '</u>' + parent.name + ' </a>\n';
     result += '<br>\n</strong>\n';
-    result += '<span class="count">' + items.length + ' тестів</span>\n';
-    result += '<ul class="list-unstyled col-sm-offset-1">\n';
+    result += '<span class="text-center count">' + items.length + ' тестів</span>\n';
+    result += '<ul class="list-unstyled">\n';
 
     for (var i = 0; i < items.length && i < Category.test_output_limit; i++) {
         console.log("line 120");
