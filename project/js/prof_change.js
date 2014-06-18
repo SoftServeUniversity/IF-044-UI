@@ -1,3 +1,5 @@
+'use strict'
+
 window.onload = function prof_change() {
 	console.log(Model.date);
 	var current_user = getCurrentUser(); 
@@ -10,7 +12,7 @@ window.onload = function prof_change() {
     	}
     }
 
-	console.log(current_user);
+	//console.log(current_user);
 	
 	var first_name = current_user.firstName;
 	var last_name = current_user.lastName;
@@ -30,3 +32,10 @@ window.onload = function prof_change() {
 	document.getElementById("org_level1").innerHTML = org_level1;
 
 };
+  function rEdit () {
+    window.location = "edit_profile.html"
+       }
+
+   function rIndex () {
+    window.location = "index.html"
+       }

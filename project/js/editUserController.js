@@ -4,11 +4,15 @@ function EditUserController() {
 	this.currentUser;
 }
 
+// method get by id 
+
 EditUserController.prototype.getElement = function(id) {
 	if (id) {
 		return document.getElementById(id);
 	}
 };
+
+//Get current user
 
 EditUserController.prototype.fillData = function(index) {
 	var user = this.getElement('username');
@@ -25,6 +29,8 @@ EditUserController.prototype.fillData = function(index) {
 		org_level1.value = this.currentUser.org_level;
 		org_troop1.value = this.currentUser.org_troop;
 		org_region1.value = this.currentUser.org_region;
+
+// if value empty
 
 		if (this.currentUser.username) {
 			user.value = this.currentUser.username;
@@ -54,6 +60,7 @@ function myfunction() {
 	alert("Page was delete");
 	window.location = "index.html"
 }
+// message 
 
 EditUserController.prototype.bindEvents = function(element) {
 	element.onchange = function(e) {

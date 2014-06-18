@@ -125,7 +125,7 @@ function Test(category, subcatecory, author, name, id, question, answers, correc
 function testGenerate(number) {
     for (var i = 0; i < number; i++) {
         var test = new Test(category[Math.floor(Math.random() * 3)], 
-        	subcatecory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+6, question, answers, correct_answer);
+        	subcatecory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+10, question, answers, correct_answer);
 
 
         Model.date.Tests.push(

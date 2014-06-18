@@ -18,8 +18,8 @@ var Application = {
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 1, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
-                    
 
                      
 
@@ -42,7 +42,9 @@ var Application = {
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 0, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
+
                     
                   },
                   {id:3,
@@ -61,6 +63,7 @@ var Application = {
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 0, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
                     
                   },
@@ -80,6 +83,7 @@ var Application = {
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 0, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
                     
                   }

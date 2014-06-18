@@ -14,7 +14,6 @@ function loginModule(e) {
         errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
     };
 
-
     function changeLoginStatus() {
         Model.date.session_user_id = Model.date.Users[currentUser].id;
         Model.save_localStorage();
@@ -279,11 +278,11 @@ function testsFilter() {
         return false;
     }
 
-    subcategory1.onclick = showSubcategory;
+/*    subcategory1.onclick = showSubcategory;
     subcategory2.onclick = showSubcategory;
     subcategory3.onclick = showSubcategory;
     subcategory4.onclick = showSubcategory;
-    subcategory5.onclick = showSubcategory;
+    subcategory5.onclick = showSubcategory;*/
 }
 
 
