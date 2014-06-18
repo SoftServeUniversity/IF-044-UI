@@ -191,3 +191,8 @@ li.tags {
 .more-space-down {
   margin-bottom: 25px;
 }
+
+/* makes the button that unfits in one line multiline */
+.btn-multiline {
+  white-space: normal;
+}
