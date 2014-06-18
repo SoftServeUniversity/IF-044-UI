@@ -157,16 +157,15 @@ function resultGenerator() {
 
       for (var i = 0; i < quantity; i++) {
           var res = {}; 
-          res.u_id = Math.floor(Math.random() * Model.date.Users.length) ;
+          res.u_id = Math.ceil(Math.random() * Model.date.Users.length);
           res.id = Model.date.Result[Model.date.Result.length - 1].id + i - (i-1);
           res.test_id = Model.date.Tests[(Model.date.Tests.length - 1)  - Math.floor(Math.random() * Model.date.Tests.length)].id;
           res.name = 'Test Name' + res.test_id;
-          res.score = 12 - Math.floor(Math.random() * 12);
+          res.score = 100 - Math.floor(Math.random() * 100);
           res.user_rank = 4 - Math.floor(Math.random() * 4);
           res.passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657);
           Model.date.Result.push(res)
-          console.log(res.test_id);
-          console.log('id: ' + res.id);
+          console.log(res.score);
       }
   }
 

@@ -59,6 +59,7 @@ function searchTests () {
     }
 }
 
+
 function toGo(element) {
     var test_id = element
     console.log(test_id);
@@ -79,6 +80,7 @@ function toGo(element) {
 function deletetabRows() {
     var tableId = "search-table";
     var table = document.getElementById(tableId);
+    console.log(ri + "World");
     for (var h = 1; h <= ri; h++) {
         table.deleteRow(1);
     }
@@ -179,6 +181,11 @@ function appFilter(element) {
     }
 
 }
+
+;
+
+
+
 
 function deleteTrin(element) {
     var parentRow = getParentTr(element);

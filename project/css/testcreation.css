@@ -5,7 +5,37 @@
 	margin-right: 8%;
 }
 
+    .input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
 
+select[disabled] { background-color: #ddd;}
+
+.mm{
+    margin-top: -30px;
+ 
+}
+
+.ss{
+    margin-right: 5px;
+}
+
+.width{
+    width: 194px;
+    margin-right: 20px;
+}
 
 .btn-xs{
 	height: 15px;
@@ -17,7 +47,18 @@ padding: 5px;
 border: 1px solid #ccc;
 border-radius: 4px;
 width: 73%;
-float: right;
+
+position: relative;
+bottom:5px;
+}
+
+.textarea{
+padding: 5px;
+border: 1px solid #ccc;
+border-radius: 4px;
+width: 73%;
+height: 108px;
+ resize: none;
 position: relative;
 bottom:5px;
 }
@@ -31,4 +72,11 @@ bottom:5px;
 }
 .margintop{
 	margin-top: 20px;
+}
+
+span{
+	text-align: right;
+}
+.tags{
+    width:73%;
 }

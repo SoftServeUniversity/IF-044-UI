@@ -654,7 +654,7 @@ var Application = {
         name : 'Test Name1',
         test_id: 1,
         passed_date: 1391431224657,
-        score : 11,
+        score : 68,
         user_rank: 1
 
     },
@@ -663,7 +663,7 @@ var Application = {
         name : 'Test Name2',
         test_id: 2,
         passed_date: 1301431224657, 
-        score : 4,
+        score : 75,
         user_rank: 2
 
     },
@@ -672,7 +672,7 @@ var Application = {
         name : 'Test Name2',
         test_id: 2,
         passed_date:1390718456676,
-        score : 3,
+        score : 50,
         user_rank: 2
 
     },
@@ -681,7 +681,7 @@ var Application = {
         name : 'Test Name2',
         test_id: 2,
         passed_date:1499031224657,
-        score : 1,
+        score : 90,
         user_rank: 1
 
     },
@@ -690,7 +690,7 @@ var Application = {
         test_id: 6,
         name : 'Test Name6',
         passed_date:1201431224657,
-        score : 7,
+        score : 78,
         user_rank: 3
 
     },
@@ -699,7 +699,7 @@ var Application = {
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
-        score : 8,
+        score : 82,
         user_rank: 4
 
     }

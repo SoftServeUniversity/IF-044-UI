@@ -275,11 +275,11 @@ function testsFilter() {
         return false;
     }
 
-    subcategory1.onclick = showSubcategory;
+/*    subcategory1.onclick = showSubcategory;
     subcategory2.onclick = showSubcategory;
     subcategory3.onclick = showSubcategory;
     subcategory4.onclick = showSubcategory;
-    subcategory5.onclick = showSubcategory;
+    subcategory5.onclick = showSubcategory;*/
 }
 
 
@@ -494,6 +494,8 @@ function generalStatisticModule() {
         };
      };
 
+
+
      function fillSeries2() {
         for(var i = 0; i<Model.date.Result.length; i++) {
             if(dateInterval.startMiliseconds < Model.date.Result[i].passed_date && Model.date.Result[i].passed_date < dateInterval.endMiliseconds) {
@@ -528,6 +530,7 @@ function generalStatisticModule() {
         };
      };
 
+//  перевіряє ступінь користувача в результатах і заповнює відповідні масиви категорій
 
     function fillSeries3() {
             for(var i = 0; i<Model.date.Result.length; i++) {
@@ -573,14 +576,19 @@ function generalStatisticModule() {
 
     }
 
+// приймає назву класа чекбокса і в залежності від неї роздає імена серіям глобального обєкта і утворює потрібну кількість масивів в масиві категорії
 
     function activeCheckboxChecking(className){
         checkboxes = document.getElementsByClassName(className);
 
         for(var i =0; i<checkboxes.length; i++) {
             categories.push([]);
-            createSeriesElem(checkboxes[i].parentNode.childNodes[1].data);  
-        };
+            if(className === 'ageList-checkbox'){
+                  createSeriesElem(checkboxes[i].parentNode.childNodes[1].data);  
+            } else {
+                createSeriesElem(Model.date.Ranks[i].name);
+            };      
+        };  
     }
 
 
