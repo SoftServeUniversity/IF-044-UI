@@ -160,7 +160,7 @@
                                         <div class="col-xs-12 col-sm-4 ">
 
                                             <figure>
-                                                <img src="pic/default-user-icon-profile.png" alt=""
+                                                <img src="pic/images.jpg" alt=""
                                                      class="img-responsive">
                                             </figure> <br>
                                             <a href="statpage2_nyarytc.html">Статистика </a>
@@ -170,7 +170,7 @@
                                                 <dt><b>Cтатус в системі</b></dt>
                                                 <dd class="text_left1">початківець</dd>
                                                 <dt><b>Дата народження</b></dt>
-                                                <dd class="text_left1"><span id="b"> 28-12-1990 </span></dd>
+                                                <dd class="text_left1"><span id="birthday"> 28-12-1990 </span></dd>
                                                 <dt><b>Cтаниця</b></dt>
                                                 <dd class="text_left1"><span id="org_region1"> Івано-Франківськ </span></dd>
                                                 <dt><b>Ступінь</b></dt>
@@ -181,6 +181,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-4 col-sm-offset-4">
+                            <button type="button" class="btn btn-danger btn-block"
+                                onclick="rEdit()">Редагувати</button>
+                        </div>
                             </div>
                         </div>
                     </div>
@@ -272,10 +276,11 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-
+<script src="js/prof_change.js"></script>
 <script>
     window.onload = changeLoginPic();
     window.onload = showTestByStatus();
+    window.onload = prof_change();
 </script>
 
 </body>

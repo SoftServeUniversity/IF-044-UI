@@ -108,6 +108,6 @@ function check_input() {
 		Model.save_localStorage();
 
 
-		window.location = "profile.html"
+		window.location = "index.html"
 	}	
 }
