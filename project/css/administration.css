@@ -52,8 +52,13 @@ textarea{
 	opacity: 0.9;
 }
 .panel{
+	border-left:none;
+	border-right:none; 
 	border-bottom: none;
 	border-radius: 4px 4px 0px 0px;
+}
+.none_border{
+	border-bottom: none;
 }
 	.panel-heading{
 		opacity: 0.9;

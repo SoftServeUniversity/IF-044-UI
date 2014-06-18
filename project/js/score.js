@@ -90,7 +90,7 @@ var answerArray = JSON.parse(localStorage.QuestionObject);
 
 	function pass_again(){
 		localStorage.clear();
-		window.location='TestPastPage.html'
+		window.location='Test.html?id=1'
 	}
 
 //  	var answerArray = {};
