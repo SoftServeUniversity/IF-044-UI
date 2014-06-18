@@ -1,9 +1,26 @@
 'use strict'
 
+window.onload = function() {
+		
+//Captcha registration form
+		
+		var a = Math.ceil(Math.random() * 9);
+		var b = Math.ceil(Math.random() * 9);
+		var c = Math.ceil(Math.random() * 9);
+		var d = Math.ceil(Math.random() * 9);
+		var e = Math.ceil(Math.random() * 9);
+		var code = a * b * c * d * e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("txtCaptchaDiv").innerHTML = code;
+		};
+
+//redirect
+
 function redirect() {
 	window.location = "index.html"
 }
-	
+//Check input
+
 function check_input() {
 	var str1 = document.getElementById('txtCaptcha').value;
 	var str2 = document.getElementById('txtInput').value;
@@ -57,6 +74,9 @@ function check_input() {
 		alert  ('Число провірки не співпадає');
 	} 
 	else{
+
+//else good save localstorage
+
 			var new_user_id = Model.date.Users[Model.date.Users.length-1].id +1;
 			Model.date.Users.push(  
              	 {id:new_user_id,
@@ -82,23 +102,4 @@ function check_input() {
 
 		window.location = "profile.html"
 	}	
-	/*localStorage.setItem('username', user.value);
-	localStorage.setItem('password', passwd.value);
-	localStorage.setItem('re_passwd', re_passwd.value);
-	localStorage.setItem('email', email.value);
-	localStorage.setItem('birthday', birthday.value);
-	localStorage.setItem('first_name', first_name.value);
-	localStorage.setItem('last_name', last_name.value);
-	localStorage.setItem('org_troop1', org_troop1.value);
-	localStorage.setItem('org_region1', org_region1.value);
-	localStorage.setItem('org_level1', org_level1.value);
-	*/
 }
-
-	
-	
-
-
-
-	
-
