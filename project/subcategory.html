@@ -14,7 +14,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="json/new_data.js"></script>
-    <script src="js/subcategorySearch.js"></script>
 
 </head>
 <body class="container-fluid">
@@ -125,38 +124,7 @@
                 </div>
             </div>                
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 row filter-search">
-            <div class="col-xs-8 col-xs-offset-2">
-                <span class="reset">
-                <img src="pic/reset.png" height="10" width="10"> шукати скрізь</span>
-            </div>
-<!--             <article id="vmilosti">
-    <h4>Спорт</h4>
-    <ul>
-        <li><a href="">Підкатегорія1</a></li>
-        <li><a href="">Підкатегорія2</a></li>
-        <li><a href="">Підкатегорія3</a></li>
-        <li><a href="">Підкатегорія4</a></li>
-    </ul>
-</article>
-<article id="proby">
-    <h4>Туризм</h4>
-    <ul>
-        <li><a href="">Підкатегорія1</a></li>
-        <li><a href="">Підкатегорія2</a></li>
-        <li><a href="">Підкатегорія3</a></li>
-        <li><a href="">Підкатегорія4</a></li>
-    </ul>
-</article>
-<article id="patrony">
-    <h4>ПДР</h4>
-    <ul>
-        <li><a href="">Підкатегорія1</a></li>
-        <li><a href="">Підкатегорія2</a></li>
-        <li><a href="">Підкатегорія3</a></li>
-        <li><a href="">Підкатегорія4</a></li>
-    </ul>
-</article> -->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         </div>
         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
             <div id="test-list" class="row">
@@ -198,8 +166,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
     <script>
-      testsFilter();
        changeLoginPic();
+       window.onload = testsFilter();
     </script>
 </body>
 </html>
