@@ -64,10 +64,9 @@ body {
 }
 
 main {
-  margin: 20px; 0;
-  background-color: white;
-  text-align: center;
-
+	margin: 20px;
+	background-color: white;
+	text-align: center;
 }
 
 footer {
@@ -156,6 +155,39 @@ li.tags {
     margin: 5px;
 }
 
+.pageTitle {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: white;
+}
+
+.pageTitleBox {
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #0490ba;
+}
+
+.filter-search > div {
+    color: #5bc0de;
+    cursor: pointer;
+}
+.curent-filter {
+    font-weight: bold;
+    background: #5bc0de;
+    color: #fff;
+    border-right: solid 3px;
+}
+.table_result {
+    text-align: left;
+}
+.ablock {
+    margin-right: 17%;
+}
+.reset {
+    color: #428bca;
+}
+
+/* More bottom margin for about.html heading blue div*/
 .more-space-down {
   margin-bottom: 25px;
 }
