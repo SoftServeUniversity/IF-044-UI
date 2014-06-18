@@ -90,12 +90,60 @@ button{
 #modal-edit-form{
 	width: 500px;
 }
-	#input_of_cotegory, #choose_main_category{
+#modal-edit-form2{
+	width: 500px;
+}
+	#input_of_cotegory, #choose_main_category, #name_of_cotegory{
 		margin: 0px 0px 5px 0px;  
 	}
 .edit-button{
-	margin: 70px 0px 30px 70px;
+	margin: 0px 0px 30px 70px;
 }
+	.buttonedit{
+		float: left;
+	}
+	.buttonreedit{
+		float: left;
+	}
 .control-label{
 	padding-top: 10px;
 }
+.nameofuser{
+	margin-right: 12px 0px 0px 1px;
+}
+.modal-body{
+	padding: 0px;
+}
+#name_of_user{
+	padding-top: 14px;
+	color: #5CCA5C;
+}
+.editcaptcha{
+	margin-top: 70px;
+}
+.enternumber{
+	padding: 0px;
+}
+.buttons_delete{
+	margin-top: 30px;
+}
+.buttons_edit{
+	margin: 70px 0px 20px 80px;
+}
+#name_of_user_delete{
+	font-weight: bold;
+	padding: 7px 0px 0px 80px;
+	color: #5CCA5C;
+}
+ #main_status_of_user{
+ 	font-weight: bold;
+	color: #5CCA5C;
+ }
+ #name_of_user_banned{
+ 	font-weight: bold;
+	color: #5CCA5C;
+	padding: 7px 0px 0px 100px;
+ }
+ .button-categoty{
+ 	margin-top: 30px;
+ }

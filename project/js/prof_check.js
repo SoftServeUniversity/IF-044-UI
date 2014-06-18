@@ -1,10 +1,28 @@
 'use strict'
 
+window.onload = function() {
+		
+//Captcha registration form
+		
+		var a = Math.ceil(Math.random() * 9);
+		var b = Math.ceil(Math.random() * 9);
+		var c = Math.ceil(Math.random() * 9);
+		var d = Math.ceil(Math.random() * 9);
+		var e = Math.ceil(Math.random() * 9);
+		var code = a * b * c * d * e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("txtCaptchaDiv").innerHTML = code;
+		};
+
+//redirect
+
 function redirect() {
 	window.location = "index.html"
 }
-	
+//Check input
+
 function check_input() {
+	var reg = /[a-z0-9]@[a-z0-9]\.[a-z0-9]/g;
 	var str1 = document.getElementById('txtCaptcha').value;
 	var str2 = document.getElementById('txtInput').value;
 	var first_name = document.getElementById('first_name');
@@ -17,10 +35,11 @@ function check_input() {
 	var re_passwd = document.getElementById('re_passwd');
 	var email = document.getElementById('email');
 	var birthday = document.getElementById('birthday1');
+	var mail = reg.test(email.value);
 
 	if (user.value.length === 0 || passwd.value.length === 0
 			|| re_passwd.value.length === 0 || email.value.length === 0
-			|| birthday1.value.length === 0) {
+			|| birthday1.value.length === 0 || mail === false) {
 
 		if (user.value.length === 0) {
 			user.style.borderColor = "red";
@@ -49,14 +68,23 @@ function check_input() {
 		} else {
 			birthday.style.borderColor = ""
 		}
+		if (mail == false) {
+		email.style.borderColor = "red";
+		} else {
+		email.style.borderColor = "";
+		}
+	
 	} else if (passwd.value != re_passwd.value) {
 		passwd.style.borderColor = "red";
 		re_passwd.style.borderColor = "red";
 
-	} else if (str1 !== str2) { 
+	}  else if (str1 !== str2) { 
 		alert  ('Число провірки не співпадає');
 	} 
 	else{
+
+//else good save localstorage
+
 			var new_user_id = Model.date.Users[Model.date.Users.length-1].id +1;
 			Model.date.Users.push(  
              	 {id:new_user_id,
@@ -82,23 +110,4 @@ function check_input() {
 
 		window.location = "profile.html"
 	}	
-	/*localStorage.setItem('username', user.value);
-	localStorage.setItem('password', passwd.value);
-	localStorage.setItem('re_passwd', re_passwd.value);
-	localStorage.setItem('email', email.value);
-	localStorage.setItem('birthday', birthday.value);
-	localStorage.setItem('first_name', first_name.value);
-	localStorage.setItem('last_name', last_name.value);
-	localStorage.setItem('org_troop1', org_troop1.value);
-	localStorage.setItem('org_region1', org_region1.value);
-	localStorage.setItem('org_level1', org_level1.value);
-	*/
 }
-
-	
-	
-
-
-
-	
-

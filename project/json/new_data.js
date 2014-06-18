@@ -18,8 +18,8 @@
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 1, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
-                    
 
                      
 
@@ -42,7 +42,9 @@
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 0, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
+
                     
                   },
                   {id:3,
@@ -61,6 +63,7 @@
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 0, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
                     
                   },
@@ -80,6 +83,7 @@
                   org_troop: "some troop",
                   org_region: "Івано-Франківськ",
                   org_group: "some group",
+                  banned: 0, // чорний список юзерів: 0 - незабанений. 1 - забанений.
                   login_status: 0
                     
                   }
@@ -287,15 +291,18 @@
           question: [
                 {
                   id: 1,
-                  text: 'Чи мають перевагу сигнали регулювальника перед вимогами дорожніх знаків?'
+                  text: 'Чи мають перевагу сигнали регулювальника перед вимогами дорожніх знаків?',
+                  question_description: 'Опис питання 1'
                 }, 
                 {
                   id: 2,
-                  text: 'Чи дозволяється керувати автомобілем в темну пору доби або в умовах недостатньої видимості, якщо включені тільки габаритні ліхтарі?'
+                  text: 'Чи дозволяється керувати автомобілем в темну пору доби або в умовах недостатньої видимості, якщо включені тільки габаритні ліхтарі?',
+                  question_description: 'Опис питання 2'
                 },
                 {
                   id: 3,
-                  text: ' Ви наближаєтеся до нерегульованого пішохідного переходу, перед яким на суміжній з Вами смузі зупинився транспортний засіб. Ви повинні'
+                  text: ' Ви наближаєтеся до нерегульованого пішохідного переходу, перед яким на суміжній з Вами смузі зупинився транспортний засіб. Ви повинні',
+                  question_description: 'Опис питання 3'
                 }
               ],
           answers: [
@@ -650,7 +657,7 @@
         name : 'Test Name1',
         test_id: 1,
         passed_date: 1391431224657,
-        score : 11,
+        score : 68,
         user_rank: 1
 
     },
@@ -659,7 +666,7 @@
         name : 'Test Name2',
         test_id: 2,
         passed_date: 1301431224657, 
-        score : 4,
+        score : 75,
         user_rank: 2
 
     },
@@ -668,7 +675,7 @@
         name : 'Test Name2',
         test_id: 2,
         passed_date:1390718456676,
-        score : 3,
+        score : 50,
         user_rank: 2
 
     },
@@ -677,7 +684,7 @@
         name : 'Test Name2',
         test_id: 2,
         passed_date:1499031224657,
-        score : 1,
+        score : 90,
         user_rank: 1
 
     },
@@ -686,7 +693,7 @@
         test_id: 6,
         name : 'Test Name6',
         passed_date:1201431224657,
-        score : 7,
+        score : 78,
         user_rank: 3
 
     },
@@ -695,7 +702,7 @@
         name : 'Test Name4',
         test_id: 4,
         passed_date:1401818456676,
-        score : 8,
+        score : 82,
         user_rank: 4
 
     }
@@ -732,7 +739,7 @@
           {
             id:4,
             name: 'Ступінь 4'
-          },
+          }
     ]    
 }
 function model(date_in){

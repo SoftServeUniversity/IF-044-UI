@@ -97,21 +97,42 @@
                     </div>
                 </div>
             </div>
-<!--              <div class="modal fade" id="mySend" tabindex="-1" role="dialog" aria-labelledby="mySendlLabel" aria-hidden="true">
-                <div id="modal-send-box" class="modal-dialog">
-                    <div id="modal-send-form" class="modal-content">
+              <div class="modal fade" id="change_status_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-edit-form2" class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Діалог</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"><strong>Змінити статус</strong></h4>
                         </div>
                         <div class="modal-body">
-                            <form id="signin-form" class="form-horizontal" role="form">
-                                <h4><strong>Ім'я користувача</strong></h4>
-                                <textarea class='col-lg-12 text' rows='10' cols='50'></textarea>
-                               
+                            <form id="edit-form" class="form-horizontal" role="form">
+                                <div class="form-group"> 
+                                    <label for="name_of_current_user" class="col-sm-3 text-center control-label">Ім'я користувача</label>
+                                    <div class="col-sm-6 text-left nameofuser" id='name_of_user'></div>
+                                </div>
                                 <div class="form-group">
-                                    <div class="col-sm-offset-3 col-sm-5 sendbutton">
-                                        <button id="registration-button" type="button" class="btn btn-primary">Надіслати</button>                                     
+                                    <label for="choose_main_category" class="col-sm-2 col-sm-offset-1 control-label">Статус</label>
+                                    <div class="col-sm-8" id='choose_main_status'>
+                                        <select class='form-control' id='select_status'>
+                                            <option role_id='1'>Авторизований користувач</option>
+                                            <option role_id='2'>Модератор</option>
+                                            <option role_id='3'>Адміністратор</option>
+                                        </select>
+                                    </div>
+                                </div>
+                      
+                                <div class="form-group editcaptcha">
+                                    <div class="form-group Captcha">
+                                        <label class="col-sm-3 control-label enternumber" for="exampleInputFile">Введіть число:</label>
+                                        <div class="col-sm-3" >
+                                        <span id="txtCaptchaDiv" style="color:#0000"></span>
+                                        <input type="hidden" id="txtCaptcha"> </label>
+                                        <input type="text" name="txtInput" id="txtInput" size="5"/>
+                                         </div>
+                                 </div>
+                                    <div class="col-sm-offset-1 col-sm-11 edit-button">
+                                        <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick=changestatus() data-dismiss="modal">Змінити статус</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
                                     </div>
                                 </div>
                             </form>
@@ -121,7 +142,82 @@
                     </div>
                 </div>
             </div>
- -->
+
+            <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-edit-form2" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"><strong>Видалити користувача</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-form" class="form-horizontal" role="form">
+                                <div class="form-group"> 
+                                    <label for="name_of_current_user" class="col-sm-6 text-center control-label">Ім'я користувача</label>
+                                    <div class="col-sm-6 text-left nameofuser" id='name_of_user_delete'></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="choose_main_category" class="col-sm-6  control-label">Статус користувача</label>
+                                    <div class="col-sm-6" id='main_status_of_user'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="col-sm-6 control-label enternumber" for="exampleInputFile">Введіть число:</label>
+                                        <div class="col-sm-6" >
+                                        <span id="txtCaptchaDiv_delete" style="color:#0000"></span>
+                                        <input type="hidden" id="txtCaptcha_delete"> </label>
+                                        <input type="text" name="txtInput" id="txtInput_delete" size="5"/>
+                                    </div>
+                                </div>
+                                  <div class="form-group buttons_delete">
+                                    <div class="col-sm-offset-1 col-sm-11 edit-button">
+                                        <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick=deleteuser() data-dismiss="modal">Видалити</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="modal fade" id="banned" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-edit-form2" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"><strong>Внести до чорного списку</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-form" class="form-horizontal" role="form">
+                                <div class="form-group"> 
+                                    <label for="name_of_current_user" class="col-sm-6 text-center control-label">Ім'я користувача</label>
+                                    <div class="col-sm-6 text-left nameofuser" id='name_of_user_banned'></div>
+                                </div>                           
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label enternumber" for="exampleInputFile">Введіть число:</label>
+                                        <div class="col-sm-6" >
+                                        <span id="txtCaptchaDiv_banned" style="color:#0000"></span>
+                                        <input type="hidden" id="txtCaptcha_banned"> </label>
+                                        <input type="text" name="txtInput" id="txtInput_banned" size="5"/>
+                                    </div>
+                                </div>
+                                  <div class="form-group buttons_delete">
+                                    <div class="col-sm-offset-1 col-sm-11 edit-button">
+                                        <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick=banned() data-dismiss="modal">Внести</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 <div class='panel panel-primary'>
         <div class='panel-heading'>
             <h3 class='panel-title'><strong>Адміністративна панель</strong></h3>
@@ -271,11 +367,11 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
+                                                <th><input type='search' class='form-control' id='blacklist_search-input' placeholder='Пошук'>
                                                 </th>
                                             </tr>                                        
                                         </thead>
-                                        <tbody id="usersTable">
+                                        <tbody id="blacklist">
                       
                                         </tbody>
                                     </table>
@@ -307,11 +403,10 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
-                                                </th>
+                                                <th></th>
                                             </tr>                                        
                                         </thead>
-                                        <tbody id="usersTable">
+                                        <tbody id="administrationlist">
                       
                                         </tbody>
                                     </table>
@@ -351,7 +446,7 @@
                     <div id="modal-edit-form" class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Нова категорія</h4>
+                            <h4 class="modal-title" id="myModalLabel"><strong>Нова категорія</strong></h4>
                         </div>
                         <div class="modal-body">
                             <form id="edit-form" class="form-horizontal" role="form">
@@ -365,17 +460,17 @@
                                     <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
                                     <div class="col-sm-7" id='choose_main_category'>
                                         <select class='form-control' id='select'>
-                                            <option>Спорт</option>
-                                            <option>Туризм</option>
-                                            <option>пдр</option>
-                                            <option selected>-------</option>
+                                            <option parant_id='1'>Спорт</option>
+                                            <option parant_id='2'>Туризм</option>
+                                            <option parant_id='3'>Комп'ютери</option>
+                                            <option parant_id='0' selected>-------</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10 edit-button">
-                                        <button id="registration-button" type="button" class="btn btn-primary" onclick=editbutton() >Додати категорію</button>
-                                        <button type="submit" class="btn btn-primary">Скасувати</button>
+                                    <div class="col-sm-offset-1 col-sm-10 buttons_edit">
+                                        <button id="edittbutton" type="button" class="btn btn-primary buttonedit" onclick=editbutton() data-dismiss="modal">Додати категорію</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
                                     </div>
                                 </div>
                             </form>
@@ -391,7 +486,7 @@
                     <div id="modal-edit-form" class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Редагувати категорію</h4>
+                            <h4 class="modal-title" id="myModalLabel"><strong>Редагувати категорію</strong></h4>
                         </div>
                         <div class="modal-body">
                             <form id="edit-form" class="form-horizontal" role="form">
@@ -404,18 +499,18 @@
                                 <div class="form-group">
                                     <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
                                     <div class="col-sm-7" id='choose_main_category'>
-                                        <select class='form-control' id='select'>
-                                            <option>Спорт</option>
-                                            <option>Туризм</option>
-                                            <option>пдр</option>
-                                            <option>-------</option>
+                                        <select class='form-control' id='select_reedit'>
+                                            <option parant_id='0'>-------</option>
+                                            <option parant_id='1'>Спорт</option>
+                                            <option parant_id='2'>Туризм</option>
+                                            <option parant_id='3'>Комп'ютери</option>                                           
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10 edit-button">
-                                        <button id="registration-button" type="button" class="btn btn-primary" onclick=editbutton() >Редагувати категорію</button>
-                                        <button type="submit" class="btn btn-primary">Скасувати</button>
+                                    <div class="col-sm-offset-1 col-sm-10 buttons_edit">
+                                        <button id="registration-button" type="button" class="btn btn-primary buttonreedit" onclick=ReEditButton() data-dismiss="modal">Редагувати категорію</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
                                     </div>
                                 </div>
                             </form>
@@ -528,9 +623,9 @@
     <div id="footer-container">
         <nav id="footer-menu">
             <ul>
-                <li><a href="#">Тести &nbsp|</a></li>
-                <li><a href="#">Про нас &nbsp|</a></li>
-                <li><a href="#">Контакти</a></li>
+                <li><a href="index.html">Головна</a> &nbsp|</li>
+                <li><a href="#">Про нас</a> &nbsp|</li>
+                <li><a href="contacts.html">Контакти</a></li>
             </ul>
         </nav>
         <p>Copyright@ 2014 <b>IF-044</b></p>
@@ -543,9 +638,21 @@
 <script src="js/components.js"></script>
 <script src='js/search-form2.js'></script>
 <script src='js/categories_form.js'></script>
+<script>
+    changeLoginPic();
+</script>
 
 <script>
-    window.onload = changeLoginPic();
+    // window.onload = function(){
+    //     var a = Math.ceil(Math.random() * 9);
+    //     var b = Math.ceil(Math.random() * 9);
+    //     var c = Math.ceil(Math.random() * 9);
+    //     var d = Math.ceil(Math.random() * 9);
+    //     var e = Math.ceil(Math.random() * 9);
+    //     var code = a * b * c * d * e;
+    //     document.getElementById("txtCaptcha").value = code;
+    //     document.getElementById("txtCaptchaDiv").innerHTML = code;
+    // }
 </script>
 
 </body>

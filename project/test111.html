@@ -31,7 +31,7 @@ function click111() {
 }
 
 var category = [1, 2, 3];
-var subcatecory = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var subcategory = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 var author = ["Vasyl", "Tolik", "Valera", "Vova"];
 var question = [
                 {
@@ -110,9 +110,9 @@ var correct_answer = [
                   ];
 
 
-function Test(category, subcatecory, author, name, id, question, answers, correct_answer) {
+function Test(category, subcategory, author, name, id, question, answers, correct_answer) {
     this.category = category;
-    this.subcatecory = subcatecory;
+    this.subcategory = subcategory;
     this.author = author;
     this.name = name;
     this.id = id;
@@ -125,14 +125,14 @@ function Test(category, subcatecory, author, name, id, question, answers, correc
 function testGenerate(number) {
     for (var i = 0; i < number; i++) {
         var test = new Test(category[Math.floor(Math.random() * 3)], 
-        	subcatecory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+6, question, answers, correct_answer);
+        	subcategory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+6, question, answers, correct_answer);
 
 
         Model.date.Tests.push(
 
             {
                 category: test.category,
-                subcatecory: test.subcatecory,
+                subcategory: test.subcategory,
                 author: test.author,
                 name: test.name,
                 id: test.id,
@@ -157,16 +157,15 @@ function resultGenerator() {
 
       for (var i = 0; i < quantity; i++) {
           var res = {}; 
-          res.u_id = Math.floor(Math.random() * Model.date.Users.length) ;
+          res.u_id = Math.ceil(Math.random() * Model.date.Users.length);
           res.id = Model.date.Result[Model.date.Result.length - 1].id + i - (i-1);
           res.test_id = Model.date.Tests[(Model.date.Tests.length - 1)  - Math.floor(Math.random() * Model.date.Tests.length)].id;
           res.name = 'Test Name' + res.test_id;
-          res.score = 12 - Math.floor(Math.random() * 12);
+          res.score = 100 - Math.floor(Math.random() * 100);
           res.user_rank = 4 - Math.floor(Math.random() * 4);
           res.passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657);
           Model.date.Result.push(res)
-          console.log(res.test_id);
-          console.log('id: ' + res.id);
+          console.log(res.score);
       }
   }
 

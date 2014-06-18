@@ -3,7 +3,7 @@ for (var i = 0; i <= Model.date.Tests_categories.length; i++) {
     moderator_search_caterogies[i] = 0;
 }
 
-window.onload = function CategoriesController() {
+function CategoriesController() {
 
     var Categories = Model.date.Tests_categories;
     var place_for_filter = document.getElementById('categoriesContainer');
@@ -86,7 +86,9 @@ window.onload = function CategoriesController() {
 
 
     }
+    if (Model.date.Tests.length < 10) {
     var table = document.getElementById("table_result");
+    
     for (i = 0; i < Model.date.Tests.length; i++) {
         var row = table.insertRow(table.rows.length);
         var cell = row.insertCell(-1);
@@ -96,6 +98,20 @@ window.onload = function CategoriesController() {
         var cell = row.insertCell(-1);
         cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
     }
+    } else {
+       var table = document.getElementById("table_result");
+        
+        for (i = 0; i < 10; i++) {
+        var row = table.insertRow(table.rows.length);
+        var cell = row.insertCell(-1);
+        cell.innerHTML = Model.date.Tests[i].name;
+        var cell = row.insertCell(-1);
+        cell.innerHTML = Model.date.Tests[i].author;
+        var cell = row.insertCell(-1);
+        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
+    }
+    }
+    
 
 }
 

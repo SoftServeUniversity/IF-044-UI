@@ -204,11 +204,11 @@
     <footer class="container">
       <div id="footer-container">
         <nav id="footer-menu">
-          <ul>
-            <li><a href="#">Тести &nbsp|</a></li>
-            <li><a href="#">Про нас &nbsp|</a></li>
-            <li><a href="#">Контакти</a></li>
-          </ul>
+            <ul>
+                <li><a href="index.html">Головна</a> &nbsp|</li>
+                <li><a href="#">Про нас</a> &nbsp|</li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
         </nav>
         <p>Copyright@ 2014 <b>IF-044</b></p>
       </div> 
@@ -219,17 +219,5 @@
     <script>
         changeLoginPic();
     </script>    
-    <script>
-    	window.onload = function(){
-		var a = Math.ceil(Math.random() * 9);
-		var b = Math.ceil(Math.random() * 9);
-		var c = Math.ceil(Math.random() * 9);
-		var d = Math.ceil(Math.random() * 9);
-		var e = Math.ceil(Math.random() * 9);
-		var code = a * b * c * d * e;
-		document.getElementById("txtCaptcha").value = code;
-		document.getElementById("txtCaptchaDiv").innerHTML = code;
-	}
-    </script>
   </body>
 </html>

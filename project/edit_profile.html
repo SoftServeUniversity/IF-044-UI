@@ -11,43 +11,10 @@
     <link href="css/faq.css" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-   <!-- <script src="json/data.json"></script>-->
     <script src="json/new_data.js"></script>
 	<script src="js/editUserController.js"></script>
 	<script src="js/prof_check.js"></script>
-	<script>
-		 
-/*var current_user = getCurrentUser();*/
-//console.log(current_user.id)
-  /*  function getCurrentUser() {
 
-    	for (var i = 0; i< Model.date.Users.length; i++){
-    		if(Model.date.Users[i].id === Model.date.session_user_id){
-    			return Model.date.Users[i];
-    			
-    		}
-    	}
-    	
-    }*/
-		window.onload = function() {
-		var userController = new EditUserController();
-			if(Model.date.session_user_id > 0) {
-				userController.fillData(Model.date.session_user_id-1)
-			} else {
-				userController.fillData();
-				
-		}
-
-		var a = Math.ceil(Math.random() * 9);
-		var b = Math.ceil(Math.random() * 9);
-		var c = Math.ceil(Math.random() * 9);
-		var d = Math.ceil(Math.random() * 9);
-		var e = Math.ceil(Math.random() * 9);
-		var code = a * b * c * d * e;
-		document.getElementById("txtCaptcha").value = code;
-		document.getElementById("txtCaptchaDiv").innerHTML = code;
-		};
-	</script>
 </head>
 <body class="container-fluid">
 <div id="outer-wrapper" class="container">
@@ -247,11 +214,11 @@
 	<footer class="container">
 		<div id="footer-container">
 			<nav id="footer-menu">
-				<ul>
-					<li><a href="#">Тести &nbsp|</a></li>
-					<li><a href="#">Про нас &nbsp|</a></li>
-					<li><a href="#">Контакти</a></li>
-				</ul>
+            <ul>
+                <li><a href="index.html">Головна</a> &nbsp|</li>
+                <li><a href="#">Про нас</a> &nbsp|</li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
 			</nav>
 			<p>
 				Copyright@ 2014 <b>IF-044</b>
@@ -263,6 +230,25 @@
 	<script src="js/components.js"></script> 
 	<script>
     changeLoginPic();
+</script>
+</script>
+	<script>
+	window.onload = function() {
+	var userController = new EditUserController();
+			if(Model.date.session_user_id > 0) {
+				userController.fillData(Model.date.session_user_id-1)
+			} else {
+				userController.fillData();
+			}	
+		var a = Math.ceil(Math.random() * 9);
+		var b = Math.ceil(Math.random() * 9);
+		var c = Math.ceil(Math.random() * 9);
+		var d = Math.ceil(Math.random() * 9);
+		var e = Math.ceil(Math.random() * 9);
+		var code = a * b * c * d * e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("txtCaptchaDiv").innerHTML = code;
+		}
 </script>
 </body>
 </html>

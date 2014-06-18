@@ -1,4 +1,6 @@
 // Видалення цілого елементу <tr>
+//window.onload = function myProfile(){
+
 function deleteTr1(element) {
     var parentRow = getParentTr(element);
     var currentTestNameCol = null;
@@ -77,6 +79,7 @@ function deleteTr4(element) {
 }
 
 
+
 function getParentTr(removeButton) {
     var n = removeButton;
     do {
@@ -88,11 +91,17 @@ function getParentTr(removeButton) {
     } while (true)
 }
 
-function showTestByStatus() {
+function showTestByStatus(){
+    var loginUserId = Model.date.session_user_id;
+    var author = Model.date.Users[loginUserId-1].username;
+    console.log(Model.date.Tests[5]);
+    var firstname = Model.date.Users[Model.date.session_user_id].firstName
+    var lastname = Model.date.Users[Model.date.session_user_id].lastName;
+    document.getElementById('username2').innerHTML = firstname + " " + lastname;
+
     var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
     var numberOfObjects = Model.date.Tests.length;
-        var countStatus=1;
-    //console.log(Model.date.Tests[0].status.id);
+    var countStatus = 1;
     for (var tableSwap = 1; tableSwap <= 4; tableSwap++) {
         var row;
         var cell = [];
@@ -102,34 +111,36 @@ function showTestByStatus() {
         for (var i = 0; i < numberOfObjects; i++) {
             var subcatid = Model.date.Tests[i].subcategory;
             var categoryId = Model.date.Tests_categories[subcatid - 1].parent_id;
+            if (Model.date.Tests[i].author == author ) {
 
-            if ( Model.date.Tests[i].status.id == countStatus){
+                if (Model.date.Tests[i].status.id == countStatus) {
 
-                var numberOfCell = 0;
-                row = table.insertRow(numberOfRow);
+                    var numberOfCell = 0;
+                    row = table.insertRow(numberOfRow);
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Model.date.Tests[i].name;
-                numberOfCell += 1;
+                    cell[numberOfCell] = row.insertCell(numberOfCell);
+                    cell[numberOfCell].innerHTML = Model.date.Tests[i].name;
+                    numberOfCell += 1;
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Model.date.Tests_categories[categoryId - 1].name;
-                numberOfCell += 1;
+                    cell[numberOfCell] = row.insertCell(numberOfCell);
+                    cell[numberOfCell].innerHTML = Model.date.Tests_categories[categoryId - 1].name;
+                    numberOfCell += 1;
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Model.date.Tests_categories[subcatid - 1].name;
-                numberOfCell += 1;
+                    cell[numberOfCell] = row.insertCell(numberOfCell);
+                    cell[numberOfCell].innerHTML = Model.date.Tests_categories[subcatid - 1].name;
+                    numberOfCell += 1;
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = '<a href="moderatrPage.html">Редагувати</a>';
-                numberOfCell += 1;
+                    cell[numberOfCell] = row.insertCell(numberOfCell);
+                    cell[numberOfCell].innerHTML = '<a href="#">Редагувати</a>';
+                    numberOfCell += 1;
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTr1(this)" >ВИДАЛИТИ</button></div>';
-                numberOfRow = numberOfRow + 1;
+                    cell[numberOfCell] = row.insertCell(numberOfCell);
+                    cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTr1(this)" >ВИДАЛИТИ</button></div>';
+                    numberOfRow = numberOfRow + 1;
+                }
             }
         }
-        countStatus= countStatus +1 ;
+        countStatus= countStatus - 1 ;
     }
 
-}
+};

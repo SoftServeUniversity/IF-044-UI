@@ -8,8 +8,9 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/tests.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
+    <link href="css/general-statistic.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -18,16 +19,16 @@
 </head>
 <body class="container-fluid">
 <div id="outer-wrapper" class="container">
-<div id="inner-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
         <header class="row">
             <div id="header-container"
                  class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <!--   <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
+      <!--   <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
                 <div id="title-block">
                     <h4>Система Пластових електронних опитників</h4>
                 </div>
                 <nav id="header-menu">
-                     <ul>
+                    <ul>
                         <li><a href="index.html">Головна</a></li>
                         <li><a href="guest_search_result.html">Пошук</a></li>
                         <li><a href="contacts.html">Контакти</a></li>
@@ -46,9 +47,9 @@
                 </ul>
             </div>
         </header>
-<main>
+        <main>
 
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div id="modal-login-box" class="modal-dialog">
                     <div id="modal-login-form" class="modal-content">
@@ -97,84 +98,70 @@
                 </div>
             </div>
 
-<section class="container">
-    <section id="tests-block" class="row">
-        <div id="search-panel" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="categories-block">
-                <span class="sub-category"><b>Пошук Тестів</b></span>
-            </div>
-            <div id="search-sort" class="row">
-                <div class="col-lg-3 col-lg-offset-8" id="searchBox">
-                  <label>
-                    <input id="searchForm" type="search" class="form-control" placeholder="Пошук">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit" onclick="searchModule()"><i class="glyphicon glyphicon-search" ></i>
-                        </button>
-                    </div>                    
-                  </label>
-                </div> 
-                <div class="col-lg-3 col-lg-offset-2" id="sortBox">
-                  <label>
-                    <span>Сортування по</span>
-                    <select id="selectForm" class="form-control">
-                        <option value="1">Даті</option>
-                        <option value="2">Алфавіту</option>
-                    </select>
-                  </label>
+            <section id="statistic" class="container">
+                <div class="row">
+                    <div id="pageTitleBox" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="center-block">
+                            <h3 id="pageTitle">Статистика категорії:</h3>
+                        </div>
+                    </div>
+                    <div id="filtersBox" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <nav class="sort-list hideElem" id="ageList">
+                        <span>Вік</span>
+                        <ul>
+                            <li><label><input class="ageList-checkbox" type="checkbox">До 14 років</label></li>
+                            <li><label><input class="ageList-checkbox" type="checkbox">15 - 18</label></li>
+                            <li><label><input class="ageList-checkbox" type="checkbox">19 - 25</label></li>
+                            <li><label><input class="ageList-checkbox" type="checkbox">25 і більше</label></li>
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="sort-list hideElem" id="gradeList">
+                        <span>Ступінь</span>
+                        <ul>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
+                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
+                        </ul>
+                    </nav>
+                    <br>
+                    <label class="datepicker-label">
+                        <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                            <span class="add-on"><i class="icon-th">Від</i></span>
+                            <input class="datepicker span2" id="dp1" size="16" type="text" placeholder="12/02/2012" > 
+                        </div>
+                    </label>
+                    <label class="datepicker-label">
+                        <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                            <span class="add-on"><i class="icon-th">До</i></span>
+                            <input class="datepicker span2" id="dp2" size="16" type="text" placeholder="12/02/2012">
+                        </div>
+                    </label>
+                    <br>
+                    <a onclick="generalStatisticModule()" class="btn btn-primary">Згенерувати</a>
+                    </div>
+                    <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <ul class="nav nav-tabs">
+                          <li class="tabs active"><a href="#stat1">Загальна статистика</a></li>
+                          <li class="tabs"><a href="#stat2">Статистика по віку</a></li>
+                          <li class="tabs"><a href="#stat3">Статистика по ступеню</a></li>
+                        </ul>
+                        <div class="tab-content">
+                           <div class="tab-pane active" id="stat1"></div>
+                           <div class="tab-pane" id="stat2"></div>
+                           <div class="tab-pane" id="stat3"></div>
+                                    
+                           </div>
+                        </div>
+                    </div>
                 </div>
-            </div>                
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <article id="vmilosti">
-                <h4>Спорт</h4>
-                <ul>
-                    <li><a href="">Підкатегорія1</a></li>
-                    <li><a href="">Підкатегорія2</a></li>
-                    <li><a href="">Підкатегорія3</a></li>
-                    <li><a href="">Підкатегорія4</a></li>
-                </ul>
-            </article>
-            <article id="proby">
-                <h4>Туризм</h4>
-                <ul>
-                    <li><a href="">Підкатегорія1</a></li>
-                    <li><a href="">Підкатегорія2</a></li>
-                    <li><a href="">Підкатегорія3</a></li>
-                    <li><a href="">Підкатегорія4</a></li>
-                </ul>
-            </article>
-            <article id="patrony">
-                <h4>ПДР</h4>
-                <ul>
-                    <li><a href="">Підкатегорія1</a></li>
-                    <li><a href="">Підкатегорія2</a></li>
-                    <li><a href="">Підкатегорія3</a></li>
-                    <li><a href="">Підкатегорія4</a></li>
-                </ul>
-            </article>
-        </div>
-        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-            <div id="test-list" class="row">
-                <div id="testBox" class="col-lg-12">
-                   
-                </div> 
-                <ul class="pagination">
-                   <li><a href="#">&laquo;</a></li>
-                   <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                   <li><a href="#">2</a></li>
-                   <li><a href="#">3</a></li>
-                   <li><a href="#">4</a></li>
-                   <li><a href="#">&raquo;</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-</section>
+            </section>
 
 
-</main>
-</div>
-</div>
+        </main>
+    </div>
+  
 <footer class="container">
     <div id="footer-container">
         <nav id="footer-menu">
@@ -192,9 +179,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-    <script>
-       window.onload = testsFilter;
-       changeLoginPic();
-    </script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script>
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        weekStart: 1,
+        viewMode:'months'
+    });
+
+    $('.nav-tabs a').click(function (e) {
+        e.preventDefault()
+       $(this).tab('show')
+    });
+
+    changeCssOnElements();
+</script>
+<script>
+    window.onload = changeLoginPic();
+</script>
 </body>
 </html>

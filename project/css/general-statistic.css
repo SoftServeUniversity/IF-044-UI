@@ -23,6 +23,10 @@ main {
 	margin-bottom: 30px;
 }
 
+#filtersBox a {
+	margin-left: 10px;
+}
+
 #pageTitle {
 	margin-bottom: 15px;
 	margin-top: 15px;
@@ -32,12 +36,16 @@ main {
 #pageTitleBox {
 	margin-bottom: 20px;
 	background-color: #0490ba;
-
 }
 
 .datepicker-label span i{
 	float: left;
 	margin-top: 8px;
+}
+
+.datepicker-label input {
+	width: 150px;
+	text-align: center;
 }
 
 .sort-list {
@@ -110,3 +118,6 @@ main {
 	display: none;
 }
 
+.nav-tabs>li>a {
+	padding:10px 17px;
+}
