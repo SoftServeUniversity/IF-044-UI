@@ -14,7 +14,6 @@ function loginModule(e) {
         errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
     };
 
-
     function changeLoginStatus() {
         Model.date.session_user_id = Model.date.Users[currentUser].id;
         Model.save_localStorage();
