@@ -7,10 +7,12 @@ function loginModule(e) {
     var closeButton = document.getElementById('closeButton');
     var res1, res2, currentUser;
     var errorBlock = document.getElementsByClassName('error-block')[0];
+    errorBlock.style.visibility = 'hidden';
     var userMenuButton = document.getElementById('userMenuButton');
     loginButton.removeAttribute('data-dismiss');
 
     function errorWrite() {
+        errorBlock.style.visibility = '';
         errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
     };
 
