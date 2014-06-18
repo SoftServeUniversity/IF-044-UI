@@ -18,6 +18,7 @@ function loginModule(e) {
     function changeLoginStatus() {
         Model.date.session_user_id = Model.date.Users[currentUser].id;
         Model.save_localStorage();
+
     }
 
     function clearForms() {
@@ -82,6 +83,7 @@ function loginModule(e) {
 
         return false;
     };
+
 }
 
 function headerUserNavPanel() {
@@ -143,6 +145,7 @@ function getCurrrentUserName() {
           changedA.innerHTML = 'Панель Адміністратора';
           changedA.href = 'administration_panel.html';
       } else {return}
+
   }
 
 function logOutModule() {
