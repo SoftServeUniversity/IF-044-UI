@@ -16,9 +16,7 @@ function loginModule(e) {
 
 
     function changeLoginStatus() {
-
         Model.date.session_user_id = Model.date.Users[currentUser].id;
-        Model.date.session_user_role = Model.date.Users[currentUser].role_id;
         Model.save_localStorage();
     }
 
@@ -149,7 +147,6 @@ function getCurrrentUserName() {
 
 function logOutModule() {
     delete Model.date.session_user_id;
-    Model.date.session_user_role = null;
     Model.save_localStorage();
     changeLoginPic();
     return false;
@@ -172,6 +169,7 @@ function testsFilter() {
     var select = document.getElementById('selectForm');
     var newTestsArr = [];
     var testsCategoryId = parseInt(getLocation(), 10);
+    var subcatTitle = document.querySelector('.sub-category b');
 
     function createTestElement(i) {
         var newDiv = document.createElement('div');
@@ -193,13 +191,22 @@ function testsFilter() {
        return loc[1];
     }
 
+    function titleWrite() {
+        for(var i = 0; i< Model.date.Tests_categories.length; i++) {
+            if(Model.date.Tests_categories[i].id === testsCategoryId) {
+               subcatTitle.innerHTML = Model.date.Tests_categories[i].name;
+            };
+        };
+    };
+
     for(var i = 0; i<Model.date.Tests.length; i++) {
         console.log(Model.date.Tests[i].subcategory);
         if(Model.date.Tests[i].subcategory === testsCategoryId) {
            newTestsArr.push(Model.date.Tests[i]);
         };
     };
-
+    
+    titleWrite();
     newTestsArr.sort(function (a, b) {
         return a.date - b.date
     });
