@@ -736,7 +736,7 @@ var Application = {
           {
             id:4,
             name: 'Ступінь 4'
-          },
+          }
     ]    
 }
 function model(date_in){

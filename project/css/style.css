@@ -64,7 +64,7 @@ body {
 }
 
 main {
-	margin: 20px; 0;
+	margin: 20px;
 	background-color: white;
 	text-align: center;
 
@@ -156,3 +156,14 @@ li.tags {
     margin: 5px;
 }
 
+.pageTitle {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: white;
+}
+
+.pageTitleBox {
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #0490ba;
+}
