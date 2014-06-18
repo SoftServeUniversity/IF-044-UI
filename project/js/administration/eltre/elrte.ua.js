@@ -8,7 +8,7 @@ elRTE.prototype.i18Messages.ua = {
   '_translator'    : 'Ivan Chyr &lt;ichyr@softserve.inc&gt;',
   '_translation'   : 'Український переклад',
   'Editor' : 'Редактор',
-  'Source' : 'Вихідний кож',
+  'Source' : 'Вихідний код',
   // названия панелей
   'Copy/Pase'      : 'Копіювання/Вставка',
   'Undo/Redo'      : 'Відміна/Повтор дії',
