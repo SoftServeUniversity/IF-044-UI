@@ -167,3 +167,23 @@ li.tags {
     margin-bottom: 20px;
     background-color: #0490ba;
 }
+
+.filter-search > div {
+    color: #5bc0de;
+    cursor: pointer;
+}
+.curent-filter {
+    font-weight: bold;
+    background: #5bc0de;
+    color: #fff;
+    border-right: solid 3px;
+}
+.table_result {
+    text-align: left;
+}
+.ablock {
+    margin-right: 17%;
+}
+.reset {
+    color: #428bca;
+}
