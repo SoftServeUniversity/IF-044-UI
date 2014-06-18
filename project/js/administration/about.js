@@ -1,8 +1,6 @@
 function AboutPageController() {};
 
-// TODO this must to be changed!
 AboutPageController.data = Model.date.GeneralInformation.about_page;
-
 AboutPageController.content_id = "#" + "about-us-content";
 AboutPageController.save_button_id = "#" + "about-page-edit-confirm";
 AboutPageController.calcel_button_id = "#" + "about-page-edit-cancel";
@@ -10,7 +8,7 @@ AboutPageController.calcel_button_id = "#" + "about-page-edit-cancel";
 AboutPageController.save_data = function() {
   var data = $(AboutPageController.content_id).elrte('val');
   console.log(data);
-  AboutPageController.data = data;
+  Model.date.GeneralInformation.about_page = data;
   Model.save_localStorage();
 }
 
@@ -27,7 +25,10 @@ AboutPageController.init = function() {
   $(AboutPageController.content_id).elrte('val', AboutPageController.data);
   
   // Setting of button actions
-  $(AboutPageController.save_button_id).click(AboutPageController.save_data);
+  $(AboutPageController.save_button_id).click(function() {
+    console.log("in here!");
+    AboutPageController.save_data();
+  });
 };
 
 
