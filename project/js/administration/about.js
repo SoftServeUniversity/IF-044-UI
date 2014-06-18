@@ -1,7 +1,7 @@
 function AboutPageController() {};
 
 // TODO this must to be changed!
-AboutPageController.data = Application.GeneralInformation.about_page;
+AboutPageController.data = Model.date.GeneralInformation.about_page;
 
 AboutPageController.content_id = "#" + "about-us-content";
 AboutPageController.save_button_id = "#" + "about-page-edit-confirm";
@@ -19,7 +19,7 @@ AboutPageController.init = function() {
       lang         : 'ua',
       styleWithCSS : false,
       height       : 400,
-      toolbar      : 'maxi'
+      toolbar      : 'normal'
   };
 
   // Creation and initialization of the elTRE
