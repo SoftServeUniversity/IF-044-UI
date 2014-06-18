@@ -31,7 +31,7 @@ function click111() {
 }
 
 var category = [1, 2, 3];
-var subcatecory = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var subcategory = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 var author = ["Vasyl", "Tolik", "Valera", "Vova"];
 var question = [
                 {
@@ -110,9 +110,9 @@ var correct_answer = [
                   ];
 
 
-function Test(category, subcatecory, author, name, id, question, answers, correct_answer) {
+function Test(category, subcategory, author, name, id, question, answers, correct_answer) {
     this.category = category;
-    this.subcatecory = subcatecory;
+    this.subcategory = subcategory;
     this.author = author;
     this.name = name;
     this.id = id;
@@ -125,14 +125,14 @@ function Test(category, subcatecory, author, name, id, question, answers, correc
 function testGenerate(number) {
     for (var i = 0; i < number; i++) {
         var test = new Test(category[Math.floor(Math.random() * 3)], 
-        	subcatecory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+10, question, answers, correct_answer);
+        	subcategory[Math.floor(Math.random() * 12)], author[Math.floor(Math.random() * 4)], "Test" + i, i+10, question, answers, correct_answer);
 
 
         Model.date.Tests.push(
 
             {
                 category: test.category,
-                subcatecory: test.subcatecory,
+                subcategory: test.subcategory,
                 author: test.author,
                 name: test.name,
                 id: test.id,
