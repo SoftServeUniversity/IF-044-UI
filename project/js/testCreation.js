@@ -44,7 +44,7 @@ function textarea(element) {
 //функція додає нове запитання до списку
 var questionAdd = function (el) {
 
-    var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> </div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
+    var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  required> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" class="form-control margintop"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
     var newdiv = document.createElement('div');
     newdiv.className = 'row';
     newdiv.innerHTML = mat;
@@ -166,6 +166,10 @@ function QuestionSave(obj, question, answer) {
     obj.answer = [];
     obj.correct_answer = [];
     for (var i = 0; i < question.length; i++) {
+    if (question[i].valuet == "") {alert('Текст питання порожній')}
+    else{if (question[i].parentElement.parentElement.children[1].children[0].value == "") {alert('Опис питання порожній')}
+        else{
+
         var a = question[i].parentElement.parentElement.parentElement.parentElement.children[1].children[0].children;
         for (var s = 0; s < a.length; s++) {
             if (a[s].className === "row margintop") {
@@ -175,6 +179,9 @@ function QuestionSave(obj, question, answer) {
         obj.question.push({});
         obj.question[i].id = i + 1;
         obj.question[i].text = question[i].value;
+        obj.question[i].question_description = question[i].parentElement.parentElement.children[1].children[0].value;
+
+
         for (var j = 0; j < answer.length; j++) {
             answer[j].setAttribute('aid', (j + 1))
             if (parseInt(answer[j].getAttribute('data-qid')) == i + 1) {
@@ -190,9 +197,11 @@ function QuestionSave(obj, question, answer) {
             };
 
         };
+        }
     };
-
+};
 }
+
 
 //Збирає данні з інпутів по ід і записує їх у базу
 var send = function (id) {
