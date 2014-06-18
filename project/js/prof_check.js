@@ -22,6 +22,7 @@ function redirect() {
 //Check input
 
 function check_input() {
+	var reg = /[a-z0-9]@[a-z0-9]\.[a-z0-9]/g;
 	var str1 = document.getElementById('txtCaptcha').value;
 	var str2 = document.getElementById('txtInput').value;
 	var first_name = document.getElementById('first_name');
@@ -34,10 +35,11 @@ function check_input() {
 	var re_passwd = document.getElementById('re_passwd');
 	var email = document.getElementById('email');
 	var birthday = document.getElementById('birthday1');
+	var mail = reg.test(email.value);
 
 	if (user.value.length === 0 || passwd.value.length === 0
 			|| re_passwd.value.length === 0 || email.value.length === 0
-			|| birthday1.value.length === 0) {
+			|| birthday1.value.length === 0 || mail === false) {
 
 		if (user.value.length === 0) {
 			user.style.borderColor = "red";
@@ -66,11 +68,17 @@ function check_input() {
 		} else {
 			birthday.style.borderColor = ""
 		}
+		if (mail == false) {
+		email.style.borderColor = "red";
+		} else {
+		email.style.borderColor = "";
+		}
+	
 	} else if (passwd.value != re_passwd.value) {
 		passwd.style.borderColor = "red";
 		re_passwd.style.borderColor = "red";
 
-	} else if (str1 !== str2) { 
+	}  else if (str1 !== str2) { 
 		alert  ('Число провірки не співпадає');
 	} 
 	else{
