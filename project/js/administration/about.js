@@ -31,8 +31,10 @@ AboutPageController.init = function() {
   });
 };
 
-
-
 $(function() {
-    AboutPageController.init();
+    if( $(AboutPageController.content_id).length != 0 ) {
+      AboutPageController.init();
+    } else {
+      $("#about-page-content").html(AboutPageController.data);
+    }
 });
