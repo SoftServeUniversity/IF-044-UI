@@ -7,19 +7,19 @@ function loginModule(e) {
     var closeButton = document.getElementById('closeButton');
     var res1, res2, currentUser;
     var errorBlock = document.getElementsByClassName('error-block')[0];
+    errorBlock.style.visibility = 'hidden';
     var userMenuButton = document.getElementById('userMenuButton');
     loginButton.removeAttribute('data-dismiss');
 
     function errorWrite() {
+        errorBlock.style.visibility = '';
         errorBlock.innerHTML = 'Не правильно уведенный Пароль або Пошта';
     };
 
+
     function changeLoginStatus() {
-
         Model.date.session_user_id = Model.date.Users[currentUser].id;
-        Model.date.session_user_role = Model.date.Users[currentUser].role_id;
         Model.save_localStorage();
-
     }
 
     function clearForms() {
@@ -84,7 +84,6 @@ function loginModule(e) {
 
         return false;
     };
-
 }
 
 function headerUserNavPanel() {
@@ -146,12 +145,10 @@ function getCurrrentUserName() {
           changedA.innerHTML = 'Панель Адміністратора';
           changedA.href = 'administration_panel.html';
       } else {return}
-
   }
 
 function logOutModule() {
     delete Model.date.session_user_id;
-    Model.date.session_user_role = null;
     Model.save_localStorage();
     changeLoginPic();
     return false;
@@ -172,13 +169,9 @@ function testsFilter() {
 
     var textBox = document.getElementById('testBox');
     var select = document.getElementById('selectForm');
-
-    var subcategory1 = document.getElementById('vmil1');
-    var subcategory2 = document.getElementById('vmil2');
-    var subcategory3 = document.getElementById('vmil3');
-    var subcategory4 = document.getElementById('vmil4');
-    var subcategory5 = document.getElementById('vmil5');
-
+    var newTestsArr = [];
+    var testsCategoryId = parseInt(getLocation(), 10);
+    var subcatTitle = document.querySelector('.sub-category b');
 
     function createTestElement(i) {
         var newDiv = document.createElement('div');
@@ -186,7 +179,7 @@ function testsFilter() {
         var h3 = document.createElement('h3');
         var a = document.createElement('a');
         a.innerHTML = Model.date.Tests[i].name;
-        a.href = 'TestPastPage.html?t_id=' + Model.date.Tests[i].id;
+        a.href = 'Test.html?t_id=' + newTestsArr[i].id;
         var p = document.createElement('p');
         p.innerHTML = Model.date.Tests[i].description;
         h3.appendChild(a);
@@ -194,12 +187,33 @@ function testsFilter() {
         newDiv.appendChild(p);
         textBox.appendChild(newDiv);
     };
+    
+    function getLocation() {
+       var loc = location.search.split('=');
+       return loc[1];
+    }
 
-    Model.date.Tests.sort(function (a, b) {
+    function titleWrite() {
+        for(var i = 0; i< Model.date.Tests_categories.length; i++) {
+            if(Model.date.Tests_categories[i].id === testsCategoryId) {
+               subcatTitle.innerHTML = Model.date.Tests_categories[i].name;
+            };
+        };
+    };
+
+    for(var i = 0; i<Model.date.Tests.length; i++) {
+        console.log(Model.date.Tests[i].subcategory);
+        if(Model.date.Tests[i].subcategory === testsCategoryId) {
+           newTestsArr.push(Model.date.Tests[i]);
+        };
+    };
+    
+    titleWrite();
+    newTestsArr.sort(function (a, b) {
         return a.date - b.date
     });
 
-    for (var i = 0; i < Model.date.Tests.length; i++) {
+    for (var i = 0; i < newTestsArr.length; i++) {
         createTestElement(i);
     };
 
@@ -208,11 +222,11 @@ function testsFilter() {
 
         if (this.value === '1') {
 
-            Model.date.Tests.sort(function (a, b) {
+            newTestsArr.sort(function (a, b) {
                 return a.date - b.date
             });
 
-            for (var i = 0; i < Model.date.Tests.length; i++) {
+            for (var i = 0; i < newTestsArr.length; i++) {
                 createTestElement(i);
             };
 
@@ -220,72 +234,17 @@ function testsFilter() {
 
         if (this.value === '2') {
 
-            Model.date.Tests.sort(function (a, b) {
+            newTestsArr.sort(function (a, b) {
                 return a.name > b.name
             });
 
-            for (var i = 0; i < Model.date.Tests.length; i++) {
+            for (var i = 0; i < newTestsArr.length; i++) {
                 createTestElement(i);
             };
         };
 
     };
 
-    function showSubcategory() {
-        textBox.innerHTML = '';
-
-        if (this.id === 'vmil1') {
-
-            for (var i = 0; i < Model.date.Tests.length; i++) {
-                if (Model.date.Tests[i].subcategory === 8) {
-                    createTestElement(i);
-                }
-            };
-        };
-
-        if (this.id === 'vmil2') {
-
-            for (var i = 0; i < Model.date.Tests.length; i++) {
-                if (Model.date.Tests[i].subcategory === 11) {
-                    createTestElement(i);
-                }
-            };
-        };
-
-        if (this.id === 'vmil3') {
-
-            for (var i = 0; i < Model.date.Tests.length; i++) {
-                if (Model.date.Tests[i].subcategory === 1) {
-                    createTestElement(i);
-                }
-            };
-        };
-
-        if (this.id === 'vmil4') {
-
-            for (var i = 0; i < Model.date.Tests.length; i++) {
-                if (Model.date.Tests[i].subcategory === 5) {
-                    createTestElement(i);
-                }
-            };
-        };
-
-        if (this.id === 'vmil5') {
-
-            for (var i = 0; i < Model.date.Tests.length; i++) {
-                if (Model.date.Tests[i].subcategory === 7) {
-                    createTestElement(i);
-                }
-            };
-        };
-        return false;
-    }
-
-/*    subcategory1.onclick = showSubcategory;
-    subcategory2.onclick = showSubcategory;
-    subcategory3.onclick = showSubcategory;
-    subcategory4.onclick = showSubcategory;
-    subcategory5.onclick = showSubcategory;*/
 }
 
 
