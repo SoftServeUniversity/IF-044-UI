@@ -3,7 +3,7 @@ for (var i = 0; i <= Model.date.Tests_categories.length; i++) {
     moderator_search_caterogies[i] = 0;
 }
 
-window.onload = function CategoriesController() {
+function CategoriesController() {
 
     var Categories = Model.date.Tests_categories;
     var place_for_filter = document.getElementById('categoriesContainer');

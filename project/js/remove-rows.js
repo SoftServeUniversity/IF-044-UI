@@ -1,10 +1,5 @@
 // Видалення цілого елементу <tr>
 //window.onload = function myProfile(){
-console.log(Model.date.session_user_id);
-var sss = Model.date.session_user_id;
-//var ss = document.getElementById("birth").textContent;
-console.log(document.getElementById("b").textContent);
-document.getElementById("b").innerHTML = Model.date.Users[sss].birthday;
 
 function deleteTr1(element) {
     var parentRow = getParentTr(element);

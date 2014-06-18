@@ -1,60 +1,65 @@
 var ri = 0;
 
 function searchTests () {
-    if (document.getElementById('All').checked == true) {
-        console.log(ri);
-        if (ri > 0) {
-            deletetabRows();
-        }
-        var row;
-        var cell = [];
-        var tableId = "search-table";
-        var table = document.getElementById(tableId);
-        var Moderator_test_edit;
-
-
-        var numberOfRow = 1;
-        for (var i = 0; i < Model.date.Tests.length; i++) {
-            var numberOfCell = 0;
-            var categoryId = Model.date.Tests_categories[Tests[i].subcategory - 1].parent_id;
-            console.log(categoryId);
-            //var cell [];
-            row = table.insertRow(numberOfRow);
-            cell[numberOfCell] = row.insertCell(numberOfCell);
-            cell[numberOfCell].innerHTML = Model.date.Tests[i].name;
-            numberOfCell += 1;
-
-            cell[numberOfCell] = row.insertCell(numberOfCell);
-            cell[numberOfCell].innerHTML = Model.date.Tests_categories[categoryId - 1].name;
-            numberOfCell += 1;
-
-            cell[numberOfCell] = row.insertCell(numberOfCell);
-            cell[numberOfCell].innerHTML = Model.date.Tests_categories[Tests[i].subcategory - 1].name;
-            numberOfCell += 1;
-
-
-            cell[numberOfCell] = row.insertCell(numberOfCell);
-            cell[numberOfCell].innerHTML = '<div><button  class="sendToModerator" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Редагувати</button></div>';
-            //'<a href="moderatrPage.html">Редагувати</a>';
-            numberOfCell += 1;
-
-            cell[numberOfCell] = row.insertCell(numberOfCell);
-            cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
-            numberOfRow = numberOfRow + 1;
-            //console.log(numberOfRow);
-
-
-            /*var buttons_send_moderator = document.querySelector('.sendToModerator');
-            console.log(buttons_send_moderator);
-            buttons_send_moderator.addEventListener('click',);
-            for (var f = 0; f < buttons_send_moderator.length; f++) {
-                console.log(buttons_send_moderator[f]);
-                ;
-
+    if (Model.date.session_user_role == 2) {
+        if (document.getElementById('All').checked == true) {
+            console.log(ri);
+            if (ri > 0) {
+                deletetabRows();
             }
-            //   console.log(Model.date.Tests.length);*/
-            ri = Model.date.Tests.length;
+            var row;
+            var cell = [];
+            var tableId = "search-table";
+            var table = document.getElementById(tableId);
+
+
+            var numberOfRow = 1;
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+                var numberOfCell = 0;
+                var categoryId = Model.date.Tests_categories[Model.date.Tests[i].subcategory - 1].parent_id;
+                console.log(categoryId);
+                //var cell [];
+                row = table.insertRow(numberOfRow);
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = Model.date.Tests[i].name;
+                numberOfCell += 1;
+
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = Model.date.Tests_categories[categoryId - 1].name;
+                numberOfCell += 1;
+
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = Model.date.Tests_categories[Model.date.Tests[i].subcategory - 1].name;
+                numberOfCell += 1;
+
+
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = '<div><button  class="sendToModerator" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Редагувати</button></div>';
+                //'<a href="moderatrPage.html">Редагувати</a>';
+                numberOfCell += 1;
+
+                cell[numberOfCell] = row.insertCell(numberOfCell);
+                cell[numberOfCell].innerHTML = '<div><button  class="btn-danger btn-xs" data-row-number="' + numberOfCell + '" onclick="deleteTrin(this)" >ВИДАЛИТИ</button></div>';
+                numberOfRow = numberOfRow + 1;
+                //console.log(numberOfRow);
+
+
+                /*var buttons_send_moderator = document.querySelector('.sendToModerator');
+                 console.log(buttons_send_moderator);
+                 buttons_send_moderator.addEventListener('click',);
+                 for (var f = 0; f < buttons_send_moderator.length; f++) {
+                 console.log(buttons_send_moderator[f]);
+                 ;
+
+                 }
+                 //   console.log(Model.date.Tests.length);*/
+                ri = Model.date.Tests.length;
+            }
+
         }
+    } else {
+        var s = document.getElementById("no-login").innerHTML = "НЕМАЄ ПРАВ МОДЕРАТОРА";
+        console.log(s);
 
     }
 }
@@ -148,6 +153,7 @@ function appFilter(element) {
         var numberOfRow = 1;
         var numberOfCell = 0;
         var categoryId = Model.date.Tests_categories[Tests[i].subcategory-1].parent_id;
+        console.log(categoryId);
         row = table.insertRow(numberOfRow);
 
         cell[numberOfCell] = row.insertCell(numberOfCell);
