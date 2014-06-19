@@ -47,14 +47,14 @@ var generateHtml = {
 		content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].name">' + this.catchTestById(testId).name + '</h3>';
 		var number_question = 0;
 		for (var i = 0; i < this.catchTestById(testId).question.length; i++) {
-			var number_answer = 0;
+			var number_answer = '<b>-</b>';
 			number_question++;
 			var question_id = this.catchTestById(testId).question[i].id
 			content += '<div class="row well"><div class="col-lg-1 col-xs-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 col-xs-11 text-justify testDouble" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].question[' + i + '].text">' + this.catchTestById(testId).question[i].text + '</div>';
 			for (var j = 0; j < this.catchTestById(testId).answers.length; j++) {
-				number_answer++;
+				//number_answer++;
 				if (this.catchTestById(testId).answers[j].question_id == question_id) {
-					content += '<div class="col-xs-1 col-xs-offset-2 col-lg-1 col-lg-offset-2 ">' + number_answer + ') ' + '</div>' + '<div class="col-lg-9 col-xs-9 text-justify testDouble" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].answers[' + j + '].text_answer">' + this.catchTestById(testId).answers[j].text_answer + '</div>';
+					content += '<div class="col-xs-1 col-xs-offset-2 col-lg-1 col-lg-offset-2 ">' + number_answer  + '</div>' + '<div class="col-lg-9 col-xs-9 text-justify testDouble" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].answers[' + j + '].text_answer">' + this.catchTestById(testId).answers[j].text_answer + '</div>';
 				}
 			}
 			content += '</div>';
@@ -201,7 +201,8 @@ var Events = {
 								timeCreate: timeCreateComments
 							});
 							generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
-							generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;							
+							generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
+							generateHtml.catchTestById(get_test_id).status.id = 2;							
 							Model.save_localStorage();
 							window.location = 'moderator_filtertests_nyarytc.html';
 		
@@ -209,7 +210,7 @@ var Events = {
 	},
 	publicTests: function(){
 		document.getElementById('public').addEventListener('click',function(){
-			generateHtml.catchTestById(get_test_id).status = 4;
+			generateHtml.catchTestById(get_test_id).status.id = 3;
 			console.log(generateHtml.catchTestById(get_test_id));
 			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
@@ -219,7 +220,7 @@ var Events = {
 	},
 	unpublicTests: function(){
 		document.getElementById('unpublic').addEventListener('click',function(){
-			generateHtml.catchTestById(get_test_id).status = 0;
+			generateHtml.catchTestById(get_test_id).status.id = 2;
 			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;		
 			Model.save_localStorage();
