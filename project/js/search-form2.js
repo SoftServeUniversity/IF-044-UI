@@ -4,30 +4,7 @@ var place_for_administrationlist = document.getElementById('administrationlist')
 console.log(Model.date.Users);
 
 
-// function chengestatus(e){
-// 	var attribute = e.target.getAttribute('id_user');
-// 	var current_user = get_user_by_id(attribute);
-// 	if(current_user.role_id == 1){
-// 		current_user.role_id = 2;
-// 		console.log("id=>"+current_user.role_id);
-// 		Model.save_localStorage();
-// 		showAll();
-// 	}
-// 	else{
-// 		if(current_user.role_id == 2){
-// 			current_user.role_id = 3;
-// 			console.log("id=>"+current_user.role_id);
-// 			Model.save_localStorage();
-// 			showAll();
-// 		}
-// 		else{
-// 			current_user.role_id = 1;
-// 			console.log("id=>"+current_user.role_id);
-// 			Model.save_localStorage();
-// 			showAll();
-// 		}
-// 	}
-// 	}
+
 var g;// current user for change status
 var l;// current user for delete user
 var f;// current user for banned
@@ -47,6 +24,8 @@ function changestatus(){
 	
 	}
 }
+
+
 function resetCapcha(){
 	if(document.getElementById('txtInput').value){document.getElementById('txtInput').value="";}
 	if(document.getElementById('txtInput_delete').value){document.getElementById('txtInput_delete').value="";}
@@ -76,6 +55,7 @@ function chengestatus(e){
         document.getElementById("txtCaptchaDiv").innerHTML = code;
 	}
 
+
 function button_delete_user(id){
 	var attribute = id;
 	var current_user = get_user_by_id(attribute);
@@ -99,6 +79,8 @@ function button_delete_user(id){
 	document.getElementById("txtCaptcha_delete").value = code;
     document.getElementById("txtCaptchaDiv_delete").innerHTML = code;
 }
+
+
 function deleteuser(){
 	var str1 = document.getElementById('txtCaptcha_delete').value;
 	var str2 = document.getElementById('txtInput_delete').value;
@@ -120,9 +102,18 @@ function deleteuser(){
 		showAll();
 	}
 
+
 function button_banned_users(e){
 	var attribute = e.target.getAttribute('id_user');
 	var current_user = get_user_by_id(attribute);
+	if (current_user.banned == 1) {
+		document.getElementById('change_status_blacklist').innerHTML = "Винести";
+		document.getElementById('myModalLabel_blacklist').innerHTML = "Винести з чорного списку";
+	}
+	else{
+		document.getElementById('change_status_blacklist').innerHTML = "Внести";
+		document.getElementById('myModalLabel_blacklist').innerHTML = "Внести до чорного списку";
+	}
 	f = current_user;
 	document.getElementById('name_of_user_banned').innerHTML = current_user.firstName;
 	console.log(current_user);
@@ -137,6 +128,7 @@ function button_banned_users(e){
         document.getElementById("txtCaptcha_banned").value = code;
         document.getElementById("txtCaptchaDiv_banned").innerHTML = code;
 }
+
 
 function banned(){
 	var str1 = document.getElementById('txtCaptcha_banned').value;
@@ -181,6 +173,7 @@ function banned(){
 }
 //////////////////////////////////////////////////////////////////////////////////// onclick=button_banned_user("+Model.date.Users[i].id+") 
 
+
 function showAll(){
 	var content_table = '';
 	var content_blacklist = '';
@@ -193,10 +186,10 @@ function showAll(){
 			//console.log(role_name_user);
 		if (Model.date.Users[i].role_id == 1){
 			if (Model.date.Users[i].banned == 0) {
-			content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' id_user='"+Model.date.Users[i].id+"'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+Model.date.Users[i].id+"'>ЗАБАНИТИ</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+			content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' id_user='"+Model.date.Users[i].id+"'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+Model.date.Users[i].id+"'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
 			}
 			else{
-			content_blacklist+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+Model.date.Users[i].id+"'>РОЗБАНИТИ</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+			content_blacklist+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+Model.date.Users[i].id+"'>ВИНЕСТИ З ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
 			}
 		}
 		else{
@@ -206,6 +199,7 @@ function showAll(){
 		}
 	}
 		
+
 	place_for_table.innerHTML = content_table;
 	place_for_blacklist.innerHTML = content_blacklist;
 	place_for_administrationlist.innerHTML = content_administrationlist;
@@ -219,9 +213,10 @@ var button_banned_user =document.querySelectorAll('.button_banned_user');
 	for(var i = 0;i<button_banned_user.length;i++){
 	button_banned_user[i].addEventListener("click", button_banned_users);
 	}
-
 }
 showAll();
+
+
 var search_user = document.getElementById('search-input');
 //console.log(search_user);
 var search_banned_user = document.getElementById('blacklist_search-input');
@@ -278,8 +273,7 @@ search_banned_user.addEventListener("keyup", function(){
 		place_for_blacklist.innerHTML = content_blacklist;
 		}
 })
-console.log(document.querySelectorAll('.button_change_status'));
-	console.log('function change status');
+// console.log(document.querySelectorAll('.button_change_status'));
 var buttons_status =document.querySelectorAll('.button_change_status');
 for(var i = 0;i<buttons_status.length;i++){
 	buttons_status[i].addEventListener("click", chengestatus);
@@ -297,4 +291,30 @@ function get_user_by_id(user_id){
 	console.log(catch_user)
 }
 
+/////////////////////////////////////////////////////////////////////////
 
+
+// function chengestatus(e){
+// 	var attribute = e.target.getAttribute('id_user');
+// 	var current_user = get_user_by_id(attribute);
+// 	if(current_user.role_id == 1){
+// 		current_user.role_id = 2;
+// 		console.log("id=>"+current_user.role_id);
+// 		Model.save_localStorage();
+// 		showAll();
+// 	}
+// 	else{
+// 		if(current_user.role_id == 2){
+// 			current_user.role_id = 3;
+// 			console.log("id=>"+current_user.role_id);
+// 			Model.save_localStorage();
+// 			showAll();
+// 		}
+// 		else{
+// 			current_user.role_id = 1;
+// 			console.log("id=>"+current_user.role_id);
+// 			Model.save_localStorage();
+// 			showAll();
+// 		}
+// 	}
+// 	}
