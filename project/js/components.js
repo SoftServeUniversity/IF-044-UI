@@ -19,6 +19,8 @@ function loginModule(e) {
 
     function changeLoginStatus() {
         Model.date.session_user_id = Model.date.Users[currentUser].id;
+        console.log(Model.date.Users[currentUser].id);
+        Model.date.session_user_role = Model.date.Users[currentUser].role_id;
         Model.save_localStorage();
     }
 
@@ -149,21 +151,11 @@ function getCurrrentUserName() {
 
 function logOutModule() {
     delete Model.date.session_user_id;
+    Model.date.session_user_role = null;
     Model.save_localStorage();
     changeLoginPic();
     return false;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 function testsFilter() {
 
