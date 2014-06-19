@@ -1,11 +1,11 @@
-window.onload = function(){
+//window.onload = function(){
  Tests = Model.date.Tests;
  Categories =  Model.date.Tests_categories;
-
  var simpleSearch = {
     row_results: document.querySelectorAll(".row-search-result")[0],
     search_input: document.getElementById('search_input'),
     showEmpty: function () {
+	    self: this,
         this.row_results.innerHTML = '';
     },
     showAllcontaining: function (value) {
@@ -30,7 +30,7 @@ window.onload = function(){
 											tags += '<li><a href="">' + Tests[i].tags[j] + '</a></li>';
 										}
 									}
-									this.row_results.innerHTML += '                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well">                                <h3 class="title-post-name">          <a style="text-decoration: none;" href="#">' + Tests[i].name + '</a>                              </h3>                                <p class="text-justify ">' + Tests[i].description + '</p><div class="col-xs-12"><ul class="search-teg">' + tags + ' </ul>                                </div></div>';
+									this.row_results.innerHTML += '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><h3 class="title-post-name"><a style="text-decoration: none;" href="Test.html?id='+Tests[i].id+'">' + Tests[i].name + '</a></h3><p class="text-justify ">' + Tests[i].description + '</p><div class="col-xs-12"><ul class="search-teg">' + tags + ' </ul></div></div>';
 								}
 							} else {
 								this.showEmpty();
@@ -38,12 +38,12 @@ window.onload = function(){
     },
 
     EventKeyUp: this.search_input.addEventListener('keyup', function () {
-																simpleSearch.showEmpty();
-																var value = simpleSearch.search_input.value;
+																self.showEmpty();
+																var value = self.search_input.value;
 																if (value.replace(/^\s+|\s+$/g, '') === '') {
-																	simpleSearch.showEmpty();
+																	self.showEmpty();
 																} else {
-																	simpleSearch.showAllcontaining(value);
+																	self.showAllcontaining(value);
 																}
 															}),
 														
@@ -52,4 +52,4 @@ window.onload = function(){
 }
 
 simpleSearch.init;
-}   
+//}   
