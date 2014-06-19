@@ -10,11 +10,11 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/tests.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
+    <link href="css/media-queries.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="json/new_data.js"></script>
-    <script src="js/subcategorySearch.js"></script>
 
 </head>
 <body class="container-fluid">
@@ -102,10 +102,10 @@
     <section id="tests-block" class="row">
         <div id="search-panel" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="categories-block">
-                <span class="sub-category"><b>Пошук Тестів</b></span>
+                <span class="sub-category"><b></b></span>
             </div>
             <div id="search-sort" class="row">
-                <div class="col-lg-3 col-lg-offset-8" id="searchBox">
+                <div class="col-lg-3 col-lg-offset-7" id="searchBox">
                   <label>
                     <input id="searchForm" type="search" class="form-control" placeholder="Пошук">
                     <div class="input-group-btn">
@@ -114,7 +114,7 @@
                     </div>                    
                   </label>
                 </div> 
-                <div class="col-lg-3 col-lg-offset-2" id="sortBox">
+                <div class="col-lg-3 col-lg-offset-1" id="sortBox">
                   <label>
                     <span>Сортування по</span>
                     <select id="selectForm" class="form-control">
@@ -125,38 +125,7 @@
                 </div>
             </div>                
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 row filter-search">
-            <div class="col-xs-8 col-xs-offset-2">
-                <span class="reset">
-                <img src="pic/reset.png" height="10" width="10"> шукати скрізь</span>
-            </div>
-<!--             <article id="vmilosti">
-    <h4>Спорт</h4>
-    <ul>
-        <li><a href="">Підкатегорія1</a></li>
-        <li><a href="">Підкатегорія2</a></li>
-        <li><a href="">Підкатегорія3</a></li>
-        <li><a href="">Підкатегорія4</a></li>
-    </ul>
-</article>
-<article id="proby">
-    <h4>Туризм</h4>
-    <ul>
-        <li><a href="">Підкатегорія1</a></li>
-        <li><a href="">Підкатегорія2</a></li>
-        <li><a href="">Підкатегорія3</a></li>
-        <li><a href="">Підкатегорія4</a></li>
-    </ul>
-</article>
-<article id="patrony">
-    <h4>ПДР</h4>
-    <ul>
-        <li><a href="">Підкатегорія1</a></li>
-        <li><a href="">Підкатегорія2</a></li>
-        <li><a href="">Підкатегорія3</a></li>
-        <li><a href="">Підкатегорія4</a></li>
-    </ul>
-</article> -->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         </div>
         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
             <div id="test-list" class="row">
@@ -185,7 +154,7 @@
         <nav id="footer-menu">
             <ul>
                 <li><a href="index.html">Головна</a> &nbsp|</li>
-                <li><a href="#">Про нас</a> &nbsp|</li>
+                <li><a href="about.html">Про нас</a> &nbsp|</li>
                 <li><a href="contacts.html">Контакти</a></li>
             </ul>
         </nav>
@@ -198,8 +167,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
     <script>
-      testsFilter();
        changeLoginPic();
+       window.onload = testsFilter();
     </script>
 </body>
 </html>

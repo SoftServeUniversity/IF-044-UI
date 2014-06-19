@@ -1,249 +1,245 @@
+	(function(){ // checking users permission
+		var getUsersPermission = function(session_user_id){
+			if(!Model.date.session_user_id){
+				return false;
+			}else{
+                var userRole = false;
+				for(var i = 0;i<Model.date.Users.length;i++){
+					if(Model.date.Users[i].id == session_user_id && Model.date.Users[i].role_id == 2 ){
+                       userRole = true;
+                        break;
+                    }
+				}
+				return userRole;
+			}
+
+		}
+			if(!getUsersPermission(Model.date.session_user_id)){
+				//if user is not authorized or is not moderator: redirect index page with alert about this
+				alert('нема прав!');
+				window.location = 'index.html';		
+			}
+	})();
 	if(Model.date.Moderator_test_id){
-		//var get_test_id = Model.date.Moderator_test_id;
 		var get_test_id = Model.date.Moderator_test_id;
 	}else{
-		//var currentIndexTest = Math.floor(Math.random() * ((Tests.length-1)+ 1));
-		var get_test_id = 1;
+		var get_test_id = 2;
     }
-		
-function printComments(e, place_for_comment, lastIndexComment, comments) {
-    var newDiv = document.createElement('div');
-    newDiv.className = "col-lg-10 text-justify";
-    if (comments && lastIndexComment) {
-        if (lastIndexComment === true) lastIndexComment = 0;
-        for (var i = lastIndexComment; i < comments.length; i++) {
-            if(get_test_id == comments[i].test_id){
-                newDiv.innerHTML += "<b>" + comments[i].comment + "</b><br />" + "<div class='text-left'><i>" + comments[i].timeCreate + " Moderator</i></div>";
-            }
-        }
-        document.querySelectorAll(place_for_comment)[0].insertBefore(newDiv, e.parentNode);
-    }
-};
-
-function addComment(e) {
-    var comment = e.querySelectorAll('textarea')[0].value;
-    var coments;
-    var day = new Date();
-    var month = [];
-    month[0] = "січ"; month[1] = "лют";  month[2] = "бер";  month[3] = "кві"; month[4] = "тра"; month[5] = "чер"; month[6] = "лип"; month[7] = "сер"; month[8] = "вер"; month[9] = "жов"; month[10] = "лис"; month[11] = "гру";
-    var timeCreateComments = day.getDate() + " " + month[day.getMonth()] + " о " + day.getHours() + ":" + day.getMinutes();
-    console.log(timeCreateComments);
-    if (Model.date.comment) {
-        commentArray = Model.date.comment;
-        commentArray.push({
-            comment: comment,
-            test_id : get_test_id,
-            timeCreate: timeCreateComments
-        })
-        //console.log(commentArray);
-        //localStorage.comment = JSON.stringify(commentArray);
-		Model.save_localStorage();
-    } else {
-        //console.log('local false');
-        var commentArray = [{
-            comment: comment,
-            test_id : get_test_id,
-            timeCreate: timeCreateComments
-        }];
-		Model.date.comment = commentArray;
-		Model.save_localStorage();
-        //localStorage.comment = JSON.stringify(commentArray);
-    }
-    comments = Model.date.comment;
-    var lastIndexComment = comments.length - 1;
-    if (lastIndexComment == 0) {
-        var lastIndexComment = true;
-    }
-    try {
-        printComments(e, '.place_for_comment', lastIndexComment, comments);
-    } catch (e) {
-        console.log(e);
-    }
-	return false;
-
-}
-
-function getTestById(test_it){
-    for(var i = 0;i<Model.date.Tests.length;i++){
-        if(Model.date.Tests[i].id == test_it){
-            var catchTest = Model.date.Tests[i];
-            break;
-        }
-    }
-    return catchTest;
-}
-function getIndexTestById(test_it){
-    for(var i = 0;i<Model.date.Tests.length;i++){
-        if(Model.date.Tests[i].id == test_it){
-            var index = i;
-            break;
-        }
-    }
-    return index;    
-}
+	//get_test_id - is var which will use for getting Test
 window.onload = function() {
-    
-
-    var currentTest = getTestById(get_test_id);
-   // var currentIndexTest = getTestById(get_test_id);
-    var currentIndexTest = getIndexTestById(get_test_id);
-   // console.log(get_test_id);
-   // console.log("t----------------------------"+currentTest);
-   // console.log("tyt----------------------------"+currentIndexTest);
-
-    if (Model.date.comment) {
-        var lastIndexComment = true;
-        var comments = Model.date.comment;
-    } else {
-        var comments = null;
-    }
-    console.log(comments);
-    printComments(document.getElementById("add-comment"), '.place_for_comment', lastIndexComment, comments);
-   // console.log("document.onload");
-    if (!Model.date.Tests) {
-        console.log('tests storage false');
-        localStorage.Tests = JSON.stringify(Tests);
-    }
-    //Tests = JSON.parse(localStorage.Tests);
-    Tests = Model.date.Tests;
-
-
-    var place_for_test = document.querySelectorAll('.content-test')[0];
-    var content = '';
-    content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="globalTests['+currentIndexTest+'].name">' + currentTest.name + '</h3>';
-    var number_question = 0;
-    for (var i = 0; i < currentTest.question.length; i++) {
-        var number_answer = 0;
-        number_question++;
-        var question_id = currentTest.question[i].id
-        content += '<div class="row well"><div class="col-lg-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].question[' + i + '].text">' + currentTest.question[i].text + '</div>';
-        for (var j = 0; j < currentTest.answers.length; j++) {
-            number_answer++;
-            if (currentTest.answers[j].question_id == question_id) {
-                content += '<div class="col-lg-1 col-lg-offset-2">' + number_answer + ') ' + '</div>' + '<div class="col-lg-9 text-justify testDouble" forLocalstorage="globalTests['+currentIndexTest+'].answers[' + j + '].text_answer">' + Tests[currentIndexTest].answers[j].text_answer + '</div>';
-            }
-        }
-        content += '</div>';
-    }
-    place_for_test.innerHTML += content;
-    
-    
+// generateHtml - is object where describe generation tests in html
+var generateHtml = {
+	place_for_test: document.querySelectorAll('.content-test')[0],
+	place_for_list_categories: document.getElementById('listCategories'),	
+    place_for_list_subCategories: document.getElementById('listSubCategories'),
+	place_for_comments: document.querySelectorAll('.place_for_comment')[0],
+	catchTestById: function(testId){ // catch needed tests
+		for(var i = 0;i<Model.date.Tests.length;i++){
+			if(Model.date.Tests[i].id == testId){
+				var catchTest = Model.date.Tests[i];
+				break;
+			}
+		}
+		return catchTest;
+	},
+	testBody: function(testId){ // method which print on page test
+		var content = '';
+		content += '<h3 class="title-post-name col-xs-12 edit-content testDouble" style="float: none" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].name">' + this.catchTestById(testId).name + '</h3>';
+		var number_question = 0;
+		for (var i = 0; i < this.catchTestById(testId).question.length; i++) {
+			var number_answer = '<b>-</b>';
+			number_question++;
+			var question_id = this.catchTestById(testId).question[i].id
+			content += '<div class="row well"><div class="col-lg-1 col-xs-1 text-justify">' + number_question + '. ' + '</div><div class="col-lg-11 col-xs-11 text-justify testDouble" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].question[' + i + '].text">' + this.catchTestById(testId).question[i].text + '</div>';
+			for (var j = 0; j < this.catchTestById(testId).answers.length; j++) {
+				//number_answer++;
+				if (this.catchTestById(testId).answers[j].question_id == question_id) {
+					content += '<div class="col-xs-1 col-xs-offset-2 col-lg-1 col-lg-offset-2 ">' + number_answer  + '</div>' + '<div class="col-lg-9 col-xs-9 text-justify testDouble" forLocalstorage="Model.date.Tests['+Model.date.Tests.indexOf(this.catchTestById(testId))+'].answers[' + j + '].text_answer">' + this.catchTestById(testId).answers[j].text_answer + '</div>';
+				}
+			}
+			content += '</div>';
+		}
+		this.place_for_test.innerHTML += content;
+	},
+	listCategories: function(testId){ // method which print on page tests listCategories
+		var list_option = '';
+		for(var i = 0;i<Model.date.Tests_categories.length;i++){
+			if(Model.date.Tests_categories[i].parent_id == 0){
+				if(this.catchTestById(testId).category == Model.date.Tests_categories[i].id){
+					list_option+='<option value="'+Model.date.Tests_categories[i].id+'" selected>'+Model.date.Tests_categories[i].name+'</option>'
+				}else{
+					list_option+='<option value="'+Model.date.Tests_categories[i].id+'">'+Model.date.Tests_categories[i].name+'</option>'
+				}
+			}
+		}
+		this.place_for_list_categories.innerHTML = list_option;
+	},
+	listSubCategories: function(testId, categoryId){// method which print on page tests listSubCategories
+		var list_option = '';
+		var categoryId;
+		categoryId = (categoryId)?categoryId:this.catchTestById(testId).category;
+		console.log("from method-->"+categoryId);
+		for(var i = 0;i<Model.date.Tests_categories.length;i++){
+			if(Model.date.Tests_categories[i].parent_id == categoryId){
+				if(this.catchTestById(testId).subcategory == Model.date.Tests_categories[i].id){
+					list_option+='<option value="'+Model.date.Tests_categories[i].id+'" selected>'+Model.date.Tests_categories[i].name+'</option>';
+				}else{
+						list_option+='<option value="'+Model.date.Tests_categories[i].id+'">'+Model.date.Tests_categories[i].name+'</option>'
+				}
+			}
+		}
+		this.place_for_list_subCategories.innerHTML = list_option;
+	},
+	listComments: function(){ // method which print on page comments created by moderator
+		var newDiv = document.createElement('div');
+		newDiv.className = "col-lg-10 col-xs-10 text-justify div-list-comments";
+		if (Model.date.comment) {
+			for (var i = 0; i < Model.date.comment.length; i++) {
+				if(get_test_id == Model.date.comment[i].test_id){
+					newDiv.innerHTML += "<b>" + Model.date.comment[i].comment + "</b><br />" + "<div class='text-left'><i>" + Model.date.comment[i].timeCreate + " Moderator</i></div>";
+				}
+			}
+			this.place_for_comments.insertBefore(newDiv, document.getElementById("add-comment").parentNode);
+		}
+	},
+	init: function(get_test_id){ //method which call all needed  methods for generation html
+		this.listCategories(get_test_id);
+		this.listSubCategories(get_test_id);
+		this.testBody(get_test_id);
+		this.listComments();
+	}
 	
-var place_for_list_categories = document.getElementById('listCategories');
-var list_option = '';
-    for(var i = 0;i<Model.date.Tests_categories.length;i++){
-        if(Model.date.Tests_categories[i].parent_id == 0){
-            if(currentTest.category == Model.date.Tests_categories[i].id){
-                list_option+='<option value="'+Model.date.Tests_categories[i].id+'" selected>'+Model.date.Tests_categories[i].name+'</option>'
-            }else{
-                list_option+='<option value="'+Model.date.Tests_categories[i].id+'">'+Model.date.Tests_categories[i].name+'</option>'
-            }
-        }
-    }
-    place_for_list_categories.innerHTML += list_option;
-        console.log(list_option);
-    
+} 
+	generateHtml.init(get_test_id);// generation html page
 	
-var place_for_list_subCategories = document.getElementById('listSubCategories');
-var list_option = '';
-    for(var i = 0;i<Model.date.Tests_categories.length;i++){
-        if(Model.date.Tests_categories[i].parent_id == currentTest.category){
-            if(currentTest.subcategory == Model.date.Tests_categories[i].id){
-                list_option+='<option value="'+Model.date.Tests_categories[i].id+'" selected>'+Model.date.Tests_categories[i].name+'</option>';
-            }else{
-                    list_option+='<option value="'+Model.date.Tests_categories[i].id+'">'+Model.date.Tests_categories[i].name+'</option>'
-            }
-        }
-    }
-    place_for_list_subCategories.innerHTML += list_option;
-        console.log(list_option);
-    
-    
-        
-    
-    
+var Events = {
+	content_for_edit: document.querySelectorAll('.testDouble'),
+    dblClickForEditTest: function(){
+			function insertAfter(newElement, targetElement) {
+				//target is what you want it to go after. Look for this elements parent.
+				var parent = targetElement.parentNode;
 
-    function insertAfter(newElement, targetElement) {
-        //target is what you want it to go after. Look for this elements parent.
-        var parent = targetElement.parentNode;
+				//if the parents lastchild is the targetElement...
+				if (parent.lastchild == targetElement) {
+					//add the newElement after the target element.
+					parent.appendChild(newElement);
+				} else {
+					// else the target has siblings, insert the new element between the target and it's next sibling.
+					parent.insertBefore(newElement, targetElement.nextSibling);
+				}
+			}
+			for (var i = 0; i < this.content_for_edit.length; i++) {
+				this.content_for_edit[i].addEventListener('dblclick', function() {
+					var that = this;
+					if(document.querySelectorAll('.edit-textarea').length){
+						return false;
+					}
+					var editText = document.createElement('textarea')
+					editText.rows = '4';
+					editText.cols = "60";
+					editText.className = 'edit-textarea col-xs-10 col-xs-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-sm-offset-1 col-md-10 col-sm-offset-1';
+					editText.textContent = this.textContent;
+						this.style.display="none";
+						insertAfter(editText, this);
+					
 
-        //if the parents lastchild is the targetElement...
-        if (parent.lastchild == targetElement) {
-            //add the newElement after the target element.
-            parent.appendChild(newElement);
-        } else {
-            // else the target has siblings, insert the new element between the target and it's next sibling.
-            parent.insertBefore(newElement, targetElement.nextSibling);
-        }
-    }
+					function saveChange(e) {
+						var test = that.getAttribute("forLocalstorage");
+						var globalTests = Model.date.Tests;
+						var changeText = document.querySelectorAll('.edit-textarea')[0].value;
+						console.log(changeText);
+						var e = e||window.event;
+						var validateLength = (that.tagName == 'H3')?5:25;
+                        console.log(e.target.className);
+                        console.log(e.target.className.indexOf('edit-textarea'));
+						if (e.target.className.indexOf('edit-textarea') && changeText.length>validateLength) {
+							that.style.display="block";
+							document.querySelectorAll('.edit-textarea')[0].parentNode.removeChild(document.querySelectorAll('.edit-textarea')[0]);
+							that.textContent = changeText;
+							eval(test + '="' + changeText + '"');
+							document.querySelectorAll('body')[0].removeEventListener('click', saveChange);
+						}else{
+							document.querySelectorAll('.edit-textarea')[0].style.border=(changeText.length<=validateLength)?'solid 1px red': '' ;
+						   
+						}
+					}
+					document.querySelectorAll('body')[0].addEventListener('click', saveChange);
 
+				});
 
+			}
+		
+	},
+	changeCategories: function(){
+		generateHtml.place_for_list_categories.addEventListener('change',function(){
+					generateHtml.listSubCategories(get_test_id,this.value)
+					console.log(this.value);
+				}
+			)
+	},
+	addComents: function(){
+		document.getElementById('add-comment').addEventListener('submit',function(){
+						var element = document.querySelectorAll('.div-list-comments')[0];
+						if(element){
+							element.parentNode.removeChild(element);
+						}
+						var comment = document.querySelectorAll('textarea')[0].value;
+						var coments;
+						var day = new Date();
+						var month = [];
+						var minutes = day.getMinutes();
+						if(minutes<10)minutes = '0'+minutes;
+						month[0] = "січ"; month[1] = "лют";  month[2] = "бер";  month[3] = "кві"; month[4] = "тра"; month[5] = "чер"; month[6] = "лип"; month[7] = "сер"; month[8] = "вер"; month[9] = "жов"; month[10] = "лис"; month[11] = "гру";
+						var timeCreateComments = day.getDate() + " " + month[day.getMonth()] + " о " + day.getHours() + ":" + minutes;
+						console.log(Model.date.comment);
+						if(!Model.date.comment){
+							Model.date.comment = [];
+						}				
+						Model.date.comment.push({
+								comment: comment,
+								test_id : get_test_id,
+								timeCreate: timeCreateComments
+							});
+							generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
+							generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
+							generateHtml.catchTestById(get_test_id).status.id = 2;							
+							Model.save_localStorage();
+							window.location = 'moderator_filtertests_nyarytc.html';
+		
+					});
+	},
+	publicTests: function(){
+		document.getElementById('public').addEventListener('click',function(){
+			generateHtml.catchTestById(get_test_id).status.id = 3;
+			console.log(generateHtml.catchTestById(get_test_id));
+			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
+			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
+			Model.save_localStorage();
+			window.location = 'moderator_filtertests_nyarytc.html';
+		})		
+	},
+	unpublicTests: function(){
+		document.getElementById('unpublic').addEventListener('click',function(){
+			generateHtml.catchTestById(get_test_id).status.id = 2;
+			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
+			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;		
+			Model.save_localStorage();
+			window.location = 'moderator_filtertests_nyarytc.html';
+		}) 		
+	},
+	init: function(){
+		this.dblClickForEditTest();	
+		this.changeCategories();	
+		this.addComents();	
+		this.publicTests();	
+		this.unpublicTests();	
+	}
+	
 
+}
+Events.init();
+	
 
-
-    var content_for_edit = document.querySelectorAll('.testDouble');
-    for (var i = 0; i < content_for_edit.length; i++) {
-        content_for_edit[i].addEventListener('dblclick', function() {
-            var that = this;
-            var editText = document.createElement('textarea')
-            editText.rows = '4';
-            editText.cols = "60";
-            editText.className = 'edit-textarea';
-            editText.textContent = this.textContent;
-			this.style.visibility="hidden";
-            insertAfter(editText, this);
-
-            function saveChange(e) {
-                var test = that.getAttribute("forLocalstorage");
-//                var globalTests = JSON.parse(localStorage.Tests);
-                var globalTests = Model.date.Tests;
-                var changeText = document.querySelectorAll('.edit-textarea')[0].value;
-                var e = e||window.event;
-               // console.log(e);
-              //  console.log(e.target.className);
-                if (e.target.className !== 'edit-textarea') {
-					that.style.visibility="visible";
-                    document.querySelectorAll('.edit-textarea')[0].parentNode.removeChild(document.querySelectorAll('.edit-textarea')[0]);
-                    that.textContent = changeText;
-                    eval(test + '="' + changeText + '"');
-                    //console.log(test + '="' + changeText + '"');
-                    //console.log('_______');
-                   // console.log(globalTests);
-//                    localStorage.Tests = JSON.stringify(globalTests);
-					  Model.date.Tests = globalTests;
-					  Model.save_localStorage();
-					  
-                    
-                    document.querySelectorAll('body')[0].removeEventListener('click', saveChange);
-                }
-            }
-            document.querySelectorAll('body')[0].addEventListener('click', saveChange);
-
-        });
-
-    }
-    (function() {
-        var place_for_comment = document.querySelectorAll('.place_for_comment')[0];
-        if (localStorage.getItem('listComment')) {
-            var listComment = JSON.parse(localStorage.getItem('listComment'));
-            //console.log(listComment);
-        }
-        //console.log(place_for_comment);
-    })()
-    document.getElementById('public1').addEventListener('click',function(){
-//        var globalTests = JSON.parse(localStorage.Tests);
-        var globalTests = Model.date.Tests;
-        globalTests[currentIndexTest].status.id = 4;
-		globalTests[currentIndexTest].status.name_status = "опублікований";
-		Model.save_localStorage();
-        //localStorage.Tests = JSON.stringify(globalTests);
-    })
-    document.getElementById('public0').addEventListener('click',function(){
-        var globalTests = Model.date.Tests;
-        globalTests[currentIndexTest].status.id = 0;
-        globalTests[currentIndexTest].status.name_status = "завернутий";
-		Model.save_localStorage();
-        //localStorage.Tests = JSON.stringify(globalTests);
-    })    
+   
 
 }

@@ -95,9 +95,9 @@ function showTestByStatus(){
     var loginUserId = Model.date.session_user_id;
     var author = Model.date.Users[loginUserId-1].username;
     console.log(Model.date.Tests[5]);
-    var firstname = Model.date.Users[Model.date.session_user_id].firstName
-    var lastname = Model.date.Users[Model.date.session_user_id].lastName;
-    document.getElementById('username2').innerHTML = firstname + " " + lastname;
+    //var firstname = Model.date.Users[Model.date.session_user_id].firstName
+    //var lastname = Model.date.Users[Model.date.session_user_id].lastName;
+    //document.getElementById('username2').innerHTML = firstname + " " + lastname;
 
     var table1 = "t1", table2 = "t2", table3 = "t3", table4 = "t4";
     var numberOfObjects = Model.date.Tests.length;

@@ -39,7 +39,7 @@ function check_input() {
 
 	if (user.value.length === 0 || passwd.value.length === 0
 			|| re_passwd.value.length === 0 || email.value.length === 0
-			|| birthday1.value.length === 0 || mail === false) {
+			|| birthday1.value.length === 0) {
 
 		if (user.value.length === 0) {
 			user.style.borderColor = "red";
@@ -68,20 +68,19 @@ function check_input() {
 		} else {
 			birthday.style.borderColor = ""
 		}
-		if (mail == false) {
-		email.style.borderColor = "red";
-		} else {
-		email.style.borderColor = "";
-		}
-	
-	} else if (passwd.value != re_passwd.value) {
+
+	    } else if (passwd.value != re_passwd.value) {
 		passwd.style.borderColor = "red";
 		re_passwd.style.borderColor = "red";
 
-	}  else if (str1 !== str2) { 
+		} else if (mail === false){
+		 
+		email.style.borderColor = "red";
+		} else if (str1 !== str2) { 
 		alert  ('Число провірки не співпадає');
-	} 
-	else{
+		} 
+		
+		else{
 
 //else good save localstorage
 
@@ -108,6 +107,6 @@ function check_input() {
 		Model.save_localStorage();
 
 
-		window.location = "profile.html"
+		window.location = "index.html"
 	}	
 }

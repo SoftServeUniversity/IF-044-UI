@@ -1,0 +1,46 @@
+                            .filter-title {
+                                font-size: 24px;
+                                color: #428bca;
+                            }
+                            .reset {
+                                color: #428bca;
+                            }
+                            label {
+                                margin: 0;
+                                font-weight: normal;
+                            }
+                            .search-result {
+                                border: solid 2px transparent;
+                                padding: 0 19px;
+								cursor: pointer;
+                                -moz-transition: all .2s linear 0.1s;
+                                -webkit-transition: all .8s linear 0.1s;
+                                -o-transition: all .2s linear 0.1s;
+                                transition: all .2s linear 0.1s;
+                            }
+							.search-result p{
+								font-size: 14px;
+								line-height: 1.42857143
+							}
+                            .search-result:hover {
+                                border: solid 2px rgb(221, 219, 219);
+                                box-shadow: 0 3px 6px rgba(0, 0, 0, .6);
+                                border-radius: 5px;
+                            }
+                            .filter-search > div {
+                                color: #5bc0de;
+                                cursor: pointer;
+                                /*                                border-right:solid 2px blue; ; */
+                            }
+                            .curent-filter {
+                                font-weight: bold;
+                                background: #5bc0de;
+                                color: #fff;
+                                border-right: solid 3px;
+                            }
+                            .search-tag {
+                                list-style: none;
+                            }
+                            .search-teg li {
+                                display: inline-block;
+                            }

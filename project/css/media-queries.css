@@ -1,0 +1,55 @@
+@media screen and (min-width: 1024px)  and  (max-width: 1200px){
+    html, body {
+        width: 1024px ;
+        padding: 0;
+        margin: 0;
+    }
+
+    #header-menu {
+    	width: 70%;
+    	left: 20%;
+    }
+
+    #login-button {
+    	right: 0px;
+    }
+
+        #title-block {
+    	left: 18%;
+    }
+
+    #search-sort #searchBox {
+    	top: -13px;
+    }
+
+    #userMenuButton {
+    	right: 40px;
+    }
+
+    #userNavPanel {
+    	top: 52px;
+    	left: 80px;
+    }
+}
+
+@media screen and (min-width: 768px)  and  (max-width: 1024px) {
+
+
+    #header-menu {
+    	width: 90%;
+    	left: 10%;
+    }
+
+    #login-button {
+    	right: -30px;
+    }
+
+    #title-block {
+    	left: 7%;
+    }
+
+    #search-sort #searchBox {
+    	top: -13px;
+    }
+
+}

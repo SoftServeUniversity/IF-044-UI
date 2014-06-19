@@ -1,186 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YunakQuize Tests</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/login_page.css" rel="stylesheet">
-    <link href="css/administration.css" rel="stylesheet">
-
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/new_data.js"></script>
-    <!--<script src="json/data.json"></script>-->
-    <!--<script src='js/administration.js'></script>-->
-
-</head>
-<body class="container-fluid">
-<div id="outer-wrapper" class="container">
-    <div id="inner-wrapper" class="container">
-        <header class="row">
-            <div id="header-container"
-                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-           <!--      <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
-                <div id="title-block">
-                    <h4>Система Пластових електронних опитників</h4>
-                </div>
-                <nav id="header-menu">
-                    <ul>
-                        <li><a href="index.html">Головна</a></li>
-                        <li><a href="guest_search_result.html">Пошук</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="general-statistic.html">Статистика</a>
-                        </li>
-                    </ul>
-                </nav>
-                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
-                    <img src="pic/login.jpg" alt="login" width="35" height="35">
-                </a>
-                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
-                <ul id="userNavPanel">
-                    <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a></li>
-                    <li><a href="#" id="changedA"></a></li>
-                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
-                </ul>
-            </div>
-        </header>
-        <main>
-
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-login-form" class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            YunakQuize Tests
+        </title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/login_page.css" rel="stylesheet" type="text/css">
+        <link href="css/administration.css" rel="stylesheet" type="text/css">
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" type="text/javascript">
+</script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" type="text/javascript">
+</script>
+        <script src="json/new_data.js" type="text/javascript">
+</script><!--<script src="json/data.json"></script>-->
+        <!--<script src='js/administration.js'></script>-->
+        <link rel="stylesheet" href="css/eltre/jquery-ui-1.8.13.custom.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="css/eltre/elrte.min.css" type="text/css" media="screen" charset="utf-8">
+    </head>
+    <body class="container-fluid">
+        <div id="outer-wrapper" class="container">
+            <div id="inner-wrapper" class="container">
+                <header class="row">
+                    <div id="header-container" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                        <!--      <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
+                        <div id="title-block">
+                            <h4>
+                                Система Пластових електронних опитників
+                            </h4>
                         </div>
-                        <div class="modal-body">
-                            <p class="error-block"></p>
-                            <form id="signin-form" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3"
-                                               placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Запам'ятати
-                                            </label>
+                        <nav id="header-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Головна</a>
+                                </li>
+                                <li>
+                                    <a href="guest_search_result.html">Пошук</a>
+                                </li>
+                                <li>
+                                    <a href="contacts.html">Контакти</a>
+                                </li>
+                                <li>
+                                    <a href="general-statistic.html">Статистика</a>
+                                </li>
+                            </ul>
+                        </nav><a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()"><img src="pic/login.jpg" alt="login" width="35" height="35"></a> <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                        <ul id="userNavPanel">
+                            <li>
+                                <a href="user_my_test_nyarytc.html">Особистий кабінет</a>
+                            </li>
+                            <li>
+                                <a href="#" id="changedA"></a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="logOutModule()">Вихід</a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modal-login-box" class="modal-dialog">
+                        <div id="modal-login-form" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    Вхід в Систему
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="error-block"></p>
+                                <form id="signin-form" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10">
-                                        <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
-                                        <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox">Запам'ятати</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-1 col-sm-10">
+                                            <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button> <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-              <div class="modal fade" id="change_status_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                     <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-edit-form2" class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"><strong>Змінити статус</strong></h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="edit-form" class="form-horizontal" role="form">
-                                <div class="form-group"> 
-                                    <label for="name_of_current_user" class="col-sm-3 text-center control-label">Ім'я користувача</label>
-                                    <div class="col-sm-6 text-left nameofuser" id='name_of_user'></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="choose_main_category" class="col-sm-2 col-sm-offset-1 control-label">Статус</label>
-                                    <div class="col-sm-8" id='choose_main_status'>
-                                        <select class='form-control' id='select_status'>
-                                            <option role_id='1'>Авторизований користувач</option>
-                                            <option role_id='2'>Модератор</option>
-                                            <option role_id='3'>Адміністратор</option>
-                                        </select>
+                <div class="modal fade" id="change_status_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modal-login-box2" class="modal-dialog">
+                        <div id="modal-edit-form2" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="resetCapcha()">×</button>
+                                <h4 class="modal-title" id="myModalLabel2">
+                                    <strong>Змінити статус</strong>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="edit-form" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="name_of_current_user" class="col-sm-3 text-center control-label">Ім'я користувача</label>
+                                        <div class="col-sm-6 text-left nameofuser" id='name_of_user'></div>
                                     </div>
-                                </div>
-                      
-                                <div class="form-group editcaptcha">
-                                    <div class="form-group Captcha">
-                                        <label class="col-sm-3 control-label enternumber" for="exampleInputFile">Введіть число:</label>
-                                        <div class="col-sm-3" >
-                                        <span id="txtCaptchaDiv" style="color:#0000"></span>
-                                        <input type="hidden" id="txtCaptcha"> </label>
-                                        <input type="text" name="txtInput" id="txtInput" size="5"/>
-                                         </div>
-                                 </div>
-                                    <div class="col-sm-offset-1 col-sm-11 edit-button">
-                                        <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick=changestatus() data-dismiss="modal">Змінити статус</button>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
+                                    <div class="form-group">
+                                        <label for="choose_main_category" class="col-sm-2 col-sm-offset-1 control-label">Статус</label>
+                                        <div class="col-sm-8" id='choose_main_status'>
+                                            <select class='form-control' id='select_status'>
+                                                <option role_id='1'>
+                                                    Авторизований користувач
+                                                </option>
+                                                <option role_id='2'>
+                                                    Модератор
+                                                </option>
+                                                <option role_id='3'>
+                                                    Адміністратор
+                                                </option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
+                                    <div class="form-group editcaptcha">
+                                        <div class="form-group Captcha">
+                                            <label class="col-sm-3 control-label enternumber" for="exampleInputFile">Введіть число:</label>
+                                            <div class="col-sm-3">
+                                                <span id="txtCaptchaDiv" style="color:#0000"></span> <input type="hidden" id="txtCaptcha"> <input type="text" name="txtInput" id="txtInput" size="5">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-offset-1 col-sm-11 edit-button">
+                                            <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick="changestatus()" data-dismiss="modal">Змінити статус</button> <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="resetCapcha()">Скасувати</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                     <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-edit-form2" class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"><strong>Видалити користувача</strong></h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="edit-form" class="form-horizontal" role="form">
-                                <div class="form-group"> 
-                                    <label for="name_of_current_user" class="col-sm-6 text-center control-label">Ім'я користувача</label>
-                                    <div class="col-sm-6 text-left nameofuser" id='name_of_user_delete'></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="choose_main_category" class="col-sm-6  control-label">Статус користувача</label>
-                                    <div class="col-sm-6" id='main_status_of_user'>
+                <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modal-login-box3" class="modal-dialog">
+                        <div id="modal-edit-form22" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="resetCapcha()">×</button>
+                                <h4 class="modal-title" id="myModalLabel3">
+                                    <strong>Видалити користувача</strong>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="edit-form2" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="name_of_current_user" class="col-sm-6 text-center control-label">Ім'я користувача</label>
+                                        <div class="col-sm-6 text-left nameofuser" id='name_of_user_delete'></div>
                                     </div>
-                                </div>
-                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="choose_main_category" class="col-sm-6 control-label">Статус користувача</label>
+                                        <div class="col-sm-6" id='main_status_of_user'></div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-sm-6 control-label enternumber" for="exampleInputFile">Введіть число:</label>
-                                        <div class="col-sm-6" >
-                                        <span id="txtCaptchaDiv_delete" style="color:#0000"></span>
-                                        <input type="hidden" id="txtCaptcha_delete"> </label>
-                                        <input type="text" name="txtInput" id="txtInput_delete" size="5"/>
+                                        <div class="col-sm-6">
+                                            <span id="txtCaptchaDiv_delete" style="color:#0000"></span> <input type="hidden" id="txtCaptcha_delete"> <input type="text" name="txtInput" id="txtInput_delete" size="5">
+                                        </div>
                                     </div>
-                                </div>
-                                  <div class="form-group buttons_delete">
-                                    <div class="col-sm-offset-1 col-sm-11 edit-button">
-                                        <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick=deleteuser() data-dismiss="modal">Видалити</button>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
+                                    <div class="form-group buttons_delete">
+                                        <div class="col-sm-offset-1 col-sm-11 edit-button">
+                                            <button id="change_status2" type="button" class="btn btn-primary buttonedit" onclick="deleteuser()" data-dismiss="modal">Видалити</button> <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="resetCapcha()">Скасувати</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
+                                </form>
+                            </div>
+                            <div class="modal-footer"></div>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
 
              <div class="modal fade" id="banned" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -196,85 +203,110 @@
                                     <label for="name_of_current_user" class="col-sm-6 text-center control-label">Ім'я користувача</label>
                                     <div class="col-sm-6 text-left nameofuser" id='name_of_user_banned'></div>
                                 </div>                           
+=======
+                <div class="modal fade" id="banned" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modal-login-box4" class="modal-dialog">
+                        <div id="modal-edit-form23" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="resetCapcha()">×</button>
+                                <h4 class="modal-title" id="myModalLabel4">
+                                    <strong>Внести до чорного списку</strong>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="edit-form3" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="name_of_current_user" class="col-sm-6 text-center control-label">Ім'я користувача</label>
+                                        <div class="col-sm-6 text-left nameofuser" id='name_of_user_banned'></div>
+                                    </div>
+>>>>>>> 3b31aece470adfa399aba4c2ce54b6a220b6b26c
                                     <div class="form-group">
                                         <label class="col-sm-6 control-label enternumber" for="exampleInputFile">Введіть число:</label>
-                                        <div class="col-sm-6" >
-                                        <span id="txtCaptchaDiv_banned" style="color:#0000"></span>
-                                        <input type="hidden" id="txtCaptcha_banned"> </label>
-                                        <input type="text" name="txtInput" id="txtInput_banned" size="5"/>
+                                        <div class="col-sm-6">
+                                            <span id="txtCaptchaDiv_banned" style="color:#0000"></span> <input type="hidden" id="txtCaptcha_banned"> <input type="text" name="txtInput" id="txtInput_banned" size="5">
+                                        </div>
                                     </div>
+<<<<<<< HEAD
                                 </div>
                                   <div class="form-group buttons_delete">
                                     <div class="col-sm-offset-1 col-sm-11 edit-button">
                                         <button id="change_status_blacklist" type="button" class="btn btn-primary buttonedit" onclick=banned() data-dismiss="modal">Внести</button>
                                         <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
+=======
+                                    <div class="form-group buttons_delete">
+                                        <div class="col-sm-offset-1 col-sm-11 edit-button">
+                                            <button id="change_status3" type="button" class="btn btn-primary buttonedit" onclick="banned()" data-dismiss="modal">Внести</button> <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="resetCapcha()">Скасувати</button>
+                                        </div>
+>>>>>>> 3b31aece470adfa399aba4c2ce54b6a220b6b26c
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
+                                </form>
+                            </div>
+                            <div class="modal-footer"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-<div class='panel panel-primary'>
-        <div class='panel-heading'>
-            <h3 class='panel-title'><strong>Адміністративна панель</strong></h3>
-        </div>
-        <div class='panel-body'>
-          <div class="container-fluid">
-
-                <div class="col-lg-11 col-md-11 admin-panel">
-
-
-
-                        <div class="bs-example bs-example-tabs">
-                            <ul id="myTab" class="nav nav-tabs paneltitle">
-                                <li class="active">
-                                    <a data-toggle="tab" class="bg-info" href="#p1">Користувачі</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p2">Чорний список</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p3">Адміністрація</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p4">Категорії тестів</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p5">Бази даних</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-info" href="#p6">Локалізація</a>
-                                </li>
-                                <li>
-                                    <a data-toggle='tab' class='bg-info' href='#p7'>Про нас</a>
-                                </li>
-                            </ul>
-
-                            <div id="myTabContent" class="tab-content panel">
-                                <div id="p1" class="tab-pane fade in active">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
-                                                <th><select class='form-control control'>
-                                                    <option><strong>Алфавіту</strong></oprtion>
-                                                    <option>Статусу</oprtion>
-                                                </select></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
-                                                </th>
-                                            </tr>                                        
-                                        </thead>
-                                        <tbody id="usersTable">
-                                 
-                                 <!--   <tr>
+                <div class='panel panel-primary'>
+                    <div class='panel-heading'>
+                        <h3 class='panel-title'>
+                            <strong>Адміністративна панель</strong>
+                        </h3>
+                    </div>
+                    <div class='panel-body'>
+                        <div class="container-fluid">
+                            <div class="col-lg-11 col-md-11 admin-panel">
+                                <div class="bs-example bs-example-tabs none_border">
+                                    <ul id="myTab" class="nav nav-tabs paneltitle">
+                                        <li class="active">
+                                            <a data-toggle="tab" class="bg-info" href="#p1">Користувачі</a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="bg-info" href="#p2">Чорний список</a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="bg-info" href="#p3">Адміністрація</a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="bg-info" href="#p4">Категорії тестів</a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="bg-info" href="#p5">Бази даних</a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="bg-info" href="#p6">Локалізація</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle='tab' class='bg-info' href='#p7' id="about-us-page-click">Про нас</a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content panel">
+                                        <div id="p1" class="tab-pane fade in active">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="nameofsort text-center">
+                                                            <span>Сортувати по</span>
+                                                        </th>
+                                                        <th>
+                                                            <select class='form-control control'>
+                                                                <option>
+                                                                    Алфавіту
+                                                                </option>
+                                                                <option>
+                                                                    Статусу
+                                                                </option>
+                                                            </select>
+                                                        </th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type='search' class='form-control' id='search-input' placeholder='Пошук'>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="usersTable">
+                                                    <!--   <tr>
                                         <td><span id='firstName'></span></td>
                                         <td><span id='mail'>Harry55@gmail.com</span></td>                    
                                         <td><span class='user' id='change'><strong>Модератор</strong></span></td>
@@ -337,195 +369,278 @@
                                         <td></td>
                                         <td></td> 
                                     </tr>-->
-                                        </tbody>
-                                    </table>
-                                       <div class='pageroller'>
-                                            <ul class='pagination'>
-                                                <li><a href='#'>&laquo;</a></li>
-                                                <li class='active'><a href='#'>1</a></li>
-                                                <li><a href='#'>2</a></li>
-                                                <li><a href='#'>3</a></li>
-                                                <li><a href='#'>4</a></li>
-                                                <li><a href='#'>5</a></li>
-                                                <li><a href='#'>6</a></li>
-                                                <li><a href='#'>7</a></li>
-                                                <li><a href='#'>&raquo</a></li>
-                                            </ul>
+                                                </tbody>
+                                            </table>
+                                            <div class='pageroller'>
+                                                <ul class='pagination'>
+                                                    <li>
+                                                        <a href='#'>«</a>
+                                                    </li>
+                                                    <li class='active'>
+                                                        <a href='#'>1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>5</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>6</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>7</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>»</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                </div>
-
-                                <div id="p2" class="tab-pane fade in #p2">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
-                                                <th><select class='form-control control'>
-                                                    <option><strong>Алфавіту</strong></oprtion>
-                                                    <option>Статусу</oprtion>
-                                                </select></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th><input type='search' class='form-control' id='blacklist_search-input' placeholder='Пошук'>
-                                                </th>
-                                            </tr>                                        
-                                        </thead>
-                                        <tbody id="blacklist">
-                      
-                                        </tbody>
-                                    </table>
-                                       <div class='pageroller'>
-                                            <ul class='pagination'>
-                                                <li><a href='#'>&laquo;</a></li>
-                                                <li class='active'><a href='#'>1</a></li>
-                                                <li><a href='#'>2</a></li>
-                                                <li><a href='#'>3</a></li>
-                                                <li><a href='#'>4</a></li>
-                                                <li><a href='#'>5</a></li>
-                                                <li><a href='#'>6</a></li>
-                                                <li><a href='#'>7</a></li>
-                                                <li><a href='#'>&raquo</a></li>
-                                            </ul>
+                                        <div id="p2" class="tab-pane fade in #p2">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="nameofsort text-center">
+                                                            <span>Сортувати по</span>
+                                                        </th>
+                                                        <th>
+                                                            <select class='form-control control'>
+                                                                <option>
+                                                                    Алфавіту
+                                                                </option>
+                                                                <option>
+                                                                    Статусу
+                                                                </option>
+                                                            </select>
+                                                        </th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th>
+                                                            <input type='search' class='form-control' id='blacklist_search-input' placeholder='Пошук'>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="blacklist"></tbody>
+                                            </table>
+                                            <div class='pageroller'>
+                                                <ul class='pagination'>
+                                                    <li>
+                                                        <a href='#'>«</a>
+                                                    </li>
+                                                    <li class='active'>
+                                                        <a href='#'>1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>5</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>6</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>7</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>»</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                </div>
-
-                                <div id="p3" class="tab-pane fade in #p3">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
-                                                <th><select class='form-control control'>
-                                                    <option><strong>Алфавіту</strong></oprtion>
-                                                    <option>Статусу</oprtion>
-                                                </select></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>                                        
-                                        </thead>
-                                        <tbody id="administrationlist">
-                      
-                                        </tbody>
-                                    </table>
-                                       <div class='pageroller'>
-                                            <ul class='pagination'>
-                                                <li><a href='#'>&laquo;</a></li>
-                                                <li class='active'><a href='#'>1</a></li>
-                                                <li><a href='#'>2</a></li>
-                                                <li><a href='#'>3</a></li>
-                                                <li><a href='#'>4</a></li>
-                                                <li><a href='#'>5</a></li>
-                                                <li><a href='#'>6</a></li>
-                                                <li><a href='#'>7</a></li>
-                                                <li><a href='#'>&raquo</a></li>
-                                            </ul>
+                                        <div id="p3" class="tab-pane fade in #p3">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="nameofsort text-center">
+                                                            <span>Сортувати по</span>
+                                                        </th>
+                                                        <th>
+                                                            <select class='form-control control'>
+                                                                <option>
+                                                                    Алфавіту
+                                                                </option>
+                                                                <option>
+                                                                    Статусу
+                                                                </option>
+                                                            </select>
+                                                        </th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="administrationlist"></tbody>
+                                            </table>
+                                            <div class='pageroller'>
+                                                <ul class='pagination'>
+                                                    <li>
+                                                        <a href='#'>«</a>
+                                                    </li>
+                                                    <li class='active'>
+                                                        <a href='#'>1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>5</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>6</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>7</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href='#'>»</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                </div>
-
-
-
-                                <div id="p4" class="tab-pane fade in #p4">
-                                  <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="number_of_categories text-center">№</th>
-                                                <th class="name_of_categories text-center">Назва категорії</th>
-                                                <th class="name_of_main_categories text-center">Батьківська категорія</th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button2" onclick="loginModule()"><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'>Додати категорію</button></a></th>
-                                            </tr>                                        
-                                        </thead>
-
-                     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                     <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-edit-form" class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"><strong>Нова категорія</strong></h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="edit-form" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="name_of_category" class="col-sm-5 control-label required">Назва категорії</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="input_of_cotegory" placeholder="Веддіть назву категорії....">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
-                                    <div class="col-sm-7" id='choose_main_category'>
-                                        <select class='form-control' id='select'>
-                                            <option parant_id='1'>Спорт</option>
-                                            <option parant_id='2'>Туризм</option>
-                                            <option parant_id='3'>Комп'ютери</option>
-                                            <option parant_id='0' selected>-------</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10 buttons_edit">
-                                        <button id="edittbutton" type="button" class="btn btn-primary buttonedit" onclick=editbutton() data-dismiss="modal">Додати категорію</button>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                     <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-edit-form" class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"><strong>Редагувати категорію</strong></h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="edit-form" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="name_of_category" class="col-sm-5 control-label required">Назва категорії</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="name_of_cotegory" placeholder="Веддіть назву категорії....">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
-                                    <div class="col-sm-7" id='choose_main_category'>
-                                        <select class='form-control' id='select_reedit'>
-                                            <option parant_id='0'>-------</option>
-                                            <option parant_id='1'>Спорт</option>
-                                            <option parant_id='2'>Туризм</option>
-                                            <option parant_id='3'>Комп'ютери</option>                                           
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10 buttons_edit">
-                                        <button id="registration-button" type="button" class="btn btn-primary buttonreedit" onclick=ReEditButton() data-dismiss="modal">Редагувати категорію</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                                        <tbody id='usersCategories'>
-                                    <!-- <tr>
+                                        <div id="p4" class="tab-pane fade in #p4">
+                                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div id="modal-login-box5" class="modal-dialog">
+                                                    <div id="modal-edit-form" class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            <h4 class="modal-title" id="myModalLabel5">
+                                                                <strong>Нова категорія</strong>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="edit-form4" class="form-horizontal" role="form">
+                                                                <div class="form-group">
+                                                                    <label for="name_of_category" class="col-sm-5 control-label required">Назва категорії</label>
+                                                                    <div class="col-sm-7">
+                                                                        <input type="text" class="form-control" id="input_of_cotegory" placeholder="Веддіть назву категорії....">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
+                                                                    <div class="col-sm-7" id='choose_main_category'>
+                                                                        <select class='form-control' id='select'>
+                                                                            <option parant_id='12'>
+                                                                                Спорт
+                                                                            </option>
+                                                                            <option parant_id='22'>
+                                                                                Туризм
+                                                                            </option>
+                                                                            <option parant_id='32'>
+                                                                                Комп'ютери
+                                                                            </option>
+                                                                            <option parant_id='0' selected>
+                                                                                -------
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-offset-1 col-sm-10 buttons_edit">
+                                                                        <button id="edittbutton" type="button" class="btn btn-primary buttonedit" onclick="editbutton()" data-dismiss="modal">Додати категорію</button> <button type="submit" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div id="modal-login-box6" class="modal-dialog">
+                                                    <div id="modal-edit-form22" class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            <h4 class="modal-title" id="myModalLabel6">
+                                                                <strong>Редагувати категорію</strong>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="edit-form5" class="form-horizontal" role="form">
+                                                                <div class="form-group">
+                                                                    <label for="name_of_category" class="col-sm-5 control-label required">Назва категорії</label>
+                                                                    <div class="col-sm-7">
+                                                                        <input type="text" class="form-control" id="name_of_cotegory" placeholder="Веддіть назву категорії....">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="choose_main_category" class="col-sm-5 control-label">Батьківська категорія</label>
+                                                                    <div class="col-sm-7" id='choose_main_category2'>
+                                                                        <select class='form-control' id='select_reedit'>
+                                                                            <option parant_id='02'>
+                                                                                -------
+                                                                            </option>
+                                                                            <option parant_id='13'>
+                                                                                Спорт
+                                                                            </option>
+                                                                            <option parant_id='23'>
+                                                                                Туризм
+                                                                            </option>
+                                                                            <option parant_id='33'>
+                                                                                Комп'ютери
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-offset-1 col-sm-10 buttons_edit">
+                                                                        <button id="registration-button2" type="button" class="btn btn-primary buttonreedit" onclick="ReEditButton()" data-dismiss="modal">Редагувати категорію</button> <button type="button" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="number_of_categories text-center">
+                                                            №
+                                                        </th>
+                                                        <th class="name_of_categories text-center">
+                                                            Назва категорії
+                                                        </th>
+                                                        <th class="name_of_main_categories text-center">
+                                                            Батьківська категорія
+                                                        </th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th>
+                                                            <a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button2" onclick="loginModule()"><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button22" onclick="loginModule()"></a><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button23" onclick="loginModule()"></a><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button22" onclick="loginModule()">Додати категорію</a></button></a>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id='usersCategories'>
+                                                    <!-- <tr>
                                         <td><strong>1</strong></td>
                                         <td>I проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -535,7 +650,7 @@
                                           <tr>
                                         <td><strong>2</strong></td>
                                         <td>II проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                         <td></td>
                                         <td></td>
                                            <td></td>
@@ -545,7 +660,7 @@
                                          <tr>
                                         <td><strong>3</strong></td>
                                         <td>III проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                         <td></td>
                                         <td></td>
                                            <td></td>
@@ -555,7 +670,7 @@
                                          <tr>
                                         <td><strong>4</strong></td>
                                         <td>VI проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                         <td></td>
                                         <td></td>
                                            <td></td>
@@ -565,7 +680,7 @@
                                     <tr>
                                         <td><strong>5</strong></td>
                                         <td>V проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                         <td></td>  
                                         <td></td>
                                            <td></td>
@@ -575,7 +690,7 @@
                                           <tr>
                                         <td><strong>6</strong></td>
                                         <td>VI проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -585,72 +700,93 @@
                                     <tr>
                                         <td><strong>7</strong></td>
                                         <td>VII проба</td>                    
-                                        <td> -------- </td>
+                                        <td> ======== </td>
                                          <td></td>
                                         <td></td>
                                         <td></td>
                                         <td><button  class="btn btn-success btn-small btn-xs">редагувати</button>
                                         <button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
                                     </tr> -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div id="p5" class="tab-pane fade in #p5">
-                                    <div class='btn-group db'>
-                                        <button type='button' class='btn btn-primary data'>Резервне копіювання</button>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="p5" class="tab-pane fade in #p5">
+                                            <div class='btn-group db'>
+                                                <button type='button' class='btn btn-primary data'>Резервне копіювання</button>
+                                            </div>
+                                        </div>
+                                        <div id="p6" class="tab-pane fade in #p6">
+                                            <div class='language'>
+                                                <span>Мова системи:</span> <select>
+                                                    <option>
+                                                        Українська
+                                                    </option>
+                                                    <option>
+                                                        Англійська
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id='p7' class='tab-pane fade in #p7'>
+                                            <div class="content">
+                                              <h3 class="text-center">Редагування вмісту сторінки</h3>
+                                              <textarea id="about-us-content" class="more-space-down"></textarea>
+                                              <div class="text-center">
+                                                <button class="btn btn-danger" id="about-page-edit-cancel">Не враховувати зміни</button>
+                                                <button class="btn btn-success" id="about-page-edit-confirm">Застосувати зміни</button>
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div id="p6" class="tab-pane fade in #p6">
-                                        <div class='language'>
-                                            <span>Мова системи: </span>
-                                            <select>
-                                                <option>Українська</option>
-                                                <option>Англійська</option>
-                                            </select>
-                                        </div>
-                                </div>
-                                <div id='p7' class='tab-pane fade in #p7'>
-                                
-                                </div>
-
                             </div>
-                        </div>
-                </div>
-            </div><!--end of container-fluid -->
-        </div><!--end of panel-body -->
-    </div><!--end of panel -->
-<footer class="container">
-    <div id="footer-container">
-        <nav id="footer-menu">
-            <ul>
-                <li><a href="index.html">Головна</a> &nbsp|</li>
-                <li><a href="#">Про нас</a> &nbsp|</li>
-                <li><a href="contacts.html">Контакти</a></li>
-            </ul>
-        </nav>
-        <p>Copyright@ 2014 <b>IF-044</b></p>
-    </div>
-</footer>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/components.js"></script>
-<script src='js/search-form2.js'></script>
-<script src='js/categories_form.js'></script>
-
-<script>
-    // window.onload = function(){
-    //     var a = Math.ceil(Math.random() * 9);
-    //     var b = Math.ceil(Math.random() * 9);
-    //     var c = Math.ceil(Math.random() * 9);
-    //     var d = Math.ceil(Math.random() * 9);
-    //     var e = Math.ceil(Math.random() * 9);
-    //     var code = a * b * c * d * e;
-    //     document.getElementById("txtCaptcha").value = code;
-    //     document.getElementById("txtCaptchaDiv").innerHTML = code;
-    // }
-</script>
-
-</body>
+                        </div><!--end of container-fluid -->
+                    </div><!--end of panel-body -->
+                </div><!--end of panel -->
+                <footer class="container">
+                    <div id="footer-container">
+                        <nav id="footer-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Головна</a> &nbsp;|
+                                </li>
+                                <li>
+                                    <a href="about.html">Про нас</a> &nbsp;|
+                                </li>
+                                <li>
+                                    <a href="contacts.html">Контакти</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p>
+                            Copyright@ 2014 <b>IF-044</b>
+                        </p>
+                    </div>
+                </footer><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript">
+</script> <script src="js/bootstrap.min.js" type="text/javascript">
+</script> <script src="js/components.js" type="text/javascript">
+</script> <script src='js/search-form2.js' type="text/javascript">
+</script> <script src='js/categories_form.js' type="text/javascript">
+</script> <script src='js/administration/about.js' type="text/javascript">
+</script> <script type="text/javascript">
+changeLoginPic();
+                </script> <script type="text/javascript">
+// window.onload = function(){
+                //     var a = Math.ceil(Math.random() * 9);
+                //     var b = Math.ceil(Math.random() * 9);
+                //     var c = Math.ceil(Math.random() * 9);
+                //     var d = Math.ceil(Math.random() * 9);
+                //     var e = Math.ceil(Math.random() * 9);
+                //     var code = a * b * c * d * e;
+                //     document.getElementById("txtCaptcha").value = code;
+                //     document.getElementById("txtCaptchaDiv").innerHTML = code;
+                // }
+</script> <!-- For Ertl WYSIWYG rich text editor -->
+<script src="js/administration/eltre/jquery-ui-1.8.13.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/administration/eltre/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/administration/eltre/elrte.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/administration/eltre/elrte.ua.js" type="text/javascript" charset="utf-8"></script>
+            </div>
+        </div>
+    </body>
 </html>

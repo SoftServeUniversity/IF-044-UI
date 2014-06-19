@@ -1,6 +1,6 @@
 'use strict'
 
-window.onload = function prof_change() {
+function prof_change() {
 	console.log(Model.date);
 	var current_user = getCurrentUser(); 
 
@@ -24,8 +24,9 @@ window.onload = function prof_change() {
 	var org_region1 = current_user.org_region;
 	var org_level1 = current_user.org_level;
 
-	document.getElementById("first_name2").innerHTML = first_name;
-	document.getElementById("last_name2").innerHTML = last_name;
+	//document.getElementById("first_name2").innerHTML = first_name;
+	//document.getElementById("last_name2").innerHTML = last_name;
+	document.getElementById('username2').innerHTML = first_name + " " + last_name;
 	document.getElementById("birthday").innerHTML = birthday;
 	document.getElementById("org_troop1").innerHTML = org_troop1;
 	document.getElementById("org_region1").innerHTML = org_region1;
@@ -34,8 +35,8 @@ window.onload = function prof_change() {
 };
   function rEdit () {
     window.location = "edit_profile.html"
-       }
+    }
 
    function rIndex () {
     window.location = "index.html"
-       }
+    }

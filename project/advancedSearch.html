@@ -1,50 +1,3 @@
-﻿
-<!--
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YunakQuize Layout</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="json/data.json"></script>
-    <script src="js/advancedSearch.js"></script>
-
-</head>
-
-<body class="container-fluid">
-    <div id="outer-wrapper" class="container">
-        <div id="inner-wrapper" class="container">
-            <header class="row">
-                <div id="header-container" class=" col-xs-12 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1  col-xs-offset-0">
-                    <a href="#">
-                        <img src="pic/logo.png" alt="YunakQuize">
-                    </a>
-                    <nav id="header-menu">
-                        <ul>
-                            <li>
-                                <a href="#">Тести</a>
-                            </li>
-                            <li>
-                                <a href="#">Про нас</a>
-                            </li>
-                            <li>
-                                <a href="#">Контакти</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,14 +8,16 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+	<link href="css/search.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
+    <link href="css/media-queries.css" rel="stylesheet">  
    <!--  <link href="css/faq.css" rel="stylesheet"> -->
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="json/data.json"></script>
     <script src="json/new_data.js"></script>
-    <script src="js/advancedSearch.js"></script>
+	<script src="js/advancedSearch.js"></script>
 
 
 </head>
@@ -156,118 +111,15 @@
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-lg-4 col-md-4 col-sm-4">
-                        <style>
-                            .filter-title {
-                                font-size: 24px;
-                                color: #428bca;
-                            }
-                            .reset {
-                                color: #428bca;
-                            }
-                            label {
-                                margin: 0;
-                                font-weight: normal;
-                            }
-                        </style>
                         <div class="row filter-search">
-                            <div class="col-xs-8 col-xs-offset-2">
+                            <div class="col-xs-8 col-xs-offset-2 text-left">
                                 <span class="reset">
             <img src="pic/reset.png" height="10" width="10"> шукати скрізь</span>
                             </div>
-<!--
-                            <div class="col-xs-12">
-                                <div class=" col-xs-8 col-xs-offset-2 text-left name-category">категорія 1</div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <div class=" col-xs-8 col-xs-offset-2 text-left name-category ">категорія 1</div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center curent-filter">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center curent-filter">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center curent-filter">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <div class=" col-xs-8 col-xs-offset-2 text-left name-category">категорія 1</div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-1 text-center">
-                                        підкатегорія
-                                    </div>
-                                </div>
-                            </div>
--->
-
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8">
-                        <style>
-                            .search-result {
-                                border: solid 2px transparent;
-                                padding: 0 19px;
-                                -moz-transition: all .2s linear 0.1s;
-                                /*                                transition-timing-function: steps(0.8) */
-                                -webkit-transition: all .8s linear 0.1s;
-                                -o-transition: all .2s linear 0.1s;
-                                transition: all .2s linear 0.1s;
-                            }
-                            .search-result:hover {
-                                border: solid 2px rgb(221, 219, 219);
-                                box-shadow: 0 3px 6px rgba(0, 0, 0, .6);
-                                border-radius: 5px;
-                            }
-                            .filter-search > div {
-                                color: #5bc0de;
-                                cursor: pointer;
-                                /*                                border-right:solid 2px blue; ; */
-                            }
-                            .curent-filter {
-                                font-weight: bold;
-                                background: #5bc0de;
-                                color: #fff;
-                                border-right: solid 3px;
-                            }
-                            .search-tag {
-                                list-style: none;
-                            }
-                            .search-teg li {
-                                display: inline-block;
-                            }
-                        </style>
                         <div class="row row-search-result">                       
 <script>
 
@@ -283,9 +135,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!--                CONTENT!!!-->
-
             </main>
         </div>
     </div>
@@ -294,7 +143,7 @@
             <nav id="footer-menu">
             <ul>
                 <li><a href="index.html">Головна</a> &nbsp|</li>
-                <li><a href="#">Про нас</a> &nbsp|</li>
+                <li><a href="about.html">Про нас</a> &nbsp|</li>
                 <li><a href="contacts.html">Контакти</a></li>
             </ul>
             </nav>
@@ -305,6 +154,7 @@
     </footer>
 
 
+<script src="js/guest_search_result.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script> 
