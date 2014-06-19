@@ -139,7 +139,7 @@ function getCurrrentUserName() {
       } else if(currentUser.role_id === 2){
          changedA.style.display = 'inline-block';
          changedA.innerHTML = 'Кабінет Модератора';
-         changedA.href = 'moderatrPage.html';
+         changedA.href = 'moderator_filtertests_nyarytc.html';
       } else if(currentUser.role_id === 3){
           changedA.style.display = 'inline-block';
           changedA.innerHTML = 'Панель Адміністратора';

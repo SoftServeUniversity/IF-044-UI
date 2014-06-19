@@ -102,7 +102,7 @@
                 <div class="row">
                     <div id="pageTitleBox" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="center-block">
-                            <h3 id="pageTitle">Статистика категорії:</h3>
+                            <h3 class="pageTitle">Загальна статистика системи</h3>
                         </div>
                     </div>
                     <div id="filtersBox" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -139,19 +139,75 @@
                         </div>
                     </label>
                     <br>
-                    <a onclick="generalStatisticModule()" class="btn btn-primary">Згенерувати</a>
+                    <a onclick="generalStatisticModule()" class="btn btn-primary">Згенерувати графік</a>
                     </div>
                     <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                         <ul class="nav nav-tabs">
-                          <li class="tabs active"><a href="#stat1">Загальна статистика</a></li>
-                          <li class="tabs"><a href="#stat2">Статистика по віку</a></li>
-                          <li class="tabs"><a href="#stat3">Статистика по ступеню</a></li>
+                          <li class="tabs active"><a href="#stat1">Тести</a></li>
+                          <li class="tabs"><a href="#stat2">Бали</a></li>
+                          <li class="tabs"><a href="#stat3">Бали/Вік</a></li>
+                          <li class="tabs"><a href="#stat4">Бали/Ступінь</a></li>
+                          <li class="tabs"><a href="#stat5">Кількість спроб</a></li>
+                          <li class="tabs"><a href="#stat6">Середній бал</a></li>
                         </ul>
                         <div class="tab-content">
                            <div class="tab-pane active" id="stat1"></div>
                            <div class="tab-pane" id="stat2"></div>
                            <div class="tab-pane" id="stat3"></div>
-                                    
+                           <div class="tab-pane" id="stat4"></div>
+                           <div class="tab-pane" id="stat5">
+                              <h4>Топ-10 тестів по кількості проходжень</h4>
+                               <table class="table table-hover" id="Table1">
+                                <thead>
+                                 <tr>
+                                  <td>№</td>
+                                  <td>Назва</td>
+                                  <td>Кількість</td>
+                                  <td>Сер. бал</td>
+                                  <td>Підктегорія</td>
+                                  <td>Категорія</td>
+                                 </tr>
+                                </thead>
+                                <tbody>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>                                    
+                                </tbody>
+                              </table>
+                           </div>
+                           <div class="tab-pane" id="stat6">
+                               <h4>Топ-10 тестів по набраному середньому балу</h4>
+                               <table class="table table-hover" id="Table2">
+                                <thead>
+                                 <tr>
+                                  <td>№</td>
+                                  <td>Назва</td>
+                                  <td>Кількість</td>
+                                  <td>Сер. бал</td>
+                                  <td>Підктегорія</td>
+                                  <td>Категорія</td>
+                                 </tr>
+                                </thead>
+                                <tbody>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>
+                                  <tr></tr>                                    
+                                </tbody>
+                              </table>                               
                            </div>
                         </div>
                     </div>
@@ -161,7 +217,7 @@
 
         </main>
     </div>
-  
+</div>
 <footer class="container">
     <div id="footer-container">
         <nav id="footer-menu">
@@ -178,7 +234,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/components.js"></script>
+<script src="js/statistic_for_category.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
