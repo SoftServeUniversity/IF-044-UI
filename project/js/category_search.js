@@ -90,7 +90,7 @@ function CategoriesController() {
     var table = document.getElementById("table_result");
     
     for (i = 0; i < Model.date.Tests.length; i++) {
-    	if (Model.date.Tests[i].status.id == 2) {
+    	if (Model.date.Tests[i].status.id == 1) {
        	 var row = table.insertRow(table.rows.length);
        	 var cell = row.insertCell(-1);
        	 cell.innerHTML = Model.date.Tests[i].name;
@@ -104,7 +104,7 @@ function CategoriesController() {
        var table = document.getElementById("table_result");
         
         for (i = 0; i < 10; i++) {
-        if (Model.date.Tests[i].status.id == 2) {
+        if (Model.date.Tests[i].status.id == 1) {
         var row = table.insertRow(table.rows.length);
         var cell = row.insertCell(-1);
         cell.innerHTML = Model.date.Tests[i].name;
@@ -154,7 +154,7 @@ function change_moder_search_selected(i) {
     var table = document.getElementById("table_result");
     if(cat && subcat){
 	    for (i = 0; i < Model.date.Tests.length; i++) {
-	    	if (Model.date.Tests[i].status.id == 2) {
+	    	if (Model.date.Tests[i].status.id == 1) {
 	    	console.log(Model.date.Tests[i].subcategory);
 	    	console.log(Model.date.Tests[i].category);
 	    	if(subcat.indexOf(Model.date.Tests[i].subcategory.toString())+1  && cat.indexOf(Model.date.Tests[i].category.toString())+1){
@@ -172,7 +172,7 @@ function change_moder_search_selected(i) {
 	  }else{
 	    var table = document.getElementById("table_result");
 	    for (i = 0; i < Model.date.Tests.length; i++) {
-	    	if (Model.date.Tests[i].status.id == 2) {
+	    	if (Model.date.Tests[i].status.id == 1) {
 	        var row = table.insertRow(table.rows.length);
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = Model.date.Tests[i].name;
