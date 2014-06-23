@@ -100,7 +100,7 @@ function ShowAll(){
              category_table += '<div class="col-lg-2 middle"><strong>'+list_categories[l].name+'<strong></div>';
           }
           else{
-            if (Categories[j].parent_id == 0 ) {
+            if (Categories[j].parent_id == 0) {
               category_table += '<div class="col-lg-2 middle"><strong>'+('---')+'<strong></div>';
               break;
               } 
