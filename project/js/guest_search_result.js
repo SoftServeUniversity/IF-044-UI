@@ -111,7 +111,7 @@
      },
      parseUrlForSearch: function(){
         if(window.location.search){
-            var searchQuery=window.location.search.substring(13,window.location.search.length);
+            var searchQuery=decodeURIComponent(window.location.search.substring(13,window.location.search.length));
             //console.log(decodeURIComponent(escape(searchQuery)));
              this.search_input.value = searchQuery;
                  this.showAllcontaining(searchQuery);
