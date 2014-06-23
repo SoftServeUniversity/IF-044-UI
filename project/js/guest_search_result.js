@@ -1,9 +1,10 @@
-//window.onload = function(){
+﻿//window.onload = function(){
  Tests = Model.date.Tests;
  Categories =  Model.date.Tests_categories;
  var simpleSearch = {
     row_results: document.querySelectorAll(".row-search-result")[0],
     search_input: document.getElementById('search_input'),
+    linkToAdvancedSearch: document.getElementById('linkToAdvancedSearch'),
     cat: false,
     subCat: false,
 	showEmpty: function (nothing) {
@@ -63,6 +64,7 @@
 									}
 									this.row_results.innerHTML += '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><h3 class="title-post-name"><a style="text-decoration: none;" href="Test.html?id='+Tests[i].id+'">' + Tests[i].name + '</a></h3><p class="text-justify ">' + Tests[i].description + '</p><div class="col-xs-12"><ul class="search-teg">' + tags + ' </ul></div></div>';
 								}
+                                this.searchTags();
 							} else {
 								this.showEmpty(true);
         }
@@ -75,12 +77,54 @@
 																	simpleSearch.showEmpty();
 																} else {
 																	simpleSearch.showAllcontaining(value);
+                                                                    //simpleSearch.searchTags();
 																}
 															}),
+     searchTags: function(){
+        var tags = document.querySelectorAll('.search-teg li');    
+         for(var i = 0;i<tags.length;i++){
+            tags[i].addEventListener('click',function(e){
+                e.preventDefault();
+                var searchQuery;
+                if(this.innerText.indexOf('|')+1){
+                    searchQuery = this.innerText.substring(0,this.innerText.length-2);
+                }
+                else{
+                    searchQuery = this.innerText;
+                }
+                simpleSearch.search_input.value = searchQuery;
+                simpleSearch.showEmpty();
+                simpleSearch.showAllcontaining(searchQuery);
+                return false;
+            })
+         }
+                                           
+     },
+     clickLinkToAdvancedSearch: function(){
+        if(this.linkToAdvancedSearch){
+            this.linkToAdvancedSearch.addEventListener('click',function(e){
+                //e.preventDefault();
+                console.log(document.getElementById('linkToAdvancedSearch'))
+                this.href = this.href + '?searchQuery=' +  simpleSearch.search_input.value;
+            })
+        }
+     },
+     parseUrlForSearch: function(){
+        if(window.location.search){
+            var searchQuery=window.location.search.substring(13,window.location.search.length);
+            //console.log(decodeURIComponent(escape(searchQuery)));
+             this.search_input.value = searchQuery;
+                 this.showAllcontaining(searchQuery);
+        }    
+          
+     },
 														
     init: this.EventKeyUp
 
 }
 
 simpleSearch.init;
+simpleSearch.clickLinkToAdvancedSearch();
+simpleSearch.parseUrlForSearch();
+//simpleSearch.init2;
 //}   
