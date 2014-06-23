@@ -67,6 +67,7 @@ body {
     }
 
      #modal-login-form .modal-footer {
+        margin-top: 0;
         background-color: #eae8e8;
         border-bottom-left-radius: 7px;
         border-bottom-right-radius: 7px;
