@@ -179,9 +179,9 @@ function showAll(){
 	var content_blacklist = '';
 	var content_administrationlist = '';
 	Model.load_localStorage();
-	for(var i = 0;i<Model.date.Users.length;i++){
-		for( j = 0; j < Model.date.User_roles.length; j++)
-		if(Model.date.Users[i].role_id == Model.date.User_roles[j].id){
+	for(var i = 0;i<Model.date.Users.length;i++){        //перебір масиву юзерів
+		for( j = 0; j < Model.date.User_roles.length; j++) // перебір ролей цих юзерів в системі
+		if(Model.date.Users[i].role_id == Model.date.User_roles[j].id){ // якщо ай ді ролі юзера співпада з роллю в системі, то ми присвоюємо юзеро значення цієї ролі
 			var role_name_user = Model.date.User_roles[j].role_name;
 			//console.log(role_name_user);
 		if (Model.date.Users[i].role_id == 1){
@@ -198,7 +198,8 @@ function showAll(){
 		//console.log(Model.date.Users[i]); button_change_status
 		}
 	}
-		
+		// var d=document.getElementById('filter').options.selectedIndex;
+		// console.log(d);
 
 	place_for_table.innerHTML = content_table;
 	place_for_blacklist.innerHTML = content_blacklist;

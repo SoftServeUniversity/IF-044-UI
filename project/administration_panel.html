@@ -263,85 +263,24 @@
                                 <div id="p1" class="tab-pane fade in active">
                                     <table class="table">
                                         <thead>
-                                            <tr>
-                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
-                                                <th><select class='form-control control'>
-                                                    <option><strong>Алфавіту</strong></oprtion>
+                                            <div class='row fadepanel1'>
+                                                <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
+                                                <div class="col-sm-2"><select class='form-control control' id='filter'>
+                                                    <option>Алфавіту</oprtion>
                                                     <option>Статусу</oprtion>
-                                                </select></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th><input type='search' class='form-control' id='search-input' placeholder='Пошук'>
-                                                </th>
-                                            </tr>                                        
+                                                </select></div>                                             
+
+                                                <div class='col-sm-3 pull-right'>
+                                                    <div class='input-group'>
+                                                    <input type='search' class='form-control' id='search-input' placeholder='Пошук'/>
+                                                    <div class='input-group-btn'><button id='' class='btn bg-primary disabled' type='button'><i class='glyphicon glyphicon-search'></i></button>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                        
                                         </thead>
                                         <tbody id="usersTable">
-                                 
-                                 <!--   <tr>
-                                        <td><span id='firstName'></span></td>
-                                        <td><span id='mail'>Harry55@gmail.com</span></td>                    
-                                        <td><span class='user' id='change'><strong>Модератор</strong></span></td>
-                                        <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><span id='firstName1'></span></td>
-                                        <td><span id='mail1'>Harry55@gmail.com</span></td>                     
-                                        <td><span class='user' id='change1'><strong>Користувач</strong></span></td>
-                                        <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus1()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><span id='firstName2'></span></td>
-                                        <td><span id='mail2'>Harry55@gmail.com</span></td>                     
-                                        <td><span class='user' id='change2'><strong>Користувач</strong></span></td>
-                                        <td></td>
-                                        <td><button  class="btn btn-success btn-xs" onclick='changestatus2()'>ЗМіНИТИ СТАТУС</button></td>
-                                        <td><button  class="btn btn-warning btn-xs">В ЧОРНИЙ СПИСОК</button></td>
-                                        <td><button  class="btn btn-danger btn-xs">ВИДАЛИТИ</button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><a href='#'></a></td>
-                                        <td><a href='#'></a></td>                          
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td> 
-                                        <td></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><a href='#'></a></td>
-                                        <td><a href='#'></a></td>                          
-                                       <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><a href='#'></a></td>
-                                        <td><a href='#'></a></td>                            
-                                       <td><span class='user' id='change5'><strong></strong></span></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td> 
-                                    </tr>
-                                    <tr>
-                                        <td><a href='#'></a></td>
-                                        <td><a href='#'></a></td>                             
-                                        <td><span class='user' id='change6'><strong></strong></span></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td> 
-                                    </tr>-->
+                                         <!-- here will be some content -->
                                         </tbody>
                                     </table>
                                        <div class='pageroller'>
@@ -362,19 +301,20 @@
                                 <div id="p2" class="tab-pane fade in #p2">
                                     <table class="table">
                                         <thead>
-                                            <tr>
-                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
-                                                <th><select class='form-control control'>
-                                                    <option><strong>Алфавіту</strong></oprtion>
+                                            <div class='row fadepanel1'>
+                                                <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
+                                                <div class='col-sm-2'><select class='form-control control'>
+                                                    <option>Алфавіту</oprtion>
                                                     <option>Статусу</oprtion>
-                                                </select></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th><input type='search' class='form-control' id='blacklist_search-input' placeholder='Пошук'>
-                                                </th>
-                                            </tr>                                        
+                                                </select></div>
+                                                     <div class='col-sm-3 pull-right'>
+                                                    <div class='input-group'>
+                                                    <input type='search' class='form-control' id='blacklist_search-input' placeholder='Пошук'/>
+                                                    <div class='input-group-btn'><button id='' class='btn bg-primary disabled' type='button'><i class='glyphicon glyphicon-search'></i></button>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                            </div>                                        
                                         </thead>
                                         <tbody id="blacklist">
                       
@@ -398,18 +338,13 @@
                                 <div id="p3" class="tab-pane fade in #p3">
                                     <table class="table">
                                         <thead>
-                                            <tr>
-                                                <th class="nameofsort text-center"><span>Сортувати по</span></th>
-                                                <th><select class='form-control control'>
-                                                    <option><strong>Алфавіту</strong></oprtion>
+                                            <div class='row fadepanel1'>
+                                                <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
+                                                <div class="col-sm-2"><select class='form-control control'>
+                                                    <option>Алфавіту</oprtion>
                                                     <option>Статусу</oprtion>
-                                                </select></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>                                        
+                                                </select></div>
+                                            </div>                                        
                                         </thead>
                                         <tbody id="administrationlist">
                       
@@ -435,22 +370,20 @@
                                 <div id="p4" class="tab-pane fade in #p4">
                                   <table class="table">
                                         <thead>
-                                            <tr>
-                                                <th class="number_of_categories text-center">№</th>
-                                                <th class="name_of_categories text-center">Назва категорії</th>
-                                                <th class="name_of_main_categories text-center">Батьківська категорія</th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button2" onclick="loginModule()"><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'>Додати категорію</button></a></th>
-                                            </tr>                                        
+                                            <div class='row fadepanel1'>
+                                                <div class="col-lg-1 number_of_categories text-center"><strong>№</strong></div>
+                                                <div class="col-lg-2 name_of_categories text-center"><strong>Назва категорії</strong></div>
+                                                <div class="col-lg-3 name_of_main_categories text-center"><strong>Батьківська категорія</strong></div>                                           
+                                                <div class='col-lg-2 pull-right'><a href="#myModal" data-toggle="modal" data-target="#myModal2" id="login-button2" onclick="edditnewcategory()"><button type='button' class='btn btn-primary kategorybutton btn-sm addcategory'>Додати категорію</button></a></div>
+                                            </div>
+                                            <div class='hory'>                                        
                                         </thead>
 
                      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                      <div id="modal-login-box" class="modal-dialog">
                     <div id="modal-edit-form" class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
                             <h4 class="modal-title" id="myModalLabel"><strong>Нова категорія</strong></h4>
                         </div>
                         <div class="modal-body">
@@ -473,9 +406,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                        <label class="col-sm-6 control-label enternumber" for="exampleInputFile">Введіть число:</label>
+                                        <div class="col-sm-6" >
+                                        <span id="txtCaptchaDiv_newcategory" style="color:#0000"></span>
+                                        <input type="hidden" id="txtCaptcha_newcategory"></label>
+                                        <input type="text" name="txtInput" id="txtInput_newcategory" size="5"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-sm-offset-1 col-sm-10 buttons_edit">
-                                        <button id="edittbutton" type="button" class="btn btn-primary buttonedit" onclick=editbutton() data-dismiss="modal">Додати категорію</button>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
+                                        <button id="edittbutton" type="button" class="btn btn-primary buttonedit" onclick=editbutton(this) data-dismiss="modal">Додати категорію</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
                                     </div>
                                 </div>
                             </form>
@@ -490,7 +431,7 @@
                      <div id="modal-login-box" class="modal-dialog">
                     <div id="modal-edit-form" class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
                             <h4 class="modal-title" id="myModalLabel"><strong>Редагувати категорію</strong></h4>
                         </div>
                         <div class="modal-body">
@@ -513,9 +454,57 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                        <label class="col-sm-6 control-label enternumber" for="exampleInputFile">Введіть число:</label>
+                                        <div class="col-sm-6" >
+                                        <span id="txtCaptchaDiv_reedit-categoty" style="color:#0000"></span>
+                                        <input type="hidden" id="txtCaptcha_reedit-categoty"></label>
+                                        <input type="text" name="txtInput" id="txtInput_reedit-categoty" size="5"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-sm-offset-1 col-sm-10 buttons_edit">
-                                        <button id="registration-button" type="button" class="btn btn-primary buttonreedit" onclick=ReEditButton() data-dismiss="modal">Редагувати категорію</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Скасувати</button>
+                                        <button id="registration-button" type="button" class="btn btn-primary buttonreedit" onclick=ReEditButton(this) data-dismiss="modal">Редагувати категорію</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="modal fade" id="delete_category_current" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-edit-form2" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick=resetCapcha()>&times;</button>
+                            <h4 class="modal-title" id=""><strong>Видалити категорію</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                           <form id="edit-form" class="form-horizontal" role="form">
+                                <div class="form-group"> 
+                                   <label for="name_of_category" class="col-sm-5 control-label required">Категорія</label>
+                                    <div class="col-sm-7 text-left nameofuser" id='newecategory'></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="choose_main_category" class="col-sm-8 control-label">Батьківська категорія</label>
+                                    <div class="col-sm-4" id='main_name_of_category'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="col-sm-6" for="exampleInputFile">Введіть число:</label>
+                                        <div class="col-sm-6" >
+                                        <span id="txtCaptchaDiv_delete_category" style="color:#0000"></span>
+                                        <input type="hidden" id="txtCaptcha_delete_category"> </label>
+                                        <input type="text" name="txtInput" id="txtInput_delete_category" size="5"/>
+                                    </div>
+                                </div>
+                                  <div class="form-group">
+                                     <div class="col-sm-offset-1 col-sm-10 buttons_edit">
+                                        <button id="change_status" type="button" class="btn btn-primary buttonedit" onclick=buttondelete(this) data-dismiss="modal">Видалити</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick=resetCapcha()>Скасувати</button>
                                     </div>
                                 </div>
                             </form>
@@ -606,8 +595,8 @@
                                     </div>
                                 </div>
                                 <div id="p6" class="tab-pane fade in #p6">
-                                        <div class='language'>
-                                            <span>Мова системи: </span>
+                                        <div class='col-lg-5 language'>
+                                            <span>Мова системи:</span>
                                             <select>
                                                 <option>Українська</option>
                                                 <option>Англійська</option>

@@ -70,8 +70,8 @@ button{
 	margin: 100px 0px 50px 0px;
 	font-weight: bold;
 	font-size: 20px;
-	font-family: Georgia, serif;
 	opacity: 0.9;
+	left: 33%;
 }
 .language select{
 	border: none;
@@ -85,6 +85,7 @@ button{
 .table td button{
 	float: right;
 	margin-left: 2px;
+
 }
 #p1 .control option{
 	font-weight: bold;
@@ -152,3 +153,40 @@ button{
  .button-categoty{
  	margin-top: 30px;
  }
+.nameofsort{
+	font-weight: bold;
+}
+.text-center{
+	padding: 7px;
+}
+.control{
+	font-weight: bold;
+}
+.control select{
+	font-weight: bold;
+}
+.fadepanel1{
+	padding: 5px;
+}
+.form-control{
+	font-weight: bold;
+}
+#usersTable tr:hover, #blacklist tr:hover, #administrationlist tr:hover, #usersCategories tr:hover, #usersCategories div:hover{
+	background: #eae8e8;
+}
+.category_table_form {
+	padding: 5px;
+}
+.middle{
+	margin-left: 40px;
+}
+.addcategory{
+	margin-right: 9px;
+
+}
+.category_table_form button{
+	padding-left: 5px;
+}
+.namecategory{
+	font-weight: bold;
+}

@@ -1,12 +1,15 @@
 window.onload = calculate;
 function calculate(){
  	var questions = document.getElementsByClassName('question').length;
+ 	var b = 100/questions;
+ 	var h = Math.round(b);
  	var rightAnswers = document.getElementsByClassName('blockcolor').length;
+ 	var result = rightAnswers*h;
  	var correctPercentage = (rightAnswers *100)/ questions;
  	var rightEl = document.getElementById('right');
  	var wrongEl = document.getElementById('wrong');
  	var total = document.getElementById('total');
- 	total.innerHTML = rightAnswers + '/' + questions;
+ 	total.innerHTML = result + ' з ' + 100;
  	rightEl.style.width = correctPercentage + '%';
 	wrongEl.style.width = (100 - correctPercentage) + '%';
  }
@@ -82,7 +85,7 @@ var answerArray = JSON.parse(localStorage.QuestionObject);
 				// 	}
 					
 
-		 	content_place += "<div class='col-xs-12 "+ChooseCorrectAnswer(0, correct_answer_id)+"'><div class='col-xs-12 question'><strong>"+number_question+++('. ')+"<span class='questiontext'>"+Model.date.Tests[0].question[i].text+"</span></strong></div><div class='col-xs-12 answer'><strong>Відповідь: </strong><span class='result'>"+answerArray['question'+i]+"</span></div><div class='col-xs-12 right-answer'><strong>Правильна відповідь: </strong><span class='true'>"+getCorrectAnswerByQuestionId(0, correct_answer_id)+"</span></div><div class='more-about'><strong>Пояснення: </strong></div></div>"
+		 	content_place += "<div class='col-xs-12 "+ChooseCorrectAnswer(0, correct_answer_id)+"'><div class='col-xs-12 question'><strong>"+number_question+++('. ')+"<span class='questiontext'>"+Model.date.Tests[0].question[i].text+"</span></strong></div><div class='col-xs-12 answer'><strong>Відповідь: </strong><span class='result'>"+answerArray['question'+i]+"</span></div><div class='col-xs-12 right-answer'><strong>Правильна відповідь: </strong><span class='true'>"+getCorrectAnswerByQuestionId(0, correct_answer_id)+"</span></div><div class='more-about'><strong>Пояснення: </strong><span>"+Model.date.Tests[0].description+"</span></div></div>"
 		 }
 		 place_for_answer.innerHTML = content_place;
 	}
