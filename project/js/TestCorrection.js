@@ -1,5 +1,5 @@
 function test() {
-    this.id = parseInt(location.search.split('=').slice(1)[0]);
+    this.id = location.search.split('=').slice(1)[0];
     this.testObj = function (id) {
         for (var i = 0; i < Application.Tests.length; i++) {
             if (id == Application.Tests[i].id) {
