@@ -86,11 +86,11 @@ function CategoriesController() {
 
 
     }
-    if (Model.date.Tests.length < 10) {
+    if (Model.date.Tests.length < 1) {
     var table = document.getElementById("table_result");
     
     for (i = 0; i < Model.date.Tests.length; i++) {
-    	if (Model.date.Tests[i].status.id == 1) {
+    //	if (Model.date.Tests[i].status.id == 1) {
        	 var row = table.insertRow(table.rows.length);
        	 var cell = row.insertCell(-1);
        	 cell.innerHTML = Model.date.Tests[i].name;
@@ -98,13 +98,13 @@ function CategoriesController() {
          cell.innerHTML = Model.date.Tests[i].author;
        	 var cell = row.insertCell(-1);
          cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
-    }
+   // }
 }
     } else {
+    	
        var table = document.getElementById("table_result");
-        
-        for (i = 0; i < 10; i++) {
-        if (Model.date.Tests[i].status.id == 1) {
+        for (i = 0; i < 5; i++) {
+       // if (Model.date.Tests[i].status.id == 1) {
         var row = table.insertRow(table.rows.length);
         var cell = row.insertCell(-1);
         cell.innerHTML = Model.date.Tests[i].name;
@@ -112,11 +112,30 @@ function CategoriesController() {
         cell.innerHTML = Model.date.Tests[i].author;
         var cell = row.insertCell(-1);
         cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
+   // }
     }
-    }
-    }
-
+    pagination();
+    // var urlForParse = decodeURIComponent(window.location.search);
+    // console.log(urlForParse)
 }
+}
+
+
+function pagination() {
+
+	var n_test = Math.round(Model.date.Tests.length / 5);
+	for (i=0; i<n_test; i++) {
+		var link = document.createElement('a');
+		link.setAttribute('href', '#currentpage='+i);
+		var textnode=document.createTextNode(1+i);
+		link.appendChild(textnode);
+		document.getElementById("myList").childNodes[1].appendChild(link);
+	}
+}
+// function getUrl() {
+// 	var uri = window.location;
+// }
+
 
 function change_moder_search_selected(i) {
     var category_id = i;
@@ -154,7 +173,7 @@ function change_moder_search_selected(i) {
     var table = document.getElementById("table_result");
     if(cat && subcat){
 	    for (i = 0; i < Model.date.Tests.length; i++) {
-	    	if (Model.date.Tests[i].status.id == 1) {
+	    	//if (Model.date.Tests[i].status.id == 1) {
 	    	console.log(Model.date.Tests[i].subcategory);
 	    	console.log(Model.date.Tests[i].category);
 	    	if(subcat.indexOf(Model.date.Tests[i].subcategory.toString())+1  && cat.indexOf(Model.date.Tests[i].category.toString())+1){
@@ -167,12 +186,12 @@ function change_moder_search_selected(i) {
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
 	        }
-	    }
+	  //  }
 	}
 	  }else{
 	    var table = document.getElementById("table_result");
 	    for (i = 0; i < Model.date.Tests.length; i++) {
-	    	if (Model.date.Tests[i].status.id == 1) {
+	    //	if (Model.date.Tests[i].status.id == 1) {
 	        var row = table.insertRow(table.rows.length);
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = Model.date.Tests[i].name;
@@ -180,7 +199,7 @@ function change_moder_search_selected(i) {
 	        cell.innerHTML = Model.date.Tests[i].author;
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
-	    }	  	
+	  //  }	  	
 	  }   
       }
 

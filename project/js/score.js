@@ -38,20 +38,45 @@ var answerArray = JSON.parse(localStorage.QuestionObject);
 	}
 
 	function ChooseCorrectAnswer(test_id, correct_answer_id){
+
+
+		// for (var l = 0; l < answerArray.length; l++){
+			
+
+		// }
+		console.log(answerArray.length);
+
+
 		for(var l = 0; l < Model.date.Tests[0].question.length; l++){
 			for(var i = 0; i<Model.date.Tests[0].answers.length; i++){
 						if(Model.date.Tests[0].answers[i].id == correct_answer_id){
 							var ChooseCorrectAnswer = Model.date.Tests[0].answers[i].text_answer;
-							if (ChooseCorrectAnswer == answerArray['question'+l]) {
-								var color = 'blockcolor';
-								console.log(color);
-							}
-							else{
-								var color = 'blockcolorwrong';
-								console.log(color);
-							}
-							//console.log(Model.date.Tests[0].answers[i].id+"<->"+correct_answer_id);
-						}
+								
+								var empty = [];
+								for (var k = 0; k < Model.date.Tests[0].question.length; k++){
+								empty.push(answerArray['question'+k][0]);
+								}
+								for (var x = 0; x < empty.length;  x++) {
+										if (empty[x] == Model.date.Tests[0].answers[i].text_answer) {
+											var color = 'blockcolor';
+											console.log(color);
+										}
+										else{
+											var color = 'blockcolorwrong';
+											console.log(color);
+										}
+								}							
+
+								// if ( == answerArray['question'+l]) {
+								// 	var color = 'blockcolor';
+								// 	console.log(color);
+								}
+								// else{
+								// 	var color = 'blockcolorwrong';
+								// 	console.log(color);
+								// }
+								//console.log(Model.date.Tests[0].answers[i].id+"<->"+correct_answer_id);
+							
 						else{
 						
 						}

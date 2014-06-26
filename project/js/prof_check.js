@@ -22,7 +22,7 @@ function redirect() {
 //Check input
 
 function check_input() {
-	var reg = /[a-z0-9]@[a-z0-9]\.[a-z0-9]/g;
+	var reg = /([A-Za-z0-9_])+\@([A-Za-z0-9_])+\.([A-Za-z0-9_])/g;
 	var str1 = document.getElementById('txtCaptcha').value;
 	var str2 = document.getElementById('txtInput').value;
 	var first_name = document.getElementById('first_name');
@@ -73,9 +73,10 @@ function check_input() {
 		passwd.style.borderColor = "red";
 		re_passwd.style.borderColor = "red";
 
-		} else if (mail === false){
-		 
+		} else if (mail === false){ 
 		email.style.borderColor = "red";
+		console.log(mail)
+
 		} else if (str1 !== str2) { 
 		alert  ('Число провірки не співпадає');
 		} 

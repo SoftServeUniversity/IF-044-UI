@@ -154,6 +154,7 @@ function logOutModule() {
     Model.date.session_user_role = null;
     Model.save_localStorage();
     changeLoginPic();
+    window.location = 'index.html';
     return false;
 }
 
