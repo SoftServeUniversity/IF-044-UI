@@ -207,7 +207,7 @@ var current_filter = filter.selectedIndex;
 var filter_fade_panel_admin = document.getElementById('filterforstatus'); 
 var current_filter_status = filter_fade_panel_admin.selectedIndex;
 
-	
+//фільтри 
 		var n = [];
 		var usersSort = [];
 		var sort = [];
@@ -299,10 +299,7 @@ var current_filter_status = filter_fade_panel_admin.selectedIndex;
 	
 
 	place_for_table.innerHTML = content_table;
-	// var c = [];
-	// c = content_table;
-	// var v = c.id;
-	// console.log(c);
+
 
 	place_for_blacklist.innerHTML = content_blacklist;
 	place_for_administrationlist.innerHTML = content_administrationlist;
