@@ -7,7 +7,7 @@ function Collection(model) {
     this.collection = [];
     this.model = new model();
 
-    this.filter = function (predicate) {
+    this.filter = function(predicate) {
         var result = [];
         var length = this.collection.length;
 
@@ -25,7 +25,7 @@ function Collection(model) {
 //
 options = {
     //ages that should be included as array e.g.
-    age: [11, 12, 13],
+    // age: [11, 12, 13],
     // ranks that should be included
     rank: [1, 2, 3],
     // date range - two dates - instances of Date() object
@@ -40,7 +40,7 @@ options = {
 // and returns function that can do filtering of object based on
 // options argument
 function DefaultFilter(options) {
-    return function (collection_element) {
+    return function(collection_element) {
         return true;
     };
 }
@@ -48,16 +48,16 @@ function DefaultFilter(options) {
 // Filter that is active when only age option are utilized
 function AgeFilter(options) {
     var temp = options.age;
-    return function (collection_element) {
+    return function(collection_element) {
         return (temp.indexOf(collection_element.age) >= 0 ? true : false);
     };
 }
 
 // Filter that is active when only rank option are utilized
 // rank = ступінь в організації
-function RankFilter() {
+function RankFilter(options) {
     var temp = options.rank;
-    return function (collection_element) {
+    return function(collection_element) {
         return (temp.indexOf(collection_element.rank) >= 0 ? true : false);
     };
 }
@@ -71,7 +71,7 @@ function DateFilter(options) {
         start = end
         end = options.date[1]
     }
-    return function (collection_element) {
+    return function(collection_element) {
         var temp = collection_element.date;
         if (start != null && end != null) {
             if (end <= temp && temp <= start) {
@@ -99,7 +99,7 @@ function FilterCompositionFactory(handlers, options) {
     for (var i = 0; i < handlers.length; i++) {
         temp[i] = new handlers[i](options);
     }
-    return function (collection_element) {
+    return function(collection_element) {
         result = true;
         for (var i = 0; i < handlers.length; i++) {
             result = result && temp[i](collection_element);
@@ -110,17 +110,19 @@ function FilterCompositionFactory(handlers, options) {
 
 // Abstract Factory - e.g. http://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript
 
-function FilterFactory(control, options) {
+function FilterFactory(options) {
 
     var handlers = [DefaultFilter];
     var properties = ["age", "rank", "date"];
     var possibleHanlders = [AgeFilter, RankFilter, DateFilter]
-    for ( var i = 0 ; i < properties.length ; i++ ) {
-        if ( options[properties[i]] !== null || options.properties[i].length !== 0 ) {
-           handlers.push(possibleHanlders[i])
-        }    
+    for (var i = 0; i < properties.length; i++) {
+        var temp = (options[properties[i]] !== null);
+        temp = temp && (options[properties[i]] !== undefined);
+        if (temp) {
+            handlers.push(possibleHanlders[i])
+        }
     }
-    
+
     var result = new FilterCompositionFactory(handlers, options);
 
     return result;
