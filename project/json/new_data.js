@@ -1696,7 +1696,7 @@
 function model(date_in){
 
   if(!localStorage.Application){
-    console.log('loc false');
+    //console.log('loc false');
     localStorage.Application = JSON.stringify(date_in);
   }
 
