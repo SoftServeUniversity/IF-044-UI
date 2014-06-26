@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <script src="json/new_data.js"></script>
 
-	<title></title>
+  <title></title>
 </head>
 <body>
 
 <input type="text" placeholder ="number of test" id="t_number">
 
 <button onclick="click111()"> Clik to genarate test and save localstoreg </button>
-<button onclick="clear111()"> Clear localstoreg </button></br>
+<button onclick="clear111()"> Clear localstoreg </button>
 
 <input type="text" placeholder="number of results" id="r_number">
 
@@ -111,7 +111,7 @@ var correct_answer = [
                     answer_id: 7
                   }
                   ];
-var status = [
+var stat = [
     {
         id: 0,
         name_status: "створений"
@@ -135,9 +135,12 @@ for (i=0; i<Model.date.Users.length; i++) {
     user_owner_id[i] = Model.date.Users[i].id;
 }
 
+var tags = ['зупинитися', 'тег4', 'тег3', 'тег5', 'тег2'];
 
 
-function Test(category, subcategory, author, name, id, question, answers, correct_answer, status, user_owner_id) {
+
+
+function Test(category, subcategory, author, name, id, question, answers, correct_answer, stat, user_owner_id, tags, passed_date, data) {
     this.category = category;
     this.subcategory = subcategory;
     this.author = author;
@@ -146,29 +149,35 @@ function Test(category, subcategory, author, name, id, question, answers, correc
     this.question = question;
     this.answers = answers;
     this.correct_answer = correct_answer;
-    this.status = status;
+    this.stat = stat;
     this.user_owner_id = user_owner_id;
+    this.tags = tags;
+    this.passed_date = passed_date;
+    this.date = date;
+
 
 }
+
 
 function testGenerate(number) {
     for (var i = 0; i < number; i++) {
         var userInfo = Math.floor(Math.random() * user_owner_id.length);
-        var test = new Test(category[Math.floor(Math.random() * category.length)],
-        	subcategory[Math.floor(Math.random() * subcategory.length)],
+        var test;
+        test  = new Test(category[Math.floor(Math.random() * category.length)],
+          subcategory[Math.floor(Math.random() * subcategory.length)],
             author[userInfo],
             "Test" + i, i+10,
             question,
             answers,
             correct_answer,
-            status[Math.floor(Math.random() * status.length)],
-            user_owner_id[userInfo]
+            stat[Math.floor(Math.random() * stat.length)],
+            user_owner_id[userInfo],
+            tags,
+            passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657),
+            date = 1402927145474 - Math.floor(Math.random() * 11431224657)
     );
 
-
-
         Model.date.Tests.push(
-
             {
                 category: test.category,
                 subcategory: test.subcategory,
@@ -178,12 +187,14 @@ function testGenerate(number) {
                 question: test.question,
                 answers: test.answers,
                 correct_answer: test.correct_answer,
-                status: test.status,
-                user_owner_id: test.user_owner_id
+                status: test.stat,
+                user_owner_id: test.user_owner_id,
+                tags: test.tags,
+                passed_date: test.passed_date,
+                date: test.date
             });
 
         Model.save_localStorage();
-
         console.log(test)
     }
 }
