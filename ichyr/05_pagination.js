@@ -43,6 +43,8 @@ UrlParams.createUrlParams = function(data) {
 function Pagination() {};
 
 Pagination.default_step_value = 10;
+Pagination.shorten_start_length = 10;
+Pagination.active_item_neighborhood = 2;
 
 // 
 // function for returning portion of result set
@@ -78,6 +80,57 @@ Pagination.currentSelection = function(result_set) {
     return Pagination.sliceTheSet(result_set, start, step);
 };
 
-Pagination.printNavigation = function() {
+// function to create clickable link to specified thing
+Pagination.decorateLink = function(text, start, step) {
+    var href = location.toString();
+    href += "?start=" + start + "&step=" + step;
+    return "<a href=" + href + ">" + text + "</a>\n";
+}
+
+// function that creates the array of objects that represent the pagination bar
+Pagination.create_pagination_bar = function(active, pages) {
+    var result = [];
+
+    // test for enabling the complex regime
+    if (pages <= Pagination.shorten_start_length) {
+        for (var i = pages.length - 1; i >= 0; i--) {
+            result.push(pages[i]);
+        };
+    } else {
+        // test for the beginning of pagination
+        if (active - Pagination.active_item_neighborhood < 1) {
+            result = ["...", pages - 2, pages - 1, pages]
+            var count = Pagination.shorten_start_length - result.length;
+            for (var i = count; i > 0; i--) {
+                result.unshift(pages);
+            };
+        } else if (active + Pagination.active_item_neighborhood > pages) {
+            result.concat([1, 2, 3, "..."]);
+            var count = Pagination.shorten_start_length - result.length;
+            for (var i = pages - count; i <= pages; i++) {
+                result.push(pages);
+            };
+        } else {
+            result = [1, "..."];
+            var start = active - Pagination.active_item_neighborhood;
+            var end = active + Pagination.active_item_neighborhood;
+            for (var i = start; i <= end; i++) {
+                result.push(i);
+            }
+            result.concat = ["...", pages];
+        }
+    }
+
+    return result;
+}
+
+//
+// function to print numbers in a row
+//
+//  1 2 3 4 5
+//  1 2 3 ... 10
+//  1 ... 7 8 9 ... 13
+//  1 ... 8 9 10
+Pagination.printNavigation = function(pages) {
 
 };
