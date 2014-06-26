@@ -175,7 +175,7 @@ Pagination.initialize = function(pages) {
     var params = UrlParams.getData();
     var start = parseInt(params["start"]);
 
-    if (start != undefined) {
+    if (params["start"] != undefined) {
         if (start < 1 || start > pages) {
             // error must occur
             result = "Invalid input parameters";

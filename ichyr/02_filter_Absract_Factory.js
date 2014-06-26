@@ -2,23 +2,17 @@
 // It can perform custom filtering of data based on filter/predicate/
 // This is function that take element and returns true of element
 // suites custom conditions and 
+Collection.prototype.filter = function(predicate) {
+    var result = [];
+    var length = this.collection.length;
 
-function Collection(model) {
-    this.collection = [];
-    this.model = new model();
-
-    this.filter = function(predicate) {
-        var result = [];
-        var length = this.collection.length;
-
-        for (var j = 0; j < length; j++) {
-            if (predicate(this.collection[j]) === true) {
-                result.push(this.collection[j]);
-            }
+    for (var j = 0; j < length; j++) {
+        if (predicate(this.collection[j]) === true) {
+            result.push(this.collection[j]);
         }
-        return result;
-    };
-}
+    }
+    return result;
+};
 
 // Default filter functionality that always results in true
 // the structure of options has is the following

@@ -8,7 +8,7 @@
 // @rank
 // 
 // 
-function User(name) {
+function User() {
     this.name = "default";
     this.surname = "default";
     this.username = "default";
@@ -51,5 +51,6 @@ function Collection(model) {
             var temp = utlt.createRandomUser(i)
             this.addElement(temp)
         }
+        return this.collection;
     }
 }
