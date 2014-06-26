@@ -77,7 +77,7 @@ function CategoriesController() {
 
         });
         var reset = document.querySelectorAll('.reset')[0];
-    reset.addEventListener('click', function() {
+    		reset.addEventListener('click', function() {
         var curent_filter = document.querySelectorAll('.curent-filter');
         for (var i = 0; i < curent_filter.length; i++) {
             curent_filter[i].classList.remove("curent-filter");
@@ -86,7 +86,7 @@ function CategoriesController() {
 
 
     }
-    if (Model.date.Tests.length < 1) {
+    if (Model.date.Tests.length < 5) {
     var table = document.getElementById("table_result");
     
     for (i = 0; i < Model.date.Tests.length; i++) {
@@ -106,6 +106,7 @@ function CategoriesController() {
         for (i = 0; i < 5; i++) {
        // if (Model.date.Tests[i].status.id == 1) {
         var row = table.insertRow(table.rows.length);
+        
         var cell = row.insertCell(-1);
         cell.innerHTML = Model.date.Tests[i].name;
         var cell = row.insertCell(-1);
@@ -113,8 +114,10 @@ function CategoriesController() {
         var cell = row.insertCell(-1);
         cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';
    // }
-    }
+}
+    
     pagination();
+    //dataTable();
     // var urlForParse = decodeURIComponent(window.location.search);
     // console.log(urlForParse)
 }
@@ -126,16 +129,38 @@ function pagination() {
 	var n_test = Math.round(Model.date.Tests.length / 5);
 	for (i=0; i<n_test; i++) {
 		var link = document.createElement('a');
-		link.setAttribute('href', '#currentpage='+i);
+		link.setAttribute('href', '#currentpage='+(i+1));
 		var textnode=document.createTextNode(1+i);
 		link.appendChild(textnode);
 		document.getElementById("myList").childNodes[1].appendChild(link);
 	}
 }
-// function getUrl() {
-// 	var uri = window.location;
-// }
 
+document.getElementById("myList").onclick = function (e) {
+    var target = e.target;
+    var value = parseInt(target.innerHTML);
+    console.log(value);
+ 
+
+
+		var table = document.getElementById("table_result");
+		var i = (value * 5);
+		var k = (i-5);
+		console.log(i,k)
+
+        for (k; k < i; k++) {
+		table.deleteRow(0);
+       // if (Model.date.Tests[i].status.id == 1) {
+        var row = table.insertRow(table.rows.length);
+        var cell = row.insertCell(-1);
+        
+        cell.innerHTML = Model.date.Tests[k].name;
+        var cell = row.insertCell(-1);
+        cell.innerHTML = Model.date.Tests[k].author;
+        var cell = row.insertCell(-1);
+        cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[k].id + '" onclick="toGo(this)">Перевірити</a>';
+}
+}
 
 function change_moder_search_selected(i) {
     var category_id = i;

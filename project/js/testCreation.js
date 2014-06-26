@@ -1,5 +1,17 @@
 'use strict'
 
+function moveCaretToEnd(el) {
+    if (typeof el.selectionStart == "number") {
+        el.selectionStart = el.selectionEnd = el.value.length;
+    } else if (typeof el.createTextRange != "undefined") {
+        el.focus();
+        var range = el.createTextRange();
+        range.collapse(false);
+        range.select();
+    }
+}
+
+
 //видаляє всіх нащадків(для підкатегорій)
 function removeChildren(elem) {
     try {
@@ -33,12 +45,29 @@ function textarea(element) {
     var chalLength = element.value.length;
     var parent = element.parentNode;
     var inp = parent.innerHTML;
+    var id = element.id;
     if (chalLength > 50) {
         parent.removeChild(element);
         parent.innerHTML += '<textarea id="' + element.id + '" class = "textarea">' + element.value + '</textarea>';
         element = null;
-    }
+ var textarea = document.getElementById(id);
+textarea.focus();
+console.log(1);
+ 
+        
+    moveCaretToEnd(textarea);
 
+    // Work around Chrome's little problem
+    window.setTimeout(function() {
+        moveCaretToEnd(textarea);
+    }, 1);
+
+    }
+ 
+   
+
+
+   
 }
 
 //функція додає нове запитання до списку

@@ -259,8 +259,19 @@ Copyright@ 2014 <b>IF-044</b>
 <script src="js/components.js"></script>
 <script>window.onload = changeLoginPic();</script>
 <script>
+function getTag(){
+    for (var i = 0; i < Model.date.Tests.length; i++) {
+        var tags = [];
+        console.log(Model.date.Tests[i]);
+        for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
+            tags.push(Model.date.Tests[i].tags[j]);
+             
+        };
+    };
+    return tags
+}
       $(function(){
-     $("#tags").select2({tags:[]});
+     $("#tags").select2({tags:getTag()});
       });
     </script>
 </body>

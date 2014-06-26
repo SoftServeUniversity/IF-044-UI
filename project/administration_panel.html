@@ -265,9 +265,9 @@
                                         <thead>
                                             <div class='row fadepanel1'>
                                                 <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
-                                                <div class="col-sm-2"><select class='form-control control' id='filter'>
+                                                <div class="col-sm-2"><select class='form-control control' id='filter' onchange = "showAll()">
                                                     <option>Алфавіту</oprtion>
-                                                    <option>Статусу</oprtion>
+                                                    <option>Електронній пошті</oprtion>
                                                 </select></div>                                             
 
                                                 <div class='col-sm-3 pull-right'>
@@ -305,7 +305,7 @@
                                                 <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
                                                 <div class='col-sm-2'><select class='form-control control'>
                                                     <option>Алфавіту</oprtion>
-                                                    <option>Статусу</oprtion>
+                                                    <option>Елетронній пошті</oprtion>
                                                 </select></div>
                                                      <div class='col-sm-3 pull-right'>
                                                     <div class='input-group'>
@@ -340,7 +340,8 @@
                                         <thead>
                                             <div class='row fadepanel1'>
                                                 <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
-                                                <div class="col-sm-2"><select class='form-control control'>
+                                                <div class="col-sm-2">
+                                                    <select class='form-control control' id='filterforstatus' onchange='showAll()'>
                                                     <option>Алфавіту</oprtion>
                                                     <option>Статусу</oprtion>
                                                 </select></div>
