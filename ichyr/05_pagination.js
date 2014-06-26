@@ -65,7 +65,7 @@ Pagination.sliceTheSet = function(array, start, step) {
 // 
 // function that returns the limited set of result_set
 // 
-// result_set - result of filtering, search etc.
+// @result_set - result of filtering, search etc.
 // 
 Pagination.currentSelection = function(result_set) {
     var params = UrlParams.getData();
@@ -80,16 +80,30 @@ Pagination.currentSelection = function(result_set) {
     return Pagination.sliceTheSet(result_set, start, step);
 };
 
+// 
 // function to create clickable link to specified thing
+// 
+// @text - thind that must be decorated
+// @start - (position for paginator of linked page) parameter of the link
+// @step - (number of results per page) parameter of the link
+//
 Pagination.decorateLink = function(text, start, step) {
     var href = location.toString();
+    href = href.split("?")[0];
+    var step = step || Pagination.default_step_value;
     href += "?start=" + start + "&step=" + step;
     return "<a href=" + href + ">" + text + "</a>\n";
 }
 
+// 
 // function that creates the array of objects that represent the pagination bar
+// 
+// @active - number of active start position
+// @pages - number of pages ( elements / step_size )
+//
 Pagination.create_pagination_bar = function(active, pages) {
     var result = [];
+    var neighbour = Pagination.active_item_neighborhood;
 
     // test for enabling the complex regime
     if (pages <= Pagination.shorten_start_length) {
@@ -98,13 +112,13 @@ Pagination.create_pagination_bar = function(active, pages) {
         };
     } else {
         // test for the beginning of pagination
-        if (active - Pagination.active_item_neighborhood < 1) {
+        if (active - neighbour <= neighbour) {
             result = ["...", pages - 2, pages - 1, pages]
             var count = Pagination.shorten_start_length - result.length;
             for (var i = count; i > 0; i--) {
                 result.unshift(i);
             };
-        } else if (active + Pagination.active_item_neighborhood > pages) {
+        } else if (active + neighbour >= pages) {
             result = [1, 2, 3, "..."];
             var count = Pagination.shorten_start_length - result.length;
             for (var i = pages - count; i <= pages; i++) {
@@ -112,8 +126,8 @@ Pagination.create_pagination_bar = function(active, pages) {
             };
         } else {
             result = [1, "..."];
-            var start = active - Pagination.active_item_neighborhood;
-            var end = active + Pagination.active_item_neighborhood;
+            var start = active - neighbour;
+            var end = active + neighbour;
             for (var i = start; i <= end; i++) {
                 result.push(i);
             }
@@ -125,11 +139,54 @@ Pagination.create_pagination_bar = function(active, pages) {
 
 //
 // function to print numbers in a row
+// 
+// @active - number of active start position
+// @pages - number of pages ( elements / step_size )
 //
+// Return examples
+// 
 //  1 2 3 4 5
 //  1 2 3 ... 10
 //  1 ... 7 8 9 ... 13
 //  1 ... 8 9 10
-Pagination.printNavigation = function(pages) {
-
+//
+Pagination.printNavigation = function(active, pages) {
+    var thumbs = Pagination.create_pagination_bar(active, pages);
+    var result = "";
+    for (var i = 0; i < thumbs.length; i++) {
+        var text = thumbs[i];
+        var step = Pagination.default_step_value;
+        if (text === "...") {
+            result += text;
+        } else {
+            result += Pagination.decorateLink(text, text, 10);
+        }
+    }
+    console.log("Bar contents :", result);
+    return result;
 };
+
+// function that bind all pagination logic in one place
+// 
+// @pages - number of pages ( elements / step_size )
+// 
+Pagination.initialize = function(pages) {
+    var result;
+    var params = UrlParams.getData();
+    var start = parseInt(params["start"]);
+
+    if (start != undefined) {
+        if (start < 1 || start > pages) {
+            // error must occur
+            result = "Invalid input parameters";
+        } else {
+            result = Pagination.printNavigation(start, pages);
+        }
+    } else {
+        result = Pagination.printNavigation(1, pages);
+    }
+
+    return result;
+}
+
+document.getElementById('content').innerHTML = Pagination.initialize(25);
