@@ -10,6 +10,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
     <link href="css/administration.css" rel="stylesheet">
+    <link href="css/media-queries.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -265,7 +266,7 @@
                                         <thead>
                                             <div class='row fadepanel1'>
                                                 <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
-                                                <div class="col-sm-2"><select class='form-control control' id='filter' onchange = "showAll()">
+                                                <div class="col-sm-3"><select class='form-control control ' id='filter' onchange = "showAll()">
                                                     <option>Алфавіту</oprtion>
                                                     <option>Електронній пошті</oprtion>
                                                 </select></div>                                             
@@ -303,7 +304,7 @@
                                         <thead>
                                             <div class='row fadepanel1'>
                                                 <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
-                                                <div class='col-sm-2'><select class='form-control control'>
+                                                <div class='col-sm-3'><select class='form-control control' id='filterforblacklist' onchange="showAll()">
                                                     <option>Алфавіту</oprtion>
                                                     <option>Елетронній пошті</oprtion>
                                                 </select></div>
@@ -338,32 +339,15 @@
                                 <div id="p3" class="tab-pane fade in #p3">
                                     <table class="table">
                                         <thead>
-                                            <div class='row fadepanel1'>
-                                                <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
-                                                <div class="col-sm-2">
-                                                    <select class='form-control control' id='filterforstatus' onchange='showAll()'>
-                                                    <option>Алфавіту</oprtion>
-                                                    <option>Статусу</oprtion>
-                                                </select></div>
+                                            <div class='row fadepanel3'>
+                                             
                                             </div>                                        
                                         </thead>
                                         <tbody id="administrationlist">
                       
                                         </tbody>
                                     </table>
-                                       <div class='pageroller'>
-                                            <ul class='pagination'>
-                                                <li><a href='#'>&laquo;</a></li>
-                                                <li class='active'><a href='#'>1</a></li>
-                                                <li><a href='#'>2</a></li>
-                                                <li><a href='#'>3</a></li>
-                                                <li><a href='#'>4</a></li>
-                                                <li><a href='#'>5</a></li>
-                                                <li><a href='#'>6</a></li>
-                                                <li><a href='#'>7</a></li>
-                                                <li><a href='#'>&raquo</a></li>
-                                            </ul>
-                                        </div>
+           
                                 </div>
 
 
@@ -650,11 +634,11 @@
     // }
 </script>
 
-<!-- <script src="js/administration/eltre/elrte.min.js"></script>
+<script src="js/administration/eltre/elrte.min.js"></script>
 <script src="js/administration/eltre/elrte.ua.js"></script>
 <script src="js/administration/eltre/jquery-1.6.1.min.js"></script>
 <script src="js/administration/eltre/jquery-ui-1.8.13.custom.min.js"></script>
-<script src="js/administration/about.js"></script> -->
+<script src="js/administration/about.js"></script>
 
 
 
