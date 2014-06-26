@@ -93,8 +93,8 @@ Pagination.create_pagination_bar = function(active, pages) {
 
     // test for enabling the complex regime
     if (pages <= Pagination.shorten_start_length) {
-        for (var i = pages.length - 1; i >= 0; i--) {
-            result.push(pages[i]);
+        for (var i = pages; i >= 1; i--) {
+            result.unshift(i);
         };
     } else {
         // test for the beginning of pagination
@@ -102,13 +102,13 @@ Pagination.create_pagination_bar = function(active, pages) {
             result = ["...", pages - 2, pages - 1, pages]
             var count = Pagination.shorten_start_length - result.length;
             for (var i = count; i > 0; i--) {
-                result.unshift(pages);
+                result.unshift(i);
             };
         } else if (active + Pagination.active_item_neighborhood > pages) {
-            result.concat([1, 2, 3, "..."]);
+            result = [1, 2, 3, "..."];
             var count = Pagination.shorten_start_length - result.length;
             for (var i = pages - count; i <= pages; i++) {
-                result.push(pages);
+                result.push(i);
             };
         } else {
             result = [1, "..."];
@@ -117,10 +117,9 @@ Pagination.create_pagination_bar = function(active, pages) {
             for (var i = start; i <= end; i++) {
                 result.push(i);
             }
-            result.concat = ["...", pages];
+            result = result.concat(["...", pages]);
         }
     }
-
     return result;
 }
 
