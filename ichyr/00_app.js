@@ -3,7 +3,7 @@ function Application() {};
 Application.init = function() {
     var temp = new User();
     var data = new Collection(User);
-    var users = data.seed(100);
+    var users = data.seed(160);
     var step = 10;
 
     var options = {

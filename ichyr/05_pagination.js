@@ -87,7 +87,7 @@ Pagination.build_table = function(data, step) {
     var data = Pagination.currentSelection(data, step);
     var result = "";
 
-    result += "<table>\n";
+    result += "<table class=\"table table-striped\">\n";
     result += "<tr>\n";
     result += "<th>id</th>\n";
     result += "<th>name</th>\n";
@@ -118,12 +118,18 @@ Pagination.build_table = function(data, step) {
 // @start - (position for paginator of linked page) parameter of the link
 // @step - (number of results per page) parameter of the link
 //
-Pagination.decorateLink = function(text, start, step) {
+Pagination.decorateLink = function(active, text, start, step) {
     var href = location.toString();
     href = href.split("?")[0];
     var step = step || Pagination.default_step_value;
     href += "?start=" + start + "&step=" + step;
-    return "<a href=" + href + ">" + text + "</a>\n";
+    var result = "<a href=" + href + ">" + text + "</a>\n";
+    if (active + 1 === text) {
+        result = "<li class=\"active\">\n" + result + "</li>\n";
+    } else {
+        result = "<li>\n" + result + "</li>\n";
+    }
+    return result;
 }
 
 // 
@@ -188,12 +194,15 @@ Pagination.printNavigation = function(active, pages) {
         var text = thumbs[i];
         var step = Pagination.default_step_value;
         if (text === "...") {
-            result += text;
+            result += "<li class=\"disabled\">\n";
+            result += "<a>" + text + "</a>";
+            result += "</li>\n";
         } else {
-            result += Pagination.decorateLink(text, text - 1, 10);
+            result += Pagination.decorateLink(active, text, text - 1, 10);
         }
     }
     console.log("Bar contents :", result);
+    result = "<ul class=\"pagination\"> \n" + result + "</ul>\n";
     return result;
 };
 
