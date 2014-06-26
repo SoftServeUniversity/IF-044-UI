@@ -258,17 +258,24 @@ console.log(current_filter_blacklist);
 					if(current_filter_blacklist == 1){
 						sort.push(usersSort[i].email);
 						sort.sort();
+						
+						statusSort = [];
 						// sort.reverse();
-						// if(statusSort < sort){
-						// 	for (var m = 0; m < sort.length; m++) {
-						// 		for (var z = 0; z < Users.length; z++) {
-						// 			if (sort[m] == Users[z].email) {
-						// 				statusSort.push(Users[z])
-						// 				}
-						// 			}
-						// 		}
-						// 	}	
-							// console.log(statusSort);
+						if(statusSort < sort){
+							for (var m = 0; m < sort.length; m++) {
+								for (var z = 0; z < usersSort.length; z++) {
+									if (sort[m] == usersSort[z].email) {									
+										statusSort.push(usersSort[z])
+											for (var x = statusSort.length ; x++) {
+												
+											
+										content_blacklist+="<tr><td><span id='firstName'>"+usersSort[i].firstName+"</span></td><td><span id='mail'>"+usersSort[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+usersSort[i].id+"'>ВИНЕСТИ З ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+usersSort[i].id+")  id_user='"+usersSort[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+											}				
+										}
+									}
+								}
+							}	
+							console.log(statusSort);
 						}
 						}
 					content_blacklist+="<tr><td><span id='firstName'>"+usersSort[i].firstName+"</span></td><td><span id='mail'>"+usersSort[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+usersSort[i].id+"'>ВИНЕСТИ З ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+usersSort[i].id+")  id_user='"+usersSort[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
