@@ -18,7 +18,9 @@ Application.init = function() {
     console.log(result.length);
 
     var pages = Math.ceil(result.length / step);
+    console.log(result);
     document.getElementById('content').innerHTML = Pagination.initialize(result, pages);
+    return result;
 }
 
-Application.init();
+var datum = Application.init();

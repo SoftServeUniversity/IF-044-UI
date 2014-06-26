@@ -9,7 +9,7 @@ function UrlParams() {};
 
 // Parse all get params into javascript object
 // http://stackoverflow.com/questions/901115/how-can-i-
-// 								get-query-string-values-in-javascript
+//                get-query-string-values-in-javascript
 // 
 UrlParams.getData = function() {
     var urlParams = {};
@@ -53,13 +53,17 @@ Pagination.active_item_neighborhood = 2;
 // 
 Pagination.sliceTheSet = function(array, start, step) {
     var step = step || Pagination.default_step_value;
-    var end = start + step;
-    if (end <= array.length) {
-        return array.slice(start, start + step);
+    var start = start * step;
+    var end = parseInt(start) + parseInt(step);
+    console.log("slice");
+    console.log(start);
+    console.log(step);
+    console.log(end);
+    if (end < array.length) {
+        return array.slice(start, end);
     } else {
         return array.slice(start, end);
     }
-
 };
 
 // 
@@ -67,23 +71,26 @@ Pagination.sliceTheSet = function(array, start, step) {
 // 
 // @result_set - result of filtering, search etc.
 // 
-Pagination.currentSelection = function(result_set) {
+Pagination.currentSelection = function(result_set, par_step) {
     var params = UrlParams.getData();
-    var result = [];
     var start, step;
     if (params["start"] == undefined || params["start"] == null) {
         start = 0;
+        step = par_step;
     } else {
         start = params["start"];
         step = params["step"];
     }
+    // console.log(start);
+    // console.log(step);
+    console.log(Pagination.sliceTheSet(result_set, start, step).length);
     return Pagination.sliceTheSet(result_set, start, step);
 };
 
 //
 // fuction that builds the table of results
-Pagination.build_table = function(data) {
-    var data = Pagination.currentSelection(data);
+Pagination.build_table = function(data, step) {
+    var data = Pagination.currentSelection(data, step);
     var result = "";
 
     result += "<table>\n";
@@ -97,11 +104,11 @@ Pagination.build_table = function(data) {
 
     for (var i = 0; i < data.length; i++) {
         result += "<tr>\n";
-        result += "<td>" + data.id + "</td>\n";
-        result += "<td>" + data.name + "</td>\n";
-        result += "<td>" + data.surname + "</td>\n";
-        result += "<td>" + data.rank + "</td>\n";
-        result += "<td>" + data.dob + "</td>\n";
+        result += "<td>" + (i + 1) + "</td>\n";
+        result += "<td>" + data[i].name + "</td>\n";
+        result += "<td>" + data[i].surname + "</td>\n";
+        result += "<td>" + data[i].rank + "</td>\n";
+        result += "<td>" + data[i].dob + "</td>\n";
         result += "</tr>\n";
     }
 
@@ -210,12 +217,12 @@ Pagination.initialize = function(data, pages) {
             // error must occur
             result = "Invalid input parameters";
         } else {
-            result = Pagination.build_table(data)
+            result = Pagination.build_table(data, 10)
             result += "\n";
             result += Pagination.printNavigation(start, pages);
         }
     } else {
-        result = Pagination.build_table(data)
+        result = Pagination.build_table(data, 10)
         result += "\n";
         result = Pagination.printNavigation(1, pages);
     }
