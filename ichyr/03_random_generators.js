@@ -21,6 +21,7 @@ function Utility() {
         // Date Of Birth => DOB
         user.dob = returnRandomDateInRange(new Date(1975, 0, 1), new Date(2003, 0, 1))
         user.rank = ranks[returnRandomInt(0, ranks.length - 1)];
+        user.id = id;
         return user;
     }
 

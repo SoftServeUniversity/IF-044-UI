@@ -55,10 +55,6 @@ Pagination.sliceTheSet = function(array, start, step) {
     var step = step || Pagination.default_step_value;
     var start = start * step;
     var end = parseInt(start) + parseInt(step);
-    console.log("slice");
-    console.log(start);
-    console.log(step);
-    console.log(end);
     if (end < array.length) {
         return array.slice(start, end);
     } else {
@@ -81,9 +77,7 @@ Pagination.currentSelection = function(result_set, par_step) {
         start = params["start"];
         step = params["step"];
     }
-    // console.log(start);
-    // console.log(step);
-    console.log(Pagination.sliceTheSet(result_set, start, step).length);
+
     return Pagination.sliceTheSet(result_set, start, step);
 };
 
@@ -104,7 +98,7 @@ Pagination.build_table = function(data, step) {
 
     for (var i = 0; i < data.length; i++) {
         result += "<tr>\n";
-        result += "<td>" + (i + 1) + "</td>\n";
+        result += "<td>" + data[i].id + "</td>\n";
         result += "<td>" + data[i].name + "</td>\n";
         result += "<td>" + data[i].surname + "</td>\n";
         result += "<td>" + data[i].rank + "</td>\n";
@@ -196,7 +190,7 @@ Pagination.printNavigation = function(active, pages) {
         if (text === "...") {
             result += text;
         } else {
-            result += Pagination.decorateLink(text, text, 10);
+            result += Pagination.decorateLink(text, text - 1, 10);
         }
     }
     console.log("Bar contents :", result);
@@ -213,7 +207,7 @@ Pagination.initialize = function(data, pages) {
     var start = parseInt(params["start"]);
 
     if (params["start"] != undefined) {
-        if (start < 1 || start > pages) {
+        if (start < 0 || start > pages) {
             // error must occur
             result = "Invalid input parameters";
         } else {
