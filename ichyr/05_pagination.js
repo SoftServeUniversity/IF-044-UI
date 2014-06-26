@@ -80,6 +80,36 @@ Pagination.currentSelection = function(result_set) {
     return Pagination.sliceTheSet(result_set, start, step);
 };
 
+//
+// fuction that builds the table of results
+Pagination.build_table = function(data) {
+    var data = Pagination.currentSelection(data);
+    var result = "";
+
+    result += "<table>\n";
+    result += "<tr>\n";
+    result += "<th>id</th>\n";
+    result += "<th>name</th>\n";
+    result += "<th>surname</th>\n";
+    result += "<th>rank</th>\n";
+    result += "<th>dob</th>\n";
+    result += "</tr>\n";
+
+    for (var i = 0; i < data.length; i++) {
+        result += "<tr>\n";
+        result += "<td>" + data.id + "</td>\n";
+        result += "<td>" + data.name + "</td>\n";
+        result += "<td>" + data.surname + "</td>\n";
+        result += "<td>" + data.rank + "</td>\n";
+        result += "<td>" + data.dob + "</td>\n";
+        result += "</tr>\n";
+    }
+
+    result += "</table>\n";
+
+    return result;
+}
+
 // 
 // function to create clickable link to specified thing
 // 
@@ -170,7 +200,7 @@ Pagination.printNavigation = function(active, pages) {
 // 
 // @pages - number of pages ( elements / step_size )
 // 
-Pagination.initialize = function(pages) {
+Pagination.initialize = function(data, pages) {
     var result;
     var params = UrlParams.getData();
     var start = parseInt(params["start"]);
@@ -180,13 +210,15 @@ Pagination.initialize = function(pages) {
             // error must occur
             result = "Invalid input parameters";
         } else {
-            result = Pagination.printNavigation(start, pages);
+            result = Pagination.build_table(data)
+            result += "\n";
+            result += Pagination.printNavigation(start, pages);
         }
     } else {
+        result = Pagination.build_table(data)
+        result += "\n";
         result = Pagination.printNavigation(1, pages);
     }
 
     return result;
 }
-
-document.getElementById('content').innerHTML = Pagination.initialize(25);
