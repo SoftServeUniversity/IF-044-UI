@@ -1,41 +1,73 @@
 function makePage() {
+    var firstname = Model.date.Users[Model.date.session_user_id].firstName
+    var lastname = Model.date.Users[Model.date.session_user_id].lastName;
+    document.getElementById('username2').innerHTML = firstname + " " + lastname;
 
-    console.log(Model.date.Moderator_test_id);
+
     if (document.getElementById('userMenuButton').textContent){
-        console.log(Model.date.session_user_id);
-        //document.getElementById('username1').innerHTML = document.getElementById('userMenuButton').textContent;
+        for (var i = 0; i < Model.date.Tests.length; i++) {
+            if (Model.date.Tests[i].status.id == 1){
+                listOfPassedTests(i);
+            }
+        }
+
+        for (var j = 0; j < Model.date.Result.length; j++) {
+            if (Model.date.session_user_id == Model.date.Result[j].u_id ){
+                lastPassedTests(j);
+            }
+        }
+    }
+    else {document.getElementById('username1').innerHTML = "Авторизуйтесь";} ;
+
+    function listOfPassedTests(index1){
         var row;
         var cell = [];
         var tableId = "s1";
         var table = document.getElementById(tableId);
-        var Moderator_test_edit;
-
         var numberOfRow = 1;
-        for (var i = 0; i < Model.date.Tests.length; i++) {
-            var numberOfCell = 0;
-            if (Model.date.Tests[i].status.id == 1){
-                row = table.insertRow(numberOfRow);
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = Model.date.Tests[i].name ;
-                numberOfCell += 1;
+        var numberOfCell = 0;
+        var i = index1;
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = i+2;
-                numberOfCell += 1;
+        row = table.insertRow(numberOfRow);
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = Model.date.Tests[i].name ;
+        numberOfCell += 1;
 
-                cell[numberOfCell] = row.insertCell(numberOfCell);
-                cell[numberOfCell].innerHTML = i+3;
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = i+2;
+        numberOfCell += 1;
 
-                numberOfRow = numberOfRow + 1;
-            }
-        }
-        var firstname = Model.date.Users[Model.date.session_user_id].firstName
-        var lastname = Model.date.Users[Model.date.session_user_id].lastName;
-        document.getElementById('username1').innerHTML = firstname + " " + lastname;
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = i+3;
 
+        numberOfRow = numberOfRow + 1;
 
     }
-    else {document.getElementById('username1').innerHTML = "Авторизуйтесь";} ;
+    function lastPassedTests(index) {
+        var row;
+        var cell = [];
+        console.log(Model.date.Result.length);
+        var tableId = "s2";
+        var table = document.getElementById(tableId);
+        var numberOfRow = 1;
+        var numberOfCell = 0;
+        var j = index;
+        row = table.insertRow(numberOfRow);
+
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = Model.date.Result[j].name ;
+        numberOfCell += 1;
+
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        var passed_date = new Date(Model.date.Result[j].passed_date);
+        cell[numberOfCell].innerHTML = passed_date;
+        numberOfCell += 1;
+
+        cell[numberOfCell] = row.insertCell(numberOfCell);
+        cell[numberOfCell].innerHTML = Model.date.Result[j].score;
+
+        numberOfRow = numberOfRow + 1;
+    }
 
 }
 

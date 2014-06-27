@@ -1,17 +1,20 @@
 var rowCounter = 0;
 
 function searchTests() {
-    if (Model.date.session_user_role == 2) {
-        var tableId = "search-table"
+    if (Model.date.session_user_role !== 2){
+        window.location = "index.html";
+    }
+    else {
+        var tableId = "search-table";
         var table = document.getElementById(tableId);
         if (rowCounter > 0) {
             deletetabRows();
         }
         for (var i = 0; i < Model.date.Tests.length; i++) {
-            if (Model.date.Tests[i].status.id == 1 ) {creatTable(i);}
+            if (Model.date.Tests[i].status.id == 3 ) {creatTable(i);}
         }
     }
-    else {  var noModerator = document.getElementById("no-login").innerHTML = "НЕМАЄ ПРАВ МОДЕРАТОРА"; }
+   // else {  window.location = "index.html"; }
 }
 
 function creatTable(index) {
@@ -37,9 +40,9 @@ function creatTable(index) {
     cell[numberOfCell].innerHTML = Model.date.Tests_categories[Model.date.Tests[i].subcategory-1].name;
     numberOfCell += 1;
 
-    cell[numberOfCell] = row.insertCell(numberOfCell);
-    cell[numberOfCell].innerHTML = '<div><button  class="btn btn-success btn-xs sendToModerator"   data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Редагувати</button></div>';
-    numberOfCell += 1;
+//    cell[numberOfCell] = row.insertCell(numberOfCell);
+//    cell[numberOfCell].innerHTML = '<div><button  class="btn btn-success btn-xs sendToModerator"   data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Редагувати</button></div>';
+//    numberOfCell += 1;
 
     cell[numberOfCell] = row.insertCell(numberOfCell);
     cell[numberOfCell].innerHTML = '<div><button class="btn btn-danger btn-xs" data-rownumber="' + numberOfCell + '" onclick="deleteTrin(this)" >Видалити</button></div>';
@@ -57,14 +60,14 @@ function appFilter(element) {
         if (document.getElementById('radio-names').checked == true) {
             for (var i = 0; i < Model.date.Tests.length; i++) {
                 if (Model.date.Tests[i].name.toString().toLowerCase().indexOf(element.value.toLowerCase()) != -1) {
-                    if (Model.date.Tests[i].status.id == 1 ) {creatTable(i);}
+                    if (Model.date.Tests[i].status.id == 3 ) {creatTable(i);}
                 }
             }
         } else if (document.getElementById('radio-categories').checked == true) {
             for (var j = 0; j < Model.date.Tests.length; j++) {
                 var categoryId = Model.date.Tests_categories[Model.date.Tests[j].subcategory - 1].parent_id;
                 if (Model.date.Tests_categories[categoryId - 1].name.toString().toLowerCase().indexOf(element.value.toLowerCase()) != -1) {
-                    if (Model.date.Tests[j].status.id == 1 ) {creatTable(j);}
+                    if (Model.date.Tests[j].status.id == 3 ) {creatTable(j);}
 
                 }
 
@@ -72,7 +75,7 @@ function appFilter(element) {
         } else {
             for (var y = 0; y < Model.date.Tests.length; y++) {
                 if (Model.date.Tests_categories[Model.date.Tests[y].subcategory - 1].name.toString().toLowerCase().indexOf(element.value.toLowerCase()) != -1) {
-                    if (Model.date.Tests[y].status.id == 1 ) {creatTable(y);}
+                    if (Model.date.Tests[y].status.id == 3 ) {creatTable(y);}
                 }
             }
         }
@@ -80,8 +83,9 @@ function appFilter(element) {
 }
 
 function toGo(element) {
-    var test_id = element
+    var test_id = element;
     var t_id = test_id.dataset.testid;
+    console.log(t_id);
     Model.date.Moderator_test_id = t_id;
     Model.save_localStorage();
     window.location = "moderatrPage.html";
