@@ -60,12 +60,8 @@ SortingController.decorateLink = function(text, link, active) {
     result += "<a href=";
     // if no sorting is applied
     if (active_column == undefined || active_column == null) {
-        if (text == active) {
-            result += current_link + "as";
-        } else {
-            result += current_link + "as";
-        }
-        // if sorting is applied
+        active_column = text;
+
     } else {
         if (text == active) {
             result += current_link + "as";
