@@ -26,7 +26,7 @@ Application.init = function() {
         // date: [1401526596810]
         // date boundaries can be unset - equal to nil
         // this means that one/two boundaries are not included in search
-        rank: ['пл. неім.']
+        rank: ['пл. неім.', 'ст. пл.']
     };
 
     var active_filter = new FilterFactory(options);
