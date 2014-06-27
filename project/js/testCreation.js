@@ -11,7 +11,16 @@ function moveCaretToEnd(el) {
     }
 }
 
-
+//Повертає підкатегорії категорії
+ var getSubcategories = function(id) {
+                                var result = [];
+                                for ( var i = 0 ; i < Application.Tests_categories.length ; i++ ) {
+                                    if ( Application.Tests_categories[i].parent_id === id) {
+                                        result.push(Application.Tests_categories[i]);
+                                    };
+                                };
+                                return result;
+                            }
 //видаляє всіх нащадків(для підкатегорій)
 function removeChildren(elem) {
     try {
@@ -25,7 +34,7 @@ function removeChildren(elem) {
 
 //визначення кількості тестів в базі, для стводення останнього в кінці
 function TestLength() {
-    var test = Application.Tests.length;
+    var test = Model.date.Tests.length;
     return test
 }
 
@@ -120,12 +129,12 @@ var answerRemove = function (el) {
 
 //Знаходить категорії в базі
 var categoryCreation = function () {
-    for (var i = 1; i < Application.Tests_categories.length; i++) {
+    for (var i = 1; i < Model.date.Tests_categories.length; i++) {
 
-        if (Application.Tests_categories[i - 1].parent_id === 0) {
+        if (Model.date.Tests_categories[i - 1].parent_id === 0) {
             var p = document.createElement("option");
             var elem = elID('category').appendChild(p);
-            elem.innerHTML = Application.Tests_categories[i - 1].name;
+            elem.innerHTML = Model.date.Tests_categories[i - 1].name;
         }
 
     }
@@ -142,10 +151,10 @@ var Subcat = function (el) {
     }
     var category = elID('category').value;
     var subCategory = elID('subCategory')
-    for (var i = 0; i < Application.Tests_categories.length; i++) {
-        if (Application.Tests_categories[i].name === category) {
-            var subCat = Application.Tests_categories[i].getSubcategories;
-            var res = subCat((i + 1));
+    for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+        if (Model.date.Tests_categories[i].name === category) {
+            
+            var res = getSubcategories((i+1));
         }
     };
     removeChildren(elID('subCategory'));
@@ -167,9 +176,9 @@ var correctAnswer = function (el) {
 
 //Знаходить ід категорії
 function categorySearch(category) {
-    for (var i = 0; i < Application.Tests_categories.length; i++) {
-        if (Application.Tests_categories[i].name === category) {
-            var categoryId = Application.Tests_categories[i].id
+    for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+        if (Model.date.Tests_categories[i].name === category) {
+            var categoryId = Model.date.Tests_categories[i].id
         }
     }
     return categoryId;
@@ -177,9 +186,9 @@ function categorySearch(category) {
 
 //Знаходить ід підкатегорії
 function subCategorySearch(subCategory) {
-    for (var i = 0; i < Application.Tests_categories.length; i++) {
-        if (Application.Tests_categories[i].name === subCategory) {
-            var categoryId = Application.Tests_categories[i].id
+    for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+        if (Model.date.Tests_categories[i].name === subCategory) {
+            var categoryId = Model.date.Tests_categories[i].id
         }
     }
     return categoryId;
@@ -192,12 +201,12 @@ window.onload = categoryCreation();
 
 function QuestionSave(obj, question, answer) {
     obj.question = [];
-    obj.answer = [];
+    obj.answers = [];
     obj.correct_answer = [];
     for (var i = 0; i < question.length; i++) {
-    if (question[i].valuet == "") {alert('Текст питання порожній')}
-    else{if (question[i].parentElement.parentElement.children[1].children[0].value == "") {alert('Опис питання порожній')}
-        else{
+    //if (question[i].value == "") {alert('Текст питання порожній')}
+   // else{if (question[i].parentElement.parentElement.children[1].children[0].value == "") {alert('Опис питання порожній')}
+      //  else{
 
         var a = question[i].parentElement.parentElement.parentElement.parentElement.children[1].children[0].children;
         for (var s = 0; s < a.length; s++) {
@@ -214,16 +223,16 @@ function QuestionSave(obj, question, answer) {
         for (var j = 0; j < answer.length; j++) {
             answer[j].setAttribute('aid', (j + 1))
             if (parseInt(answer[j].getAttribute('data-qid')) == i + 1) {
-                obj.answer.push({});
-                obj.answer[obj.answer.length - 1].text = answer[j].value;
-                obj.answer[obj.answer.length - 1].id = j + 1;
-                obj.answer[obj.answer.length - 1].question_id = i + 1;
+                obj.answers.push({});
+                obj.answers[obj.answers.length - 1].text = answer[j].value;
+                obj.answers[obj.answers.length - 1].id = j + 1;
+                obj.answers[obj.answers.length - 1].question_id = i + 1;
                 if (answer[j].parentElement.children[1].className == 'btn input-group-addon success') {
                     obj.correct_answer.push({});
                     obj.correct_answer[obj.correct_answer.length - 1].answer_id = j + 1;
                     obj.correct_answer[obj.correct_answer.length - 1].question_id = i + 1;
-                };
-            };
+               // };
+          //  };
 
         };
         }
@@ -247,5 +256,6 @@ var send = function (id) {
     newTest.status = id;
     newTest.tags = elID('tags').value.split(',');
     newTest.date = Date.parse(new Date());
-    Application.Tests.push(newTest);
+    Model.date.Tests.push(newTest);
+    Model.save_localStorage();
 }
