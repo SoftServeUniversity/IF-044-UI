@@ -149,11 +149,15 @@
         console.log("countLinks=>"+countLinks);
         if(countLinks>1 && currentpage<=countLinks){ 
             var htmlLinks = '<ul class="pagination">';
-			 var beginLink,endLink;
-			 beginLink = (currentpage-2>0)?currentpage-2:(currentpage-1>0)?currentpage-1:currentpage;
-			 endLink = (currentpage+2<=countLinks)?currentpage+2:countLinks;
-             for(var i=beginLink;i<=endLink;i++){
-                 console.log("pageLi=>"+i)
+            var beginLink,endLink;
+                     if(currentpage>1){
+                         if(currentpage-2>1){
+                             htmlLinks += "<li><a href='"+window.location.pathname + "?searchQuery="+this.search_input.value+"&currentpage=1'>перша</a></li>";                             
+                         }
+                         htmlLinks += "<li><a href='"+window.location.pathname + "?searchQuery="+this.search_input.value+"&currentpage="+(currentpage-1)+"'>&laquo;</a></li>";
+                     }            
+             for(var i=currentpage-2;i<=parseInt(currentpage)+2;i++){
+                 if(i>0 && i <=countLinks)
 				 if(currentpage == i){
 					htmlLinks += "<li class='active'><a href='"+window.location.pathname + "?searchQuery="+this.search_input.value+"&currentpage="+i+"'>"+i+"</a></li>";
 				 }
@@ -161,11 +165,16 @@
 					htmlLinks += "<li><a href='"+window.location.pathname + "?searchQuery="+this.search_input.value+"&currentpage="+i+"'>"+i+"</a></li>";
 				 }
              }
-             htmlLinks += "</ul>";
+            if(currentpage<countLinks){
+                htmlLinks += "<li><a href='"+window.location.pathname + "?searchQuery="+this.search_input.value+"&currentpage="+(parseInt(currentpage)+1)+"'>&raquo;</a></li>";
+                if(parseInt(currentpage)+2<countLinks){
+                    htmlLinks += "<li><a href='"+window.location.pathname + "?searchQuery="+this.search_input.value+"&currentpage="+countLinks+"'>остання</a></li>";                    
+                }
+            }
+             htmlLinks +="</ul>";
              this.place_for_pagination.innerHTML = htmlLinks;
         }
-         else{
-         }
+
      },
      getUrlParams: function(){
         var urlForParse = decodeURIComponent(window.location.search);
@@ -187,10 +196,12 @@
          return objectParams; 
      },
 														
-    init: this.EventKeyUp
+    init: function(){
+        this.EventKeyUp;
+        this.clickLinkToAdvancedSearch();
+        this.parseUrlForSearch();
+    }
 
 }
 
-simpleSearch.init;
-simpleSearch.clickLinkToAdvancedSearch();
-simpleSearch.parseUrlForSearch();
+simpleSearch.init();
