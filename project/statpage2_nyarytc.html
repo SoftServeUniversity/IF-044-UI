@@ -11,6 +11,7 @@
     <link href="css/login_page.css" rel="stylesheet">
     <link href="css/general-statistic.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/media-queries.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -30,9 +31,9 @@
                 <nav id="header-menu">
                     <ul>
                         <li><a href="index.html">Головна</a></li>
-                        <li><a href="#">Пошук</a></li>
+                        <li><a href="guest_search_result.html">Пошук</a></li>
                         <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="#myModal" onclick="loginModule()" data-toggle="modal">Ввійти</a>
+                        <li><a href="general-statistic.html">Статистика</a>
                         </li>
                     </ul>
                 </nav>
@@ -100,51 +101,49 @@
 
             <section id="statistic" class="container">
                 <div class="row">
-                    <div id="pageTitleBox" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="centerBlock">
-                            <h3 id="username1"></h3>
-                        </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pageTitleBox bg-primary">
+                        <div class="center-block"><h3 class="pageTitle">Статистика користувача: <span  id="username2"></span></h3></div>
                     </div>
 
 
-                    </div>
-                    <div id="main-content" class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-                        <div class="bs-example bs-example-tabs">
-                            <ul id="myTab" class="nav nav-tabs">
-                                <li class="active">
-                                    <a data-toggle="tab" class="bg-primary" href="#stat1">Cписок пройдених тестів</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-primary" href="#stat2">Останні пройдені тести</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" class="bg-primary" href="#stat3">Статистика</a>
-                                </li>
-                            </ul>
+                </div>
+                <div id="main-content" class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                    <div class="bs-example bs-example-tabs">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" class="bg-primary" href="#stat1">Cписок пройдених тестів</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" class="bg-primary" href="#stat2">Останні пройдені тести</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" class="bg-primary" href="#stat3">Статистика</a>
+                            </li>
+                        </ul>
 
-                            <div id="myTabContent" class="tab-content">
-                                <div id="stat1" class="tab-pane fade in active">
-                                    <table id="s1" class="table my-table">
-                                        <tr >
-                                            <th class="text-center">Назва тесту</th>
-                                            <th class="text-center">Кількість спроб</th>
-                                            <th class="text-center">MAX результат</th>
-                                        </tr>
-                                    </table><br>
-                                </div>
-                                <div id="stat2" class="tab-pane fade in #stat2">
-                                    <table id="s1" class="table my-table">
-                                        <tr >
-                                            <th class="text-center">Назва тесту</th>
-                                            <th class="text-center">Дата проходження</th>
-                                            <th class="text-center">Результат</th>
-                                        </tr>
-                                    </table><br>
-                                </div>
+                        <div id="myTabContent" class="tab-content">
+                            <div id="stat1" class="tab-pane fade in active">
+                                <table id="s1" class="table my-table">
+                                    <tr >
+                                        <th class="text-center">Назва тесту</th>
+                                        <th class="text-center">Кількість спроб</th>
+                                        <th class="text-center">MAX результат</th>
+                                    </tr>
+                                </table><br>
+                            </div>
+                            <div id="stat2" class="tab-pane fade in #stat2">
+                                <table id="s2" class="table my-table">
+                                    <tr >
+                                        <th class="text-center">Назва тесту</th>
+                                        <th class="text-center">Дата проходження</th>
+                                        <th class="text-center">Результат</th>
+                                    </tr>
+                                </table><br>
+                            </div>
 
-                                <div id="stat3" class="tab-pane fade in #stat3">
-                                    <div class="col-lg-4 col-md-4 col-sm-7 col-xs-7 col-lg-offset-2 text-center"  style="margin-top: 10px;">
-                                    <dl id="s2" class="dl-horizontal">
+                            <div id="stat3" class="tab-pane fade in #stat3">
+                                <div class="col-lg-4 col-md-4 col-sm-7 col-xs-7 col-lg-offset-4 text-center"  style="margin-top: 10px;">
+                                    <dl id="s3" class="dl-horizontal">
                                         <dt><b>Пройдено тестів : </b></dt>
                                         <dd class="text-left"><span id="testsPassed"> 45 </span></dd>
                                         <dt><b>Середній бал : </b></dt>
@@ -152,12 +151,12 @@
                                         <dt><b>Створено тестів : </b></dt>
                                         <dd class="text-left"><span id="testsCreated"> 1 </span></dd>
                                     </dl>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </section>
         </main>
     </div>
@@ -167,7 +166,7 @@
         <nav id="footer-menu">
             <ul>
                 <li><a href="index.html">Головна</a> &nbsp|</li>
-                <li><a href="about.html">Про нас</a> &nbsp|</li>
+                <li><a href="#">Про нас</a> &nbsp|</li>
                 <li><a href="contacts.html">Контакти</a></li>
             </ul>
         </nav>
@@ -183,6 +182,7 @@
 <script src="js/bootstrap-datepicker.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
 <script>
     window.onload = changeLoginPic();
     window.onload = makePage();
