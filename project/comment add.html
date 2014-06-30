@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="json/new_data.js"></script>
+</head>
+
+<body>
+    <input type="text" id="comment" value="lol">
+    <input type="text" id="testId" value="2">
+    <button id="wrote" onclick="wrote()">Запис</button>
+    <script type="text/javascript">
+    function wrote() {
+
+        if (Model.date.Comment === undefined) {
+            Model.date.Comment = [];
+            Model.date.Comment.push({
+                comment: [],
+                Date_creation: [],
+                Test_id: document.getElementById('testId').value
+            });
+            var d = new Date().getTime()
+            Model.date.Comment[0].Date_creation.push(d);
+            Model.date.Comment[0].comment.push(document.getElementById('comment').value);
+            var dublicate = true;
+            Model.save_localStorage()
+        } else {
+            for (var i = 0; i < Model.date.Comment.length; i++) {
+                if (Model.date.Comment[i].Test_id === document.getElementById('testId').value) {
+                    var q = new Date().getTime()
+                    Model.date.Comment[i].Date_creation.push(q);
+                    Model.date.Comment[i].comment.push(document.getElementById('comment').value);
+                    var dublicate = true;
+                    Model.save_localStorage()
+                } else {
+                    var dublicate = false;
+                }
+            };
+        }
+        if (!dublicate) {
+        	alert(dublicate)
+            Model.date.Comment.length
+            Model.date.Comment.push({
+                comment: [],
+                Date_creation: [],
+                Test_id: document.getElementById('testId').value
+            });
+            var c = new Date().getTime()
+            Model.date.Comment[Model.date.Comment.length - 1].Date_creation.push(c);
+            Model.date.Comment[Model.date.Comment.length - 1].comment.push(document.getElementById('comment').value);
+            Model.save_localStorage()
+        };
+    }
+    </script>
+</body>
+
+</html>

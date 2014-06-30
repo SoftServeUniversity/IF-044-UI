@@ -1,29 +1,30 @@
-'use strict' 
- var getUsersPermission = function(session_user_id) {
-        if (Model.date.session_user_id) {
-            return
-        }else{
-            window.location = '404.html';
-        }
+'use strict'
+var getUsersPermission = function(session_user_id) {
+    if (Model.date.session_user_id) {
+        return
+    } else {
+        window.location = '404.html';
     }
+}
 
 
 
 //рухає курсор в кінець textarea 
 
-function moveCaretToEnd(el) {
-    if (typeof el.selectionStart == "number") {
-        el.selectionStart = el.selectionEnd = el.value.length;
-    } else if (typeof el.createTextRange != "undefined") {
-        el.focus();
-        var range = el.createTextRange();
-        range.collapse(false);
-        range.select();
+    function moveCaretToEnd(el) {
+        if (typeof el.selectionStart == "number") {
+            el.selectionStart = el.selectionEnd = el.value.length;
+        } else if (typeof el.createTextRange != "undefined") {
+            el.focus();
+            var range = el.createTextRange();
+            range.collapse(false);
+            range.select();
+        }
     }
-}
 
-//створення масиву тегів
-function getTag() {
+    //створення масиву тегів
+
+    function getTag() {
         var tags = [];
         for (var i = 0; i < Model.date.Tests.length; i++) {
 
@@ -41,7 +42,7 @@ function getTag() {
         }
         return tags
     }
-//Повертає підкатегорії категорії
+    //Повертає підкатегорії категорії
 var getSubcategories = function(id) {
     var result = [];
     for (var i = 0; i < Application.Tests_categories.length; i++) {
@@ -328,7 +329,7 @@ function allFieldvalidation() {
     }
 }
 //Збирає данні з інпутів по ід і записує їх у базу
-var send = function(id,el) {
+var send = function(id, el) {
     if (allFieldvalidation()) {
         el.parentElement.href = "user_my_test_nyarytc.html";
         var l = TestLength();
