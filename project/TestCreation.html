@@ -237,8 +237,12 @@
                         <br />
                         <br />
                         <div class="row margintop">
-                            <button type="button" class="btn btn-md btn-default width" onclick="send(0)">Зберегти в чорновик</button>
-                            <button type="button" class="btn btn-md btn-success " onclick="send(1)">Відправити на модерацію</button>
+                            <a href="#">
+                                <button type="button" class="btn btn-md btn-default width" onclick="send(0)">Зберегти в чорновик</button>
+                            </a>
+                            <a href="#">
+                                <button type="button" class="btn btn-md btn-success " onclick="send(1)">Відправити на модерацію</button>
+                            </a>
 
                         </div>
                     </div>
@@ -274,13 +278,21 @@
     </script>
     <script>
     function getTag() {
+        var tags = [];
         for (var i = 0; i < Model.date.Tests.length; i++) {
-            var tags = [];
+
             for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
                 tags.push(Model.date.Tests[i].tags[j]);
 
             };
         };
+        var i = tags.length;
+        tags.sort();
+        while (i--) {
+            if (tags[i] == tags[i - 1]) {
+                tags.splice(i, 1);
+            }
+        }
         return tags
     }
     $(function() {

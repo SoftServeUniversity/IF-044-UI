@@ -1,4 +1,14 @@
-'use strict'
+'use strict' 
+ var getUsersPermission = function(session_user_id) {
+        if (Model.date.session_user_id) {
+            return
+        }else{
+            window.location = '404.html';
+        }
+    }
+
+
+
 //рухає курсор в кінець textarea 
 
 function moveCaretToEnd(el) {
@@ -72,6 +82,7 @@ var getSubcategories = function(id) {
             moveCaretToEnd(textarea);
 
             // Work around Chrome's little problem
+
             window.setTimeout(function() {
                 moveCaretToEnd(textarea);
             }, 1);
@@ -218,6 +229,7 @@ var correctAnswer = function(el) {
 
     //заповнює категорії
 window.onload = categoryCreation();
+window.onload = getUsersPermission();
 
 
 function QuestionSave(obj, question, answer) {
@@ -304,7 +316,7 @@ var send = function(id) {
         var subcategory = elID('subCategory').value;
         var newTest = {};
         QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
-        newTest.user_owner_id = 3;
+        newTest.user_owner_id = Model.date.session_user_id;
         newTest.name = elID('name').value;
         newTest.description = elID('description').value;
         newTest.category = categorySearch(category);
