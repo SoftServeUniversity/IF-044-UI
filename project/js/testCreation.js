@@ -22,6 +22,25 @@ function moveCaretToEnd(el) {
     }
 }
 
+//створення масиву тегів
+function getTag() {
+        var tags = [];
+        for (var i = 0; i < Model.date.Tests.length; i++) {
+
+            for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
+                tags.push(Model.date.Tests[i].tags[j]);
+
+            };
+        };
+        var i = tags.length;
+        tags.sort();
+        while (i--) {
+            if (tags[i] == tags[i - 1]) {
+                tags.splice(i, 1);
+            }
+        }
+        return tags
+    }
 //Повертає підкатегорії категорії
 var getSubcategories = function(id) {
     var result = [];
@@ -309,8 +328,9 @@ function allFieldvalidation() {
     }
 }
 //Збирає данні з інпутів по ід і записує їх у базу
-var send = function(id) {
+var send = function(id,el) {
     if (allFieldvalidation()) {
+        el.parentElement.href = "user_my_test_nyarytc.html";
         var l = TestLength();
         var category = elID('category').value;
         var subcategory = elID('subCategory').value;
