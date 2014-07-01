@@ -111,14 +111,27 @@ function showAll() {
         // 	}
 
 
-        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0, correct_answer_id) + "'><div class='col-xs-12 question'><strong>" + number_question+++('. ') + "<span class='questiontext'>" + Model.date.Tests[n].question[i].text + "</span></strong></div><div class='col-xs-12 answer'><strong>Відповідь: </strong><span class='result'>" + answerArray['question' + i] + "</span></div><div class='col-xs-12 right-answer'><strong>Правильна відповідь: </strong><span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id) + "</span></div><div class='more-about'><strong>Пояснення: </strong><span>" + Model.date.Tests[n].question[i].question_description + "</span></div></div>"
+        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0, correct_answer_id) + "'>";
+        content_place += "<div class='col-xs-12 question'><strong>" + number_question++;
+        content_place += ('. ') + "</strong><span class='questiontext'>";
+        content_place += Model.date.Tests[n].question[i].text;
+        content_place += "</span></div><div class='col-xs-12 answer'>";
+        content_place += "<strong>Ваша відповідь: </strong><span class='result'>";
+        content_place += answerArray['question' + i];
+        content_place += "</span></div>";
+        content_place += "<div class='col-xs-12 right-answer'>";
+        content_place += "<strong>Правильна відповідь: </strong>";
+        content_place += "<span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id);
+        content_place += "</span></div><div class='more-about'><strong>Пояснення: </strong><span>";
+        content_place += Model.date.Tests[n].question[i].question_description;
+        content_place += "</span></div></div>"
     }
     place_for_answer.innerHTML = content_place;
 }
 showAll();
 
 function pass_again() {
-    window.location = 'Test.html?id=' + n + ''
+    window.location = 'Test.html?id=' + (n + 1) + ''
 }
 
 //  	var answerArray = {};
