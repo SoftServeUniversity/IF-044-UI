@@ -1,17 +1,19 @@
 function redirect() {
     
-    if (location.search.split('=').slice(1)[0] === undefined) {   
-       
+    if (location.search.split('=').slice(1)[0] === undefined) {
+
         window.location = '404.html';
     }
+    
 }
 window.onload = redirect();
+
 function test() {
     this.id = parseInt(location.search.split('=').slice(1)[0]);
     this.testObj = function(id) {
-        for (var i = 0; i < Application.Tests.length; i++) {
-            if (id == Application.Tests[i].id) {
-                return Application.Tests[i];
+        for (var i = 0; i < Model.date.Tests.length; i++) {
+            if (id === Model.date.Tests[i].id) {
+                return Model.date.Tests[i];
             }
         };
     }
@@ -19,7 +21,7 @@ function test() {
 
 var test = new test();
 
-function userPermission(){
+function userPermission() {
     if (test.testObj(test.id).user_owner_id != Model.date.session_user_id) {
         window.location = '404.html';
     };
@@ -49,9 +51,9 @@ function AnsAdd(value) {
 }
 
 function getText(id) {
-    for (var i = 0; i < Application.Tests_categories.length; i++) {
-        if (Application.Tests_categories[i].id == id) {
-            var a = Application.Tests_categories[i].name;
+    for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+        if (Model.date.Tests_categories[i].id == id) {
+            var a = Model.date.Tests_categories[i].name;
         }
     };
     return a;
@@ -62,7 +64,7 @@ var testEdit = function() {
         var newdiv = document.createElement('div');
         newdiv.className = 'row';
         newdiv.innerHTML = '<div class="col-sm-11 well"> <div class="row "> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання" required value="' + test.testObj(test.id).question[i].text + ' "> <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Пояснення до питання" class="form-control margintop" >' + test.testObj(test.id).question[i].question_description + '</textarea> </div></div> </div> <div class="row"> <div class="col-sm-12 "> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div> </div>;'
-        var el = id('btn btn-md btn-default width')[0].parentElement;
+        var el = id('btn btn-md btn-default width')[0].parentElement.parentElement;
         el.parentElement.parentElement.insertBefore(newdiv, el.parentElement);
         var arrayAns = selAnsById(test.id - 1, i + 1);
         var but = id('btn btn-sm btn-info margintop col-sm-offset-1');
@@ -106,5 +108,32 @@ var testEdit = function() {
 
 
 }
+
+var save = function(id, el) {
+    if (allFieldvalidation()) {
+        el.parentElement.href = "user_my_test_nyarytc.html";
+        var l = TestLength();
+        var category = elID('category').value;
+        var subcategory = elID('subCategory').value;
+        var newTest = {};
+        newTest.name = elID('name').value;
+        newTest.id = test.id;
+        newTest.description = elID('description').value;
+        QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
+        newTest.user_owner_id = Model.date.session_user_id;
+        newTest.category = categorySearch(category);
+        newTest.subcategory = subCategorySearch(subcategory);
+        newTest.status = id;
+        newTest.tags = elID('tags').value.split(',');
+        newTest.date = Date.parse(new Date());
+        for (var i = 0; i < Model.date.Tests.length; i++) {
+            if (test.id === Model.date.Tests[i].id) {
+                Model.date.Tests[i] = newTest;
+            };
+        };
+        Model.save_localStorage();
+    };
+
+};
 
 window.onload = testEdit();

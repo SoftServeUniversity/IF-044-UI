@@ -1,5 +1,5 @@
 'use strict'
-var getUsersPermission = function(session_user_id) {
+var getUsersPermission = function() {
     if (Model.date.session_user_id) {
         return
     } else {
@@ -284,7 +284,7 @@ function QuestionSave(obj, question, answer) {
             answer[j].setAttribute('aid', (j + 1))
             if (parseInt(answer[j].getAttribute('data-qid')) == i + 1) {
                 obj.answers.push({});
-                obj.answers[obj.answers.length - 1].text = answer[j].value;
+                obj.answers[obj.answers.length - 1].text_answer = answer[j].value;
                 obj.answers[obj.answers.length - 1].id = j + 1;
                 obj.answers[obj.answers.length - 1].question_id = i + 1;
                 if (answer[j].parentElement.children[1].className == 'btn input-group-addon success') {
@@ -346,6 +346,7 @@ var send = function(id, el) {
         QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
         newTest.user_owner_id = Model.date.session_user_id;
         newTest.name = elID('name').value;
+        newTest.id = Model.date.Tests.length;
         newTest.description = elID('description').value;
         newTest.category = categorySearch(category);
         newTest.subcategory = subCategorySearch(subcategory);

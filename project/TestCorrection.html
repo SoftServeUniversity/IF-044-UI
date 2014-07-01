@@ -135,7 +135,11 @@
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <h3>Редагування тесту</h3>
+                    <div class="container-fluid">
+                    <div class="row heading">
+                        <h3>Редагування тесту</h3>
+                        
+                    </div>
                     <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
                         <div class="row ">
                             <br>
@@ -193,7 +197,7 @@
                         </div>
 
                         <div>
-                            <div class="row pull-left mm">
+                            <div class="row mm">
                                 <button type="button" class="btn btn-info margintop" onClick="questionAdd(this)">
                                     <span class="glyphicon glyphicon-plus ss"></span>Додати питання</button>
                             </div>
@@ -202,8 +206,12 @@
                             <br />
                             <br />
                             <div class="row margintop">
-                                <button type="button" class="btn btn-md btn-default width" onclick="send(3)">Зберегти в чорновик</button>
-                                <button type="button" class="btn btn-md btn-success " onclick="send(2)">Відправити на модерацію</button>
+                                <a href="#">
+                                    <button type="button" class="btn btn-md btn-default width" onclick="save(0, this)">Зберегти в чорновик</button>
+                                </a>
+                                <a href="#">
+                                    <button type="button" class="btn btn-md btn-success " onclick="save(1, this)">Відправити на модерацію</button>
+                                </a>
 
                             </div>
                         </div>
