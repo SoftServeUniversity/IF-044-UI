@@ -115,6 +115,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <h3>Створення тесту</h3>
+                        
                     </div>
                     <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
                         <div class="row">
@@ -173,6 +174,14 @@
                             <div class="col-sm-4"></div>
                         </div>
                         <br>
+                        <div class="col-sm-5 col-md-5 col-sm-offset-3">
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                    ×</button>
+                                <p>
+                                    Тест має містити мінімум 1 питання!</p>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-11 well">
                                 <div class="row ">
@@ -190,7 +199,7 @@
                                     </div>
 
                                 </div>
-
+                                
                                 <div class="row">
                                     <div class="col-sm-12 ">
                                         <div class="row margintop">
@@ -207,6 +216,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row margintop">
                                             <div class="col-sm-11 col-sm-offset-1">
                                                 <div class="input-group">
@@ -277,7 +287,6 @@
     window.onload = changeLoginPic();
     </script>
     <script>
-
     $(function() {
         $("#tags").select2({
             tags: getTag()

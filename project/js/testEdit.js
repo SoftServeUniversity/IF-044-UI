@@ -19,8 +19,12 @@ function test() {
 
 var test = new test();
 
-
-
+function userPermission(){
+    if (test.testObj(test.id).user_owner_id != Model.date.session_user_id) {
+        window.location = '404.html';
+    };
+}
+window.onload = userPermission();
 
 function id(selector) {
     return document.getElementsByClassName(selector);
