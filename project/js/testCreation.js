@@ -137,7 +137,11 @@ var ansAdd = function(el) {
 var questionremove = function(el) {
 
     if (document.getElementsByClassName('question').length == 1) {
-        alert('Тест має містити мінімум 1 питання!');
+        var newel = document.createElement('div');
+        newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+        newel.innerHTML = '<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Тест має містити мінімум 1 питання!</p> </div>';
+        el.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel,el.parentNode.parentNode.parentNode.parentNode);
+
     } else {
         var Child = el.parentNode.parentNode.parentNode.parentNode;
         var Node = Child.parentNode;
@@ -150,7 +154,10 @@ var questionremove = function(el) {
 var answerRemove = function(el) {
     var a = el.parentNode.parentNode.parentNode.parentNode.childElementCount
     if (a === 3) {
-        alert("У питання має бути мінімум 2 відповіді!")
+        var newel = document.createElement('div');
+        newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+        newel.innerHTML = '<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
+        el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel,el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);   
     } else {
         var Child = el.parentNode.parentNode.parentNode;
         var Node = Child.parentNode;
