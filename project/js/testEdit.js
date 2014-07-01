@@ -1,6 +1,14 @@
+function redirect() {
+    
+    if (location.search.split('=').slice(1)[0] === undefined) {   
+       
+        window.location = '404.html';
+    }
+}
+window.onload = redirect();
 function test() {
     this.id = parseInt(location.search.split('=').slice(1)[0]);
-    this.testObj = function (id) {
+    this.testObj = function(id) {
         for (var i = 0; i < Application.Tests.length; i++) {
             if (id == Application.Tests[i].id) {
                 return Application.Tests[i];
@@ -10,6 +18,9 @@ function test() {
 }
 
 var test = new test();
+
+
+
 
 function id(selector) {
     return document.getElementsByClassName(selector);
@@ -42,14 +53,14 @@ function getText(id) {
     return a;
 }
 
-var testEdit = function () {
+var testEdit = function() {
     for (var i = 0; i < test.testObj(test.id).question.length; i++) {
         var newdiv = document.createElement('div');
         newdiv.className = 'row';
-        newdiv.innerHTML = '<div class="col-sm-11 well"> <div class="row "> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання" required value="' + test.testObj(test.id).question[i].text + ' "> <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Пояснення до питання" class="form-control margintop" >'+test.testObj(test.id).question[i].question_description+'</textarea> </div></div> </div> <div class="row"> <div class="col-sm-12 "> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div> </div>;'
+        newdiv.innerHTML = '<div class="col-sm-11 well"> <div class="row "> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання" required value="' + test.testObj(test.id).question[i].text + ' "> <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Пояснення до питання" class="form-control margintop" >' + test.testObj(test.id).question[i].question_description + '</textarea> </div></div> </div> <div class="row"> <div class="col-sm-12 "> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div> </div>;'
         var el = id('btn btn-md btn-default width')[0].parentElement;
         el.parentElement.parentElement.insertBefore(newdiv, el.parentElement);
-        var arrayAns = selAnsById(test.id - 1, i + 1);       
+        var arrayAns = selAnsById(test.id - 1, i + 1);
         var but = id('btn btn-sm btn-info margintop col-sm-offset-1');
         for (var j = 0; j < arrayAns.length; j++) {
             but[i].parentElement.insertBefore(AnsAdd(arrayAns[j].text_answer), but[i]);
