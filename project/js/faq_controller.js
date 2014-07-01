@@ -10,8 +10,11 @@ function FaqController (options) {
 		var questionInner = faqsObj.question;
 		var answerInner = faqsObj.answer;
 		var questionBlock = document.createElement('h4');
+		questionBlock.setAttribute('data-obj', faqsObj.id);
 		var answerBlock = document.createElement('p');
 		var answerWrapp = document.createElement('div');
+		answerWrapp.setAttribute('data-obj', faqsObj.id);
+		answerBlock.setAttribute('data-obj', faqsObj.id);
 		questionBlock.innerHTML = questionInner;
 		answerBlock.innerHTML = answerInner;
 		answerWrapp.appendChild(answerBlock);
@@ -25,9 +28,22 @@ function FaqController (options) {
 		};
 	}
 
-	this.saveFaq = function() {}
+	this.saveFaq = function(obj) {
+		var index = obj.faqObjIndex;
+		var question = obj.question;
+		var answer = obj.answer;
 
-	this.editFaq = function() {}
+		for(var i = 0; i<faqs.length; i++) {
+			if(faqs[i].id === index) {
+				faqs[i].question = question;
+				faqs[i].answer = answer;
+			};
+		};
 
-	this.delateFaq = function() {}
+		Model.save_localStorage();
+	}
+
+	this.deleteFaq = function() {
+
+	}
 }

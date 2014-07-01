@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/faq_editor.css">
+</head>
+<body>
+	<div id="faqBox">
+		
+	</div>
+
+<script src="json/new_data.js"></script>
+<script src="js/faq_controller.js"></script>
+<script src="js/faq_editor.js"></script>	
+<script>
+	var faqApp = new FaqController({
+        container: document.querySelector('#faqBox')
+    }) 
+</script>
+</body>
+</html>
