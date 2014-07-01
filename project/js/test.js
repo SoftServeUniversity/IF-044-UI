@@ -4,21 +4,19 @@ function test() {
     this.id = parseInt(location.search.split('=').slice(1)[0]) - 1;
     this.category = function(id) {
         for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-            console.log(i);
+            // console.log(i);
             if (id === Model.date.Tests_categories[i].id) {
                 var name = Model.date.Tests_categories[i].name;
             }
-
         };
         return name;
     }
     this.subcategory = function(id) {
         for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-            console.log(i);
+            // console.log(i);
             if (id == Model.date.Tests_categories[i].id) {
                 var subcatname = Model.date.Tests_categories[i].name;
             };
-
         }
         return subcatname;
     }
@@ -70,7 +68,9 @@ var answer = function(el) {
 }
 
 var result = function() {
+    var Test_id = parseInt(location.search.split('=').slice(1)[0]); // зміна для зберігання і передавання id тесту який проходиться
     var obj = {}; // пустий об*єкт, для запису відповідей, відповідно до запитання
+    obj['Test_id'] = Test_id;
     var a = document.getElementsByClassName("col-lg-10 answer-spase"); // вибираємо всі питання на сторінці
     for (var i = 0; i < a.length; i++) { //перебираємо всі питання на сторінці
         obj['question' + i] = []; //в об*єкті створюємо нове запитання, яке записуватиме правильні відповіді в массив
@@ -81,6 +81,7 @@ var result = function() {
             } //дістаємо innerHTML відповіді з класом MyClass(відміченої), та записуємо її у масив, який відповідає № запитання, з яким на данний момент працює цикл
 
         }
+
     };
     for (var i = 0; i < a.length; i++) { //перевіряємо чи дав користувач відповіді на всі запитання
         if (obj['question' + i].length === 0) { // якщо масив відповіді пустий
