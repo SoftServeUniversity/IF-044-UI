@@ -28,7 +28,8 @@ function getCorrectAnswerByQuestionId(test_id, correct_answer_id) {
     for (var i = 0; i < Model.date.Tests[n].answers.length; i++) {
         if (Model.date.Tests[n].answers[i].id == correct_answer_id) {
             var catchCorrectAnswer = Model.date.Tests[n].answers[i].text_answer;
-            console.log(Model.date.Tests[n].answers[i].id + "<->" + correct_answer_id);
+            console.log(Model.date.Tests[n].answers[i].id + "<->" +
+                correct_answer_id);
         } else {}
         //console.log(catchCorrectAnswer);
         // if (catchCorrectAnswer == answerArray['question'+i]) {
@@ -97,7 +98,8 @@ function showAll() {
     var number_question = 1;
     for (var i = 0; i < Model.date.Tests[n].question.length; i++) {
         for (var j = 0; j < Model.date.Tests[n].correct_answer.length; j++) {
-            if (Model.date.Tests[n].correct_answer[j].question_id == Model.date.Tests[n].question[i].id) {
+            if (Model.date.Tests[n].correct_answer[j].question_id == Model.date.Tests[
+                n].question[i].id) {
                 var correct_answer_id = Model.date.Tests[n].correct_answer[j].answer_id;
                 //console.log(correct_answer_id);
             }
@@ -111,8 +113,10 @@ function showAll() {
         // 	}
 
 
-        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0, correct_answer_id) + "'>";
-        content_place += "<div class='col-xs-12 question'><strong>" + number_question++;
+        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0,
+            correct_answer_id) + "'>";
+        content_place += "<div class='col-xs-12 question'><strong>" +
+            number_question++;
         content_place += ('. ') + "</strong><span class='questiontext'>";
         content_place += Model.date.Tests[n].question[i].text;
         content_place += "</span></div><div class='col-xs-12 answer'>";
@@ -121,8 +125,10 @@ function showAll() {
         content_place += "</span></div>";
         content_place += "<div class='col-xs-12 right-answer'>";
         content_place += "<strong>Правильна відповідь: </strong>";
-        content_place += "<span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id);
-        content_place += "</span></div><div class='more-about'><strong>Пояснення: </strong><span>";
+        content_place += "<span class='true'>" + getCorrectAnswerByQuestionId(0,
+            correct_answer_id);
+        content_place +=
+            "</span></div><div class='more-about'><strong>Пояснення: </strong><span>";
         content_place += Model.date.Tests[n].question[i].question_description;
         content_place += "</span></div></div>"
     }
