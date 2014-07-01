@@ -111,7 +111,7 @@ function showAll() {
         // 	}
 
 
-        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0, correct_answer_id) + "'><div class='col-xs-12 question'><strong>" + number_question+++('. ') + "<span class='questiontext'>" + Model.date.Tests[n].question[i].text + "</span></strong></div><div class='col-xs-12 answer'><strong>Відповідь: </strong><span class='result'>" + answerArray['question' + i] + "</span></div><div class='col-xs-12 right-answer'><strong>Правильна відповідь: </strong><span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id) + "</span></div><div class='more-about'><strong>Пояснення: </strong><span>" + Model.date.Tests[n].question.question_description + "</span></div></div>"
+        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0, correct_answer_id) + "'><div class='col-xs-12 question'><strong>" + number_question+++('. ') + "<span class='questiontext'>" + Model.date.Tests[n].question[i].text + "</span></strong></div><div class='col-xs-12 answer'><strong>Відповідь: </strong><span class='result'>" + answerArray['question' + i] + "</span></div><div class='col-xs-12 right-answer'><strong>Правильна відповідь: </strong><span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id) + "</span></div><div class='more-about'><strong>Пояснення: </strong><span>" + Model.date.Tests[n].question[i].question_description + "</span></div></div>"
     }
     place_for_answer.innerHTML = content_place;
 }
