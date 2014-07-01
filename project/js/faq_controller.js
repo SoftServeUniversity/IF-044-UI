@@ -35,8 +35,12 @@ function FaqController (options) {
 
 		for(var i = 0; i<faqs.length; i++) {
 			if(faqs[i].id === index) {
-				faqs[i].question = question;
-				faqs[i].answer = answer;
+				if(question){
+					faqs[i].question = question;
+				};
+				if(answer) {
+					faqs[i].answer = answer;
+				};
 			};
 		};
 
