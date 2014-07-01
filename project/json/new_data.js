@@ -1690,6 +1690,33 @@
             id:4,
             name: 'Ступінь 4'
           }
+    ], 
+    Faqs: [
+        {
+          id: 0,
+          question:'This is question 1',
+          answer: 'This is the answer to question #1. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 1,
+          question:'This is question 2',
+          answer: 'This is the answer to question #2. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 2,
+          question:'This is question 3',
+          answer: 'This is the answer to question #3. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 3,
+          question:'This is question 4',
+          answer: 'This is the answer to question #4. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 4,
+          question:'This is question 5',
+          answer: 'This is the answer to question #5. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        }
     ]    
 };
 

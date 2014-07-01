@@ -36,6 +36,7 @@ main {
 
 #faqs {
 	margin-bottom: 50px;
+	text-align: left;
 }
 #faqs h4	{ 
 	cursor:pointer; 
