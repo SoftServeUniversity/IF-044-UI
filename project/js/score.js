@@ -6,17 +6,16 @@ function calculate() {
     var h = Math.round(b);
     var result;
     var rightAnswers = document.getElementsByClassName('blockcolor').length;
-        if (rightAnswers != questions) {
+    if (rightAnswers != questions) {
         result = rightAnswers * h;
-        }
-        else{
+    } else {
         result = rightAnswers * b;
-        }
+    }
     var correctPercentage = (rightAnswers * 100) / questions;
     var rightEl = document.getElementById('right');
     var wrongEl = document.getElementById('wrong');
     var total = document.getElementById('total');
-    total.innerHTML = result + ' з ' + 100;
+    total.innerHTML = result + ' зі ' + 100;
     rightEl.style.width = correctPercentage + '%';
     wrongEl.style.width = (100 - correctPercentage) + '%';
 }
@@ -37,23 +36,13 @@ function getCorrectAnswerByQuestionId(test_id, correct_answer_id) {
             console.log(Model.date.Tests[n].answers[i].id + "<->" +
                 correct_answer_id);
         } else {}
-        //console.log(catchCorrectAnswer);
-        // if (catchCorrectAnswer == answerArray['question'+i]) {
-        // 	var val = answerArray['question'+i];
-        // 	console.log(val);
 
-        // };
     }
     return catchCorrectAnswer;
 }
 
 function ChooseCorrectAnswer(test_id, correct_answer_id) {
 
-
-    // for (var l = 0; l < answerArray.length; l++){
-
-
-    // }
     console.log(answerArray.length);
 
     document.getElementById('name_for_test').innerHTML = Model.date.Tests[n].name;
@@ -62,8 +51,7 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
     for (var i = 0; i < Model.date.Tests_categories.length; i++) {
         if (Model.date.Tests[n].category == Model.date.Tests_categories[i].id) {
             categoty = Model.date.Tests_categories[i].name;
-        }
-        else{
+        } else {
             if (Model.date.Tests[n].subcategory == Model.date.Tests_categories[i].id) {
                 subcategory = Model.date.Tests_categories[i].name;
             }
@@ -72,7 +60,7 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
 
     document.getElementById('name_for_test_categoty').innerHTML = categoty;
     document.getElementById('name_for_test_subcategoty').innerHTML = subcategory;
-    
+
     for (var l = 0; l < Model.date.Tests[n].question.length; l++) {
         for (var i = 0; i < Model.date.Tests[n].answers.length; i++) {
             if (Model.date.Tests[n].answers[i].id == correct_answer_id) {
@@ -85,28 +73,17 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
                 for (var x = 0; x < empty.length; x++) {
                     if (empty[x] == Model.date.Tests[n].answers[i].text_answer) {
                         var color = 'blockcolor';
-                        console.log(color);
+                        // console.log(color);
                         break;
                     } else {
                         var color = 'blockcolorwrong';
-                        console.log(color);
+                        // console.log(color);
                     }
                 }
 
-                // if ( == answerArray['question'+l]) {
-                // 	var color = 'blockcolor';
-                // 	console.log(color);
-            }
-            // else{
-            // 	var color = 'blockcolorwrong';
-            // 	console.log(color);
-            // }
-            //console.log(Model.date.Tests[0].answers[i].id+"<->"+correct_answer_id);
-            else {
+            } else {
 
             }
-            //console.log(catchCorrectAnswer);
-
         }
 
     }
@@ -114,7 +91,7 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
 }
 
 function showAll() {
-    //console.log(Model.date.Tests[0].question.length);
+
 
     var content_place = '';
     Model.load_localStorage();
@@ -128,18 +105,10 @@ function showAll() {
             }
 
         }
-        // getCorrectAnswerByQuestionId(0, correct_answer_id);
-        // if (catchCorrectAnswer == answerArray['question'+i]) {
-        // 	var color = blockcolor;}
-        // 	else{
-        // 		var color = blockcolor_wrong;
-        // 	}
 
 
-        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0,
-            correct_answer_id) + "'>";
-        content_place += "<div class='col-xs-12 question'><strong>" +
-            number_question++;
+        content_place += "<div class='col-xs-12 " + ChooseCorrectAnswer(0, correct_answer_id) + "'>";
+        content_place += "<div class='col-xs-12 question'><strong>" + number_question++;
         content_place += ('. ') + "</strong><span class='questiontext'>";
         content_place += Model.date.Tests[n].question[i].text;
         content_place += "</span></div><div class='col-xs-12 answer'>";
@@ -148,10 +117,8 @@ function showAll() {
         content_place += "</span></div>";
         content_place += "<div class='col-xs-12 right-answer'>";
         content_place += "<strong>Правильна відповідь: </strong>";
-        content_place += "<span class='true'>" + getCorrectAnswerByQuestionId(0,
-            correct_answer_id);
-        content_place +=
-            "</span></div><div class='more-about'><strong>Пояснення: </strong><span>";
+        content_place += "<span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id);
+        content_place += "</span></div><div class='more-about'><strong>Пояснення: </strong><span>";
         content_place += Model.date.Tests[n].question[i].question_description;
         content_place += "</span></div></div>"
     }
@@ -162,24 +129,3 @@ showAll();
 function pass_again() {
     window.location = 'Test.html?id=' + (n + 1) + ''
 }
-
-//  	var answerArray = {};
-//  	answerArray = JSON.parse(localStorage.QuestionObject);
-//  	var resulttext = document.getElementsByClassName('result');
-//  		for( i = 0; i < resulttext.length; i++){
-//  			resulttext[i].innerHTML = answerArray['question'+i];
-//  		};
-
-
-//  	var TestStructure = function(testNum){
-//  	var testNum = 1;
-
-//  		var num = document.getElementsByClassName('questiontext');
-//  		var rightanswer = document.getElementsByClassName('true')
-//  			for(var i = 0; i < Tests[testNum].question.length; i++){
-//  				num[i].innerHTML = Tests[testNum].question[i].text;
-//  				for (var j = 0; j < Tests[testNum].correct_answers.length; i++) {
-//  					rightanswer[i].innerHTML = Tests[testNum].answer_id.text;
-//  				};
-// };
-// };

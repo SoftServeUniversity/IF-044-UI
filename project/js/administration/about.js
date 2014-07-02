@@ -21,6 +21,7 @@ AboutPageController.init = function() {
   };
 
   // Creation and initialization of the elTRE
+  console.log("jq=>"+$);
   $(AboutPageController.content_id).elrte(opts);
   $(AboutPageController.content_id).elrte('val', AboutPageController.data);
   
