@@ -7,46 +7,42 @@
 input[type=checkbox]:checked ~ input[type=checkbox] + label { 
     border: 1px solid black;
 }*/
-
-main{
-  text-align: left;
+ main {
+    text-align: left;
 }
 .bnt-next {
-  width: 200px;  
+    width: 200px;
 }
-
-.center{
-  margin-top: 10px;
-  text-align: center;
+.center {
+    margin-top: 10px;
+    text-align: center;
 }
-
-.pos{
+.pos {
     float: left;
     display: inline-block;
     margin-bottom: 70px;
     margin-right: 5px;
 }
-
-.answer-spase{
- margin-top: 5px;
+.answer-spase {
+    margin-top: 5px;
 }
- .MyClass:before{
-    content: '\2714'; 
+.MyClass:before {
+    content:'\2714';
     position: relative;
-    right: 10px;}
-  
-
-  .MyClass{
+    right: 10px;
+}
+.MyClass {
     color: green;
-  font-style: italic;
-  position: relative;
-  right: 12px;
-      }
-    .noclass{
-
-    }
-  .bnt-next{
-  margin-top: 25px;
-  }
+    font-style: italic;
+    position: relative;
+    right: 12px;
+}
+.noclass {
+}
+.bnt-next {
+    margin-top: 25px;
+}
+.descript{
+  color: gray;
+}
 /*testpage style end*/
-

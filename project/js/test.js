@@ -1,19 +1,5 @@
 'use strict'
 
-function redirect() {
-
-    if (location.search.split('=').slice(1)[0] === undefined) {
-
-        window.location = '404.html';
-    }
-    if (Model.date.session_user_id) {
-        return
-    } else {
-        window.location = '404.html';
-    }
-}
-window.onload = redirect();
-
 function test() {
     this.id = parseInt(location.search.split('=').slice(1)[0]) - 1;
     this.category = function(id) {
@@ -45,15 +31,13 @@ function breadcrumbs_creation(num) {
     name1[0].innerHTML = Model.date.Tests[num].name;
     Category.innerHTML = test.category(Model.date.Tests[num].category);
     SubCategory.innerHTML = test.subcategory(Model.date.Tests[num].subcategory);
-    Category.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].category + "";
-    SubCategory.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].subcategory + "";
 }
 
 
 var testStructure = function(testNum) {
     var page = document.getElementsByClassName('page');
     for (var i = 0; i < Model.date.Tests[testNum].question.length; i++) {
-        page[0].innerHTML += '<div class="row"><div class="col-lg-10 col-sm-offset-1"><div class="pos"></div><div class="question"><br></div><div class="col-lg-10 answer-spase"></div></div></div><br /> '
+        page[0].innerHTML += '<div class="row"><div class="col-lg-10 col-sm-offset-1"><div class="pos"></div><div class="question"><br></div><div class="col-lg-10 answer-spase"></div></div>'
     }
     var num = document.getElementsByClassName('pos');
     var question = document.getElementsByClassName('question');
@@ -110,5 +94,5 @@ var result = function() {
     };
 
     localStorage.setItem('QuestionObject', JSON.stringify(obj)); //результат записуємо у localStorage, для подальшої роботи можна скористатись var question = localStorage.getItem('QuestionObject') для зручності роботи з об*єктом
-    
+
 }
