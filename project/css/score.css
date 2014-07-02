@@ -93,9 +93,6 @@ footer {
   text-align: center;
 }
 
-.progress {
-  margin-top: 10px;
-}
 
 .score-number {
   font-size: 22px;
@@ -132,7 +129,9 @@ article {
 }
 
 .progress {
+  margin-top: 10px;
   font-size: 10px;
+  opacity: 0.8;
 }
 
 .answer {
@@ -155,12 +154,14 @@ article {
   background: rgba(154, 246, 126, 0.36);
   border-radius: 7px;
   margin-top: 20px;
+  box-shadow: 5px 5px 4px #D0F2D2;
 }
 
 .blockcolorwrong {
   background: rgba(246, 136, 138, 0.36);
   border-radius: 7px;
   margin-top: 20px;
+  box-shadow: 5px 5px 4px #F2D0D1;
 }
 
 .col-xs-12 {

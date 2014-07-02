@@ -4,8 +4,14 @@ function calculate() {
     var questions = document.getElementsByClassName('question').length;
     var b = 100 / questions;
     var h = Math.round(b);
+    var result;
     var rightAnswers = document.getElementsByClassName('blockcolor').length;
-    var result = rightAnswers * h;
+        if (rightAnswers != questions) {
+        result = rightAnswers * h;
+        }
+        else{
+        result = rightAnswers * b;
+        }
     var correctPercentage = (rightAnswers * 100) / questions;
     var rightEl = document.getElementById('right');
     var wrongEl = document.getElementById('wrong');
@@ -50,7 +56,23 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
     // }
     console.log(answerArray.length);
 
+    document.getElementById('name_for_test').innerHTML = Model.date.Tests[n].name;
+    var categoty;
+    var subcategory;
+    for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+        if (Model.date.Tests[n].category == Model.date.Tests_categories[i].id) {
+            categoty = Model.date.Tests_categories[i].name;
+        }
+        else{
+            if (Model.date.Tests[n].subcategory == Model.date.Tests_categories[i].id) {
+                subcategory = Model.date.Tests_categories[i].name;
+            }
+        }
+    }
 
+    document.getElementById('name_for_test_categoty').innerHTML = categoty;
+    document.getElementById('name_for_test_subcategoty').innerHTML = subcategory;
+    
     for (var l = 0; l < Model.date.Tests[n].question.length; l++) {
         for (var i = 0; i < Model.date.Tests[n].answers.length; i++) {
             if (Model.date.Tests[n].answers[i].id == correct_answer_id) {
@@ -64,6 +86,7 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
                     if (empty[x] == Model.date.Tests[n].answers[i].text_answer) {
                         var color = 'blockcolor';
                         console.log(color);
+                        break;
                     } else {
                         var color = 'blockcolorwrong';
                         console.log(color);
