@@ -41,7 +41,9 @@ window.onload = function() {
         for (var j = 1; j < sub_siblings.length; j++) {
 
             sub_siblings[j].querySelectorAll('div')[0].addEventListener('click', function() {
-               // console.log(this);
+                if(document.querySelectorAll('.div-reset-active').length){
+                    document.querySelectorAll('.div-reset-active')[0].classList.remove('div-reset-active');
+                }
                 if (hasClass(this, "curent-filter")) {
                     //console.log('true');
                     this.classList.remove("curent-filter");
@@ -55,6 +57,9 @@ window.onload = function() {
 
         filter_category[i].addEventListener('click', function() {
             var check_siblings = false;
+            if(document.querySelectorAll('.div-reset-active').length){
+                document.querySelectorAll('.div-reset-active')[0].classList.remove('div-reset-active');
+            }
             var siblings = Array.prototype.filter.call(this.parentNode.children, function(child) {
                 return child !== this;
             });
@@ -82,9 +87,17 @@ window.onload = function() {
     }
     var reset = document.querySelectorAll('.reset')[0];
     reset.addEventListener('click', function() {
+        console.log(this.parentNode);
+        this.parentNode.classList.add('div-reset-active');
         var curent_filter = document.querySelectorAll('.curent-filter');
         for (var i = 0; i < curent_filter.length; i++) {
             curent_filter[i].classList.remove("curent-filter");
         }
     });
+document.getElementById('applyFilter').addEventListener('click',function(){
+    event = document.createEvent('HTMLEvents');
+    event.initEvent('keyup', true, false);
+    document.getElementById('search_input').dispatchEvent(event);
+})    
+    
 }
