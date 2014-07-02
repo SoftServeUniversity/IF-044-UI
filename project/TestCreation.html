@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YunakQuize Layout</title>
-
+    <link href="css/media-queries.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
@@ -16,252 +17,275 @@
     <script src="json/new_data.js"></script>
 
     <style type="text/css">
-
     </style>
 
 </head>
+
 <body class="container-fluid">
     <div id="outer-wrapper" class="container">
         <div id="inner-wrapper" class="container">
             <header class="row">
-                <div id="header-container"
-                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <div id="header-container" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
                     <!--   <a href="#">
                     -->
                     <!--         <img src="pic/logo3.png" alt="YunakQuize"></a>
                 -->
-                <div id="title-block">
-                    <h4>Система Пластових електронних опитників</h4>
-                </div>
-                <nav id="header-menu">
-                    <ul>
-                        <li><a href="index.html">Головна</a></li>
-                        <li><a href="guest_search_result.html">Пошук</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="general-statistic.html">Статистика</a>
+                    <div id="title-block">
+                        <h4>Система Пластових електронних опитників</h4>
+                    </div>
+                    <nav id="header-menu">
+                        <ul>
+                            <li><a href="index.html">Головна</a>
+                            </li>
+                            <li><a href="guest_search_result.html">Пошук</a>
+                            </li>
+                            <li><a href="contacts.html">Контакти</a>
+                            </li>
+                            <li><a href="general-statistic.html">Статистика</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
+                        <img src="pic/login.jpg" alt="login" width="35" height="35">
+                    </a>
+                    <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                    <ul id="userNavPanel">
+                        <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a>
+                        </li>
+                        <li>
+                            <a href="#" id="changedA"></a>
+                        </li>
+                        <li><a href="#" onclick="logOutModule()">Вихід</a>
                         </li>
                     </ul>
-                </nav>
-                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
-                    <img src="pic/login.jpg" alt="login" width="35" height="35">
-                </a>
-                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
-                <ul id="userNavPanel">
-                    <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a></li>
-                    <li><a href="#" id="changedA"></a></li>
-                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
-                </ul>
-            </div>
-        </header>
-    
+                </div>
+            </header>
 
 
-        <main>
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-login-form" class="modal-content">
-                        <div class="modal-header">
-                            <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p class="error-block"></p>
-                            <form id="signin-form" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
+            <main>
 
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modal-login-box" class="modal-dialog">
+                        <div id="modal-login-form" class="modal-content">
+                            <div class="modal-header">
+                                <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="error-block"></p>
+                                <form id="signin-form" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
 
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3"
-                                               placeholder="Password"></div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Запам'ятати</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10">
-                                        <a href="registration.html">
-                                            <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
-                                        </a>
-                                        <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">Запам'ятати</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-1 col-sm-10">
+                                            <a href="registration.html">
+                                                <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
+                                            </a>
+                                            <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer"></div>
                         </div>
-                        <div class="modal-footer"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="container-fluid">
-                <h3 >Створення тесту</h3>
+                <div class="container-fluid">
+                    <div class="row heading">
+                        <h3>Створення тесту</h3>
+                        
+                    </div>
+                    <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
+                        <div class="row">
+                            <br>
 
-                <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
-                    <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-offset-2">
+
+                                <div class="row ">
+                                    <div class="col-sm-12">
+                                        <span class="col-sm-3">Назва тесту:</span>
+
+                                        <input placeholder="Назва тесту" type="text" class="myForm" id="name" onkeyup="textarea(this)" onclick="newclass(this)">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="col-sm-3">Опис тесту:</span>
+
+                                        <textarea placeholder="Опис тесту" class="textarea" id="description" onclick="newclass(this)"></textarea>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="col-sm-3">Теги:</span>
+                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" onkeyup="textarea(this)">
+                                    </div>
+
+                                    <br>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="col-sm-3">Категорія:</span>
+
+                                        <select class="myForm" id="category" onchange="Subcat(this)">
+                                            <option>Оберіть категорію</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="col-sm-3">Підкатегорія:</span>
+
+
+                                        <select class="myForm" id="subCategory" disabled="true" onclick="newclass(this)">
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
                         <br>
                         
-                        <div class="col-lg-6 col-md-6 col-sm-offset-2">
-                                    
-                            <div class="row ">
-                            <div class="col-sm-12">
-                            <span class="col-sm-3"> Назва тесту:</span>
-                               
-                                <input  placeholder="Назва тесту" type="text" class="myForm" id="name" onkeyup="textarea(this)"></div>
-                            </div>
-                            <br>
-                            <div class="row">
-                            <div class="col-sm-12">
-                            <span class="col-sm-3">Опис тесту:</span>
+                        <div class="row">
+                            <div class="col-sm-11 well">
+                                <div class="row ">
 
-                                <input  placeholder="Опис тесту" type="text" class="myForm" id="description" onkeyup="textarea(this)"></div>
-                            </div>  
-                            <br>
-                            <div class="row">
-                            <div class="col-sm-12">
-                            <span class="col-sm-3"> Теги:</span>
-                                     <input  placeholder="Теги розділяються комами" type="text" class="tags" id="tags" onkeyup="textarea(this)" ></div>
-                                      
-                            <br>
-                                 </div>
-                            <br>
-
-                            <div class="row">
-                            <div class="col-sm-12">
-                            <span class="col-sm-3">Категорія:</span>
-                                
-                                <select class="myForm" id="category" onchange="Subcat(this)">
-                                    <option>Оберіть категорію</option>
-                                </select>
-                            </div>
-                        </div>
-                            <br>
-                            <div class="row">
-                             <div class="col-sm-12">
-                            <span class="col-sm-3">    Підкатегорія:</span>
-                                
-                            
-                                <select class="myForm" id="subCategory" disabled="true">
-                                    
-
-                                </select>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-sm-4"></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-11 well">
-                            <div class="row ">
-
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control question"   placeholder="Текст запитання"  required >
-                                        <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                        </span>
-                                    </div>
-                                    <div class="col-sm-11 col-sm-offset-1 nopadding"> <textarea placeholder="Пояснення до питання" class="form-control margintop"></textarea> </div>
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-sm-12 ">
-                                    <div class="row margintop">
-                                    <div class="col-sm-11 col-sm-offset-1">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control answer" 
-                                            
-                                                placeholder="Відповідь" required>
-                                                
-                                                <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)">
-                                                    <span class="glyphicon glyphicon-ok"></span>
-                                                </span>
-                                                <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
-                                                    <span class="glyphicon glyphicon-remove"></span>
-                                                </span>
-                                            </div>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control question" placeholder="Текст запитання" onclick="newclass(this)" onclick="newclass(this)">
+                                            <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-11 col-sm-offset-1 nopadding">
+                                            <textarea placeholder="Пояснення до питання" class="form-control margintop questionDescription" onclick="newclass(this)"></textarea>
                                         </div>
                                     </div>
-                                    <div class="row margintop">
-                                        <div class="col-sm-11 col-sm-offset-1">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control answer" 
-                                           
-                                                placeholder="Відповідь" required>
-
-                                                <span class="btn input-group-addon default" title="Правильна відповідь" onClick="correctAnswer(this)">
-                                                    <span class="glyphicon glyphicon-ok"></span>
-                                                </span>
-                                                <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
-                                                    <span class="glyphicon glyphicon-remove"></span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button>
 
                                 </div>
+                                
+                                <div class="row">
+                                    <div class="col-sm-12 ">
+                                        <div class="row margintop">
+                                            <div class="col-sm-11 col-sm-offset-1">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control answer" placeholder="Відповідь" onclick="newclass(this)">
+
+                                                    <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                    <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row margintop">
+                                            <div class="col-sm-11 col-sm-offset-1">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control answer" placeholder="Відповідь" onclick="newclass(this)">
+
+                                                    <span class="btn input-group-addon default" title="Правильна відповідь" onClick="correctAnswer(this)">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                    <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">
+                                            <span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button>
+
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
+
+                        <div class="row pull-left mm">
+                            <button type="button" class="btn btn-info margintop" onClick="questionAdd(this)">
+                                <span class="glyphicon glyphicon-plus ss"></span>Додати питання</button>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="row margintop">
+                            <a href="#">
+                                <button type="button" class="btn btn-md btn-default width" onclick="send(0,this)">Зберегти в чорновик</button>
+                            </a>
+                            <a href="#">
+                                <button type="button" class="btn btn-md btn-success " onclick="send(1,this)">Відправити на модерацію</button>
+                            </a>
 
                         </div>
                     </div>
-                             
-                    <div class="row pull-left mm">
-                        <button type="button"   class="btn btn-info margintop" onClick="questionAdd(this)"> <span class="glyphicon glyphicon-plus ss"></span>    Додати питання</button>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="row margintop">
-                        <button type="button"   class="btn btn-md btn-default width"  onclick="send(0)">Зберегти в чорновик</button>
-                        <button type="button"   class="btn btn-md btn-success " onclick="send(1)">Відправити на модерацію</button>
 
-                    </div>
                 </div>
 
-            </div>
-          
-        </main>
+            </main>
+        </div>
     </div>
-</div>
-<footer class="container">
-<div id="footer-container">
-<nav id="footer-menu">
-            <ul>
-                <li><a href="index.html">Головна</a> &nbsp|</li>
-                <li><a href="about.html">Про нас</a> &nbsp|</li>
-                <li><a href="contacts.html">Контакти</a></li>
-            </ul>
-</nav>
-<p>
-Copyright@ 2014 <b>IF-044</b>
-</p>
-</div>
-</footer>
+    <footer class="container">
+        <div id="footer-container">
+            <nav id="footer-menu">
+                <ul>
+                    <li><a href="index.html">Головна</a> &nbsp|</li>
+                    <li><a href="about.html">Про нас</a> &nbsp|</li>
+                    <li><a href="contacts.html">Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+            <p>
+                Copyright@ 2014 <b>IF-044</b>
+            </p>
+        </div>
+    </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="select2/select2.js"></script>
-<script type="text/javascript" src="js/testCreation.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/components.js"></script>
-<script>window.onload = changeLoginPic();</script>
-<script>
-      $(function(){
-     $("#tags").select2({tags:[]});
-      });
+    <script type="text/javascript" src="js/testCreation.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+    window.onload = changeLoginPic();
+    </script>
+    <script>
+    $(function() {
+        $("#tags").select2({
+            tags: getTag()
+        });
+    });
     </script>
 </body>
+
 </html>

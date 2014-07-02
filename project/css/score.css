@@ -1,167 +1,187 @@
 html, body {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	background-color: #eae8e8
+  background-color: #eae8e8;
 }
 
 #outer-wrapper {
-	padding-left: 0;
-	min-height: 100%;
-    height: auto;
-    margin: 0 auto -57px;
-    padding: 0 0 57px;
+  padding-left: 0;
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -57px;
+  padding: 0 0 57px;
 }
 
 #inner-wrapper {
-    background-color: white;
-	box-shadow: 0 0 10px #c0bfbf; 
-	margin-top: 20px;
-	padding: 0px; 
+  background-color: white;
+  box-shadow: 0 0 10px #c0bfbf;
+  margin-top: 20px;
+  padding: 0px;
 }
 
 #header-container {
-	height: 100px;
-	padding-left: 0;
-	border-bottom:1px solid #eae8e8;
+  height: 100px;
+  padding-left: 0;
+  border-bottom: 1px solid #eae8e8;
 }
-#header-container img{
-    display: inline-block;
+
+#header-container img {
+  display: inline-block;
 }
 
 #header-container a {
-	display: inline-block;
-} 
+  display: inline-block;
+}
 
 #header-menu {
 /*	display: inline-block;*/
 /*	margin-left: 15%;*/
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 #header-menu>ul, #footer-menu>ul {
-	list-style: none;
+  list-style: none;
 }
 
 #header-menu>ul>li {
-	display: inline-block;
-	margin-right: 60px; 
+  display: inline-block;
+  margin-right: 60px;
 }
 
 #header-menu>ul>li>a {
-	font-size: 1.5em;
-	color: black;
+  font-size: 1.5em;
+  color: black;
 }
 
 main {
-	margin: 20px 0;
-	background-color: white;
-	text-align: center;
-
+  margin: 20px 0;
+  background-color: white;
+  text-align: center;
 }
 
 footer {
-	height: 57px;
+  height: 57px;
 }
 
 #footer-container {
-    width: 200px;
-    margin: 10px auto 10px;
+  width: 200px;
+  margin: 10px auto 10px;
 }
 
 #footer-menu {
-    display: block;
+  display: block;
 }
 
 #footer-menu>ul {
-	padding-left: 25px;
-	margin-bottom: 2px;
+  padding-left: 25px;
+  margin-bottom: 2px;
 }
 
 #footer-menu>ul>li {
-	display: inline-block;
-	margin-right: 5px;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 #footer-menu>ul>li>a {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 #footer-container>p {
-	font-size: 0.8em;
-	text-align: center;
+  font-size: 0.8em;
+  text-align: center;
 }
-.progress{
-	margin-top: 10px;
+
+
+.score-number {
+  font-size: 22px;
+  opacity: 0.8;
+  color: green;
 }
-.score-number{
-	font-size: 30px;
-	opacity: 0.8;
-	color: green;
+
+.name {
+  float: left;
 }
-.name{
-	float: left;
+
+.fromtopic {
+  float: left;
 }
-.fromtopic{
-	float: left;
+
+.question {
+  float: left;
+  margin: 20px 0px 10px 10px;
+  text-align: left;
 }
-.question{
-	float: left;
-	margin: 20px 0px 10px 10px;
-	text-align: left;
+
+article {
+  text-align: justify;
+  margin: 50px 20px 20px 27px;
+  font-family: 'Droid Serif', serif;
 }
-article{
-	text-align: justify;
-	margin: 50px 20px 20px 27px;
-	font-family: 'Droid Serif', serif;
+
+.name {
+  padding: 0px;
 }
-.name{
-	padding: 0px;
+
+.name >i {
+  float: left;
 }
-.name >i{
-	float: left;
+
+.progress {
+  margin-top: 10px;
+  font-size: 10px;
+  opacity: 0.8;
 }
-.progress{
-	font-size: 10px;
+
+.answer {
+  text-align: left;
+  margin: 0px 0px 0px 27px;
 }
-.answer{
-	text-align: left;
-	margin: 0px 0px 0px 27px;
+
+.right-answer {
+  text-align: left;
+  margin: 0px 0px 30px 27px;
 }
-.right-answer{
-	text-align: left;
-	margin: 0px 0px 30px 27px;
+
+.more-about {
+  text-align: left;
+  margin: 10px 10px 0px 27px;
+  padding-bottom: 15px;
 }
-.more-about{
-	text-align: left;
-	margin: 10px 10px 0px 27px;
-	padding-bottom: 15px;
+
+.blockcolor {
+  background: rgba(154, 246, 126, 0.36);
+  border-radius: 7px;
+  margin-top: 20px;
+  box-shadow: 5px 5px 4px #D0F2D2;
 }
-.blockcolor{
-	background: rgba(154, 246, 126, 0.6);
-	border-radius: 7px;
-	margin-top: 20px;
+
+.blockcolorwrong {
+  background: rgba(246, 136, 138, 0.36);
+  border-radius: 7px;
+  margin-top: 20px;
+  box-shadow: 5px 5px 4px #F2D0D1;
 }
-.blockcolorwrong{
-	background: rgba(246, 136, 138, 0.6);
-	border-radius: 7px;
-	margin-top: 20px;
+
+.col-xs-12 {
+  padding: 0px;
 }
-.col-xs-12{
-	padding: 0px;
+
+#answerpanel {
+  margin: 0px 40px 0px 40px;
 }
-#answerpanel{
-	margin: 0px 40px 0px 40px;
+
+.progress {
+  height: 10px;
+  margin: 0px 10px 30px 10px;
 }
-.progress{
-	height: 10px;
-	margin: 0px 10px 30px 10px;
+
+.pass_again {
+  margin: 20px 0px 20px 0px;
+  opacity: 0.9;
 }
-.pass_again{
-	margin: 20px 0px 20px 0px;
-	opacity: 0.9;
-}
-.pass_again{
-	float: bottom;
+
+.pass_again {
+  float: bottom;
 }

@@ -129,16 +129,27 @@ var Events = {
 				}
 			}
 			for (var i = 0; i < this.content_for_edit.length; i++) {
-				this.content_for_edit[i].addEventListener('dblclick', function() {
+				this.content_for_edit[i].addEventListener('dblclick', function(e) {
 					var that = this;
 					if(document.querySelectorAll('.edit-textarea').length){
 						return false;
 					}
-					var editText = document.createElement('textarea')
+                    console.log(e.target.tagName);
+                    if(e.target.tagName == "H3"){
+                        var editText = document.createElement('input')
+                    }
+                    else{
+					   var editText = document.createElement('textarea')
+                    }
 					editText.rows = '4';
 					editText.cols = "60";
 					editText.className = 'edit-textarea col-xs-10 col-xs-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-sm-offset-1 col-md-10 col-sm-offset-1';
-					editText.textContent = this.textContent;
+                    if(e.target.tagName == "H3"){
+                        editText.value = this.textContent;
+                    }
+                    else{
+					   editText.textContent = this.textContent;
+                    }
 						this.style.display="none";
 						insertAfter(editText, this);
 					

@@ -6,12 +6,12 @@
 
                   {id:1,
                   username: 'Tolik',
-                  firstName: 'jkghjdfg',
+                  firstName: 'Данило',
                   lastName: 'fdghfgdjj',
                   group: '',
                   role_id: 1,
                   location: "Ukraine",
-                  email: "tarasklyushta@gmail.com",
+                  email: "abrasklyushta@gmail.com",
                   password: "4321",
                   re_passwd: "4321",
                   birthday: "28-12-1990",
@@ -26,12 +26,12 @@
                   },
                   {id:2,
                   username: 'Vasyl',
-                  firstName: 'jkghjdfg',
+                  firstName: 'Вадим',
                   lastName: 'fdghfgdjj',
                   group: '',
                   role_id: 2,
                   location: "Ukraine",
-                  email: "tarasklyushta@gmail.com",
+                  email: "darasklyushta@gmail.com",
                   password: "4321",
                   re_passwd: "4321",
                   birthday: "28-12-2001",
@@ -47,12 +47,12 @@
                   },
                   {id:3,
                   username: 'Valera',
-                  firstName: 'sdgdh',
+                  firstName: 'Богдан',
                   lastName: 'sdfdgg',
                   group: '',
                   role_id: 3,
                   location: "Ukraine",
-                  email: "tarasklyushta@gmail.com",
+                  email: "carasklyushta@gmail.com",
                   password: "1234",
                   re_passwd: "1234",
                   birthday: "28-12-1998",
@@ -67,12 +67,12 @@
                   },
                   {id:4,
                   username: 'Vova',
-                  firstName: 'dfsgjfj',
+                  firstName: 'Аня',
                   lastName: 'fgsjgjgj',
                   group: '',
                   role_id: 1,
                   location: "Ukraine",
-                  email: "tarasklyushta@gmail.com",
+                  email: "aarasklyushta@gmail.com",
                   password: "1234",
                   re_passwd: "1234",
                   birthday: "28-12-1984",
@@ -1690,13 +1690,40 @@
             id:4,
             name: 'Ступінь 4'
           }
+    ], 
+    Faqs: [
+        {
+          id: 0,
+          question:'This is question 1',
+          answer: 'This is the answer to question #1. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 1,
+          question:'This is question 2',
+          answer: 'This is the answer to question #2. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 2,
+          question:'This is question 3',
+          answer: 'This is the answer to question #3. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 3,
+          question:'This is question 4',
+          answer: 'This is the answer to question #4. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        },
+        {
+          id: 4,
+          question:'This is question 5',
+          answer: 'This is the answer to question #5. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae....'
+        }
     ]    
 };
 
 function model(date_in){
 
   if(!localStorage.Application){
-    console.log('loc false');
+    //console.log('loc false');
     localStorage.Application = JSON.stringify(date_in);
   }
 

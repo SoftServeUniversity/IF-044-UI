@@ -44,3 +44,9 @@
                             .search-teg li {
                                 display: inline-block;
                             }
+							.div-reset-active{
+								background: #5bc0de left;
+							}
+							.div-reset-active span{
+								color: #fff;
+							}							

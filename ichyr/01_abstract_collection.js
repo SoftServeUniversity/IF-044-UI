@@ -1,12 +1,25 @@
-function User(name) {
-    // here supply the list of variables
-    this.name = name;
-    
+// 
+// This model represents the user and has
+// @name
+// @surname
+// @username
+// @password
+// @dob         - date of birth
+// @rank
+// 
+// 
+function User() {
+    this.name = "default";
+    this.surname = "default";
+    this.username = "default";
+    this.password = "default";
+    this.dob = new Date();
+    this.rank = "default";
     // create a random User with all relevant to seed information
     // e.g. name and role will be tranfered
     this.seed = function(n) {
-        var name = "Name " + n;
-        return new User(name)
+        var utlt = new Utility()
+        return utlt.createRandomUser(n)
     }
 }
 
@@ -19,27 +32,25 @@ function Collection(model) {
     this.addElement = function(element) {
         this.collection.push(element)
     }
-    
+
     this.removeElement = function(element) {
         var index = this.collection.indexOf(element)
         if (index > -1) {
             this.collection = this.collection.splice(index, 1)
         }
     }
-    
+
     this.findElement = function(id) {
         return this.collection[id]
     }
-    
+
     // function for creation of seed data
     this.seed = function(n) {
-        for (var i = 0; i < n ; i++ ) {
-            var temp = this.model.seed(i)
+        var utlt = new Utility();
+        for (var i = 0; i < n; i++) {
+            var temp = utlt.createRandomUser(i)
             this.addElement(temp)
         }
+        return this.collection;
     }
 }
-
-var a = new Collection(User)
-a.seed(3)
-console.log(a.collection.length)

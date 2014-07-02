@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="json/new_data.js"></script>
+
+  <title></title>
+</head>
+<body>
+
+<input type="text" placeholder ="number of test" id="t_number">
+
+<button onclick="click111()"> Clik to genarate test and save localstoreg </button>
+<button onclick="clear111()"> Clear localstoreg </button>
+
+<input type="text" placeholder="number of results" id="r_number">
+
+<button onclick="resultGenerator()"> Clik to genarate results and save localstoreg </button> 
+
+</body>
+
+<script>
+function clear111() {
+    localStorage.clear();
+}
+
+function click111() {
+    var t_number = document.getElementById("t_number").value;
+    testGenerate(t_number)
+
+}
+
+var category = [1, 2, 3];
+var subcategory = [ 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var author = [];
+for (j=0; j<Model.date.Users.length; j++) {
+    author[j] = Model.date.Users[j].username;
+}
+var question = [
+                {
+                  id: 1,
+                  text: 'Чи мають перевагу сигнали регулювальника перед вимогами дорожніх знаків?'
+                }, 
+                {
+                  id: 2,
+                  text: 'Чи дозволяється керувати автомобілем в темну пору доби або в умовах недостатньої видимості, якщо включені тільки габаритні ліхтарі?'
+                },
+                {
+                  id: 3,
+                  text: ' Ви наближаєтеся до нерегульованого пішохідного переходу, перед яким на суміжній з Вами смузі зупинився транспортний засіб. Ви повинні'
+                }
+              ];
+var answers = [
+                {
+                  id: 1,
+                  question_id: 1,
+                  text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+                }, 
+                {
+                  id: 2,
+                  question_id: 1,
+                  text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+                },
+                {
+                  id: 3,
+                  question_id: 1,
+                  text_answer: 'Мають перевагу тільки перед вимогами дорожніх знаків пріоритету і є обовязковими для виконання'
+                },
+                {
+                  id: 4,
+                  question_id: 2,
+                  text_answer: ' Дозволяється на освітленій дорозі у населених пунктах'
+                }, 
+                {
+                  id: 5,
+                  question_id: 2,
+                  text_answer: 'Дозволяється на освітленій дорозі у населених пунктах.'
+                },
+                {
+                  id: 6,
+                  question_id: 2,
+                  text_answer: 'Дозволяється під час швидкості руху не більше 50 км/год.'
+                },
+                {
+                  id: 7,
+                  question_id: 3,
+                  text_answer: ' Проїхати пішохідний перехід безупинно, але з особливою обережністю.'
+                },
+                {
+                  id: 8,
+                  question_id: 3,
+                  text_answer: 'Проїхати пішохідний перехід беззупинно.'
+                },
+                {
+                  id: 9,
+                  question_id: 3,
+                  text_answer: 'Обовязково зупинитися. При появі пішоходів пропустити їх.'
+                }
+              ];
+var correct_answer = [
+                  {
+                    question_id: 1,
+                    answer_id: 2
+                  },
+                  {
+                    question_id: 2,
+                    answer_id: 5
+                  },
+                  {
+                    question_id: 3,
+                    answer_id: 7
+                  }
+                  ];
+var stat = [
+    {
+        id: 0,
+        name_status: "створений"
+    },
+    {
+        id: 1,
+        name_status: "відправлений"
+    },
+    {
+        id: 2,
+        name_status: "неопрацьований"
+    },
+    {
+        id: 3,
+        name_status: "опублікований"
+    }
+];
+
+var user_owner_id = [];
+for (i=0; i<Model.date.Users.length; i++) {
+    user_owner_id[i] = Model.date.Users[i].id;
+}
+
+var tags = ['зупинитися', 'тег4', 'тег3', 'тег5', 'тег2'];
+
+
+
+
+function Test(category, subcategory, author, name, id, question, answers, correct_answer, stat, user_owner_id, tags, passed_date, data) {
+    this.category = category;
+    this.subcategory = subcategory;
+    this.author = author;
+    this.name = name;
+    this.id = id;
+    this.question = question;
+    this.answers = answers;
+    this.correct_answer = correct_answer;
+    this.stat = stat;
+    this.user_owner_id = user_owner_id;
+    this.tags = tags;
+    this.passed_date = passed_date;
+    this.date = date;
+
+
+}
+
+
+function testGenerate(number) {
+    for (var i = 0; i < number; i++) {
+        var userInfo = Math.floor(Math.random() * user_owner_id.length);
+        var test;
+        test  = new Test(category[Math.floor(Math.random() * category.length)],
+          subcategory[Math.floor(Math.random() * subcategory.length)],
+            author[userInfo],
+            "Test" + i, i+10,
+            question,
+            answers,
+            correct_answer,
+            stat[Math.floor(Math.random() * stat.length)],
+            user_owner_id[userInfo],
+            tags,
+            passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657),
+            date = 1402927145474 - Math.floor(Math.random() * 11431224657)
+    );
+
+        Model.date.Tests.push(
+            {
+                category: test.category,
+                subcategory: test.subcategory,
+                author: test.author,
+                name: test.name,
+                id: test.id,
+                question: test.question,
+                answers: test.answers,
+                correct_answer: test.correct_answer,
+                status: test.stat,
+                user_owner_id: test.user_owner_id,
+                tags: test.tags,
+                passed_date: test.passed_date,
+                date: test.date
+            });
+
+        Model.save_localStorage();
+        console.log(test)
+    }
+}
+
+function resultGenerator() {
+  var quantity = document.getElementById('r_number').value;
+  result = generateResult();
+  Model.save_localStorage();
+
+  function generateResult() {
+      var newArr = Model.date.Result;
+
+      for (var i = 0; i < quantity; i++) {
+          var res = {}; 
+          res.u_id = Math.ceil(Math.random() * Model.date.Users.length);
+          res.id = Model.date.Result[Model.date.Result.length - 1].id + i - (i-1);
+          res.test_id = Model.date.Tests[(Model.date.Tests.length - 1)  - Math.floor(Math.random() * Model.date.Tests.length)].id;
+          res.name = 'Test Name' + res.test_id;
+          res.score = 100 - Math.floor(Math.random() * 100);
+          res.user_rank = 4 - Math.floor(Math.random() * 4);
+          res.passed_date = 1402927189314 - Math.floor(Math.random() * 11431224657);
+          Model.date.Result.push(res);
+          console.log(res.score);
+      }
+  }
+
+
+}
+</script>
+</html>

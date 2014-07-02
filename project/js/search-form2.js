@@ -3,11 +3,22 @@ var place_for_blacklist = document.getElementById('blacklist');
 var place_for_administrationlist = document.getElementById('administrationlist');
 console.log(Model.date.Users);
 
-
-
 var g;// current user for change status
 var l;// current user for delete user
 var f;// current user for banned
+var number; // capcha generation
+
+function capcha(){
+
+		var a = Math.ceil(Math.random() * 9);
+        var b = Math.ceil(Math.random() * 9);
+        var c = Math.ceil(Math.random() * 9);
+        var d = Math.ceil(Math.random() * 9);
+        var e = Math.ceil(Math.random() * 9);
+        var code = a * b * c * d * e;
+        number = code;
+}
+
 function changestatus(){
 	var new_status = document.getElementById('select_status');
 	var change_status_user = new_status.options[new_status.selectedIndex].getAttribute("role_id");
@@ -44,15 +55,9 @@ function chengestatus(e){
 	console.log(carrent_user_status);
 	document.getElementById('select_status').options[j].selected = true;
 
-	    var a = Math.ceil(Math.random() * 9);
-        var b = Math.ceil(Math.random() * 9);
-        var c = Math.ceil(Math.random() * 9);
-        var d = Math.ceil(Math.random() * 9);
-        var e = Math.ceil(Math.random() * 9);
-        var code = a * b * c * d * e;
-
-        document.getElementById("txtCaptcha").value = code;
-        document.getElementById("txtCaptchaDiv").innerHTML = code;
+     	result();
+        document.getElementById("txtCaptcha").value = number;
+        document.getElementById("txtCaptchaDiv").innerHTML = number;
 	}
 
 
@@ -69,15 +74,9 @@ function button_delete_user(id){
 	}
 	document.getElementById('main_status_of_user').innerHTML = current_user_status;
 
-	    var a = Math.ceil(Math.random() * 9);
-        var b = Math.ceil(Math.random() * 9);
-        var c = Math.ceil(Math.random() * 9);
-        var d = Math.ceil(Math.random() * 9);
-        var e = Math.ceil(Math.random() * 9);
-        var code = a * b * c * d * e;
-
-	document.getElementById("txtCaptcha_delete").value = code;
-    document.getElementById("txtCaptchaDiv_delete").innerHTML = code;
+    result();
+	document.getElementById("txtCaptcha_delete").value = number;
+    document.getElementById("txtCaptchaDiv_delete").innerHTML = number;
 }
 
 
@@ -118,15 +117,9 @@ function button_banned_users(e){
 	document.getElementById('name_of_user_banned').innerHTML = current_user.firstName;
 	console.log(current_user);
 
-	var a = Math.ceil(Math.random() * 9);
-        var b = Math.ceil(Math.random() * 9);
-        var c = Math.ceil(Math.random() * 9);
-        var d = Math.ceil(Math.random() * 9);
-        var e = Math.ceil(Math.random() * 9);
-        var code = a * b * c * d * e;
-
-        document.getElementById("txtCaptcha_banned").value = code;
-        document.getElementById("txtCaptchaDiv_banned").innerHTML = code;
+ 		result();
+        document.getElementById("txtCaptcha_banned").value = number;
+        document.getElementById("txtCaptchaDiv_banned").innerHTML = number;
 }
 
 
@@ -156,52 +149,154 @@ function banned(){
 	else{
 		document.getElementById('txtInput_banned').value = "";	
 	}	
-	// for (var i = 0; i < Model.date.Users.length; i++) {
-	// 	if (current_user = Model.date.Users[i]) {
-	// 		if (current_user.banned == 0) {
-	// 			Model.date.Users[i].banned = 1;	
-	// 			document.getElementById('txtInput_delete').value = "";	
- // 			} 
- // 			else{
- // 				Model.date.Users[i].banned = 0;
- // 				document.getElementById('txtInput_delete').value = "";
- // 			}
-	// 	} 
-	// }
+
 	Model.save_localStorage();
 	showAll();
 }
-//////////////////////////////////////////////////////////////////////////////////// onclick=button_banned_user("+Model.date.Users[i].id+") 
+//////////////////////////////////////////////////////////////////////////////////// 
 
+// function sort(){
+// 	var n = [];
+// 	var h = [];
+// 	for (var i = 0; i < Users.length; i++) {
+// 	n.push(Users[i].firstName)
+// 	}
+// 	n.sort();
+// 	// console.log(b);
+// 	for (var i = 0; i < n.length; i++) {
+// 		for (var j = 0; j < Users.length; j++) {
+// 			if (n[i] == Users[j].firstName) {
+// 				h.push(Users[j])
+// 			}
+// 		}
+// 	}
+// 	console.log(e);
+// }
 
 function showAll(){
+
+Users = Model.date.Users;
+var filter = document.getElementById('filter'); 
+var current_filter = filter.selectedIndex;
+var filter_blacklist = document.getElementById('filterforblacklist');
+var current_filter_blacklist = filter_blacklist.selectedIndex;
+console.log(current_filter_blacklist);
+
+//фільтри 
+		var n = [];
+		var usersSort = [];
+		var sort = [];
+		var statusSort = [];
+
+	if (current_filter == 0) {
+		for (var i = 0; i < Users.length; i++) {
+		n.push(Users[i].firstName)
+		}
+		n.sort();
+		for (var i = 0; i < n.length; i++) {
+			for (var j = 0; j < Users.length; j++) {
+				if (n[i] == Users[j].firstName) {
+					usersSort.push(Users[j])
+					}
+				}
+			}
+		}
+	else{
+		for (var i = 0; i < Users.length; i++) {
+		n.push(Users[i].email)
+		}
+		n.sort();
+		for (var i = 0; i < n.length; i++) {
+			for (var j = 0; j < Users.length; j++) {
+				if (n[i] == Users[j].email) {
+					usersSort.push(Users[j])
+					}
+				}
+			}
+		}
+		// if (current_filter_status == 1) {
+
+		// 				for (var f = 0; f < Users.length; f++) {
+		// 					for (var d = 0; d < Model.date.User_roles.length; d++) {
+		// 					if(Users[f].role_id == Model.date.User_roles[d].id && Users[f].role_id > 1){
+		// 						sort.push(Model.date.User_roles[d].role_name)
+		// 					}
+						
+		// 				}
+		// 			}
+		// 				sort.sort();
+		// 				console.log(sort);
+
+		// 				for (var z = 0; z < sort.length; z++) {
+		// 					for (var x = 0; x < Users.length; x++) {
+		// 						if (sort[z] == Users[x].role_id) {
+		// 						statusSort.push(Users[x])
+							
+		// 						}
+
+		// 					}
+
+		// 				}
+		// 				console.log(statusSort);
+		// 			}
+				
+	var status = [];
 	var content_table = '';
 	var content_blacklist = '';
 	var content_administrationlist = '';
 	Model.load_localStorage();
-	for(var i = 0;i<Model.date.Users.length;i++){        //перебір масиву юзерів
-		for( j = 0; j < Model.date.User_roles.length; j++) // перебір ролей цих юзерів в системі
-		if(Model.date.Users[i].role_id == Model.date.User_roles[j].id){ // якщо ай ді ролі юзера співпада з роллю в системі, то ми присвоюємо юзеро значення цієї ролі
+	for(var i = 0;i<usersSort.length;i++){        //перебір масиву юзерів
+		for( j = 0; j < Model.date.User_roles.length; j++){ // перебір ролей цих юзерів в системі
+		if(usersSort[i].role_id == Model.date.User_roles[j].id){ // якщо ай ді ролі юзера співпада з роллю в системі, то ми присвоюємо юзеро значення цієї ролі
 			var role_name_user = Model.date.User_roles[j].role_name;
 			//console.log(role_name_user);
-		if (Model.date.Users[i].role_id == 1){
-			if (Model.date.Users[i].banned == 0) {
-			content_table+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' id_user='"+Model.date.Users[i].id+"'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+Model.date.Users[i].id+"'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+		if (usersSort[i].role_id == 1){
+			if (usersSort[i].banned == 0) {
+			content_table+="<tr><td><span id='firstName'>"+usersSort[i].firstName+"</span></td><td><span id='mail'>"+usersSort[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' id_user='"+usersSort[i].id+"'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+usersSort[i].id+"'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+usersSort[i].id+")  id_user='"+usersSort[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
 			}
 			else{
-			content_blacklist+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+Model.date.Users[i].id+"'>ВИНЕСТИ З ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
-			}
+					// if(current_filter_blacklist == 1){
+					// 	sort.push(usersSort[i].email);
+					// 	sort.sort();
+						
+					// 	statusSort = [];
+					// 	// sort.reverse();
+					// 	if(statusSort == sort){
+					// 		for (var m = 0; m < sort.length; m++) {
+					// 			for (var z = 0; z < usersSort.length; z++) {
+					// 				if (sort[m] == usersSort[z].email) {									
+					// 					statusSort.push(usersSort[z])
+					// 						for (var x = 0; x < statusSort.length ; x++) {
+												
+											
+					// 					content_blacklist+="<tr><td><span id='firstName'>"+usersSort[i].firstName+"</span></td><td><span id='mail'>"+usersSort[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+usersSort[i].id+"'>ВИНЕСТИ З ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+usersSort[i].id+")  id_user='"+usersSort[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+					// 						}				
+					// 					}
+					// 				}
+					// 			}
+					// 		}	
+					// 		console.log(statusSort);
+					// 	}
+						}
+					content_blacklist+="<tr><td><span id='firstName'>"+usersSort[i].firstName+"</span></td><td><span id='mail'>"+usersSort[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td></td></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'  id_user='"+usersSort[i].id+"'>ВИНЕСТИ З ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+usersSort[i].id+")  id_user='"+usersSort[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+					
+				console.log(sort);
+
 		}
-		else{
-			content_administrationlist+="<tr><td><span id='firstName'>"+Model.date.Users[i].firstName+"</span></td><td><span id='mail'>"+Model.date.Users[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' id_user='"+Model.date.Users[i].id+"'>ЗМІНИТИ СТАТУС</button></a></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+Model.date.Users[i].id+")  id_user='"+Model.date.Users[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
-		}	
+		else{			
+			content_administrationlist+="<tr><td><span id='firstName'>"+usersSort[i].firstName+"</span></td><td><span id='mail'>"+usersSort[i].email+"</span></td><td><span class='user'><strong>"+role_name_user+"</strong></span></td> <td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' id_user='"+usersSort[i].id+"'>ЗМІНИТИ СТАТУС</button></a></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user("+usersSort[i].id+")  id_user='"+usersSort[i].id+"'>ВИДАЛИТИ</button></a></td></tr>";
+			}								
+				
+		}
 		//console.log(Model.date.Users[i]); button_change_status
 		}
 	}
 		// var d=document.getElementById('filter').options.selectedIndex;
-		// console.log(d);
+	
 
 	place_for_table.innerHTML = content_table;
+
+
 	place_for_blacklist.innerHTML = content_blacklist;
 	place_for_administrationlist.innerHTML = content_administrationlist;
 	// Model.date.User_roles[Model.date.Users[i].role_id].role_name

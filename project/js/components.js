@@ -189,7 +189,7 @@ function testsFilter() {
     function titleWrite() {
         for(var i = 0; i< Model.date.Tests_categories.length; i++) {
             if(Model.date.Tests_categories[i].id === testsCategoryId) {
-               subcatTitle.innerHTML = Model.date.Tests_categories[i].name;
+               subcatTitle.innerHTML = 'Пошук тестів у ' + Model.date.Tests_categories[i].name;
             };
         };
     };

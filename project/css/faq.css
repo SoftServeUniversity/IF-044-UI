@@ -2,14 +2,6 @@
 
 	padding: 20px 100px 0;
 }
-/* .question-answer {
-	text-align: left;
-	margin-bottom: 30px;
-	padding: 7px;
-	border: 1px solid #eae8e8;
-	border-radius: 7px;
-	background-color: #f1f0f0;
-} */
 
 .heading {
 	height: 56px;
@@ -36,6 +28,7 @@ main {
 
 #faqs {
 	margin-bottom: 50px;
+	text-align: left;
 }
 #faqs h4	{ 
 	cursor:pointer; 
