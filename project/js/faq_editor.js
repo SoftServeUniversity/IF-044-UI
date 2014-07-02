@@ -34,7 +34,7 @@ document.querySelector('#faqBox').onclick = function(e) {
 			if(objId === faqs[i].id) {
 				currentFaqObj = faqs[i];
 				break;
-			};
+			}
 		};
 
 		for(var k = 0; k<buttons.length; k++) {
@@ -75,6 +75,7 @@ document.querySelector('#faqBox').onclick = function(e) {
 
 	function saveFaqChanges(e) {
 		var index = parseInt(e.target.parentNode.getAttribute('data-obj'), 10);
+
 		if(self.querySelector('input[data-obj="'+parseInt(e.target.parentNode.getAttribute('data-obj'), 10)+'"]')) {
 			var questionText = self.querySelector('input[data-obj="'+parseInt(e.target.parentNode.getAttribute('data-obj'), 10)+'"]').value;
 		} else {};
@@ -82,7 +83,7 @@ document.querySelector('#faqBox').onclick = function(e) {
 		if(self.querySelector('textarea[data-obj="'+parseInt(e.target.parentNode.getAttribute('data-obj'), 10)+'"]')) {	
 			var answerText = self.querySelector('textarea[data-obj="'+parseInt(e.target.parentNode.getAttribute('data-obj'), 10)+'"]').value;
 		} else {};
-		
+
 		faqApp.saveFaq({
 			faqObjIndex: index,
 			question: questionText,
@@ -92,8 +93,14 @@ document.querySelector('#faqBox').onclick = function(e) {
 		closeEditor(e);
 	}
 
-	function deleteFaq() {
+	function deleteFaq(e) {
+		var index = parseInt(e.target.parentNode.getAttribute('data-obj'), 10);
 
+		faqApp.deleteFaq(index);
+		document.querySelector('#faqBox').innerHTML = '';
+		faqApp = new FaqController({
+        	container: document.querySelector('#faqBox')
+    	});		
 	}
 
 	function checkButtonsInit(elemForButt) {

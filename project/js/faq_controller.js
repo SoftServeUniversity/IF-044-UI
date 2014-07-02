@@ -47,7 +47,14 @@ function FaqController (options) {
 		Model.save_localStorage();
 	}
 
-	this.deleteFaq = function() {
+	this.deleteFaq = function(index) {
 
+		for(var i = 0; i<faqs.length; i++) {
+			if(faqs[i].id === index) {
+				faqs.splice(i, 1);
+			};
+		};
+
+		Model.save_localStorage();
 	}
 }
