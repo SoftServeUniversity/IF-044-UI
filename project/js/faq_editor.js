@@ -125,3 +125,23 @@ document.querySelector('#faqBox').onclick = function(e) {
 
 	};
 }
+
+
+
+
+function createNewFaq() {
+	var faqs = Model.date.Faqs;
+	var newObj = {};
+
+	newObj.question = 'Введіть нове запитання!';
+	newObj.answer = 'Введіть нову відповідь!';
+	newObj.id = faqs[faqs.length - 1].id + 1;
+	faqs.push(newObj);
+	Model.save_localStorage();
+
+	document.querySelector('#faqBox').innerHTML = '';
+	faqApp = new FaqController({
+        container: document.querySelector('#faqBox')
+    });		
+
+}

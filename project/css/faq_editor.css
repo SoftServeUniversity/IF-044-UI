@@ -17,3 +17,7 @@
 #faqBox p, #faqBox h4 {
 	cursor: pointer;
 }
+
+.create-button {
+	margin: 25px 5px;
+}
