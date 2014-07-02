@@ -111,7 +111,47 @@ var generateHtml = {
 	
 } 
 	generateHtml.init(get_test_id);// generation html page
-	
+    function wrote(testId,textComment) {
+
+        if (Model.date.Comment === undefined) {
+            Model.date.Comment = [];
+            Model.date.Comment.push({
+                comment: [],
+                Date_creation: [],
+                Test_id: testId
+            });
+            var d = new Date().getTime()
+            Model.date.Comment[0].Date_creation.push(d);
+            Model.date.Comment[0].comment.push(textComment);
+            var dublicate = true;
+            Model.save_localStorage()
+        } else {
+            for (var i = 0; i < Model.date.Comment.length; i++) {
+                if (Model.date.Comment[i].Test_id === testId) {
+                    var q = new Date().getTime()
+                    Model.date.Comment[i].Date_creation.push(q);
+                    Model.date.Comment[i].comment.push(textComment);
+                    var dublicate = true;
+                    Model.save_localStorage()
+                } else {
+                    var dublicate = false;
+                }
+            };
+        }
+        if (!dublicate) {
+        	alert(dublicate)
+            Model.date.Comment.length
+            Model.date.Comment.push({
+                comment: [],
+                Date_creation: [],
+                Test_id: testId
+            });
+            var c = new Date().getTime()
+            Model.date.Comment[Model.date.Comment.length - 1].Date_creation.push(c);
+            Model.date.Comment[Model.date.Comment.length - 1].comment.push(textComment);
+            Model.save_localStorage()
+        };
+    }	
 var Events = {
 	content_for_edit: document.querySelectorAll('.testDouble'),
     dblClickForEditTest: function(){
@@ -203,6 +243,7 @@ var Events = {
 						month[0] = "січ"; month[1] = "лют";  month[2] = "бер";  month[3] = "кві"; month[4] = "тра"; month[5] = "чер"; month[6] = "лип"; month[7] = "сер"; month[8] = "вер"; month[9] = "жов"; month[10] = "лис"; month[11] = "гру";
 						var timeCreateComments = day.getDate() + " " + month[day.getMonth()] + " о " + day.getHours() + ":" + minutes;
 						console.log(Model.date.comment);
+						/*My old
 						if(!Model.date.comment){
 							Model.date.comment = [];
 						}				
@@ -210,7 +251,8 @@ var Events = {
 								comment: comment,
 								test_id : get_test_id,
 								timeCreate: timeCreateComments
-							});
+							});*/
+							wrote(get_test_id,comment);/* call function by Sergiy*/							
 							generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 							generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
 							generateHtml.catchTestById(get_test_id).status.id = 2;							

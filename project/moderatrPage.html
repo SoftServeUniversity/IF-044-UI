@@ -10,6 +10,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
     <link href="css/faq.css" rel="stylesheet">
+    <link rel="stylesheet" href="select2/select2.css">	
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -113,7 +114,18 @@
         width: 50%;
 
     }
-</style>            
+</style>  
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="col-sm-3">Теги:</span>
+                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" value="PETRO,ivan">
+                                    </div>
+
+                                    <br>
+                                </div>  
+<div class="row">
+ne zabuty information for TEST!!!!!!!!!!!!!!!
+</div> 								
 <div class="row">
     <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1  col-sm-10 col-sm-offset-1   content-test">
     </div>
@@ -161,8 +173,34 @@
     </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="select2/select2.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
+    <script>
+    function getTag() {
+        var tags = [];
+        for (var i = 0; i < Model.date.Tests.length; i++) {
+
+            for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
+                tags.push(Model.date.Tests[i].tags[j]);
+
+            };
+        };
+        var i = tags.length;
+        tags.sort();
+        while (i--) {
+            if (tags[i] == tags[i - 1]) {
+                tags.splice(i, 1);
+            }
+        }
+        return tags
+    }	
+    $(function() {
+        $("#tags").select2({
+            tags: getTag()
+        });
+    });
+    </script>
 <script>
     changeLoginPic();
 </script>

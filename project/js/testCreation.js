@@ -325,7 +325,7 @@ function allFieldvalidation() {
                 return
             } else {
                 var li = document.createElement('div');
-                li.className = 'alertmessage';
+                li.className = 'alertmessage margintop';
                 li.innerHTML = '<h4>Заповніть всі поля!</h4>';
                 document.getElementsByClassName('row')[1].appendChild(li);
                 window.scrollTo(0, 0);
