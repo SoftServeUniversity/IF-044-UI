@@ -1,5 +1,19 @@
 'use strict'
 
+function redirect() {
+
+    if (location.search.split('=').slice(1)[0] === undefined) {
+
+        window.location = '404.html';
+    }
+    if (Model.date.session_user_id) {
+        return
+    } else {
+        window.location = '404.html';
+    }
+}
+window.onload = redirect();
+
 function test() {
     this.id = parseInt(location.search.split('=').slice(1)[0]) - 1;
     this.category = function(id) {
@@ -31,13 +45,15 @@ function breadcrumbs_creation(num) {
     name1[0].innerHTML = Model.date.Tests[num].name;
     Category.innerHTML = test.category(Model.date.Tests[num].category);
     SubCategory.innerHTML = test.subcategory(Model.date.Tests[num].subcategory);
+    Category.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].category + "";
+    SubCategory.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].subcategory + "";
 }
 
 
 var testStructure = function(testNum) {
     var page = document.getElementsByClassName('page');
     for (var i = 0; i < Model.date.Tests[testNum].question.length; i++) {
-        page[0].innerHTML += '<div class="row"><div class="col-lg-10 col-sm-offset-1"><div class="pos"></div><div class="question"><br></div><div class="col-lg-10 answer-spase"></div></div>'
+        page[0].innerHTML += '<div class="row"><div class="col-lg-10 col-sm-offset-1"><div class="pos"></div><div class="question"><br></div><div class="col-lg-10 answer-spase"></div></div></div><br />'
     }
     var num = document.getElementsByClassName('pos');
     var question = document.getElementsByClassName('question');
@@ -85,9 +101,22 @@ var result = function() {
     };
     for (var i = 0; i < a.length; i++) { //перевіряємо чи дав користувач відповіді на всі запитання
         if (obj['question' + i].length === 0) { // якщо масив відповіді пустий
-            alert('Дайте відповіді на усі запитання');
-            document.getElementById("next").href = '#next'; //перехід не відбувається
-            break;
+            if (document.getElementsByClassName('alert alert-danger')[0] === undefined) {
+                var newel = document.createElement('div');
+                newel.className = 'row';
+                newel.innerHTML = '<div class="col-sm-4 col-md-4 col-sm-offset-1"><div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Дайте відповідь на усі питання!</p> </div></div>';
+                document.getElementsByClassName("col-lg-12 page")[0].parentElement.insertBefore(newel, document.getElementsByClassName("col-lg-12 page")[0]);
+                
+                document.getElementById("next").href = '#'; //перехід не відбувається
+                return;
+                break;
+
+            } else {
+                document.getElementById("next").href = '#';
+                return;
+                break;
+                
+            }
         } else {
             document.getElementById("next").href = 'score.html'; // якщо всі відповіді відмічені, прехід на сторінку результату
         }

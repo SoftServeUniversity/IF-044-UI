@@ -137,14 +137,19 @@ var ansAdd = function(el) {
 var questionremove = function(el) {
 
     if (document.getElementsByClassName('question').length == 1) {
-        var newel = document.createElement('div');
-        newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
-        newel.innerHTML = '<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Тест має містити мінімум 1 питання!</p> </div>';
-        el.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel,el.parentNode.parentNode.parentNode.parentNode);
-
+        if (document.getElementsByClassName('alert alert-danger q')[0] === undefined) {
+            var newel = document.createElement('div');
+            newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+            newel.innerHTML = '<div class="alert alert-danger q"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Тест має містити мінімум 1 питання!</p> </div>';
+            el.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode);
+        } else {
+            return
+        }
     } else {
-        var Child = el.parentNode.parentNode.parentNode.parentNode;
+        var Child = el.parentNode.parentNode.parentNode.parentNode.parentNode;
+        console.log(Child);
         var Node = Child.parentNode;
+        console.log(Node);
         Node.removeChild(Child);
 
     }
@@ -152,12 +157,24 @@ var questionremove = function(el) {
 
 //видаляє відповідь
 var answerRemove = function(el) {
+
     var a = el.parentNode.parentNode.parentNode.parentNode.childElementCount
     if (a === 3) {
-        var newel = document.createElement('div');
-        newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
-        newel.innerHTML = '<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
-        el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel,el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);   
+        if (document.getElementsByClassName('alert alert-danger a')[0] === undefined) {
+            var newel = document.createElement('div');
+            newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+            newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
+            el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+        } else {
+            if (el.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].className != "col-sm-5 col-md-5 col-sm-offset-3") {
+                var newel = document.createElement('div');
+            newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+            newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
+            el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+        }else{
+            return
+        }
+        }
     } else {
         var Child = el.parentNode.parentNode.parentNode;
         var Node = Child.parentNode;
