@@ -43,7 +43,7 @@ function test() {
     }
 }
 var testStatus =function() {
-	if (test.testObj(test.id).status != 4) {
+	if (test.testObj(test.id).status != 3) {
 		 window.location = '404.html';
 	};
 }
