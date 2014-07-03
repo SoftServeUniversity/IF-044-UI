@@ -27,6 +27,8 @@ var answerArray = JSON.parse(localStorage.QuestionObject);
 
 // test id starts with 1, but array elements start with 0
 var n = answerArray.Test_id - 1;
+var subcategory_id;
+var category_id;
 
 function getCorrectAnswerByQuestionId(test_id, correct_answer_id) {
 
@@ -46,8 +48,7 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
     document.getElementById('name_for_test').innerHTML = Model.date.Tests[n].name;
     var categoty;
     var category_id;
-    var subcategory;
-    var subcategory_id;
+
     for (var i = 0; i < Model.date.Tests_categories.length; i++) {
         if (Model.date.Tests[n].category == Model.date.Tests_categories[i].id) {
             categoty = Model.date.Tests_categories[i].name;
@@ -62,9 +63,7 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
 
     document.getElementById('name_for_test_categoty').innerHTML = categoty;
     document.getElementById('name_for_test_subcategoty').innerHTML = subcategory;
-    function category(){
-        window.location = 'category.html?id='+ category_id +''
-    }
+ 
 
     for (var l = 0; l < Model.date.Tests[n].question.length; l++) {
         for (var i = 0; i < Model.date.Tests[n].answers.length; i++) {
@@ -128,3 +127,9 @@ showAll();
 function pass_again() {
     window.location = 'Test.html?id=' + (n + 1) + ''
 }
+   function category(){
+        window.location = 'category.html?id='+ category_id +''
+    }
+    function subcategory(){
+        window.location = 'subcategory.html?id=11'
+    }

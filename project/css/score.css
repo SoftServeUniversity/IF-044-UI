@@ -113,7 +113,7 @@ body {
 
 .question {
   float: left;
-  margin: 20px 0px 10px 10px;
+  margin: 20px 0px 10px 20px;
   text-align: left;
 }
 
@@ -139,18 +139,18 @@ article {
 
 .answer {
   text-align: left;
-  margin: 0px 0px 0px 27px;
+  margin: 0px 20px 0px 38px;
 }
 
 .right-answer {
   text-align: left;
-  margin: 0px 0px 30px 27px;
+  margin: 0px 20px 30px 38px;
 }
 
 .more-about {
   text-align: left;
-  margin: 10px 10px 0px 27px;
-  padding-bottom: 15px;
+  margin: 10px 20px 20px 38px;
+
 }
 
 .blockcolor {
@@ -182,9 +182,17 @@ article {
 
 .pass_again {
   margin: 20px 0px 20px 0px;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .pass_again {
   float: bottom;
+}
+.name_for_test_categoty:hover, .name_for_test_subcategoty:hover{
+    color: #6495ED;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.questiontext{
+  margin: 20px 40px 0px 0px; 
 }
