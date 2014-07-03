@@ -1,4 +1,4 @@
-/*testpage style start*/
+﻿/*testpage style start*/
 
 /*input[type=checkbox] ~ input[type=checkbox] + label {
     color: red;
@@ -20,7 +20,7 @@ input[type=checkbox]:checked ~ input[type=checkbox] + label {
 .pos {
     float: left;
     display: inline-block;
-    margin-bottom: 70px;
+    /*margin-bottom: 70px;*/
     margin-right: 5px;
 }
 .answer-spase {

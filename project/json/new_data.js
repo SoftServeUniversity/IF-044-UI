@@ -171,10 +171,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 0,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 4,
 
           //category: 1,
@@ -267,10 +268,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 11,
 
           //category: 1,
@@ -366,10 +368,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 7,
 
           //category: 1,
@@ -462,10 +465,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 0,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -557,10 +561,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 2,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -652,10 +657,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -747,10 +753,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -842,10 +849,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -937,10 +945,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -1032,10 +1041,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 2,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -1127,10 +1137,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 1,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -1222,10 +1233,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 3,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -1317,10 +1329,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 1,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,
@@ -1412,10 +1425,11 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: {
-              id:3,
-              name_status: "опублікований"
-              },
+          status: 0,
+          // status: {
+          //     id:3,
+          //     name_status: "опублікований"
+          //     },
           subcategory: 5,
 
           //category: 1,

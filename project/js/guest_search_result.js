@@ -60,12 +60,12 @@
                                 console.log(result_array);
                                 this.showEmpty();
                                 var lengthArray;
-                                if(start+step<result_array.length){
-                                    //lengthArray = result_array.length;
-                                    lengthArray = start+step;
-                                }else{
-                                    lengthArray = (start+1)*step;
-                                }
+                                // if(start+step<result_array.length){
+                                    // //lengthArray = result_array.length;
+                                    // lengthArray = start+step;
+                                // }else{
+                                    // lengthArray = (start+1)*step;
+                                // }
                                 lengthArray = (start)?start*step:step;
                                 var i;
 								for (var k = (start-1)*step; k<lengthArray;k++) {
@@ -205,3 +205,4 @@
 }
 
 simpleSearch.init();
+
