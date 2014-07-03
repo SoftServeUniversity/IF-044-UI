@@ -45,19 +45,26 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
 
     document.getElementById('name_for_test').innerHTML = Model.date.Tests[n].name;
     var categoty;
+    var category_id;
     var subcategory;
+    var subcategory_id;
     for (var i = 0; i < Model.date.Tests_categories.length; i++) {
         if (Model.date.Tests[n].category == Model.date.Tests_categories[i].id) {
             categoty = Model.date.Tests_categories[i].name;
+            category_id = Model.date.Tests_categories[i].id;
         } else {
             if (Model.date.Tests[n].subcategory == Model.date.Tests_categories[i].id) {
                 subcategory = Model.date.Tests_categories[i].name;
+                subcategory_id = Model.date.Tests_categories[i].id;
             }
         }
     }
 
     document.getElementById('name_for_test_categoty').innerHTML = categoty;
     document.getElementById('name_for_test_subcategoty').innerHTML = subcategory;
+    function category(){
+        window.location = 'category.html?id='+ category_id +''
+    }
 
     for (var l = 0; l < Model.date.Tests[n].question.length; l++) {
         for (var i = 0; i < Model.date.Tests[n].answers.length; i++) {
