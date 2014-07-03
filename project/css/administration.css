@@ -231,7 +231,11 @@ button{
  	}
 
  	.faqBox .btn-danger {
-		margin: 10px 10px 50px 100px;
+		margin: 10px 10px 50px 50%;
+ 	}
+
+ 	.faqBox input {
+ 		width: 40%;
  	}
 
  .create-button{
