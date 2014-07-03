@@ -145,7 +145,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Теги:</span>
-                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" onkeyup="textarea(this)">
+                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" onkeyup="textarea(this)" onclick="newclass(this)">
                                     </div>
 
                                     <br>
@@ -156,7 +156,7 @@
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Категорія:</span>
 
-                                        <select class="myForm" id="category" onchange="Subcat(this)">
+                                        <select class="myForm cat" id="category" onchange="Subcat(this)" onclick="newclass(this)">
                                             <option>Оберіть категорію</option>
                                         </select>
                                     </div>
@@ -166,8 +166,8 @@
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Підкатегорія:</span>
 
-
-                                        <select class="myForm" id="subCategory" disabled="true" onclick="newclass(this)">
+                                        
+                                        <select class="myForm subcat" id="subCategory" disabled="true" onclick="newclass(this)">
 
 
                                         </select>

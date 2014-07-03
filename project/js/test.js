@@ -11,11 +11,11 @@ function redirect() {
     } else {
         window.location = '404.html';
     }
-}
+} 
 window.onload = redirect();
 
 function test() {
-    this.id = parseInt(location.search.split('=').slice(1)[0]);
+    this.id = parseInt(location.search.split('=').slice(1)[0]) - 1;
     this.category = function(id) {
         for (var i = 0; i < Model.date.Tests_categories.length; i++) {
             // console.log(i);
@@ -34,48 +34,36 @@ function test() {
         }
         return subcatname;
     }
-    this.testObj = function(id) {
-        for (var i = 0; i < Model.date.Tests.length; i++) {
-            if (id === Model.date.Tests[i].id) {
-                return Model.date.Tests[i];
-            }
-        };
-    }
 }
-var testStatus =function() {
-	if (test.testObj(test.id).status != 3) {
-		 window.location = '404.html';
-	};
-}
+
 var test = new test();
-window.onload = testStatus();
+
 function breadcrumbs_creation(num) {
     var name1 = document.getElementsByTagName('h2');
     var Category = document.getElementById('Category');
     var SubCategory = document.getElementById('SubCategory');
-    name1[0].innerHTML =test.testObj(test.id).name;
-    Category.innerHTML = test.category(test.testObj(test.id).category);
-    SubCategory.innerHTML = test.subcategory(test.testObj(test.id).subcategory);
-    Category.parentElement.parentElement.href = "category.html?id=" + test.testObj(test.id).category + "";
-    SubCategory.parentElement.parentElement.href = "subcategory.html?id=" + test.testObj(test.id).subcategory + "";
+    name1[0].innerHTML = Model.date.Tests[num].name;
+    Category.innerHTML = test.category(Model.date.Tests[num].category);
+    SubCategory.innerHTML = test.subcategory(Model.date.Tests[num].subcategory);
+    Category.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].category + "";
+    SubCategory.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].subcategory + "";
 }
 
 
-var testStructure = function(obj) {
+var testStructure = function(testNum) {
     var page = document.getElementsByClassName('page');
-    for (var i = 0; i < test.testObj(test.id).question.length; i++) {
-  
+    for (var i = 0; i < Model.date.Tests[testNum].question.length; i++) {
         page[0].innerHTML += '<div class="row"><div class="col-lg-10 col-sm-offset-1"><div class="pos"></div><div class="question"><br></div><div class="col-lg-10 answer-spase"></div></div></div><br />'
     }
     var num = document.getElementsByClassName('pos');
     var question = document.getElementsByClassName('question');
     var answer = document.getElementsByClassName("col-lg-10 answer-spase");
-    for (var i = 0; i < test.testObj(test.id).question.length; i++) {
+    for (var i = 0; i < Model.date.Tests[testNum].question.length; i++) {
         num[i].innerHTML = "<strong>" + (i + 1) + '.' + '</strong>';
-        question[i].innerHTML = test.testObj(test.id).question[i].text;
-        for (var k = 0; k <test.testObj(test.id).answers.length; k++) {
-            if (test.testObj(test.id).answers[k].question_id === (i + 1)) {
-                answer[i].innerHTML += '<label onClick="answer(this)" class="aq1">' + test.testObj(test.id).answers[k].text_answer + '</label><br>';
+        question[i].innerHTML = Model.date.Tests[testNum].question[i].text;
+        for (var k = 0; k < Model.date.Tests[testNum].answers.length; k++) {
+            if (Model.date.Tests[testNum].answers[k].question_id === (i + 1)) {
+                answer[i].innerHTML += '<label onClick="answer(this)" class="aq1">' + Model.date.Tests[testNum].answers[k].text_answer + '</label><br>';
 
             }
         }
@@ -83,7 +71,7 @@ var testStructure = function(obj) {
 }
 
 
-document.onload = testStructure(test.testObj(test.id));
+document.onload = testStructure(test.id);
 document.onload = breadcrumbs_creation(test.id);
 
 var answer = function(el) {
@@ -94,6 +82,8 @@ var answer = function(el) {
         el.className = "MyClass";
     }
 }
+
+
 
 var result = function() {
     var Test_id = parseInt(location.search.split('=').slice(1)[0]); // зміна для зберігання і передавання id тесту який проходиться
@@ -113,18 +103,19 @@ var result = function() {
     };
     for (var i = 0; i < a.length; i++) { //перевіряємо чи дав користувач відповіді на всі запитання
         if (obj['question' + i].length === 0) { // якщо масив відповіді пустий
-            if (document.getElementsByClassName('alert alert-danger')[0] === undefined) {
+            if (document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i+1].parentElement.children[0].className != 'col-sm-offset-5 alertmess') {
                 var newel = document.createElement('div');
-                newel.className = 'row';
-                newel.innerHTML = '<div class="col-sm-4 col-md-4 col-sm-offset-1"><div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Дайте відповідь на усі питання!</p> </div></div>';
-                document.getElementsByClassName("col-lg-12 page")[0].parentElement.insertBefore(newel, document.getElementsByClassName("col-lg-12 page")[0]);
-                
-                document.getElementById("next").href = '#'; //перехід не відбувається
+                newel.className = 'col-sm-offset-5 alertmess';
+                newel.innerHTML = '<strong>Дайте відповідь на запитання!</strong>';
+                document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i+1].parentElement.insertBefore(newel, document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i+1]);
+                document.getElementById("next").href = 'javascript:void(0)'; //перехід не відбувається
+                document.getElementsByClassName("col-sm-offset-5 alertmess")[i].scrollIntoView(true)
                 return;
                 break;
 
             } else {
-                document.getElementById("next").href = '#';
+                document.getElementById("next").href = 'javascript:void(0)';
+                document.getElementsByClassName("col-sm-offset-5 alertmess")[i].scrollIntoView(true);
                 return;
                 break;
                 

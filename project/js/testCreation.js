@@ -168,12 +168,12 @@ var answerRemove = function(el) {
         } else {
             if (el.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].className != "col-sm-5 col-md-5 col-sm-offset-3") {
                 var newel = document.createElement('div');
-            newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
-            newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
-            el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
-        }else{
-            return
-        }
+                newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+                newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
+                el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+            } else {
+                return
+            }
         }
     } else {
         var Child = el.parentNode.parentNode.parentNode;
@@ -199,7 +199,9 @@ var categoryCreation = function() {
 
 //За обраною категорією заповняє підкатегорії, якщо категорія не обрана поле підкатегорії не активне
 var Subcat = function(el) {
+
     if (el.value === 'Оберіть категорію') {
+
         elID('subCategory').disabled = true;
 
     } else {
@@ -214,7 +216,11 @@ var Subcat = function(el) {
         }
     };
     removeChildren(elID('subCategory'));
+    var val = document.createElement("option");
+    val.innerHTML = "Оберіть підкатегорію";
+    elID('subCategory').appendChild(val)
     for (var key in res) {
+
         var p = document.createElement("option");
         var elem = elID('subCategory').appendChild(p);
         elem.innerHTML = res[key].name;
@@ -241,12 +247,17 @@ var correctAnswer = function(el) {
     }
     //validation function
 
-    function validation(el) {
-        if (el.value === "") {
-            el.className += " validation";
+    function validation(el, param) {
+        if (el.value === param) {
+            if (el.className.indexOf('validation') != -1) {
+                return
+            } else {
+                el.className += " validation";
+            }
         }
-
     }
+
+
 
     //Знаходить ід категорії
 
@@ -317,40 +328,51 @@ function QuestionSave(obj, question, answer) {
     };
 }
 
+function statusCheck(el) {
+    for (var i = 0; i < el.length; i++) {
+        if (el[i].className.indexOf('validation') === -1) {
+            return true
+        } else {
+            return false
+        }
+    };
+
+}
+
+function validationClass(el) {
+    for (var i = 0; i < el.length; i++) {
+        validation(el[i], "");
+    };
+}
 
 function allFieldvalidation() {
     var inp = document.getElementsByTagName('input');
-    validation(elID('name'), 'validation');
-    validation(elID('description'), 'validation');
-    validation(elID('subCategory'), 'validation');
-    for (var i = 0; i < document.getElementsByClassName('question').length; i++) {
-        validation(document.getElementsByClassName('question')[i], 'validation');
-    };
-    for (var i = 0; i < document.getElementsByClassName('answer').length; i++) {
-        validation(document.getElementsByClassName('answer')[i], 'validation');
-    };
-    for (var i = 0; i < document.getElementsByClassName('questionDescription').length; i++) {
-        validation(document.getElementsByClassName('questionDescription')[i], 'validation');
-    };
-    for (var i = 3; i < inp.length; i++) {
-
-        if (inp[i].className.indexOf('validation') === -1) {
-            return true
+    var textarea = document.getElementsByTagName('textarea');
+    validation(elID('name'), "");
+    validation(elID('tags'), "");
+    validation(elID('category'), "Оберіть категорію");
+    validation(elID('subCategory'), "Оберіть підкатегорію");
+    validationClass(textarea);
+    validationClass(document.getElementsByClassName('question'));
+    validationClass(document.getElementsByClassName('answer'));
+    validationClass(document.getElementsByClassName('questionDescription'));
+    if (statusCheck(inp) && statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
+        return true
+    } else {
+        if (document.getElementsByClassName('row')[1].children[1]) {
+            window.scrollTo(0, 0);
+            return
         } else {
-            if (document.getElementsByClassName('row')[1].children[1]) {
-                window.scrollTo(0, 0);
-                return
-            } else {
-                var li = document.createElement('div');
-                li.className = 'alertmessage margintop';
-                li.innerHTML = '<h4>Заповніть всі поля!</h4>';
-                document.getElementsByClassName('row')[1].appendChild(li);
-                window.scrollTo(0, 0);
-                return false
-            }
-
+            var li = document.createElement('div');
+            li.className = 'alertmessage margintop';
+            li.innerHTML = '<h4>Заповніть всі поля!</h4>';
+            document.getElementsByClassName('row')[1].appendChild(li);
+            window.scrollTo(0, 0);
+            return false
         }
+
     }
+
 }
 //Збирає данні з інпутів по ід і записує їх у базу
 var send = function(id, el) {
