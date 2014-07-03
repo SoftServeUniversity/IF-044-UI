@@ -6,14 +6,14 @@ body {
   background-color: #eae8e8;
 }
 
-#outer-wrapper {
+/*#outer-wrapper {
   padding-left: 0;
   min-height: 100%;
   height: auto;
   margin: 0 auto -57px;
   padding: 0 0 57px;
 }
-
+*/
 #inner-wrapper {
   background-color: white;
   box-shadow: 0 0 10px #c0bfbf;
@@ -36,8 +36,6 @@ body {
 }
 
 #header-menu {
-/*	display: inline-block;*/
-/*	margin-left: 15%;*/
   margin: 0 auto;
 }
 
@@ -55,44 +53,44 @@ body {
   color: black;
 }
 
-main {
+/*main {
   margin: 20px 0;
   background-color: white;
   text-align: center;
 }
-
-footer {
+*/
+/*footer {
   height: 57px;
 }
-
-#footer-container {
+*/
+/*#footer-container {
   width: 200px;
   margin: 10px auto 10px;
 }
-
-#footer-menu {
+*/
+/*#footer-menu {
   display: block;
 }
-
-#footer-menu>ul {
+*/
+/*#footer-menu>ul {
   padding-left: 25px;
   margin-bottom: 2px;
 }
-
-#footer-menu>ul>li {
+*/
+/*#footer-menu>ul>li {
   display: inline-block;
   margin-right: 5px;
 }
-
-#footer-menu>ul>li>a {
+*/
+/*#footer-menu>ul>li>a {
   font-size: 0.8em;
 }
-
-#footer-container>p {
+*/
+/*#footer-container>p {
   font-size: 0.8em;
   text-align: center;
 }
-
+*/
 
 .score-number {
   font-size: 22px;
@@ -100,10 +98,15 @@ footer {
   color: green;
 }
 
-.name {
-  float: left;
+.panel-title {
+  color: black;
 }
-
+  .panel-title i{
+    font-size: 13px;
+  }
+  .Testname{
+    font-size: 20px;
+  }
 .fromtopic {
   float: left;
 }
