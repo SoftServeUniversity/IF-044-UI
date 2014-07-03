@@ -225,7 +225,15 @@ button{
  		text-align: left;
  		border-bottom: 1px solid #C0C0C0;
  	}
+
+ 	.faqBox textarea {
+ 		resize: vertical;
  	}
+
+ 	.faqBox .btn-danger {
+		margin: 10px 10px 50px 100px;
+ 	}
+
  .create-button{
  	margin: 20px 0px 0px 60px;
  }

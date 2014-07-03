@@ -16,9 +16,9 @@ document.querySelector('#faqBox').onclick = function(e) {
 		target.parentNode.removeChild(target);
 	}
 
-	function createButtons(buttonName, eventHandler, elemForButt) {
+	function createButtons(buttonName, eventHandler, elemForButt, buttonClass) {
 		var button = document.createElement('button');
-		button.className = 'btn btn-primary';
+		button.className = buttonClass;
 		button.innerHTML = buttonName;
 		button.onclick = eventHandler;
 		elemForButt.parentNode.appendChild(button);
@@ -95,19 +95,24 @@ document.querySelector('#faqBox').onclick = function(e) {
 
 	function deleteFaq(e) {
 		var index = parseInt(e.target.parentNode.getAttribute('data-obj'), 10);
+		var confirmResult = confirm('Ви дійсно бажаєте видалити це питання?');
 
-		faqApp.deleteFaq(index);
-		document.querySelector('#faqBox').innerHTML = '';
-		faqApp = new FaqController({
-        	container: document.querySelector('#faqBox')
-    	});		
+		if(confirmResult) {
+			faqApp.deleteFaq(index);
+			document.querySelector('#faqBox').innerHTML = '';
+			faqApp = new FaqController({
+        		container: document.querySelector('#faqBox')
+    		});	
+    	} else { 
+    		return false;
+    	};		
 	}
 
 	function checkButtonsInit(elemForButt) {
 		if(!elemForButt.nextSibling) {
-			createButtons('Зберегти', saveFaqChanges, elemForButt);
-			createButtons('Видалити', deleteFaq, elemForButt);
-			createButtons('Відміна', closeEditor, elemForButt);
+			createButtons('Зберегти', saveFaqChanges, elemForButt, 'btn btn-primary');
+			createButtons('Відмінити зміни', closeEditor, elemForButt, 'btn btn-default');
+			createButtons('Видалити питання', deleteFaq, elemForButt, 'btn btn-danger');
 		} else {
 			return false
 		};
