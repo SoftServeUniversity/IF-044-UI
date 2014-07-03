@@ -43,7 +43,7 @@ function test() {
     }
 }
 var testStatus =function() {
-	if (test.testObj(test.id).status != 4) {
+	if (test.testObj(test.id).status != 3) {
 		 window.location = '404.html';
 	};
 }
@@ -53,11 +53,11 @@ function breadcrumbs_creation(num) {
     var name1 = document.getElementsByTagName('h2');
     var Category = document.getElementById('Category');
     var SubCategory = document.getElementById('SubCategory');
-    name1[0].innerHTML = Model.date.Tests[num].name;
-    Category.innerHTML = test.category(Model.date.Tests[num].category);
-    SubCategory.innerHTML = test.subcategory(Model.date.Tests[num].subcategory);
-    Category.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].category + "";
-    SubCategory.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[num].subcategory + "";
+    name1[0].innerHTML =test.testObj(test.id).name;
+    Category.innerHTML = test.category(test.testObj(test.id).category);
+    SubCategory.innerHTML = test.subcategory(test.testObj(test.id).subcategory);
+    Category.parentElement.parentElement.href = "category.html?id=" + test.testObj(test.id).category + "";
+    SubCategory.parentElement.parentElement.href = "category.html?id=" + test.testObj(test.id).subcategory + "";
 }
 
 

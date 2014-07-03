@@ -90,7 +90,7 @@ function CategoriesController() {
     }
     //test_status_result
     for (i=0; i<Model.date.Tests.length; i++ ) {
-         if (Model.date.Tests[i].status.id == 2) {
+         if (Model.date.Tests[i].status == 1) {
             test_status_result.push(Model.date.Tests[i]) }
     }
 

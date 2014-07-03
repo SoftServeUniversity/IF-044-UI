@@ -255,7 +255,7 @@ var Events = {
 							wrote(get_test_id,comment);/* call function by Sergiy*/							
 							generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 							generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
-							generateHtml.catchTestById(get_test_id).status.id = 2;							
+							generateHtml.catchTestById(get_test_id).status = 2;							
 							Model.save_localStorage();
 							window.location = 'moderator_filtertests_nyarytc.html';
 		
@@ -263,7 +263,7 @@ var Events = {
 	},
 	publicTests: function(){
 		document.getElementById('public').addEventListener('click',function(){
-			generateHtml.catchTestById(get_test_id).status.id = 3;
+			generateHtml.catchTestById(get_test_id).status = 3;
 			console.log(generateHtml.catchTestById(get_test_id));
 			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
@@ -273,7 +273,7 @@ var Events = {
 	},
 	unpublicTests: function(){
 		document.getElementById('unpublic').addEventListener('click',function(){
-			generateHtml.catchTestById(get_test_id).status.id = 2;
+			generateHtml.catchTestById(get_test_id).status = 2;
 			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;		
 			Model.save_localStorage();
