@@ -190,3 +190,42 @@ button{
 .fadepanel3{
 	height: 44px;
 }
+/*-----------------------------*/
+
+.workzone iframe, textarea{
+	width: 920px;
+	margin-top: 40px;
+}
+/* .workzone textarea{
+ 	width: 920px;
+ }*/
+ .toolbar{
+ 	display: none; /* що це таке?*/
+ }
+ .tabsbar{
+ 	margin-top: 70px;
+ }
+ .tabsbar button{
+ 	margin-left: 70px;
+ }
+ .faqBox{
+ 	margin-top: 50px;
+ }
+ 	.faqBox div{
+ 		margin-top: 20px;
+ 	}
+ 	 	.faqBox div h4{
+ 		margin-top: 40px;
+ 		}
+ 	.faqBox button{
+ 		margin: 10px 10px 50px 10px;
+		
+ 	}
+ 	.faqBox div p {
+ 		text-align: left;
+ 		border-bottom: 1px solid #C0C0C0;
+ 	}
+ 	}
+ .create-button{
+ 	margin: 20px 0px 0px 60px;
+ }

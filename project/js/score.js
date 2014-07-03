@@ -43,8 +43,6 @@ function getCorrectAnswerByQuestionId(test_id, correct_answer_id) {
 
 function ChooseCorrectAnswer(test_id, correct_answer_id) {
 
-    console.log(answerArray.length);
-
     document.getElementById('name_for_test').innerHTML = Model.date.Tests[n].name;
     var categoty;
     var subcategory;
@@ -73,17 +71,13 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
                 for (var x = 0; x < empty.length; x++) {
                     if (empty[x] == Model.date.Tests[n].answers[i].text_answer) {
                         var color = 'blockcolor';
-                        // console.log(color);
                         break;
                     } else {
                         var color = 'blockcolorwrong';
-                        // console.log(color);
                     }
                 }
 
-            } else {
-
-            }
+            } else {}
         }
 
     }
@@ -91,7 +85,6 @@ function ChooseCorrectAnswer(test_id, correct_answer_id) {
 }
 
 function showAll() {
-
 
     var content_place = '';
     Model.load_localStorage();
@@ -101,7 +94,6 @@ function showAll() {
             if (Model.date.Tests[n].correct_answer[j].question_id == Model.date.Tests[
                 n].question[i].id) {
                 var correct_answer_id = Model.date.Tests[n].correct_answer[j].answer_id;
-                //console.log(correct_answer_id);
             }
 
         }
