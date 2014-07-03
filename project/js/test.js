@@ -57,7 +57,7 @@ function breadcrumbs_creation(num) {
     Category.innerHTML = test.category(test.testObj(test.id).category);
     SubCategory.innerHTML = test.subcategory(test.testObj(test.id).subcategory);
     Category.parentElement.parentElement.href = "category.html?id=" + test.testObj(test.id).category + "";
-    SubCategory.parentElement.parentElement.href = "category.html?id=" + test.testObj(test.id).subcategory + "";
+    SubCategory.parentElement.parentElement.href = "subcategory.html?id=" + test.testObj(test.id).subcategory + "";
 }
 
 
