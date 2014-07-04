@@ -86,9 +86,11 @@ function check_input() {
 //else good save localstorage
 
 			var new_user_id = Model.date.Users[Model.date.Users.length-1].id +1;
+			 var role_user = Model.date.session_user_role
+			//var role_user = Model.date.Users[Model.date.Users.length-1].role_id +1;
 			Model.date.Users.push(  
              	 {id:new_user_id,
-                  role_id:1,
+                  role_id:role_user,
                   location: "Ukraine",
                   username: user.value, 
                   firstName: first_name.value,

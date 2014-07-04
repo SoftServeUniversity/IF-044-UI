@@ -88,9 +88,9 @@ function CategoriesController() {
 
 
     }
-    //test_status_result
+    //get array test_status_result
     for (i=0; i<Model.date.Tests.length; i++ ) {
-         if (Model.date.Tests[i].status == 1) {
+         if (Model.date.Tests[i].status.id == 2) {
             test_status_result.push(Model.date.Tests[i]) }
     }
 
@@ -124,32 +124,39 @@ function CategoriesController() {
 }
 }
 
+function remove_link(x2, hasChilds) {
+        while (hasChilds) {
+            var hasChilds = x2.hasChildNodes();
+              if (hasChilds) {
+                 x2.removeChild(x2.childNodes[0]);
+            }
+         }    
+    
+}
 
 function pagination() {
 
 	var n_test = Math.round(test_status_result.length / 5);
     // remove
-    var x2 = document.getElementById("myList");
-    var hasChilds = x2.hasChildNodes(0);
-        if (hasChilds) {
-             document.getElementById("myList").removeChild(link);
-        }
+        var x2 = document.getElementById("myList");
+        var hasChilds = x2.hasChildNodes();
+         if (hasChilds) {
+            remove_link(x2, hasChilds);
+         }
     //creat
 	for (i=0; i<n_test; i++) {
 		var link = document.createElement('a');
 		link.setAttribute('href', '#currentpage='+(i+1));
 		var textnode=document.createTextNode(1+i);
 		link.appendChild(textnode);
-		//document.getElementById("myList").childNodes[1].appendChild(link);
-       // if (document.getElementById(myList.hasChildNodes()) {
-       // document.getElementById("myList").removeChild(link);
-//}
-
         document.getElementById("myList").appendChild(link);
 	}
 }
 
 document.getElementById("myList").onclick = function (e) {
+
+// TO DO parse URL to get result
+
     var target = e.target;
     var value = parseInt(target.innerHTML);
     console.log(value);
@@ -205,7 +212,15 @@ function change_moder_search_selected(i) {
         console.log(subcat);
 
     var table = document.getElementById("table_result");
-    if(cat && subcat){
+    if(cat && subcat && subcat.length < 5){
+        //TO DO if test_status_result.length > 5 pagination else print and del pagination 
+        var x2 = document.getElementById("myList");
+        var hasChilds = x2.hasChildNodes();
+         if (hasChilds) {
+            remove_link(x2, hasChilds);
+         }
+         // TO DO array filter result 
+         
 	    for (i = 0; i < test_status_result.length; i++) {
 	    	console.log(test_status_result[i].subcategory);
 	    	console.log(test_status_result[i].category);
@@ -219,7 +234,7 @@ function change_moder_search_selected(i) {
 	        var cell = row.insertCell(-1);
 	        cell.innerHTML = '<a href="#" data-testid="' + test_status_result[i].id + '" onclick="toGo(this)">Перевірити</a>';
 	        }
-	}
+}
 	  }else{
 	  //   var table = document.getElementById("table_result");
 	  //   for (i = 0; i < Model.date.Tests.length; i++) {
@@ -230,11 +245,12 @@ function change_moder_search_selected(i) {
 	  //       cell.innerHTML = Model.date.Tests[i].author;
 	  //       var cell = row.insertCell(-1);
 	  //       cell.innerHTML = '<a href="#" data-testid="' + Model.date.Tests[i].id + '" onclick="toGo(this)">Перевірити</a>';  	
-	  // }   
-             var table = document.getElementById("table_result");
+	  // } 
+ 
+
+        var table = document.getElementById("table_result");
         for (i = 0; i < 5; i++) {
-        var row = table.insertRow(table.rows.length);
-        
+        var row = table.insertRow(table.rows.length); 
         var cell = row.insertCell(-1);
         cell.innerHTML = test_status_result[i].name;
         var cell = row.insertCell(-1);
@@ -242,19 +258,20 @@ function change_moder_search_selected(i) {
         var cell = row.insertCell(-1);
         cell.innerHTML = '<a href="#" data-testid="' + test_status_result[i].id + '" onclick="toGo(this)">Перевірити</a>';
 }
-    
+   
     pagination();
+
       }
 
     }
     function toGo(element) {
-    var test_id = element
-    console.log(test_id);
-    var t_id = test_id.dataset.testid;
-    console.log(Model.date);
-    console.log(typeof Model.date);
-    Model.date.Moderator_test_id=t_id;
-    Model.save_localStorage();
-    console.log(t_id);
-    window.location = "moderatrPage.html";
+     var test_id = element
+      console.log(test_id);
+     var t_id = test_id.dataset.testid;
+     console.log(Model.date);
+        console.log(typeof Model.date);
+     Model.date.Moderator_test_id=t_id;
+     Model.save_localStorage();
+     console.log(t_id);
+      window.location = "moderatrPage.html";
 } 
