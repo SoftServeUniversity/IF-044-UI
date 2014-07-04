@@ -43,7 +43,7 @@ function selAnsById(test_id, id) {
 }
 
 function AnsAdd(value) {
-    var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" value="' + value + '" class="form-control answer"  placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>';
+    var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" onclick="newclass(this)" value="' + value + '" class="form-control answer"  placeholder="Відповідь" required> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>';
     var newdiv = document.createElement('div');
     newdiv.className = 'row margintop';
     newdiv.innerHTML = mat;
@@ -63,7 +63,7 @@ var testEdit = function() {
     for (var i = 0; i < test.testObj(test.id).question.length; i++) {
         var newdiv = document.createElement('div');
         newdiv.className = 'row';
-        newdiv.innerHTML = '<div class="col-sm-11 well"> <div class="row "> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання" required value="' + test.testObj(test.id).question[i].text + ' "> <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Пояснення до питання" class="form-control margintop" >' + test.testObj(test.id).question[i].question_description + '</textarea> </div></div> </div> <div class="row"> <div class="col-sm-12 "> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div> </div>';
+        newdiv.innerHTML = '<div class="col-sm-11 well"> <div class="row "> <div class="col-md-12"> <div class="input-group"> <input type="text" onclick="newclass(this)" class="form-control question" placeholder="Текст запитання" required value="' + test.testObj(test.id).question[i].text + ' "> <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Пояснення до питання" onclick="newclass(this)" class="form-control margintop questionDescription" >' + test.testObj(test.id).question[i].question_description + '</textarea> </div></div> </div> <div class="row"> <div class="col-sm-12 "> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div> </div>';
         var el = id('btn btn-md btn-default width')[0].parentElement.parentElement;
         el.parentElement.parentElement.insertBefore(newdiv, el.parentElement);
         var arrayAns = selAnsById(test.id - 1, i + 1);

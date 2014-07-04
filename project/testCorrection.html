@@ -11,7 +11,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/testcreation.css">
-     <link rel="stylesheet" href="css/select2/select2.css">
+     <link rel="stylesheet" href= "css/select2/select2.css">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="json/new_data.js"></script>
@@ -147,14 +147,14 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Назва тесту:</span>
-                                        <input placeholder="Назва тесту" type="text" class="myForm" id="name" onkeyup="textarea(this)">
+                                        <input placeholder="Назва тесту" type="text" class="myForm" id="name" onkeyup="textarea(this)" onclick="newclass(this)">
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Опис тесту:</span>
-                                        <textarea placeholder="Опис тесту" class="textarea" id="description"></textarea>
+                                        <textarea placeholder="Опис тесту" class="textarea" id="description" onclick="newclass(this)"></textarea>
                                     </div>
                                 </div>
                                 <br>
@@ -162,7 +162,7 @@
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Теги:</span>
 
-                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags">
+                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" onclick="newclass(this)">
                                     </div>
                                 </div>
                                 <br>
@@ -170,7 +170,7 @@
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Категорія:</span>
 
-                                        <select class="myForm" id="category" onchange="Subcat(this)">
+                                        <select class="myForm" id="category" onchange="Subcat(this)" onclick="newclass(this)">
                                             <option>Оберіть категорію</option>
                                         </select>
                                     </div>
@@ -180,7 +180,7 @@
                                     <div class="col-sm-12">
                                         <span class="col-sm-3">Підкатегорія:</span>
 
-                                        <select class="myForm" id="subCategory" disabled="true">
+                                        <select class="myForm" id="subCategory" disabled="true" onclick="newclass(this)">
 
                                         </select>
                                     </div>
