@@ -275,7 +275,7 @@
                                                     <div class='row fadepanel1'>
                                                         <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
                                                         <div class="col-sm-3">
-                                                            <select class='form-control control ' id='filter' onchange="showAll()">
+                                                            <select class='form-control control ' id='filter' onchange="UsersTabComboboxChangeController()">
                                                                 <option>Алфавіту</oprtion>
                                                                     <option>Електронній пошті</oprtion>
                                                             </select>
@@ -326,7 +326,7 @@
                                                     <div class='row fadepanel1'>
                                                         <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
                                                         <div class='col-sm-3'>
-                                                            <select class='form-control control' id='filterforblacklist' onchange="showAll()">
+                                                            <select class='form-control control' id='filterforblacklist' onchange="BlackListUsersTabController()">
                                                                 <option>Алфавіту</oprtion>
                                                                     <option>Елетронній пошті</oprtion>
                                                             </select>
@@ -608,8 +608,9 @@
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
                     <script src="js/bootstrap.min.js"></script>
                     <script src="js/components.js"></script>
-                    <script src='js/search-form2.js'></script>
+        <!--             <script src='js/search-form2.js'></script> -->
                     <script src='js/categories_form.js'></script>
+                    <script src='js/admin_serach.js'></script>
                     <script>
                         window.onload = changeLoginPic();
                     </script>
