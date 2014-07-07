@@ -17,7 +17,7 @@
 			if(!getUsersPermission(Model.date.session_user_id)){
 				//if user is not authorized or is not moderator: redirect index page with alert about this
 				alert('нема прав!');
-				window.location = 'index.html';		
+				//window.location = 'index.html';		
 			}
 	})();
 	if(Model.date.Moderator_test_id){
@@ -33,6 +33,16 @@ var generateHtml = {
 	place_for_list_categories: document.getElementById('listCategories'),	
     place_for_list_subCategories: document.getElementById('listSubCategories'),
 	place_for_comments: document.querySelectorAll('.place_for_comment')[0],
+	textarea_for_description: document.getElementById('descriptionTest'),
+    setTags: function(){
+        document.getElementById('tags').value = this.catchTestById(get_test_id).tags.join();
+        $(document.getElementById('tags')).select2({tags: []});
+        document.getElementById('s2id_autogen1').style.width = '200px';
+        $('.select2-choices').css({'min-width': '200px'});
+    },
+    setDescription: function(){
+        this.textarea_for_description.value = this.catchTestById(get_test_id).description;
+    },
 	catchTestById: function(testId){ // catch needed tests
 		for(var i = 0;i<Model.date.Tests.length;i++){
 			if(Model.date.Tests[i].id == testId){
@@ -107,6 +117,8 @@ var generateHtml = {
 		this.listSubCategories(get_test_id);
 		this.testBody(get_test_id);
 		this.listComments();
+        this.setTags();
+        this.setDescription();
 	}
 	
 } 
@@ -255,7 +267,9 @@ var Events = {
 							wrote(get_test_id,comment);/* call function by Sergiy*/							
 							generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 							generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
-							generateHtml.catchTestById(get_test_id).status = 2;							
+							generateHtml.catchTestById(get_test_id).status = 2;	
+                            Events.saveTags();
+                            Events.saveDescription();
 							Model.save_localStorage();
 							window.location = 'moderator_filtertests_nyarytc.html';
 		
@@ -267,6 +281,8 @@ var Events = {
 			console.log(generateHtml.catchTestById(get_test_id));
 			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
 			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;
+            Events.saveTags();
+            Events.saveDescription();
 			Model.save_localStorage();
 			window.location = 'moderator_filtertests_nyarytc.html';
 		})		
@@ -275,17 +291,28 @@ var Events = {
 		document.getElementById('unpublic').addEventListener('click',function(){
 			generateHtml.catchTestById(get_test_id).status = 2;
 			generateHtml.catchTestById(get_test_id).category = generateHtml.place_for_list_categories.value;
-			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;		
+			generateHtml.catchTestById(get_test_id).subcategory = generateHtml.place_for_list_subCategories.value;	
+            Events.saveTags();
+            Events.saveDescription();
 			Model.save_localStorage();
 			window.location = 'moderator_filtertests_nyarytc.html';
 		}) 		
 	},
+    saveTags: function(){
+        //document.getElementById('tags');
+        console.log(document.getElementById('tags').value+"should be tags");
+        generateHtml.catchTestById(get_test_id).tags = [].concat(document.getElementById('tags').value.split(','));
+        console.log(generateHtml.catchTestById(get_test_id).tags);
+    },
+    saveDescription: function(){
+        generateHtml.catchTestById(get_test_id).description = generateHtml.textarea_for_description.value;
+    },
 	init: function(){
 		this.dblClickForEditTest();	
 		this.changeCategories();	
 		this.addComents();	
 		this.publicTests();	
-		this.unpublicTests();	
+		this.unpublicTests();
 	}
 	
 
