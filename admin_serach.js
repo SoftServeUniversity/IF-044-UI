@@ -4,8 +4,6 @@ var place_for_blacklist = document.getElementById('blacklist');
 var place_for_administration = document.getElementById('administrationlist');
 var search_user = document.getElementById('search-input');
 var search_banned_user = document.getElementById('blacklist_search-input');
-var pagination = document.getElementById('paginator');
-console.log(pagination);
 
 var search_for_user = [];
 var g; // current user for change status
@@ -14,8 +12,7 @@ var f; // current user for banned
 var number; // capcha generation
 
 
-function UsersTabComboboxChangeController(value,start,step) {
-
+function UsersTabComboboxChangeController() {
 
     var filter = document.getElementById('filter');
     var current_filter = filter.selectedIndex;
@@ -37,14 +34,8 @@ function UsersTabComboboxChangeController(value,start,step) {
         };
     });
 
-    start = (start)?start:0;
-    step = (step)?step:10;
-    var lengthArray;
-    var pagination_user = [];
-    lengthArray = (start)?start*step:step;
-    console.log(homo);
- 
-  
+
+
 
     var content_table = '';
     for (var i = 0; i < usersSorted.length; i++) { //перебір масиву юзерів
@@ -52,51 +43,24 @@ function UsersTabComboboxChangeController(value,start,step) {
             if (usersSorted[i].role_id == Model.date.User_roles[j].id) { // якщо ай ді ролі юзера співпада з роллю в системі, то ми присвоюємо юзеро значення цієї ролі
                 var role_name_user = Model.date.User_roles[j].role_name;
                 if (usersSorted[i].role_id == 1 && usersSorted[i].banned == 0) {
-                    pagination_user.push(usersSorted[i]);
-                    // console.log(v);
-                //     content_table += "<tr><td><span id='firstName'>" + usersSorted[i].firstName + "</span></td><td><span id='mail'>" + usersSorted[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + usersSorted[i].id + ") id_user='" + usersSorted[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
+
+                    content_table += "<tr><td><span id='firstName'>" + usersSorted[i].firstName + "</span></td><td><span id='mail'>" + usersSorted[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + usersSorted[i].id + ") id_user='" + usersSorted[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
                 }
             }
         }
     }
-    var c = [];
-    var i;
-    for (index in pagination_user) {
-            c.push(index);
-            console.log(c);
-        }
-    for (var k = (start-1)*step; k<lengthArray;k++) {
-       i = c[k];
-       var some = '';
-       if(pagination_user[i]){
-        content_table += "<tr><td><span id='firstName'>" + pagination_user[i].firstName + "</span></td><td><span id='mail'>" + pagination_user[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + pagination_user[i].id + ") id_user='" + pagination_user[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + pagination_user[i].id + ")  id_user='" + pagination_user[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + pagination_user[i].id + ")  id_user='" + pagination_user[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
-       }
-    }
-    var place_for_pagination = '';
-    var countLinks = Math.ceil(c.length/step);
-    console.log(countLinks);
-    if (countLinks > 1) {
-        place_for_pagination += '<ul class="pagination"><li class="active"><a href="#">'+ 1 +'</a></li>';
-        for (var link = 2; link < countLinks+1; link++) {
-            place_for_pagination += '<li onclick=newlinkgeneration('+ link +')><a href="#">'+ link +'</a></li></ul>';
-        }
-        pagination.innerHTML = place_for_pagination;
-        place_for_table.innerHTML = content_table;
-    }
+
+
+    place_for_table.innerHTML = content_table;
 }
 UsersTabComboboxChangeController();
 
-function newlinkgeneration(e){
-    var m = e;
-    return m;
-    UsersTabComboboxChangeController();
-}
 
 function BlackListUsersTabController() {
 
     var filter = document.getElementById('filterforblacklist');
     var current_filter = filter.selectedIndex;
-//  console.log(current_filter);
+    console.log(current_filter);
 
     var n = new Array(Users);
     var usersSorted = n[0].sort(function (a, b) {

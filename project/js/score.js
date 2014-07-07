@@ -1,4 +1,8 @@
 window.onload = calculate;
+var Result = Model.date.Result; 
+console.log(Result);
+var answerArray = JSON.parse(localStorage.QuestionObject);
+var carrent_user_id = Model.date.session_user_id;
 
 function calculate() {
     var questions = document.getElementsByClassName('question').length;
@@ -18,12 +22,27 @@ function calculate() {
     total.innerHTML = result + ' зі ' + 100;
     rightEl.style.width = correctPercentage + '%';
     wrongEl.style.width = (100 - correctPercentage) + '%';
+
+    var b = answerArray.Test_id - 1;
+    var newTestResult = new Object;
+    newTestResult.test_id = answerArray.Test_id - 1;
+    newTestResult.id = Result.length +1;
+    newTestResult.name = Result[b].name;
+    var dateVal = new Date();
+    newTestResult.passed_date = Date.parse(dateVal);
+    newTestResult.score = result;
+    newTestResult.u_id = carrent_user_id;
+    newTestResult.user_rank = 0;
+    Model.date.Result.push(newTestResult);
+    Model.save_localStorage();
+    console.log(Model.date.Result);
+
 }
 
 document.getElementById('answerpanel').innerHTML = "";
 var place_for_answer = document.getElementById('answerpanel');
 //console.log(place_for_answer);
-var answerArray = JSON.parse(localStorage.QuestionObject);
+
 
 // test id starts with 1, but array elements start with 0
 var n = answerArray.Test_id - 1;
@@ -35,8 +54,8 @@ function getCorrectAnswerByQuestionId(test_id, correct_answer_id) {
     for (var i = 0; i < Model.date.Tests[n].answers.length; i++) {
         if (Model.date.Tests[n].answers[i].id == correct_answer_id) {
             var catchCorrectAnswer = Model.date.Tests[n].answers[i].text_answer;
-            console.log(Model.date.Tests[n].answers[i].id + "<->" +
-                correct_answer_id);
+            // console.log(Model.date.Tests[n].answers[i].id + "<->" +
+            //     correct_answer_id);
         } else {}
 
     }
