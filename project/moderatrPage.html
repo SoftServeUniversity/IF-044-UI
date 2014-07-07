@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
     <link href="css/faq.css" rel="stylesheet">
-    <link rel="stylesheet" href="select2/select2.css">	
+    <link rel="stylesheet" href="css/select2/select2.css">	
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -103,31 +103,26 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pageTitleBox bg-primary">
                         <div class="center-block"><h3 class="pageTitle" id="no-login">Перегляд тесту для затвердження</h3></div>
                     </div>
+<!--                                <div class="row">-->
+
+<!--                                </div>  -->
 <!--
-                </div>
-<h3 class="title-post-name col-xs-12"> Перегляд тесту для затвердження</h3>  
-<hr class="hr-for-title">
--->
-<style>
-    .hr-for-title{
-        border: solid 1px #5bc0de;
-        width: 50%;
-
-    }
-</style>  
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span class="col-sm-3">Теги:</span>
-                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" value="PETRO,ivan">
-                                    </div>
-
-                                    <br>
-                                </div>  
 <div class="row">
 ne zabuty information for TEST!!!!!!!!!!!!!!!
 </div> 								
+-->
+                                    <div class="row">
+                                    <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1  col-sm-10 col-sm-offset-1">
+                                    <h3 class="title-post-name col-xs-12 edit-content" style="float: none" >Теги</h3>
+<div class="control-group well">                                    
+<input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" value="fasdfasdfasdf">
+                                    </div>                                    
+                                    </div>  
+                                    </div>
+                                   
 <div class="row">
     <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1  col-sm-10 col-sm-offset-1   content-test">
+ 
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-10 col-sm-offset-1">
@@ -152,6 +147,28 @@ ne zabuty information for TEST!!!!!!!!!!!!!!!
 </select>      
     </div>    
 </div>
+                                    <div class="row">
+                                    <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1  col-sm-10 col-sm-offset-1">
+                                    <h3 class="title-post-name col-xs-12 edit-content" style="float: none" >Опис Тесту</h3>
+<div class="control-group well">
+  <div class=”form-group”>
+  <div class="controls">                     
+    <textarea id="descriptionTest" name="textarea" rows="4" cols="70"></textarea>
+  </div>
+  </div>
+<!--
+<div class=”form-group”>
+<label class=”col-sm-3 control-label no-padding-right” for=”description”>Description</label>
+<div class=”col-lg-8 col-md-4 col-sm-5″>
+<textarea class=”form-control” id=”description” name=””></textarea>
+</div>
+</div>  
+-->
+</div>                                    
+                                   
+                                    </div>  
+                                    </div>  
+                                    <br>           
             <div class="row">
                                 <button type="button" class="btn btn-success" id="public">Опублікувати тест</button>
                                 <button type="button" class="btn btn-danger" id="unpublic">Відмінити перегляд</button>
@@ -173,34 +190,9 @@ ne zabuty information for TEST!!!!!!!!!!!!!!!
     </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="select2/select2.js"></script>
+<script src="js/select2/select2.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/components.js"></script>
-    <script>
-    function getTag() {
-        var tags = [];
-        for (var i = 0; i < Model.date.Tests.length; i++) {
-
-            for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
-                tags.push(Model.date.Tests[i].tags[j]);
-
-            };
-        };
-        var i = tags.length;
-        tags.sort();
-        while (i--) {
-            if (tags[i] == tags[i - 1]) {
-                tags.splice(i, 1);
-            }
-        }
-        return tags
-    }	
-    $(function() {
-        $("#tags").select2({
-            tags: getTag()
-        });
-    });
-    </script>
 <script>
     changeLoginPic();
 </script>

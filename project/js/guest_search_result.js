@@ -38,7 +38,7 @@
 							if(this.cat && this.subCat){
 								for (index in Tests) {
 									for (inner_index in Tests[index]) {
-											if (Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && this.subCat.indexOf(Tests[index]['subcategory'].toString()) + 1 && this.cat.indexOf(Tests[index]['category'].toString()) + 1 && Tests[index]['status']['id'] == 3) {
+											if (Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && this.subCat.indexOf(Tests[index]['subcategory'].toString()) + 1 && this.cat.indexOf(Tests[index]['category'].toString()) + 1 && Tests[index]['status'] == 3) {
 												result_array.push(index);
 												break;
 											}
@@ -48,7 +48,7 @@
 							else{
 								for (index in Tests) {
 									for (inner_index in Tests[index]) {
-										if (Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && Tests[index]['status']['id'] == 3) {
+										if (Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && Tests[index]['status'] == 3) {
 											result_array.push(index);
 											break;
 

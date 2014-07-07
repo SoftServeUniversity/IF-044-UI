@@ -386,7 +386,7 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: 0,
+          status: 3,
           // status: {
           //     id:3,
           //     name_status: "опублікований"
@@ -680,7 +680,7 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: 0,
+          status: 3,
           // status: {
           //     id:3,
           //     name_status: "опублікований"
@@ -1640,7 +1640,7 @@
                   }
                   ],
           info: ['info1', 'info2'],
-          status: 0,
+          status: 3,
           // status: {
           //     id:3,
           //     name_status: "опублікований"

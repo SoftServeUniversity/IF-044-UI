@@ -6,11 +6,7 @@ function redirect() {
 
         window.location = '404.html';
     }
-    if (Model.date.session_user_id) {
-        return
-    } else {
-        window.location = '404.html';
-    }
+    
 } 
 window.onload = redirect();
 
