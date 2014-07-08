@@ -1,13 +1,13 @@
-@media screen and (min-width: 1024px)  and  (max-width: 1200px){
+@media screen and (min-width: 1024px)  and  (max-width: 1199px){
     html, body {
-        width: 1024px ;
+        width: 100% ;
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
     }
 
     #header-menu {
     	width: 70%;
-    	left: 20%;
+    	left: 17%;
     }
 
     #login-button {
@@ -15,7 +15,7 @@
     }
 
         #title-block {
-    	left: 18%;
+    	left: 14%;
     }
 
     #search-sort #searchBox {
@@ -28,28 +28,119 @@
 
     #userNavPanel {
     	top: 52px;
-    	left: 80px;
+    	left: 95px;
     }
 }
 
-@media screen and (min-width: 768px)  and  (max-width: 1024px) {
+@media screen and (min-width: 768px)  and  (max-width: 1023px) {
 
+    html, body {
+        width: 768px ;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    #outer-wrapper {
+        width: 100%;
+    }
+    
+    #inner-wrapper {
+        width: 100%;
+    }
+
+    footer.container {
+        width: 100%;
+    }
 
     #header-menu {
-    	width: 90%;
-    	left: 10%;
+    	width: 94%;
+    	left: 6.5%;
+    }
+
+    #header-menu>ul>li {
+        margin-right: 4%;
     }
 
     #login-button {
-    	right: -30px;
+    	right: 70px;
+        top: 55px;
+    }
+
+    #userMenuButton {
+        top: 62px;
+        right: 72px;
+    }
+
+    #userNavPanel {
+        background-color: white;
+        z-index: 10;
+        top: 38px;
     }
 
     #title-block {
-    	left: 7%;
+    	left: 3.5%;
     }
+
+
+    /* subcategory page main content */
 
     #search-sort #searchBox {
     	top: -13px;
+    }
+
+    /* general-statistic page main content */
+
+    #statistic {
+       width: 100%; 
+       margin-left: 0px;
+    }
+
+}
+
+@media screen and (min-width: 640px)  and  (max-width: 767px) {
+
+    html, body {
+        width: 640px ;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    #outer-wrapper {
+        width: 100%;
+    }
+    
+    #inner-wrapper {
+        width: 100%;
+    }
+
+    footer.container {
+        width: 100%;
+    }
+
+    #header-menu {
+       display: none;
+    }
+
+    #title-block {
+        left: 3.5%;
+        width: 97%;
+        bottom: 0;
+    }
+    
+    #header-container {
+        padding: 0;
+        width: 100%;
+        margin-left: 0;
+        border-bottom: none;
+        height: 70px;
+    }
+
+ 
+        /* general-statistic page main content */
+
+    #statistic {
+       width: 100%; 
+       margin-left: 0px;
     }
 
 }
