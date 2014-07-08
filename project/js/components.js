@@ -121,9 +121,9 @@ function getCurrrentUserName() {
         changeUserNavPanel();
 
     } else {
-        loginUserPic.style.display = 'block';
-        userMenuButton.style.display = 'none';
-        NavPanel.style.display = 'none';
+            loginUserPic.style.display = 'block';
+            userMenuButton.style.display = 'none';
+            NavPanel.style.display = 'none';
     };
 }
 
@@ -157,6 +157,52 @@ function logOutModule() {
     window.location = 'index.html';
     return false;
 }
+
+function expandMenuModule() {
+    var expandMenu = document.getElementById('expand-header-menu');
+    var headerMenu = document.getElementById('header-menu');
+    var header = document.getElementsByTagName('header')[0];
+    var loginButton = document.getElementById('login-button');
+    var userMenuButton = document.getElementById('userMenuButton');
+    var NavPanel = document.getElementById('userNavPanel');
+
+
+    expandMenu.appendChild(headerMenu);
+
+    expandMenu.appendChild(loginButton);
+    loginButton.style.bottom = '85px';
+    loginButton.style.right = '85px';
+
+    expandMenu.appendChild(userMenuButton);
+    userMenuButton.style.bottom = '95px';
+    userMenuButton.style.right = '85px';
+
+    if(expandMenu.className.indexOf('active-bar') <= 0) {
+
+        expandMenu.className = expandMenu.className + ' active-bar';
+        header.className = header.className + ' main-expand';
+        headerMenu.className = headerMenu.className + ' header-menu-visibility';
+    } else {
+        expandMenu.className = expandMenu.className.substr(0, expandMenu.className.indexOf(' '));
+        header.className = header.className.substr(0, header.className.indexOf(' '));
+        headerMenu.className = headerMenu.className.substr(0, headerMenu.className.indexOf(' '));
+        NavPanel.style.display = 'none';
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 function testsFilter() {
 

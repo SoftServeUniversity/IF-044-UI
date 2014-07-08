@@ -97,12 +97,16 @@
 
 }
 
-@media screen and (min-width: 640px)  and  (max-width: 767px) {
+@media screen and (min-width: 320px)  and  (max-width: 767px) {
 
     html, body {
         width: 640px ;
         padding: 0;
         margin: 0 auto;
+    }
+
+    body.container-fluid {
+        padding: 0;
     }
 
     #outer-wrapper {
@@ -111,20 +115,33 @@
     
     #inner-wrapper {
         width: 100%;
+        padding: 0;
     }
 
     footer.container {
         width: 100%;
     }
 
-    #header-menu {
-       display: none;
-    }
+
 
     #title-block {
         left: 3.5%;
         width: 97%;
         bottom: 0;
+    }
+
+    #header-menu>ul>li{
+       display: block;
+    }
+
+    .header-menu {
+        display: none;
+        bottom: 0;
+        left: 0;
+    }
+    
+    #header-container #header-menu a {
+        margin-top: 0;
     }
     
     #header-container {
@@ -133,6 +150,57 @@
         margin-left: 0;
         border-bottom: none;
         height: 70px;
+        position: relative;
+    }
+
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+
+    header.row {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .expand-menu-button {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 14px;
+    }
+
+    .expand-header-menu {
+        position: relative;
+        height: 130px;
+        width: 100%;
+        top: 20px;
+        background-color: #ecebeb;
+
+    }
+
+    header.main-expand {
+        margin-bottom: 130px;
+    }
+
+    header .header-menu-visibility {
+        display: block;
+    }
+
+    #login-button {
+        bottom: -50px;
+    }
+
+    #userMenuButton {
+        bottom: -50px;
+    }
+
+    #userNavPanel {
+        left: 7px;
+        top: 70px;
+        z-index: 100;
+        width: 150px;
+
     }
 
  

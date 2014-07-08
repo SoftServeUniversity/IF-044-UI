@@ -31,7 +31,7 @@ body {
     margin-top: 5px;
 }
 
-#header-menu {
+.header-menu {
     display: block;
     width: 58%;
     position: absolute;
@@ -114,6 +114,14 @@ footer {
 
 #title-block h4 {
     font-size: 1.9em;
+}
+
+.expand-menu-button, .expand-header-menu {
+    display: none;
+}
+
+.active-bar {
+    display: block;
 }
 
 .marg {margin-bottom: 15px; margin-top: 15px;}
