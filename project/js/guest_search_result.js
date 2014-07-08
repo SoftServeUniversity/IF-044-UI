@@ -10,7 +10,8 @@
     subCat: false,
 	showEmpty: function (nothing) {
 		if(nothing){
-			this.row_results.innerHTML = '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><p>нічого не знайдено...</p></div>';	    
+//			this.row_results.innerHTML = '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><p>нічого не знайдено...</p></div>'; /*old version	    */
+			this.row_results.innerHTML = '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 alert alert-warning">нічого не знайдено...</div>';              
              this.place_for_pagination.innerHTML = "";
 		}else{
 			this.row_results.innerHTML = '';
