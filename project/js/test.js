@@ -87,21 +87,24 @@
             }
 
         };
+
         for (var i = 0; i < a.length; i++) { //перевіряємо чи дав користувач відповіді на всі запитання
             if (obj['question' + i].length === 0) { // якщо масив відповіді пустий
                 if (document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].parentElement.children[0].className != 'col-sm-offset-5 alertmess') {
+                  document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].className += " alertMessage"
                     var newel = document.createElement('div');
-                    newel.className = 'col-sm-offset-5 alertmess';
+                    newel.className = 'col-sm-offset-1 alertmess';
                     newel.innerHTML = '<strong>Дайте відповідь на запитання!</strong>';
+
                     document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].parentElement.insertBefore(newel, document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1]);
                     document.getElementById("next").href = 'javascript:void(0)'; //перехід не відбувається
-                    document.getElementsByClassName("col-sm-offset-5 alertmess")[i].scrollIntoView(true)
+                    document.getElementsByClassName("alertmess")[i].scrollIntoView(true)
                     return;
                     break;
 
                 } else {
                     document.getElementById("next").href = 'javascript:void(0)';
-                    document.getElementsByClassName("col-sm-offset-5 alertmess")[i].scrollIntoView(true);
+                    document.getElementsByClassName("alertmess")[i].scrollIntoView(true);
                     return;
                     break;
 

@@ -49,4 +49,9 @@ input[type=checkbox]:checked ~ input[type=checkbox] + label {
     color:red;
     margin-bottom:5px;
 }
+.alertMessage{
+    border: 2px solid red;
+    border-radius: 4px;
+    
+}
 /*testpage style end*/
