@@ -115,7 +115,7 @@
     }
 
     //функція додає нове запитання до списку
-    var questionAdd = function(el) {
+    questionAdd = function(el) {
 
         var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  onclick="newclass(this)"> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" onclick="newclass(this)" class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
         var newdiv = document.createElement('div');
@@ -127,7 +127,7 @@
 
 
     //функція додає нову відповідь для запитання
-    var ansAdd = function(el) {
+    ansAdd = function(el) {
         var mat = answerPattern()
         var newdiv = document.createElement('div');
         newdiv.className = 'row margintop';
@@ -137,7 +137,7 @@
 
 
     //функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
-    var questionremove = function(el) {
+    questionremove = function(el) {
 
         if (document.getElementsByClassName('question').length == 1) {
             if (document.getElementsByClassName('alert alert-danger q')[0] === undefined) {
@@ -159,7 +159,7 @@
     }
 
     //видаляє відповідь
-    var answerRemove = function(el) {
+    answerRemove = function(el) {
 
         var a = el.parentNode.parentNode.parentNode.parentNode.childElementCount
         if (a === 3) {
@@ -231,7 +231,7 @@
     }
 
     //Змінює стилі кнопки вибору правильної відповіді
-    var correctAnswer = function(el) {
+    correctAnswer = function(el) {
         if (el.className === 'btn input-group-addon default') {
             el.className = 'btn input-group-addon success'
         } else {
@@ -376,7 +376,7 @@
 
         }
         //Збирає данні з інпутів по ід і записує їх у базу
-    var send = function(id, el) {
+        send = function(id, el) {
         if (allFieldvalidation()) {
             el.parentElement.href = "user_my_test_nyarytc.html";
             var l = TestLength();

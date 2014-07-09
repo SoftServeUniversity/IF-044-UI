@@ -1,4 +1,4 @@
-(function() {
+
     'use strict'
     redirect.testExist();
     redirect.idNotFound();
@@ -22,6 +22,7 @@
         }
         return subcatname;
     }
+
 
 
     var breadcrumbs_creation = function() {
@@ -63,7 +64,6 @@
     breadcrumbs_creation();
 
     var answer = function(el) {
-
         if (el.className === "MyClass") {
             el.className = "noclass"
         } else {
@@ -107,10 +107,13 @@
 
                 }
             } else {
-                document.getElementById("next").href = 'score.html'; // якщо всі відповіді відмічені, прехід на сторінку результату
+                document.getElementById("next").href = 'javascript:void(0)'; // якщо всі відповіді відмічені, прехід на сторінку результату
             }
         };
 
         localStorage.setItem('QuestionObject', JSON.stringify(obj)); //результат записуємо у localStorage, для подальшої роботи можна скористатись var question = localStorage.getItem('QuestionObject') для зручності роботи з об*єктом
     }
-})();
+
+// http://www.youtube.com/watch?v=TRrL5j3MIvo
+// http://www.youtube.com/watch?v=1Sy3vWJ1N2U
+//http://www.youtube.com/watch?v=XwSFg8nqBFA
