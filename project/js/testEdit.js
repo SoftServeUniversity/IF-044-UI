@@ -1,32 +1,17 @@
-function redirect() {
-    
-    if (location.search.split('=').slice(1)[0] === undefined) {
+(function() {
+redirect.testExist();
+redirect.idNotFound();
+redirect.userPermission();
 
-        window.location = '404.html';
-    }
-    
-}
-window.onload = redirect();
-
-function test() {
-    this.id = parseInt(location.search.split('=').slice(1)[0]);
-    this.testObj = function(id) {
-        for (var i = 0; i < Model.date.Tests.length; i++) {
-            if (id === Model.date.Tests[i].id) {
-                return Model.date.Tests[i];
-            }
-        };
-    }
-}
-
-var test = new test();
 
 function userPermission() {
     if (test.testObj(test.id).user_owner_id != Model.date.session_user_id) {
         window.location = '404.html';
     };
 }
-window.onload = userPermission();
+
+
+
 
 function id(selector) {
     return document.getElementsByClassName(selector);
@@ -136,4 +121,5 @@ var save = function(id, el) {
 
 };
 
-window.onload = testEdit();
+testEdit();
+})();

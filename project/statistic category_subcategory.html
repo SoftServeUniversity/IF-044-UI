@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,245 +18,299 @@
     <script src="json/new_data.js"></script>
 
 </head>
+
 <body class="container-fluid">
-<div id="outer-wrapper" class="container">
-    <div id="inner-wrapper" class="container">
-        <header class="row">
-            <div id="header-container"
-                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-      <!--   <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
-                <div id="title-block">
-                    <h4>Система Пластових електронних опитників</h4>
-                </div>
-                <nav id="header-menu" class="header-menu">
-                    <ul>
-                        <li><a href="index.html">Головна</a></li>
-                        <li><a href="guest_search_result.html">Пошук</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                        <li><a href="general-statistic.html">Статистика</a>
+    <div id="outer-wrapper" class="container">
+        <div id="inner-wrapper" class="container">
+            <header class="row">
+                <div id="header-container" class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                    <!--   <a href="#"><img src="pic/logo3.png" alt="YunakQuize"></a> -->
+                    <div id="title-block">
+                        <h4>Система Пластових електронних опитників</h4>
+                    </div>
+                    <nav id="header-menu" class="header-menu">
+                        <ul>
+                            <li><a href="index.html">Головна</a>
+                            </li>
+                            <li><a href="guest_search_result.html">Пошук</a>
+                            </li>
+                            <li><a href="contacts.html">Контакти</a>
+                            </li>
+                            <li><a href="general-statistic.html">Статистика</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
+                        <img src="pic/login.jpg" alt="login" width="35" height="35">
+                    </a>
+                    <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                    <ul id="userNavPanel">
+                        <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a>
+                        </li>
+                        <li>
+                            <a href="#" id="changedA"></a>
+                        </li>
+                        <li><a href="#" onclick="logOutModule()">Вихід</a>
                         </li>
                     </ul>
-                </nav>
-                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
-                    <img src="pic/login.jpg" alt="login" width="35" height="35">
-                </a>
-                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
-                <ul id="userNavPanel">
-                    <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a></li>
-                    <li><a href="#" id="changedA"></a></li>
-                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
-                </ul>
-                <div class="expand-menu-button" id="expand-menu-button" onclick="expandMenuModule()"><img src="pic/expand-header-menu-button.jpg" alt=""></div>
-                <div class="expand-header-menu" id="expand-header-menu"></div>                
-            </div>
-        </header>
-        <main>
+                    <div class="expand-menu-button" id="expand-menu-button" onclick="expandMenuModule()">
+                        <img src="pic/expand-header-menu-button.jpg" alt="">
+                    </div>
+                    <div class="expand-header-menu" id="expand-header-menu"></div>
+                </div>
+            </header>
+            <main>
 
-             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div id="modal-login-box" class="modal-dialog">
-                    <div id="modal-login-form" class="modal-content">
-                        <div class="modal-header">
-                            <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p class="error-block"></p>
-                            <form id="signin-form" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modal-login-box" class="modal-dialog">
+                        <div id="modal-login-form" class="modal-content">
+                            <div class="modal-header">
+                                <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="error-block"></p>
+                                <form id="signin-form" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
 
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3"
-                                               placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Запам'ятати
-                                            </label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-1 col-sm-10">
-                                        <a href="registration.html"><button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button></a>
-                                        <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">Запам'ятати
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-1 col-sm-10">
+                                            <a href="registration.html">
+                                                <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
+                                            </a>
+                                            <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section id="statistic" class="container">
+                    <div class="row">
+                        <div id="pageTitleBox" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="center-block">
+                                <h3 class="pageTitle">Загальна статистика системи</h3>
+                            </div>
+                        </div>
+                        <div id="filtersBox" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <nav class="sort-list hideElem" id="ageList">
+                                <span>Вік</span>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input class="ageList-checkbox" type="checkbox">До 14 років</label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input class="ageList-checkbox" type="checkbox">15 - 18</label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input class="ageList-checkbox" type="checkbox">19 - 25</label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input class="ageList-checkbox" type="checkbox">25 і більше</label>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <br>
+                            <nav class="sort-list hideElem" id="gradeList">
+                                <span>Ступінь</span>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input class="gradeList-checkbox" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input class="gradeList-checkbox" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input class="gradeList-checkbox" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input class="gradeList-checkbox" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <br>
+                            <label class="datepicker-label">
+                                <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                    <span class="add-on"><i class="icon-th">Від</i>
+                                    </span>
+                                    <input class="datepicker span2" id="dp1" size="16" type="text" placeholder="12/02/2012">
                                 </div>
-                            </form>
+                            </label>
+                            <label class="datepicker-label">
+                                <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                    <span class="add-on"><i class="icon-th">До</i>
+                                    </span>
+                                    <input class="datepicker span2" id="dp2" size="16" type="text" placeholder="12/02/2012">
+                                </div>
+                            </label>
+                            <br>
+                            <a onclick="generalStatisticModule()" class="btn btn-primary">Згенерувати графік</a>
                         </div>
-                        <div class="modal-footer">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <section id="statistic" class="container">
-                <div class="row">
-                    <div id="pageTitleBox" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="center-block">
-                            <h3 class="pageTitle">Загальна статистика системи</h3>
-                        </div>
-                    </div>
-                    <div id="filtersBox" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <nav class="sort-list hideElem" id="ageList">
-                        <span>Вік</span>
-                        <ul>
-                            <li><label><input class="ageList-checkbox" type="checkbox">До 14 років</label></li>
-                            <li><label><input class="ageList-checkbox" type="checkbox">15 - 18</label></li>
-                            <li><label><input class="ageList-checkbox" type="checkbox">19 - 25</label></li>
-                            <li><label><input class="ageList-checkbox" type="checkbox">25 і більше</label></li>
-                        </ul>
-                    </nav>
-                    <br>
-                    <nav class="sort-list hideElem" id="gradeList">
-                        <span>Ступінь</span>
-                        <ul>
-                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
-                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
-                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
-                            <li><label><input class="gradeList-checkbox" type="checkbox"><span></span></label></li>
-                        </ul>
-                    </nav>
-                    <br>
-                    <label class="datepicker-label">
-                        <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <span class="add-on"><i class="icon-th">Від</i></span>
-                            <input class="datepicker span2" id="dp1" size="16" type="text" placeholder="12/02/2012" > 
-                        </div>
-                    </label>
-                    <label class="datepicker-label">
-                        <div class="input-append date" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <span class="add-on"><i class="icon-th">До</i></span>
-                            <input class="datepicker span2" id="dp2" size="16" type="text" placeholder="12/02/2012">
-                        </div>
-                    </label>
-                    <br>
-                    <a onclick="generalStatisticModule()" class="btn btn-primary">Згенерувати графік</a>
-                    </div>
-                    <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                        <ul class="nav nav-tabs">
-                          <li class="tabs active"><a href="#stat1">Тести</a></li>
-                          <li class="tabs"><a href="#stat2">Бали</a></li>
-                          <li class="tabs"><a href="#stat3">Бали/Вік</a></li>
-                          <li class="tabs"><a href="#stat4">Бали/Ступінь</a></li>
-                          <li class="tabs"><a href="#stat5">Кількість спроб</a></li>
-                          <li class="tabs"><a href="#stat6">Середній бал</a></li>
-                        </ul>
-                        <div class="tab-content">
-                           <div class="tab-pane active" id="stat1"></div>
-                           <div class="tab-pane" id="stat2"></div>
-                           <div class="tab-pane" id="stat3"></div>
-                           <div class="tab-pane" id="stat4"></div>
-                           <div class="tab-pane" id="stat5">
-                              <h4>Топ-10 тестів по кількості проходжень</h4>
-                               <table class="table table-hover" id="Table1">
-                                <thead>
-                                 <tr>
-                                  <td>№</td>
-                                  <td>Назва</td>
-                                  <td>Кількість</td>
-                                  <td>Сер. бал</td>
-                                  <td>Підктегорія</td>
-                                  <td>Категорія</td>
-                                 </tr>
-                                </thead>
-                                <tbody>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>                                    
-                                </tbody>
-                              </table>
-                           </div>
-                           <div class="tab-pane" id="stat6">
-                               <h4>Топ-10 тестів по набраному середньому балу</h4>
-                               <table class="table table-hover" id="Table2">
-                                <thead>
-                                 <tr>
-                                  <td>№</td>
-                                  <td>Назва</td>
-                                  <td>Кількість</td>
-                                  <td>Сер. бал</td>
-                                  <td>Підктегорія</td>
-                                  <td>Категорія</td>
-                                 </tr>
-                                </thead>
-                                <tbody>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>
-                                  <tr></tr>                                    
-                                </tbody>
-                              </table>                               
-                           </div>
+                        <div id="main-content" class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                            <ul class="nav nav-tabs">
+                                <li class="tabs active"><a href="#stat1">Тести</a>
+                                </li>
+                                <li class="tabs"><a href="#stat2">Бали</a>
+                                </li>
+                                <li class="tabs"><a href="#stat3">Бали/Вік</a>
+                                </li>
+                                <li class="tabs"><a href="#stat4">Бали/Ступінь</a>
+                                </li>
+                                <li class="tabs"><a href="#stat5">Кількість спроб</a>
+                                </li>
+                                <li class="tabs"><a href="#stat6">Середній бал</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="stat1"></div>
+                                <div class="tab-pane" id="stat2"></div>
+                                <div class="tab-pane" id="stat3"></div>
+                                <div class="tab-pane" id="stat4"></div>
+                                <div class="tab-pane" id="stat5">
+                                    <h4>Топ-10 тестів по кількості проходжень</h4>
+                                    <table class="table table-hover" id="Table1">
+                                        <thead>
+                                            <tr>
+                                                <td>№</td>
+                                                <td>Назва</td>
+                                                <td>Кількість</td>
+                                                <td>Сер. бал</td>
+                                                <td>Підктегорія</td>
+                                                <td>Категорія</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="stat6">
+                                    <h4>Топ-10 тестів по набраному середньому балу</h4>
+                                    <table class="table table-hover" id="Table2">
+                                        <thead>
+                                            <tr>
+                                                <td>№</td>
+                                                <td>Назва</td>
+                                                <td>Кількість</td>
+                                                <td>Сер. бал</td>
+                                                <td>Підктегорія</td>
+                                                <td>Категорія</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
 
-        </main>
+            </main>
+        </div>
     </div>
-</div>
-<footer class="container">
-    <div id="footer-container">
-        <nav id="footer-menu">
-            <ul>
-                <li><a href="index.html">Головна</a> &nbsp|</li>
-                <li><a href="about.html">Про нас</a> &nbsp|</li>
-                <li><a href="contacts.html">Контакти</a></li>
-            </ul>
-        </nav>
-        <p>Copyright@ 2014 <b>IF-044</b></p>
-    </div>
-</footer>
+    <footer class="container">
+        <div id="footer-container">
+            <nav id="footer-menu">
+                <ul>
+                    <li><a href="index.html">Головна</a> &nbsp|</li>
+                    <li><a href="about.html">Про нас</a> &nbsp|</li>
+                    <li><a href="contacts.html">Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+            <p>Copyright@ 2014 <b>IF-044</b>
+            </p>
+        </div>
+    </footer>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/statistic_for_category.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
-<script>
+    <script src="js/testObj_module.js"></script>
+    <script src="js/redirect_module.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/statistic_for_category.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="js/components.js"></script>
+    <script>
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         weekStart: 1,
-        viewMode:'months'
+        viewMode: 'months'
     });
 
-    $('.nav-tabs a').click(function (e) {
+    $('.nav-tabs a').click(function(e) {
         e.preventDefault()
-       $(this).tab('show')
+        $(this).tab('show')
     });
 
     changeCssOnElements();
-</script>
-<script>
+    </script>
+    <script>
     window.onload = changeLoginPic();
-</script>
+    </script>
 </body>
+
 </html>

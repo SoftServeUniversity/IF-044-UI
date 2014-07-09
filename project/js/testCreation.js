@@ -1,15 +1,8 @@
-'use strict'
-var getUsersPermission = function() {
-    if (Model.date.session_user_id) {
-        return
-    } else {
-        window.location = '404.html';
-    }
-}
+(function() {
+    redirect.userLogin()
 
 
-
-//рухає курсор в кінець textarea 
+    //рухає курсор в кінець textarea 
 
     function moveCaretToEnd(el) {
         if (typeof el.selectionStart == "number") {
@@ -24,35 +17,45 @@ var getUsersPermission = function() {
 
     //створення масиву тегів
 
-    function getTag() {
-        var tags = [];
-        for (var i = 0; i < Model.date.Tests.length; i++) {
+   var getTag = function () {
 
-            for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
-                tags.push(Model.date.Tests[i].tags[j]);
+            var tags = [];
 
+            for (var i = 0; i < Model.date.Tests.length; i++) {
+
+                for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
+                    tags.push(Model.date.Tests[i].tags[j]);
+                     
+                };
             };
-        };
-        var i = tags.length;
-        tags.sort();
-        while (i--) {
-            if (tags[i] == tags[i - 1]) {
-                tags.splice(i, 1);
+            var i = tags.length;
+            tags.sort();
+            while (i--) {
+                if (tags[i] == tags[i - 1]) {
+                    tags.splice(i, 1);
+                }
             }
+            tags.splice(0, 1);
+            
+            return tags
         }
-        return tags
-    }
-    //Повертає підкатегорії категорії
-var getSubcategories = function(id) {
-    var result = [];
-    for (var i = 0; i < Application.Tests_categories.length; i++) {
-        if (Application.Tests_categories[i].parent_id === id) {
-            result.push(Application.Tests_categories[i]);
-        };
-    };
-    return result;
-}
-//видаляє всіх нащадків(для підкатегорій)
+
+        $("#tags").select2({
+            tags: getTag()
+        });
+  
+
+        //Повертає підкатегорії категорії
+    var getSubcategories = function(id) {
+            var result = [];
+            for (var i = 0; i < Application.Tests_categories.length; i++) {
+                if (Application.Tests_categories[i].parent_id === id) {
+                    result.push(Application.Tests_categories[i]);
+                };
+            };
+            return result;
+        }
+        //видаляє всіх нащадків(для підкатегорій)
 
     function removeChildren(elem) {
         try {
@@ -74,7 +77,7 @@ var getSubcategories = function(id) {
 
     //знаходить елемент за ід
 
-    function elID(id) {
+    elID = function(id) {
         return document.getElementById(id);
     }
 
@@ -85,7 +88,7 @@ var getSubcategories = function(id) {
         return mat;
     }
 
-    function textarea(element) {
+    textarea = function (element) {
         var chalLength = element.value.length;
         var parent = element.parentNode;
         var inp = parent.innerHTML;
@@ -112,140 +115,140 @@ var getSubcategories = function(id) {
     }
 
     //функція додає нове запитання до списку
-var questionAdd = function(el) {
+    var questionAdd = function(el) {
 
-    var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  onclick="newclass(this)"> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" onclick="newclass(this)" class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
-    var newdiv = document.createElement('div');
-    newdiv.className = 'row';
-    newdiv.innerHTML = mat;
-    el.parentNode.parentNode.insertBefore(newdiv, el.parentNode);
-
-}
-
-
-//функція додає нову відповідь для запитання
-var ansAdd = function(el) {
-    var mat = answerPattern()
-    var newdiv = document.createElement('div');
-    newdiv.className = 'row margintop';
-    newdiv.innerHTML = mat;
-    el.parentNode.insertBefore(newdiv, el);
-}
-
-
-//функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
-var questionremove = function(el) {
-
-    if (document.getElementsByClassName('question').length == 1) {
-        if (document.getElementsByClassName('alert alert-danger q')[0] === undefined) {
-            var newel = document.createElement('div');
-            newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
-            newel.innerHTML = '<div class="alert alert-danger q"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Тест має містити мінімум 1 питання!</p> </div>';
-            el.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode);
-        } else {
-            return
-        }
-    } else {
-        var Child = el.parentNode.parentNode.parentNode.parentNode.parentNode;
-        console.log(Child);
-        var Node = Child.parentNode;
-        console.log(Node);
-        Node.removeChild(Child);
+        var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  onclick="newclass(this)"> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" onclick="newclass(this)" class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
+        var newdiv = document.createElement('div');
+        newdiv.className = 'row';
+        newdiv.innerHTML = mat;
+        el.parentNode.parentNode.insertBefore(newdiv, el.parentNode);
 
     }
-}
 
-//видаляє відповідь
-var answerRemove = function(el) {
 
-    var a = el.parentNode.parentNode.parentNode.parentNode.childElementCount
-    if (a === 3) {
-        if (document.getElementsByClassName('alert alert-danger a')[0] === undefined) {
-            var newel = document.createElement('div');
-            newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
-            newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
-            el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+    //функція додає нову відповідь для запитання
+    var ansAdd = function(el) {
+        var mat = answerPattern()
+        var newdiv = document.createElement('div');
+        newdiv.className = 'row margintop';
+        newdiv.innerHTML = mat;
+        el.parentNode.insertBefore(newdiv, el);
+    }
+
+
+    //функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
+    var questionremove = function(el) {
+
+        if (document.getElementsByClassName('question').length == 1) {
+            if (document.getElementsByClassName('alert alert-danger q')[0] === undefined) {
+                var newel = document.createElement('div');
+                newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+                newel.innerHTML = '<div class="alert alert-danger q"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Тест має містити мінімум 1 питання!</p> </div>';
+                el.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode);
+            } else {
+                return
+            }
         } else {
-            if (el.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].className != "col-sm-5 col-md-5 col-sm-offset-3") {
+            var Child = el.parentNode.parentNode.parentNode.parentNode.parentNode;
+            console.log(Child);
+            var Node = Child.parentNode;
+            console.log(Node);
+            Node.removeChild(Child);
+
+        }
+    }
+
+    //видаляє відповідь
+    var answerRemove = function(el) {
+
+        var a = el.parentNode.parentNode.parentNode.parentNode.childElementCount
+        if (a === 3) {
+            if (document.getElementsByClassName('alert alert-danger a')[0] === undefined) {
                 var newel = document.createElement('div');
                 newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
                 newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
                 el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
             } else {
-                return
+                if (el.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].className != "col-sm-5 col-md-5 col-sm-offset-3") {
+                    var newel = document.createElement('div');
+                    newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+                    newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
+                    el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+                } else {
+                    return
+                }
             }
+        } else {
+            var Child = el.parentNode.parentNode.parentNode;
+            var Node = Child.parentNode;
+            Node.removeChild(Child);
+
         }
-    } else {
-        var Child = el.parentNode.parentNode.parentNode;
-        var Node = Child.parentNode;
-        Node.removeChild(Child);
-
     }
-}
 
-//Знаходить категорії в базі
-var categoryCreation = function() {
-    for (var i = 1; i < Model.date.Tests_categories.length; i++) {
+    //Знаходить категорії в базі
+    var categoryCreation = function() {
+        for (var i = 1; i < Model.date.Tests_categories.length; i++) {
 
-        if (Model.date.Tests_categories[i - 1].parent_id === 0) {
-            var p = document.createElement("option");
-            var elem = elID('category').appendChild(p);
-            elem.innerHTML = Model.date.Tests_categories[i - 1].name;
-        }
+            if (Model.date.Tests_categories[i - 1].parent_id === 0) {
+                var p = document.createElement("option");
+                var elem = elID('category').appendChild(p);
+                elem.innerHTML = Model.date.Tests_categories[i - 1].name;
+            }
 
-    }
-};
-
-
-//За обраною категорією заповняє підкатегорії, якщо категорія не обрана поле підкатегорії не активне
-var Subcat = function(el) {
-
-    if (el.value === 'Оберіть категорію') {
-
-        elID('subCategory').disabled = true;
-
-    } else {
-        elID('subCategory').disabled = false;
-    }
-    var category = elID('category').value;
-    var subCategory = elID('subCategory')
-    for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-        if (Model.date.Tests_categories[i].name === category) {
-
-            var res = getSubcategories((i + 1));
         }
     };
-    removeChildren(elID('subCategory'));
-    var val = document.createElement("option");
-    val.innerHTML = "Оберіть підкатегорію";
-    elID('subCategory').appendChild(val)
-    for (var key in res) {
 
-        var p = document.createElement("option");
-        var elem = elID('subCategory').appendChild(p);
-        elem.innerHTML = res[key].name;
+
+    //За обраною категорією заповняє підкатегорії, якщо категорія не обрана поле підкатегорії не активне
+    Subcat = function(el) {
+
+        if (el.value === 'Оберіть категорію') {
+
+            elID('subCategory').disabled = true;
+
+        } else {
+            elID('subCategory').disabled = false;
+        }
+        var category = elID('category').value;
+        var subCategory = elID('subCategory')
+        for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+            if (Model.date.Tests_categories[i].name === category) {
+
+                var res = getSubcategories((i + 1));
+            }
+        };
+        removeChildren(elID('subCategory'));
+        var val = document.createElement("option");
+        val.innerHTML = "Оберіть підкатегорію";
+        elID('subCategory').appendChild(val)
+        for (var key in res) {
+
+            var p = document.createElement("option");
+            var elem = elID('subCategory').appendChild(p);
+            elem.innerHTML = res[key].name;
+        }
     }
-}
 
-//Змінює стилі кнопки вибору правильної відповіді
-var correctAnswer = function(el) {
-    if (el.className === 'btn input-group-addon default') {
-        el.className = 'btn input-group-addon success'
-    } else {
-        el.className = 'btn input-group-addon default'
+    //Змінює стилі кнопки вибору правильної відповіді
+    var correctAnswer = function(el) {
+        if (el.className === 'btn input-group-addon default') {
+            el.className = 'btn input-group-addon success'
+        } else {
+            el.className = 'btn input-group-addon default'
+        }
     }
-}
 
-//class remove{   
+    //class remove{   
 
-    function newclass(element) {
-        element.className = element.className.replace(
-            new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
-            '$1'
-        );
+    newclass = function (element) {
+            element.className = element.className.replace(
+                new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
+                '$1'
+            );
 
-    }
-    //validation function
+        }
+        //validation function
 
     function validation(el, param) {
         if (el.value === param) {
@@ -282,118 +285,120 @@ var correctAnswer = function(el) {
     }
 
 
-    //заповнює категорії
-window.onload = categoryCreation();
-window.onload = getUsersPermission();
 
 
-function QuestionSave(obj, question, answer) {
-    obj.question = [];
-    obj.answers = [];
-    obj.correct_answer = [];
-    for (var i = 0; i < question.length; i++) {
-        //if (question[i].value == "") {alert('Текст питання порожній')}
-        // else{if (question[i].parentElement.parentElement.children[1].children[0].value == "") {alert('Опис питання порожній')}
-        //  else{
 
-        var a = question[i].parentElement.parentElement.parentElement.parentElement.children[1].children[0].children;
-        for (var s = 0; s < a.length; s++) {
-            if (a[s].className === "row margintop") {
-                a[s].children[0].children[0].children[0].setAttribute('data-qid', i + 1);
+    function QuestionSave(obj, question, answer) {
+        obj.question = [];
+        obj.answers = [];
+        obj.correct_answer = [];
+        for (var i = 0; i < question.length; i++) {
+            //if (question[i].value == "") {alert('Текст питання порожній')}
+            // else{if (question[i].parentElement.parentElement.children[1].children[0].value == "") {alert('Опис питання порожній')}
+            //  else{
+
+            var a = question[i].parentElement.parentElement.parentElement.parentElement.children[1].children[0].children;
+            for (var s = 0; s < a.length; s++) {
+                if (a[s].className === "row margintop") {
+                    a[s].children[0].children[0].children[0].setAttribute('data-qid', i + 1);
+                };
+            };
+            obj.question.push({});
+            obj.question[i].id = i + 1;
+            obj.question[i].text = question[i].value;
+            obj.question[i].question_description = question[i].parentElement.parentElement.children[1].children[0].value;
+
+
+            for (var j = 0; j < answer.length; j++) {
+                answer[j].setAttribute('aid', (j + 1))
+                if (parseInt(answer[j].getAttribute('data-qid')) == i + 1) {
+                    obj.answers.push({});
+                    obj.answers[obj.answers.length - 1].text_answer = answer[j].value;
+                    obj.answers[obj.answers.length - 1].id = j + 1;
+                    obj.answers[obj.answers.length - 1].question_id = i + 1;
+                    if (answer[j].parentElement.children[1].className == 'btn input-group-addon success') {
+                        obj.correct_answer.push({});
+                        obj.correct_answer[obj.correct_answer.length - 1].answer_id = j + 1;
+                        obj.correct_answer[obj.correct_answer.length - 1].question_id = i + 1;
+                        // };
+                        //  };
+
+                    };
+                }
             };
         };
-        obj.question.push({});
-        obj.question[i].id = i + 1;
-        obj.question[i].text = question[i].value;
-        obj.question[i].question_description = question[i].parentElement.parentElement.children[1].children[0].value;
+    }
 
-
-        for (var j = 0; j < answer.length; j++) {
-            answer[j].setAttribute('aid', (j + 1))
-            if (parseInt(answer[j].getAttribute('data-qid')) == i + 1) {
-                obj.answers.push({});
-                obj.answers[obj.answers.length - 1].text_answer = answer[j].value;
-                obj.answers[obj.answers.length - 1].id = j + 1;
-                obj.answers[obj.answers.length - 1].question_id = i + 1;
-                if (answer[j].parentElement.children[1].className == 'btn input-group-addon success') {
-                    obj.correct_answer.push({});
-                    obj.correct_answer[obj.correct_answer.length - 1].answer_id = j + 1;
-                    obj.correct_answer[obj.correct_answer.length - 1].question_id = i + 1;
-                    // };
-                    //  };
-
-                };
+    function statusCheck(el) {
+        for (var i = 0; i < el.length; i++) {
+            if (el[i].className.indexOf('validation') === -1) {
+                return true
+            } else {
+                return false
             }
         };
-    };
-}
-
-function statusCheck(el) {
-    for (var i = 0; i < el.length; i++) {
-        if (el[i].className.indexOf('validation') === -1) {
-            return true
-        } else {
-            return false
-        }
-    };
-
-}
-
-function validationClass(el) {
-    for (var i = 0; i < el.length; i++) {
-        validation(el[i], "");
-    };
-}
-
-function allFieldvalidation() {
-    var inp = document.getElementsByTagName('input');
-    var textarea = document.getElementsByTagName('textarea');
-    validation(elID('name'), "");
-    validation(elID('tags'), "");
-    validation(elID('category'), "Оберіть категорію");
-    validation(elID('subCategory'), "Оберіть підкатегорію");
-    validationClass(textarea);
-    validationClass(document.getElementsByClassName('question'));
-    validationClass(document.getElementsByClassName('answer'));
-    validationClass(document.getElementsByClassName('questionDescription'));
-    if (statusCheck(inp) && statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
-        return true
-    } else {
-        if (document.getElementsByClassName('row')[1].children[1]) {
-            window.scrollTo(0, 0);
-            return
-        } else {
-            var li = document.createElement('div');
-            li.className = 'alertmessage margintop';
-            li.innerHTML = '<h4>Заповніть всі поля!</h4>';
-            document.getElementsByClassName('row')[1].appendChild(li);
-            window.scrollTo(0, 0);
-            return false
-        }
 
     }
 
-}
-//Збирає данні з інпутів по ід і записує їх у базу
-var send = function(id, el) {
-    if (allFieldvalidation()) {
-        el.parentElement.href = "user_my_test_nyarytc.html";
-        var l = TestLength();
-        var category = elID('category').value;
-        var subcategory = elID('subCategory').value;
-        var newTest = {};
-        QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
-        newTest.user_owner_id = Model.date.session_user_id;
-        newTest.name = elID('name').value;
-        newTest.id = Model.date.Tests.length;
-        newTest.description = elID('description').value;
-        newTest.category = categorySearch(category);
-        newTest.subcategory = subCategorySearch(subcategory);
-        newTest.status = id;
-        newTest.tags = elID('tags').value.split(',');
-        newTest.date = Date.parse(new Date());
-        Model.date.Tests.push(newTest);
-        Model.save_localStorage();
-    };
+    function validationClass(el) {
+        for (var i = 0; i < el.length; i++) {
+            validation(el[i], "");
+        };
+    }
 
-};
+    function allFieldvalidation() {
+            var inp = document.getElementsByTagName('input');
+            var textarea = document.getElementsByTagName('textarea');
+            validation(elID('name'), "");
+            validation(elID('tags'), "");
+            validation(elID('category'), "Оберіть категорію");
+            validation(elID('subCategory'), "Оберіть підкатегорію");
+            validationClass(textarea);
+            validationClass(document.getElementsByClassName('question'));
+            validationClass(document.getElementsByClassName('answer'));
+            validationClass(document.getElementsByClassName('questionDescription'));
+            if (statusCheck(inp) && statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
+                return true
+            } else {
+                if (document.getElementsByClassName('row')[1].children[1]) {
+                    window.scrollTo(0, 0);
+                    return
+                } else {
+                    var li = document.createElement('div');
+                    li.className = 'alertmessage margintop';
+                    li.innerHTML = '<h4>Заповніть всі поля!</h4>';
+                    document.getElementsByClassName('row')[1].appendChild(li);
+                    window.scrollTo(0, 0);
+                    return false
+                }
+
+            }
+
+        }
+        //Збирає данні з інпутів по ід і записує їх у базу
+    var send = function(id, el) {
+        if (allFieldvalidation()) {
+            el.parentElement.href = "user_my_test_nyarytc.html";
+            var l = TestLength();
+            var category = elID('category').value;
+            var subcategory = elID('subCategory').value;
+            var newTest = {};
+            QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
+            newTest.user_owner_id = Model.date.session_user_id;
+            newTest.name = elID('name').value;
+            newTest.id = Model.date.Tests.length;
+            newTest.description = elID('description').value;
+            newTest.category = categorySearch(category);
+            newTest.subcategory = subCategorySearch(subcategory);
+            newTest.status = id;
+            newTest.tags = elID('tags').value.split(',');
+            newTest.date = Date.parse(new Date());
+            Model.date.Tests.push(newTest);
+            Model.save_localStorage();
+        };
+
+    };
+    //заповнює категорії
+    categoryCreation();
+    
+})();
