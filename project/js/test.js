@@ -99,14 +99,12 @@
                     document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].parentElement.insertBefore(newel, document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1]);
                     document.getElementById("next").href = 'javascript:void(0)'; //перехід не відбувається
                     document.getElementsByClassName("alertmess")[i].scrollIntoView(true)
-                    return;
-                    break;
+                    
 
                 } else {
                     document.getElementById("next").href = 'javascript:void(0)';
                     document.getElementsByClassName("alertmess")[i].scrollIntoView(true);
-                    return;
-                    break;
+                    
 
                 }
             } else {
