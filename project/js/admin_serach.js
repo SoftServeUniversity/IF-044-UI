@@ -1,3 +1,17 @@
+   function redirect(){
+        if (Model.date.session_user_id) {
+            var current = Model.date.session_user_id;
+            if(Model.date.Users[current].id.role_id == 3){
+                window.location = '404.html';
+            }
+        }
+        else{
+            window.location = '404.html';
+        }
+    }
+    redirect();
+
+
 var Users = Model.date.Users;
 var place_for_table = document.getElementById('usersTable');
 var place_for_blacklist = document.getElementById('blacklist');
@@ -42,7 +56,7 @@ function UsersTabComboboxChangeController(value,start,step) {
     var lengthArray;
     var pagination_user = [];
     lengthArray = (start)?start*step:step;
-    console.log(homo);
+    // console.log(homo);
  
   
 
@@ -53,36 +67,38 @@ function UsersTabComboboxChangeController(value,start,step) {
                 var role_name_user = Model.date.User_roles[j].role_name;
                 if (usersSorted[i].role_id == 1 && usersSorted[i].banned == 0) {
                     pagination_user.push(usersSorted[i]);
-                    // console.log(v);
-                //     content_table += "<tr><td><span id='firstName'>" + usersSorted[i].firstName + "</span></td><td><span id='mail'>" + usersSorted[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + usersSorted[i].id + ") id_user='" + usersSorted[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
+                   
+                    content_table += "<tr><td><span id='firstName'>" + usersSorted[i].firstName + "</span></td><td><span id='mail'>" + usersSorted[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + usersSorted[i].id + ") id_user='" + usersSorted[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + usersSorted[i].id + ")  id_user='" + usersSorted[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
+                
                 }
             }
         }
     }
-    var c = [];
-    var i;
-    for (index in pagination_user) {
-            c.push(index);
-            console.log(c);
-        }
-    for (var k = (start-1)*step; k<lengthArray;k++) {
-       i = c[k];
-       var some = '';
-       if(pagination_user[i]){
-        content_table += "<tr><td><span id='firstName'>" + pagination_user[i].firstName + "</span></td><td><span id='mail'>" + pagination_user[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + pagination_user[i].id + ") id_user='" + pagination_user[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + pagination_user[i].id + ")  id_user='" + pagination_user[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + pagination_user[i].id + ")  id_user='" + pagination_user[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
-       }
-    }
-    var place_for_pagination = '';
-    var countLinks = Math.ceil(c.length/step);
-    console.log(countLinks);
-    if (countLinks > 1) {
-        place_for_pagination += '<ul class="pagination"><li class="active"><a href="#">'+ 1 +'</a></li>';
-        for (var link = 2; link < countLinks+1; link++) {
-            place_for_pagination += '<li onclick=newlinkgeneration('+ link +')><a href="#">'+ link +'</a></li></ul>';
-        }
-        pagination.innerHTML = place_for_pagination;
-        place_for_table.innerHTML = content_table;
-    }
+    // var c = [];
+    // var i;
+    // for (index in pagination_user) {
+    //         c.push(index);
+    //         console.log(c);
+    //     }
+    // for (var k = (start-1)*step; k<lengthArray;k++) {
+    //    i = c[k];
+    //    var some = '';
+    //    if(pagination_user[i]){
+    //     content_table += "<tr><td><span id='firstName'>" + pagination_user[i].firstName + "</span></td><td><span id='mail'>" + pagination_user[i].email + "</span></td><td><span class='user'><strong>" + role_name_user + "</strong></span></td><td></td><td><a href='#myModal' data-toggle='modal' data-target='#change_status_user' id='login-button2' onclick='loginModule()'><button class='btn btn-success btn-xs button_change_status' onclick=chengestatus(" + pagination_user[i].id + ") id_user='" + pagination_user[i].id + "'>ЗМІНИТИ СТАТУС</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#banned' id='login-button2' onclick='loginModule()'><button class='btn btn-warning btn-xs button_banned_user'onclick=button_banned_users(" + pagination_user[i].id + ")  id_user='" + pagination_user[i].id + "'>ВНЕСТИ В ЧОРНИЙ СПИСОК</button></a></td><td><a href='#myModal' data-toggle='modal' data-target='#delete_user' id='login-button2' onclick='loginModule()'><button class='btn btn-danger btn-xs ' onclick=button_delete_user(" + pagination_user[i].id + ")  id_user='" + pagination_user[i].id + "'>ВИДАЛИТИ</button></a></td></tr>";
+    //    }
+    // }
+    // var place_for_pagination = '';
+    // var countLinks = Math.ceil(c.length/step);
+    // console.log(countLinks);
+    // if (countLinks > 1) {
+    //     place_for_pagination += '<ul class="pagination"><li class="active"><a href="#">'+ 1 +'</a></li>';
+    //     for (var link = 2; link < countLinks+1; link++) {
+    //         place_for_pagination += '<li onclick=newlinkgeneration('+ link +')><a href="#">'+ link +'</a></li></ul>';
+    //     }
+    //     pagination.innerHTML = place_for_pagination;
+    //     place_for_table.innerHTML = content_table;
+    // }
+    place_for_table.innerHTML = content_table;
 }
 UsersTabComboboxChangeController();
 

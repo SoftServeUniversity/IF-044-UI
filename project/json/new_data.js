@@ -72,7 +72,7 @@
                   firstName: 'Богдан',
                   lastName: 'sdfdgg',
                   group: '',
-                  role_id: 2,
+                  role_id: 3,
                   location: "Ukraine",
                   email: "carasklyushta@gmail.com",
                   password: "1234",
