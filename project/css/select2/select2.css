@@ -287,11 +287,11 @@ html[dir="rtl"] .select2-search input {
 
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
-    border: 1px solid #5897fb;
-    outline: none;
+    border: 1px solid #5897fb !important;
+    outline: none !important;
 
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-            box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3) !important;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .3) !important;
 }
 
 .select2-dropdown-open .select2-choice {

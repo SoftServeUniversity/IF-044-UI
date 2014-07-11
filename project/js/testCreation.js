@@ -48,9 +48,9 @@
         //Повертає підкатегорії категорії
     var getSubcategories = function(id) {
             var result = [];
-            for (var i = 0; i < Application.Tests_categories.length; i++) {
-                if (Application.Tests_categories[i].parent_id === id) {
-                    result.push(Application.Tests_categories[i]);
+            for (var i = 0; i < Model.date.Tests_categories.length; i++) {
+                if (Model.date.Tests_categories[i].parent_id === id) {
+                    result.push(Model.date.Tests_categories[i]);
                 };
             };
             return result;

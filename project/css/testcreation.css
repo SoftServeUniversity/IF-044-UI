@@ -35,20 +35,20 @@ select[disabled] {
 .myForm {
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    
     width: 73%;
     position: relative;
-    bottom:5px;
+    bottom: 5px;
 }
 .textarea {
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    
     width: 73%;
     height: 108px;
     resize: none;
     position: relative;
-    bottom:5px;
+    bottom: 5px;
 }
 .barel {
     padding-top: 15px;
@@ -63,10 +63,10 @@ span {
     text-align: right;
 }
 .tags {
-    width:73%;
+    width: 73%;
 }
 .nopadding {
-    padding:0px;
+    padding: 0px;
 }
 .validation {
     border: 1px solid red;
@@ -75,7 +75,7 @@ span {
 }
 .after:after {
     position: absolute;
-    content:"X";
+    content: "X";
     right: 0px;
     background-color: red
 }
@@ -105,3 +105,9 @@ hr.message-inner-separator {
     margin: 0 auto;
     line-height: 56px;
 }
+#s2id_tags .select2-choices {
+    
+    border: 1px solid #ccc;
+    background-image: none;
+}
+
