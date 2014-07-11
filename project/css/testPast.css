@@ -50,7 +50,7 @@
    -webkit-transform: scale(1.5,1.5);
    position: relative;
    top: 1px;
-
+   right: 3px;
 }
 .alertMessage{
     border: 1px solid red;
