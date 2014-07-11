@@ -1,17 +1,12 @@
-/*testpage style start*/
 
-/*input[type=checkbox] ~ input[type=checkbox] + label {
-    color: red;
-}
-/* Стиль первого слайда в состоянии «выбран» 
-input[type=checkbox]:checked ~ input[type=checkbox] + label { 
-    border: 1px solid black;
-}*/
  main {
     text-align: left;
 }
 .bnt-next {
     width: 200px;
+     margin-top: 35px;
+     padding: 7px 15px;
+     font-size:15px;
 }
 .center {
     margin-top: 10px;
@@ -39,20 +34,28 @@ input[type=checkbox]:checked ~ input[type=checkbox] + label {
 }
 .noclass {
 }
-.bnt-next {
-    margin-top: 25px;
-}
+
 .descript {
     color: gray;
 }
 .alertmess {
-    color:red;
+    color:rgba(255,0,0,0.7);;
     margin-bottom:5px;
+    margin-left: 1.5%;
+    margin-top: 4px;
+
+}
+.star{
+       display: inline-block;
+   -webkit-transform: scale(1.5,1.5);
+   position: relative;
+   top: 1px;
+
 }
 .alertMessage{
-    border: 2px solid red;
+    border: 1px solid red;
     border-radius: 4px;
-    background-color: #FBCBE5;  
+    background-color:rgba(255,0,0,0.1);
     
 }
 /*testpage style end*/

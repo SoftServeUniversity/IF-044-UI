@@ -1,4 +1,4 @@
-'use strict'
+'use strict' 
 redirect.testExist();
 redirect.idNotFound();
 
@@ -30,10 +30,10 @@ var breadcrumbs_creation = function() {
     var Category = document.getElementById('Category');
     var SubCategory = document.getElementById('SubCategory');
     name1[0].innerHTML = test.testObj(test.id).name;
-    Category.innerHTML = category(test.id);
-    SubCategory.innerHTML = subcategory(test.id);
-    Category.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[test.id].category + "";
-    SubCategory.parentElement.parentElement.href = "category.html?id=" + Model.date.Tests[test.id].subcategory + "";
+    Category.innerHTML = category(test.testObj(test.id).category);
+    SubCategory.innerHTML = subcategory(test.testObj(test.id).subcategory);
+    Category.parentElement.parentElement.href = "category.html?id=" + test.testObj(test.id).category + "";
+    SubCategory.parentElement.parentElement.href = "subcategory.html?id=" + test.testObj(test.id).subcategory + "";
 }
 
 
@@ -90,7 +90,7 @@ var answer = function(el) {
     if (questionBlock.className.indexOf('alertMessage') != -1) {
         delteClass(questionBlock, 'alertMessage');
         
-        questionBlock.parentElement.removeChild(questionBlock.parentElement.firstChild);
+        questionBlock.removeChild(questionBlock.firstChild);
     };
 }
 
@@ -121,12 +121,12 @@ var result = function() {
             }
         }
         if (!answerExist) { // якщо відповідь відстуня
-            if (document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].parentElement.children[0].className != 'col-sm-offset-1 alertmess') {
+            if (document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].children[0].className != 'alertmess') {
                 document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].className += " alertMessage"
                 var newel = document.createElement('div');
-                newel.className = 'col-sm-offset-1 alertmess';
-                newel.innerHTML = '<strong>Дайте відповідь на запитання!</strong>';
-                document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].parentElement.insertBefore(newel, document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1]);
+                newel.className = 'alertmess';
+                newel.innerHTML = '<span class="star">* </span>   vuberit xochab 1 vidpovid!';
+                document.getElementsByClassName("pos")[i].parentElement.insertBefore(newel, document.getElementsByClassName("pos")[i]);
                 document.getElementById("next").href = 'javascript:void(0)'; //перехід не відбувається
                 document.getElementsByClassName("alertmess")[0].scrollIntoView(true)
             } else {
@@ -137,7 +137,7 @@ var result = function() {
 
     }
     localStorage.setItem('QuestionObject', JSON.stringify(obj));
-    if (!document.getElementsByClassName('col-sm-offset-1 alertmess')[0]) {
+    if (!document.getElementsByClassName('alertmess')[0]) {
         document.getElementById("next").href = 'score.html'; // якщо всі відповіді відмічені, прехід на сторінку результату
     }
     //результат записуємо у localStorage, для подальшої роботи можна скористатись var question = localStorage.getItem('QuestionObject') для зручності роботи з об*єктом
