@@ -1,58 +1,58 @@
 
- main {
+.index main {
     text-align: left;
 }
-.bnt-next {
+.index .bnt-next {
     width: 200px;
      margin-top: 35px;
      padding: 7px 15px;
      font-size:15px;
 }
-.center {
+.index .center {
     margin-top: 10px;
     text-align: center;
 }
-.pos {
+.index .pos {
     float: left;
     display: inline-block;
     margin-bottom: 70px;
     margin-right: 5px;
 }
-.answer-spase {
+.index .answer-spase {
     margin-top: 5px;
 }
-.MyClass:before {
+.index .MyClass:before {
     content:'\2714';
     position: relative;
     right: 10px;
 }
-.MyClass {
+.index .MyClass {
     color: green;
     font-style: italic;
     position: relative;
     right: 12px;
 }
-.noclass {
+.index .noclass {
 }
 
-.descript {
+.index .descript {
     color: gray;
 }
-.alertmess {
+.index .alertmess {
     color:rgba(255,0,0,0.7);;
     margin-bottom:5px;
     margin-left: 1.5%;
     margin-top: 4px;
 
 }
-.star{
+.index .star{
        display: inline-block;
    -webkit-transform: scale(1.5,1.5);
    position: relative;
    top: 1px;
    right: 3px;
 }
-.alertMessage{
+.index .alertMessage{
     border: 1px solid red;
     border-radius: 4px;
     background-color:rgba(255,0,0,0.1);
