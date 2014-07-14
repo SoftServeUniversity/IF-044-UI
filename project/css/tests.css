@@ -1,29 +1,29 @@
-main {
+.subcategory-page {
   margin: 0;
 }
 
- main>.container {
+ .subcategory-page >.container {
  	margin-left: -15px;
  }
 
-#search-panel {
+.subcategory-page #search-panel {
   padding: 0px;
 }
 
- #tests-block ul {
+ .subcategory-page #tests-block ul {
  	list-style: none;
  	padding-left: 0;
  }
 
- #tests-block h4 {
+ .subcategory-page #tests-block h4 {
  	margin-top: 20px;
  }
 
- #test-list {
+ .subcategory-page #test-list {
  	padding-top: 20px;
  }
 
- #test-list .test {
+ .subcategory-page #test-list .test {
  	display:block;
 	width: 86%;
   background-color: #f5f5f5;
@@ -32,96 +32,96 @@ main {
   border-radius: 5px;
  }
 
- #test-list .test:hover {
+ .subcategory-page #test-list .test:hover {
   border: solid 2px rgb(221, 219, 219);
   box-shadow: 0 3px 6px rgba(0, 0, 0, .6);
   border-radius: 5px;
   padding: 8px 18px;
  }
 
- #test-list .test a:hover {
+ .subcategory-page #test-list .test a:hover {
      text-decoration: none;
      cursor: pointer;
  }
 
- #test-list .test p {
+ .subcategory-page #test-list .test p {
   text-align: justify;
  } 
 
 
- #search-sort {
+ .subcategory-page #search-sort {
   position: relative;
  	padding-top: 20px;
  }
 
- #searchForm {
+ .subcategory-page #searchForm {
   display: inline-block;
   width: 70%;
  }
 
- #search-sort label {
+ .subcategory-page #search-sort label {
  	margin: 0 10px;
  }
 
-  #searchBox label {
+  .subcategory-page #searchBox label {
   	margin-right: 0px;
     padding-top: -20px;
   }
 
-  #searchBox {
+  .subcategory-page #searchBox {
     display: inline-block;
     position: relative;
     top: 20px;
   }
 
-  #sortBox {
+  .subcategory-page #sortBox {
         display: inline-block;
     position: relative;
     bottom: 15px;
   }
 
 
-   #searchBox label input {
+   .subcategory-page #searchBox label input {
    	border-top-right-radius: 0;
    	border-bottom-right-radius: 0; 
    }
 
-   #sortBox label {
+   .subcategory-page #sortBox label {
     width: 100%;
     line-height: 35px;
     vertical-align: middle;
    }
 
-   #sortBox label select {
+   .subcategory-page #sortBox label select {
     width: 45%;
     float: right;
    }
  
- #search-sort .input-group-btn {
+ .subcategory-page #search-sort .input-group-btn {
  	display: inline-block;
   margin-left: -4px;
   margin-bottom: 2px;
 
  }
 
- .categories-block .sub-category {
+ .subcategory-page .categories-block .sub-category {
  	font-size: 1.6em;
  	margin: 0 10px;
   color: white;
  }
 
-.categories-block {
+.subcategory-page .categories-block {
   height: 56px;
   background-color: #0490ba;
   line-height: 56px;
   vertical-align: middle;
  } 
 
- #vmilosti a, #proby a, #patrony a {
+ .subcategory-page #vmilosti a, .subcategory-page  #proby a, .subcategory-page  #patrony a {
  	padding: 2px 5px;
  }
 
-#vmilosti a:hover, #proby a:hover, #patrony a:hover {
+.subcategory-page #vmilosti a:hover, .subcategory-page  #proby a:hover, .subcategory-page  #patrony a:hover {
   text-decoration: none;
   background-color: #0490ba;
   color: white;
