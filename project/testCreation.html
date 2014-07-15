@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -122,7 +122,7 @@
                     </div>
                     
                     </div>
-                    <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1 ">
+                    <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1 " id ="parentBlock">
                         <div class="row magrintop">
                             <br>
 
@@ -180,14 +180,14 @@
                         </div>
                         <br>
                         
-                        <div class="row">
+                        <div class="row" >
                             <div class="col-sm-11 well">
                                 <div class="row ">
 
                                     <div class="col-md-12">
                                         <div class="input-group">
                                             <input type="text" class="form-control question" placeholder="Текст запитання" onclick="newclass(this)" onclick="newclass(this)">
-                                            <span class="btn input-group-addon danger" title="Видалити питання" onclick="questionremove(this)">
+                                            <span class="btn input-group-addon danger" title="Видалити питання" >
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </span>
                                         </div>
@@ -205,11 +205,11 @@
                                                 <div class="input-group">
                                                     <input type="text" class="form-control answer" placeholder="Відповідь" onclick="newclass(this)">
 
-                                                    <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)">
-                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    <span class="btn input-group-addon default glyphicon glyphicon-ok" title="Правильна відповідь">
+                                                        
                                                     </span>
-                                                    <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
-                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    <span class="btn input-group-addon danger glyphicon glyphicon-remove" title="Видалити відповідь" >
+                                                        
                                                     </span>
                                                 </div>
                                             </div>
@@ -220,16 +220,16 @@
                                                 <div class="input-group">
                                                     <input type="text" class="form-control answer" placeholder="Відповідь" onclick="newclass(this)">
 
-                                                    <span class="btn input-group-addon default" title="Правильна відповідь" onClick="correctAnswer(this)">
-                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    <span class="btn input-group-addon default glyphicon glyphicon-ok" title="Правильна відповідь">
+                                                       
                                                     </span>
-                                                    <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)">
-                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    <span class="btn input-group-addon danger glyphicon glyphicon-remove" title="Видалити відповідь" >
+                                                        
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onClick="ansAdd(this)" style="float:left">
+                                        <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1"  style="float:left">
                                             <span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button>
 
                                     </div>
@@ -237,19 +237,19 @@
 
                             </div>
                         </div>
-
+<!-- onClick="questionAdd(this)" -->
                         <div class="row pull-left mm">
-                            <button type="button" class="btn btn-info margintop" onClick="questionAdd(this)">
+                            <button type="button" class="btn btn-info margintop" id="addqbtn">
                                 <span class="glyphicon glyphicon-plus ss"></span>Додати питання</button>
                         </div>
                         <br />
                         <br />
                         <div class="row margintop">
                             <a href="#">
-                                <button type="button" class="btn btn-md btn-default width" onclick="send(0,this)">Зберегти в чорновик</button>
+                                <button type="button" class="btn btn-md btn-default width" id="draftbtn">Зберегти в чорновик</button>
                             </a>
                             <a href="#">
-                                <button type="button" class="btn btn-md btn-success " onclick="send(1,this)">Відправити на модерацію</button>
+                                <button type="button" class="btn btn-md btn-success "  id="sendtbtn">Відправити на модерацію</button>
                             </a>
 
                         </div>
@@ -277,6 +277,7 @@
     </footer>
     
     <script src="js/redirect_module.js"></script>
+    <script src="js/testObj_module.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/select2/select2.min.js"></script>
     <script type="text/javascript" src="js/testCreation.js"></script>

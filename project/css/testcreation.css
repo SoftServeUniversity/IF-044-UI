@@ -111,3 +111,7 @@ hr.message-inner-separator {
     background-image: none;
 }
 
+.glyphicon {
+    position: relative;
+ top: 0px;
+}

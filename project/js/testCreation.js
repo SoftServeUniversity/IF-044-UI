@@ -1,6 +1,9 @@
 (function() {
     redirect.userLogin()
 
+    var tests = Model.date.Tests,
+        category = Model.date.Tests_categories
+
 
     //рухає курсор в кінець textarea 
 
@@ -17,40 +20,40 @@
 
     //створення масиву тегів
 
-   var getTag = function () {
+    var getTag = function() {
 
-            var tags = [];
+        var tags = [];
 
-            for (var i = 0; i < Model.date.Tests.length; i++) {
+        for (var i = 0; i < tests.length; i++) {
 
-                for (var j = 0; j < Model.date.Tests[i].tags.length; j++) {
-                    tags.push(Model.date.Tests[i].tags[j]);
-                     
-                };
+            for (var j = 0; j < tests[i].tags.length; j++) {
+                tags.push(tests[i].tags[j]);
+
             };
-            var i = tags.length;
-            tags.sort();
-            while (i--) {
-                if (tags[i] == tags[i - 1]) {
-                    tags.splice(i, 1);
-                }
+        };
+        var i = tags.length;
+        tags.sort();
+        while (i--) {
+            if (tags[i] == tags[i - 1]) {
+                tags.splice(i, 1);
             }
-            tags.splice(0, 1);
-            
-            return tags
         }
+        tags.splice(0, 1);
 
-        $("#tags").select2({
-            tags: getTag()
-        });
-  
+        return tags
+    }
 
-        //Повертає підкатегорії категорії
+    $("#tags").select2({
+        tags: getTag()
+    });
+
+
+    //Повертає підкатегорії категорії
     var getSubcategories = function(id) {
             var result = [];
-            for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-                if (Model.date.Tests_categories[i].parent_id === id) {
-                    result.push(Model.date.Tests_categories[i]);
+            for (var i = 0; i < category.length; i++) {
+                if (category[i].parent_id === id) {
+                    result.push(category[i]);
                 };
             };
             return result;
@@ -58,19 +61,16 @@
         //видаляє всіх нащадків(для підкатегорій)
 
     function removeChildren(elem) {
-        try {
-            elem.innerHTML = '';
-        } catch (e) {
-            while (elem.firstChild) {
-                elem.removeChild(elem.firstChild);
-            }
+        while (elem.firstChild) {
+            elem.removeChild(elem.firstChild);
         }
     }
+
 
     //визначення кількості тестів в базі, для стводення останнього в кінці
 
     function TestLength() {
-        var test = Model.date.Tests.length;
+        var test = tests.length;
         return test
     }
 
@@ -84,11 +84,11 @@
     //шаблон для вставлення відповідей
 
     function answerPattern() {
-        var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer"  placeholder="Відповідь" onclick="newclass(this)" onclick="newclass(this)"> <span class="btn input-group-addon default" title="Правильна відповідь" onclick="correctAnswer(this)"> <span class="glyphicon glyphicon-ok"></span> </span> <span class="btn input-group-addon danger" title="Видалити відповідь" onclick="answerRemove(this)"> <span class="glyphicon glyphicon-remove"></span> </span> </div> </div>'
+        var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer"  placeholder="Відповідь" onclick="newclass(this)" onclick="newclass(this)"> <span class="btn input-group-addon default glyphicon glyphicon-ok" title="Правильна відповідь" >  </span> <span class="btn input-group-addon danger glyphicon glyphicon-remove" title="Видалити відповідь" >  </span> </div> </div>'
         return mat;
     }
 
-    textarea = function (element) {
+    textarea = function(element) {
         var chalLength = element.value.length;
         var parent = element.parentNode;
         var inp = parent.innerHTML;
@@ -115,19 +115,21 @@
     }
 
     //функція додає нове запитання до списку
-    questionAdd = function(el) {
+    var questionAdd = function(el) {
 
-        var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  onclick="newclass(this)"> <span class="btn input-group-addon danger" onclick="questionremove(this)" title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" onclick="newclass(this)" class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1" onclick="ansAdd(this)" style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
+        var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  onclick="newclass(this)"> <span class="btn input-group-addon danger"  title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" onclick="newclass(this)" class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1"  style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
         var newdiv = document.createElement('div');
         newdiv.className = 'row';
         newdiv.innerHTML = mat;
-        el.parentNode.parentNode.insertBefore(newdiv, el.parentNode);
+        el.target.parentNode.parentNode.insertBefore(newdiv, el.target.parentNode);
 
     }
 
 
+
+
     //функція додає нову відповідь для запитання
-    ansAdd = function(el) {
+    var ansAdd = function(el) {
         var mat = answerPattern()
         var newdiv = document.createElement('div');
         newdiv.className = 'row margintop';
@@ -137,7 +139,7 @@
 
 
     //функція видаляє запитанння і віднімає позиції питання та всі відовіді питання
-    questionremove = function(el) {
+    var questionremove = function(el) {
 
         if (document.getElementsByClassName('question').length == 1) {
             if (document.getElementsByClassName('alert alert-danger q')[0] === undefined) {
@@ -159,7 +161,7 @@
     }
 
     //видаляє відповідь
-    answerRemove = function(el) {
+    var answerRemove = function(el) {
 
         var a = el.parentNode.parentNode.parentNode.parentNode.childElementCount
         if (a === 3) {
@@ -188,12 +190,12 @@
 
     //Знаходить категорії в базі
     var categoryCreation = function() {
-        for (var i = 1; i < Model.date.Tests_categories.length; i++) {
+        for (var i = 1; i < category.length; i++) {
 
-            if (Model.date.Tests_categories[i - 1].parent_id === 0) {
+            if (category[i - 1].parent_id === 0) {
                 var p = document.createElement("option");
                 var elem = elID('category').appendChild(p);
-                elem.innerHTML = Model.date.Tests_categories[i - 1].name;
+                elem.innerHTML = category[i - 1].name;
             }
 
         }
@@ -203,6 +205,8 @@
     //За обраною категорією заповняє підкатегорії, якщо категорія не обрана поле підкатегорії не активне
     Subcat = function(el) {
 
+        var categories = elID('category').value,
+            subCategory = elID('subCategory');
         if (el.value === 'Оберіть категорію') {
 
             elID('subCategory').disabled = true;
@@ -210,12 +214,12 @@
         } else {
             elID('subCategory').disabled = false;
         }
-        var category = elID('category').value;
-        var subCategory = elID('subCategory')
-        for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-            if (Model.date.Tests_categories[i].name === category) {
-
+       
+        for (var i = 0; i < category.length; i++) {
+            if (category[i].name === categories) {
+                
                 var res = getSubcategories((i + 1));
+
             }
         };
         removeChildren(elID('subCategory'));
@@ -231,17 +235,17 @@
     }
 
     //Змінює стилі кнопки вибору правильної відповіді
-    correctAnswer = function(el) {
-        if (el.className === 'btn input-group-addon default') {
-            el.className = 'btn input-group-addon success'
+    var correctAnswer = function(el) {
+        if (el.className === 'btn input-group-addon default glyphicon glyphicon-ok') {
+            el.className = 'btn input-group-addon success glyphicon glyphicon-ok'
         } else {
-            el.className = 'btn input-group-addon default'
+            el.className = 'btn input-group-addon default glyphicon glyphicon-ok'
         }
     }
 
     //class remove{   
 
-    newclass = function (element) {
+    newclass = function(element) {
             element.className = element.className.replace(
                 new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
                 '$1'
@@ -265,9 +269,9 @@
     //Знаходить ід категорії
 
     function categorySearch(category) {
-        for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-            if (Model.date.Tests_categories[i].name === category) {
-                var categoryId = Model.date.Tests_categories[i].id
+        for (var i = 0; i < category.length; i++) {
+            if (category[i].name === category) {
+                var categoryId = category[i].id
             }
         }
         return categoryId;
@@ -276,9 +280,9 @@
     //Знаходить ід підкатегорії
 
     function subCategorySearch(subCategory) {
-        for (var i = 0; i < Model.date.Tests_categories.length; i++) {
-            if (Model.date.Tests_categories[i].name === subCategory) {
-                var categoryId = Model.date.Tests_categories[i].id
+        for (var i = 0; i < category.length; i++) {
+            if (category[i].name === subCategory) {
+                var categoryId = category[i].id
             }
         }
         return categoryId;
@@ -316,7 +320,7 @@
                     obj.answers[obj.answers.length - 1].text_answer = answer[j].value;
                     obj.answers[obj.answers.length - 1].id = j + 1;
                     obj.answers[obj.answers.length - 1].question_id = i + 1;
-                    if (answer[j].parentElement.children[1].className == 'btn input-group-addon success') {
+                    if (answer[j].parentElement.children[1].className == 'btn input-group-addon success glyphicon glyphicon-ok') {
                         obj.correct_answer.push({});
                         obj.correct_answer[obj.correct_answer.length - 1].answer_id = j + 1;
                         obj.correct_answer[obj.correct_answer.length - 1].question_id = i + 1;
@@ -330,8 +334,10 @@
     }
 
     function statusCheck(el) {
+        console.log(el)
         for (var i = 0; i < el.length; i++) {
             if (el[i].className.indexOf('validation') === -1) {
+                
                 return true
             } else {
                 return false
@@ -347,8 +353,9 @@
     }
 
     function allFieldvalidation() {
-            var inp = document.getElementsByTagName('input');
-            var textarea = document.getElementsByTagName('textarea');
+            
+              var  textarea = document.getElementsByTagName('textarea');
+                
             validation(elID('name'), "");
             validation(elID('tags'), "");
             validation(elID('category'), "Оберіть категорію");
@@ -356,8 +363,9 @@
             validationClass(textarea);
             validationClass(document.getElementsByClassName('question'));
             validationClass(document.getElementsByClassName('answer'));
-            validationClass(document.getElementsByClassName('questionDescription'));
-            if (statusCheck(inp) && statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
+            validationClass(document.getElementsByClassName('questionDescription'));            
+            if (statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
+                
                 return true
             } else {
                 if (document.getElementsByClassName('row')[1].children[1]) {
@@ -376,7 +384,12 @@
 
         }
         //Збирає данні з інпутів по ід і записує їх у базу
-        send = function(id, el) {
+    var send = function(el) {
+      
+        var statusclick = (el.target.id === 'draftbtn'),
+            id;
+        (statusclick) ? id = 0: id = 1;
+
         if (allFieldvalidation()) {
             el.parentElement.href = "user_my_test_nyarytc.html";
             var l = TestLength();
@@ -386,19 +399,58 @@
             QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
             newTest.user_owner_id = Model.date.session_user_id;
             newTest.name = elID('name').value;
-            newTest.id = Model.date.Tests.length;
+            newTest.id = tests.length;
             newTest.description = elID('description').value;
             newTest.category = categorySearch(category);
             newTest.subcategory = subCategorySearch(subcategory);
             newTest.status = id;
             newTest.tags = elID('tags').value.split(',');
             newTest.date = Date.parse(new Date());
-            Model.date.Tests.push(newTest);
+            tests.push(newTest);
             Model.save_localStorage();
         };
 
     };
-    //заповнює категорії
+
+    var todo = function(el) {
+            switch (el.target.className) {
+                case 'btn btn-sm btn-info margintop col-sm-offset-1':
+                    ansAdd(el.target)
+                    break;
+                case 'btn input-group-addon danger glyphicon glyphicon-remove':
+                    answerRemove(el.target)
+                    break;
+                case 'btn input-group-addon default glyphicon glyphicon-ok':
+                    correctAnswer(el.target)
+                    break;
+                case 'btn input-group-addon success glyphicon glyphicon-ok':
+                    correctAnswer(el.target)
+                    break;
+
+                case 'btn input-group-addon danger':
+                    questionremove(el.target)
+                    break;
+                case 'glyphicon glyphicon-remove':
+                    questionremove(el.target.parentNode)
+                    break;
+            }
+
+
+        }
+        //заповнює категорії
     categoryCreation();
-    
+
+    function addEvents() {
+        var addq = elID('addqbtn'),
+            senddraft = elID('draftbtn'),
+            sendrewiew = elID('sendtbtn'),
+            parent = elID('parentBlock');
+
+        parent.addEventListener("click", todo);
+        addq.addEventListener("click", questionAdd);
+        senddraft.addEventListener("click", send);
+        sendrewiew.addEventListener("click", send);
+    };
+
+    addEvents();
 })();
