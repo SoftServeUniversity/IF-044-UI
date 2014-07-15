@@ -1,77 +1,77 @@
-main {
+.general-statistic-page {
 	margin: 0;
 }
 
-#statistic {
+.general-statistic-page #statistic {
 	margin-left: -15px;
 	padding: 0px 15px 20px;
 }
 
-#main-content {
+.general-statistic-page #main-content {
 	text-align: center;
     padding-left: 30px;
 } 
 
 
-#filtersBox {
+.general-statistic-page #filtersBox {
 	text-align: center;
 	border-right: 1px solid #eae8e8;
 	padding-bottom: 40px;
 }
-#filtersBox .datepicker-label {
+.general-statistic-page #filtersBox .datepicker-label {
 	width: 60%;
 	margin-bottom: 30px;
 }
 
-#filtersBox a {
+.general-statistic-page #filtersBox a {
 	margin-left: 10px;
 }
 
-#pageTitle {
+.general-statistic-page #pageTitle {
 	margin-bottom: 15px;
 	margin-top: 15px;
 	color: white;
 }
 
-#pageTitleBox {
+.general-statistic-page #pageTitleBox {
 	margin-bottom: 20px;
 	background-color: #0490ba;
 }
 
-.datepicker-label span i{
+.general-statistic-page .datepicker-label span i{
 	float: left;
 	margin-top: 8px;
 }
 
-.datepicker-label input {
+.general-statistic-page .datepicker-label input {
 	width: 150px;
 	text-align: center;
 }
 
-.sort-list {
+.general-statistic-page .sort-list {
 	position: relative;
 	width: 60%;
 	margin: 0 auto;
 	padding-right: 3%;
 }
 
-.sort-list ul {
+.general-statistic-page .sort-list ul {
 	display: inline-block;
 	list-style: none;
 	padding-left: 0;
 }
 
-.sort-list ul li {
+.general-statistic-page .sort-list ul li {
 	text-align: left;
 	border: 1px solid #046683;
 	background-color: #5bc0de;
 }
 
-.sort-list ul li:nth-child(n+2) {
+.general-statistic-page .sort-list ul li:nth-child(n+2) {
 	border-top: none;
 }
 
-.sort-list>span {
+.general-statistic-page .sort-list>span {
 	font-weight: bold;
     position: relative;
     bottom: 75px;
@@ -79,7 +79,7 @@ main {
 	right: 5%;
 }
 
-.sort-list ul li label {
+.general-statistic-page .sort-list ul li label {
 	padding: 2px 35px 2px 28px;
 	display: block;
 	color: white;
@@ -87,37 +87,37 @@ main {
 	margin-bottom: 0;
 }
 
-.sort-list ul li label input {
+.general-statistic-page .sort-list ul li label input {
     margin-right: 0px;
     visibility: hidden;
 }
 
-.sort-list ul li label:hover {
+.general-statistic-page .sort-list ul li label:hover {
 	text-decoration: none;
 	background-color: #0490ba;
 }
 
-#gradeList {
+.general-statistic-page #gradeList {
 	width: 80%;
 	padding-right: 12%;
 	margin-top: -20px;
 	padding-bottom: 20px;
 }
 
-#gradeList ul li label {
+.general-statistic-page #gradeList ul li label {
 	padding: 2px 45px 2px 28px;
 	z-index: 5;
 }
 
 
-#statistic .row {
+.general-statistic-page #statistic .row {
 	padding: 0 0;
 }
 
-.hideElem {
+.general-statistic-page .hideElem {
 	display: none;
 }
 
-.nav-tabs>li>a {
+.general-statistic-page .nav-tabs>li>a {
 	padding:10px 17px;
 }

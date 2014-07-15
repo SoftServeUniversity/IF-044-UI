@@ -1,58 +1,61 @@
-/*testpage style start*/
 
-/*input[type=checkbox] ~ input[type=checkbox] + label {
-    color: red;
-}
-/* Стиль первого слайда в состоянии «выбран» 
-input[type=checkbox]:checked ~ input[type=checkbox] + label { 
-    border: 1px solid black;
-}*/
- main {
+.index main {
     text-align: left;
 }
-.bnt-next {
+.index .bnt-next {
     width: 200px;
+     margin-top: 35px;
+     padding: 7px 15px;
+     font-size:15px;
 }
-.center {
+.index .center {
     margin-top: 10px;
     text-align: center;
 }
-.pos {
+.index .pos {
     float: left;
     display: inline-block;
     margin-bottom: 70px;
     margin-right: 5px;
 }
-.answer-spase {
+.index .answer-spase {
     margin-top: 5px;
 }
-.MyClass:before {
+.index .MyClass:before {
     content:'\2714';
     position: relative;
     right: 10px;
 }
-.MyClass {
+.index .MyClass {
     color: green;
     font-style: italic;
     position: relative;
     right: 12px;
 }
-.noclass {
+.index .noclass {
 }
-.bnt-next {
-    margin-top: 25px;
-}
-.descript {
+
+.index .descript {
     color: gray;
 }
-.alertmess {
-    color:red;
+.index .alertmess {
+    color:rgba(255,0,0,0.7);;
     margin-bottom:5px;
+    margin-left: 1.5%;
+    margin-top: 4px;
+
 }
-.alertMessage{
-    border: 2px solid red;
+.index .star{
+       display: inline-block;
+   -webkit-transform: scale(1.5,1.5);
+   position: relative;
+   top: 1px;
+   right: 3px;
+}
+.index .alertMessage{
+    border: 1px solid red;
     border-radius: 4px;
-    background-color: #FBCBE5;  
+    background-color:rgba(255,0,0,0.1);
     
 }
 /*testpage style end*/

@@ -1,15 +1,15 @@
-   function redirect(){
-        if (Model.date.session_user_id) {
-            var current = Model.date.session_user_id;
-            if(Model.date.Users[current].id.role_id == 3){
-                window.location = '404.html';
-            }
-        }
-        else{
-            window.location = '404.html';
-        }
-    }
-    redirect();
+   // function redirect(){
+   //      if (Model.date.session_user_id) {
+   //          var current = Model.date.session_user_id;
+   //          if(Model.date.Users[current].id.role_id == 3){
+   //              window.location = '404.html';
+   //          }
+   //      }
+   //      else{
+   //          window.location = '404.html';
+   //      }
+   //  }
+   //  redirect();
 
 
 var Users = Model.date.Users;
@@ -223,6 +223,7 @@ function chengestatus(id) {
     result();
     document.getElementById("txtCaptcha").value = number;
     document.getElementById("txtCaptchaDiv").innerHTML = number;
+
 }
 
 
@@ -399,3 +400,10 @@ search_banned_user.addEventListener("keyup", function () {
         place_for_blacklist.innerHTML = content_blacklist;
     }
 })
+
+
+// function some(){
+//    var v = document.getElementsByTagName('html');
+//    console.log(v);
+// }
+
