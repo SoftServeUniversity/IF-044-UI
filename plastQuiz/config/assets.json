@@ -6,7 +6,21 @@
                 "packages/system/public/assets/css/faq.css",
                 "packages/system/public/assets/css/bootstrap.min.css",
                 "packages/system/public/assets/css/login_page.css",
-                "packages/system/public/assets/css/media-queries.css"
+                "packages/system/public/assets/css/media-queries.css",
+                "packages/system/public/assets/css/general-statistic.css",
+                "packages/system/public/assets/css/tests.css",
+                "packages/system/public/assets/css/testPast.css",
+                "packages/system/public/assets/css/testcreation.css",
+                "packages/system/public/assets/css/search.css",
+                "packages/system/public/assets/css/score2.css",
+                "packages/system/public/assets/css/score.css",
+                "packages/system/public/assets/css/index.css",
+                "packages/system/public/assets/css/gueststatistic.css",
+                "packages/system/public/assets/css/faq_editor.css",
+                "packages/system/public/assets/css/error_pages.css",
+                "packages/system/public/assets/css/datepicker.css",
+                "packages/system/public/assets/css/category.css",
+                "packages/system/public/assets/css/administration.css"
             ]
         },
         "js": {
