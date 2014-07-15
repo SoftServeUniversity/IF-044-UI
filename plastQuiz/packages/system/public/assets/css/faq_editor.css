@@ -1,0 +1,23 @@
+#faqBox textarea {
+	display: block;
+	margin: 15px;
+	width: 450px;
+	height: 80px;
+}
+
+#faqBox  button{
+	margin: 10px 5px 25px;
+}
+
+#faqBox input {
+	margin: 0 15px 10px;
+	width: 450px;
+}
+
+#faqBox p, #faqBox h4 {
+	cursor: pointer;
+}
+
+.create-button {
+	margin: 25px 5px;
+}
