@@ -152,9 +152,9 @@
             }
         } else {
             var Child = el.parentNode.parentNode.parentNode.parentNode.parentNode;
-            console.log(Child);
+
             var Node = Child.parentNode;
-            console.log(Node);
+
             Node.removeChild(Child);
 
         }
@@ -214,10 +214,10 @@
         } else {
             elID('subCategory').disabled = false;
         }
-       
+
         for (var i = 0; i < category.length; i++) {
             if (category[i].name === categories) {
-                
+
                 var res = getSubcategories((i + 1));
 
             }
@@ -245,8 +245,16 @@
 
     //class remove{   
 
-    newclass = function(element) {
-            element.className = element.className.replace(
+    var newclass = function(element) {
+
+            if (element.target.className === 'select2-input select2-focused') {
+                console.log(element.target)
+                element.target.parentNode.parentNode.parentNode.className = element.target.parentNode.parentNode.parentNode.className.replace(
+                    new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
+                    '$1'
+                );
+            };
+            element.target.className = element.target.className.replace(
                 new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
                 '$1'
             );
@@ -334,15 +342,27 @@
     }
 
     function statusCheck(el) {
-        console.log(el)
-        for (var i = 0; i < el.length; i++) {
-            if (el[i].className.indexOf('validation') === -1) {
-                
+        if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+
+                if (el[i].className.indexOf('validation') === -1) {
+
+                    return true
+                } else {
+                    console.log(el)
+                    return false
+                }
+            }
+        } else {
+            if (el.className.indexOf('validation') === -1) {
+
                 return true
             } else {
+                console.log(el)
                 return false
             }
-        };
+        }
+
 
     }
 
@@ -353,45 +373,47 @@
     }
 
     function allFieldvalidation() {
-            
-              var  textarea = document.getElementsByTagName('textarea');
-                
-            validation(elID('name'), "");
-            validation(elID('tags'), "");
-            validation(elID('category'), "Оберіть категорію");
-            validation(elID('subCategory'), "Оберіть підкатегорію");
-            validationClass(textarea);
-            validationClass(document.getElementsByClassName('question'));
-            validationClass(document.getElementsByClassName('answer'));
-            validationClass(document.getElementsByClassName('questionDescription'));            
-            if (statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
-                
-                return true
-            } else {
-                if (document.getElementsByClassName('row')[1].children[1]) {
-                    window.scrollTo(0, 0);
-                    return
-                } else {
-                    var li = document.createElement('div');
-                    li.className = 'alertmessage margintop';
-                    li.innerHTML = '<h4>Заповніть всі поля!</h4>';
-                    document.getElementsByClassName('row')[1].appendChild(li);
-                    window.scrollTo(0, 0);
-                    return false
-                }
 
+        var textarea = document.getElementsByTagName('textarea');
+
+        validation(elID('name'), "");
+        validation(elID('tags'), "");
+        validation(elID('category'), "Оберіть категорію");
+        validation(elID('subCategory'), "Оберіть підкатегорію");
+        validationClass(textarea);
+        validationClass(document.getElementsByClassName('question'));
+        validationClass(document.getElementsByClassName('answer'));
+        validationClass(document.getElementsByClassName('questionDescription'));
+
+        if (statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
+
+            return true
+        } else {
+            if (document.getElementsByClassName('row')[1].children[1]) {
+                window.scrollTo(0, 0);
+                return
+            } else {
+                var li = document.createElement('div');
+                li.className = 'alertmessage margintop';
+                li.innerHTML = '<h4>Заповніть всі поля!</h4>';
+                document.getElementsByClassName('row')[1].appendChild(li);
+                window.scrollTo(0, 0);
+                return false
             }
 
         }
-        //Збирає данні з інпутів по ід і записує їх у базу
+
+    }
+    //Збирає данні з інпутів по ід і записує їх у базу
     var send = function(el) {
-      
+
         var statusclick = (el.target.id === 'draftbtn'),
             id;
-        (statusclick) ? id = 0: id = 1;
+        (statusclick) ? id = 0 : id = 1;
 
         if (allFieldvalidation()) {
-            el.parentElement.href = "user_my_test_nyarytc.html";
+
+            el.target.parentElement.href = "user_my_test_nyarytc.html";
             var l = TestLength();
             var category = elID('category').value;
             var subcategory = elID('subCategory').value;
@@ -444,12 +466,16 @@
         var addq = elID('addqbtn'),
             senddraft = elID('draftbtn'),
             sendrewiew = elID('sendtbtn'),
-            parent = elID('parentBlock');
+            parent = elID('parentBlock'),
+            tags = document.getElementsByClassName('select2-container select2-container-multi tags')[0];
 
         parent.addEventListener("click", todo);
+        tags.addEventListener("click", newclass);
+        parent.addEventListener("click", newclass);
         addq.addEventListener("click", questionAdd);
         senddraft.addEventListener("click", send);
         sendrewiew.addEventListener("click", send);
+
     };
 
     addEvents();

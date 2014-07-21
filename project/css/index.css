@@ -40,7 +40,7 @@
     }
     .index .contact-person {
         position: absolute;
-        background: url(pic/badge_contacts.png) no-repeat scroll left center transparent;
+        background: url(../pic/badge_contacts.png) no-repeat scroll left center transparent;
         padding: 2px 10px 0px 11px;
         left: -13px;
         height: 36px;
