@@ -1,0 +1,51 @@
+.faq-page #faq {
+
+	padding: 20px 100px 0;
+}
+
+.faq-page .heading {
+	height: 56px;
+    background-color: #0490ba;
+	line-height: 56px;
+	vertical-align: middle;
+	color: white;
+	width: 100%;
+}
+
+.faq-page {
+	margin: 0 0;
+}
+
+.faq-page #inner-wrapper {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.faq-page .heading h3 {
+    margin:0 auto;
+    line-height: 56px;
+}
+
+.faq-page #faqs {
+	margin-bottom: 50px;
+	text-align: left;
+}
+.faq-page #faqs h4	{ 
+	cursor:pointer; 
+}
+
+.faq-page #faqs h4.active	{ 
+	color:#d74646; 
+}
+
+.faq-page #faqs div { 
+	height:0; 
+	overflow:hidden; 
+	position:relative; 
+}
+
+.faq-page #faqs div p	{ 
+	padding:0; 
+	margin-bottom:15px; 
+}
+
