@@ -12,6 +12,7 @@ angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
                 url: '/',
                 templateUrl: 'system/views/index.html'
             });
+        
     }
 ]).config(['$locationProvider',
     function($locationProvider) {
