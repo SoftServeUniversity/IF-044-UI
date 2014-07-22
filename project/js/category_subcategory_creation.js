@@ -1,9 +1,9 @@
-(function () {
+(function() {
 
-	var testCategories = Model.date.Tests_categories,
-		tests = Model.date.Tests;
+    var testCategories = Model.date.Tests_categories,
+        tests = Model.date.Tests;
 
-    var testName = function () {
+    var testName = function() {
         var Result = [];
         for (var i = 0; i < testCategories.length; i++) {
             if (testCategories[i].parent_id == 0) {
@@ -15,7 +15,7 @@
 
     }
 
-    var testId = function () {
+    var testId = function() {
         var Result = [];
         for (var i = 0; i < testCategories.length; i++) {
             if (testCategories[i].parent_id == 0) {
@@ -27,11 +27,11 @@
 
     }
 
-    var categoryTestCount = function (name) {
+    var categoryTestCount = function(name) {
         var count = 0;
         for (var i = 0; i < testCategories.length; i++) {
             if (testCategories[i].name == name)
-                for (var j = 0; j <tests.length; j++) {
+                for (var j = 0; j < tests.length; j++) {
                     if (testCategories[i].id == tests[j].category) {
                         {
                             count++
@@ -43,7 +43,7 @@
         return count
     }
 
-    var getSubcategories = function (id) {
+    var getSubcategories = function(id) {
         var result = [];
         for (var i = 0; i < testCategories.length; i++) {
             if (testCategories[i].parent_id === id) {
@@ -53,7 +53,7 @@
         return result;
     }
 
-    var listCreation = function (categories, id) {
+    var listCreation = function(categories, id) {
 
         var catName = categories;
         var catId = id;
@@ -61,9 +61,9 @@
         for (var i = 0; i < catName.length; i++) {
             var newdiv = document.createElement('div');
             newdiv.className = "col-xs-12 col-sm-3 col-lg-3 contact col-sm-offset-1";
-            newdiv.innerHTML += '<div class="row"> <div class="col-xs-10 col-xs-offset-1 block-contact"> <div class="contact-person"><a href="category.html?id=' + catId[i] + '">' + catName[i] + '</a> </div> <div class="row"> <ul class="list-unstyled col-sm-offset-1"><li><span class="text-center count">' + categoryTestCount(catName[i]) + ' тестів</span></li> </ul> </div> </div> </div>';
+            newdiv.innerHTML += '<div class="row"> <div class="col-xs-10 col-xs-offset-1 block-contact"> <div class="contact-person"><a href="category.html?id=' + catId[i] + '">' + catName[i] + '</a> </div> <div class="row"> <ul class="list-unstyled col-sm-offset-1"><li><span class="text-center count">Тестів:  ' + categoryTestCount(catName[i]) + ' </span></li> </ul> </div> </div> </div>';
             document.getElementById('category').appendChild(newdiv);
-            
+
         }
         var catEl = document.getElementsByClassName('list-unstyled col-sm-offset-1');
         for (var i = 0; i < catEl.length; i++) {
