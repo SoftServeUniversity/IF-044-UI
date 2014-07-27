@@ -1,0 +1,33 @@
+<div class="index" data-ng-controller="TestController">
+    <div class="col-lg-7 col-sm-offset-1">
+
+        <h2>{{tests.name}}</h2>
+        <a href="category.html?id=1"> <u><i id="Category">{{tests.category}}</i></u> 
+        </a>
+        &gt;
+        <a href="subcategory.html?id=4"> <u><i id="SubCategory">{{tests.subcategory}}</i></u> 
+        </a>
+        <div>
+
+            <i class="descript">Для вибору відповіді натисніть на текст відповіді(Тест може мати декілька відповідей)</i>
+            <!-- <br />
+                                <i class="descript">Для отримання результату, натисніть на клавішу "Результат" в низу тесту</i> -->
+
+        </div>
+    </div>
+    <div class="row" ng-repeat="q in tests.question">
+
+        <div class="col-lg-10 col-sm-offset-1">
+            <div class="pos">
+                <strong>{{$index+1}}</strong>
+            </div>
+            <div class="question">{{q.text}}?</div>
+            <div class="col-lg-10 answer-spase" ng-if="q.id === a.question_id" ng-repeat="a in tests.answers">
+
+                <label ng-click="autoScroll = !autoScroll" ng-class="{true: 'MyClass', false: 'noclass'}[autoScroll]">{{a.text_answer}}</label>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
