@@ -8,11 +8,11 @@
      padding: 7px 15px;
      font-size:15px;
 }
-.index .center {
+.index .centerbtn {
     margin-top: 10px;
     text-align: center;
 }
-.index .pos {
+.index .poss {
     float: left;
     display: inline-block;
     margin-bottom: 70px;
