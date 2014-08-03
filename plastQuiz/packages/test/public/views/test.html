@@ -33,8 +33,8 @@
                         <div class="question">{{q.text}}?</div>
                         <div class="col-lg-10 answer-spase">
                             <div ng-if="q.id === a.question_id" ng-repeat="a in tests.answers">
-                                <label ng-click="autoScroll = !autoScroll" ng-class="{true: 'MyClass', false: 'noclass'}[autoScroll]">
-                                    <strong>{{a.text_answer}}</strong>
+                                <label ng-click="autoScroll = !autoScroll" ng-class="{true: 'MyClass', false: 'noclass'}[autoScroll]" >
+                                    <strong ng-click="answer($event)">{{a.text_answer}}</strong>
                                 </label>
                             </div>
                         </div>
@@ -48,8 +48,8 @@
             </div>
             <div class="centerbtn">
 
-                <a id="next" href="javascript:void(0)">
-                    <button class="btn-lg btn-success bnt-next">Пройти тест</button>
+                <a id="next" href="http://google.com">
+                    <button class="btn-lg btn-success bnt-next" id="sendB">Пройти тест</button>
                 </a>
             </div>
         </div>
