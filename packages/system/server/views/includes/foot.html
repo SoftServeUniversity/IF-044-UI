@@ -1,0 +1,23 @@
+{% for file in assets.core.js %}
+    <script type="text/javascript" src="/{{file}}"></script>
+{% endfor %}
+
+<script type="text/javascript" src="/modules/aggregated.js"></script>
+
+{% if (process.env.NODE_ENV == 'development') %}
+    <!-- Livereload script rendered -->
+    <script type="text/javascript" src="{{'http://' + req.host + ':35729/livereload.js'}}"></script>
+
+    <footer class="container">
+    <div id="footer-container">
+        <nav id="footer-menu">
+            <ul>
+                <li><a href="/">Головна</a> &nbsp|</li>
+                <li><a href="/#!/about">Про нас</a> &nbsp|</li>
+                <li><a href="/#!/contacts">Контакти</a></li>
+            </ul>
+        </nav>
+        <p>Copyright@ 2014 <b>IF-044</b></p>
+    </div>
+</footer>
+{% endif %}

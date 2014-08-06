@@ -1,0 +1,243 @@
+#faq {
+	margin-left: -15px;
+	padding: 0 100px;
+}
+.question-answer {
+	text-align: left;
+	margin-bottom: 30px;
+	padding: 7px;
+	border: 1px solid #eae8e8;
+	border-radius: 7px;
+	background-color: #f1f0f0;
+}
+
+#contentTable {
+	margin-bottom: 50px;
+}
+.user{
+	font-weight:bold;
+}
+.send{
+	opacity: 0.7;
+}
+.sendbutton{
+	margin-top: 10px;
+}
+.user{
+	color: #4FDC8C;
+	border-radius: 2px;
+	font-family: Arial;
+}
+.text{
+	padding: 5px;
+}
+textarea{
+	resize:none;
+}
+.moderator{
+	color:#F0616B;
+}
+.data{
+	margin: 40px 0px 40px 0px;
+	opacity: 0.9;
+}
+.localization{
+	margin:40px 0px 40px 0px;
+	opacity: 0.9;
+}
+.kategorybutton{
+	opacity: 0.9;
+}
+.panel{
+	border-left:none;
+	border-right:none; 
+	border-bottom: none;
+	border-radius: 4px 4px 0px 0px;
+}
+.none_border{
+	border-bottom: none;
+}
+	.panel-heading{
+		opacity: 0.9;
+	}
+button{
+	opacity: 0.9;
+}
+.language{
+	margin: 100px 0px 50px 0px;
+	font-weight: bold;
+	font-size: 16px;
+	opacity: 0.9;
+	left: 33%;
+}
+.language select{
+	border: none;
+}
+.control{
+	border: none;
+}
+.addcategory{
+	float: right;
+}
+.table td button{
+	float: right;
+	margin-left: 2px;
+
+}
+#p1 .control option{
+	font-weight: bold;
+}
+.paneltitle{
+	font-weight: bold;
+}
+#modal-edit-form{
+	width: 500px;
+}
+#modal-edit-form2{
+	width: 500px;
+}
+	#input_of_cotegory, #choose_main_category, #name_of_cotegory{
+		margin: 0px 0px 5px 0px;  
+	}
+.edit-button{
+	margin: 0px 0px 30px 70px;
+}
+	.buttonedit{
+		float: left;
+	}
+	.buttonreedit{
+		float: left;
+	}
+.control-label{
+	padding-top: 10px;
+}
+.nameofuser{
+	margin-right: 12px 0px 0px 1px;
+}
+.modal-body{
+	padding: 0px;
+}
+#name_of_user{
+	padding-top: 14px;
+	color: #5CCA5C;
+}
+.editcaptcha{
+	margin-top: 70px;
+}
+.enternumber{
+	padding: 0px;
+}
+.buttons_delete{
+	margin-top: 30px;
+}
+.buttons_edit{
+	margin: 70px 0px 20px 80px;
+}
+#name_of_user_delete{
+	font-weight: bold;
+	padding: 7px 0px 0px 80px;
+	color: #5CCA5C;
+}
+ #main_status_of_user{
+ 	font-weight: bold;
+	color: #5CCA5C;
+ }
+ #name_of_user_banned{
+ 	font-weight: bold;
+	color: #5CCA5C;
+	padding: 7px 0px 0px 100px;
+ }
+ .button-categoty{
+ 	margin-top: 30px;
+ }
+.nameofsort{
+	font-weight: bold;
+}
+.text-center{
+	padding: 7px;
+}
+.control{
+	font-weight: bold;
+}
+.control select{
+	font-weight: bold;
+}
+.fadepanel1{
+	padding: 5px;
+}
+/*.form-control{
+	font-weight: bold;
+}*/
+#usersTable tr:hover, #blacklist tr:hover, #administrationlist tr:hover, #usersCategories tr:hover, #usersCategories div:hover{
+	background: #F5F5F5;
+}
+.category_table_form {
+	padding: 5px;
+}
+.middle{
+	margin-left: 40px;
+}
+.addcategory{
+	margin-right: 9px;
+
+}
+.category_table_form button{
+	padding-left: 5px;
+}
+.namecategory{
+	font-weight: bold;
+}
+.fadepanel3{
+	height: 44px;
+}
+/*-----------------------------*/
+
+.workzone iframe, textarea{
+	width: 920px;
+	margin-top: 40px;
+}
+/* .workzone textarea{
+ 	width: 920px;
+ }*/
+ .toolbar{
+ 	display: none; /* що це таке?*/
+ }
+ .tabsbar{
+ 	margin-top: 70px;
+ }
+ .tabsbar button{
+ 	margin-left: 70px;
+ }
+ .faqBox{
+ 	margin-top: 50px;
+ }
+ 	.faqBox div{
+ 		margin-top: 20px;
+ 	}
+ 	 	.faqBox div h4{
+ 		margin-top: 40px;
+ 		}
+ 	.faqBox button{
+ 		margin: 10px 10px 50px 10px;
+		
+ 	}
+ 	.faqBox div p {
+ 		text-align: left;
+ 		border-bottom: 1px solid #C0C0C0;
+ 	}
+
+ 	.faqBox textarea {
+ 		resize: vertical;
+ 	}
+
+ 	.faqBox .btn-danger {
+		margin: 10px 10px 50px 50%;
+ 	}
+
+ 	.faqBox input {
+ 		width: 40%;
+ 	}
+
+ .create-button{
+ 	margin: 20px 0px 0px 60px;
+ }

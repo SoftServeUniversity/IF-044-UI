@@ -1,0 +1,102 @@
+<style>
+    .mr_top {margin-top: 10px;}
+</style>
+<div data-ng-controller="RegisterCtrl">
+    <div ng-repeat="error in registerError">
+        <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
+    </div>
+    <div class="alert alert-danger animated fadeIn" ng-show="usernameError">{{usernameError}}</div>
+        <div class="col-lg-12 col-md-10 col-sm-10 col-lg-offset-6">
+    <h3 class="text-center">Реєстрація</h3>
+    <hr>
+     <form class="signup form-horizontal" role="form" ng-submit="register()">
+                         <div class="form-group">
+                             <label  class="col-sm-4 control-label">Ім'я</label>
+                                 <div class="col-sm-8">
+                                     <input type="text" id="first_name" class="form-control"  placeholder="First Name" ng-model="user.first_name">
+                                 </div>
+                         </div>
+                        <div class="form-group">
+                             <label  class="col-sm-4 control-label">Прізвище</label>
+                                 <div class="col-sm-8">
+                                      <input type="text" id="last_name" class="form-control" placeholder="Last Name" ng-model="user.last_name">
+                                 </div>
+                         </div>
+                         <div class="form-group">
+                             <label for="inputEmail3" class="col-sm-4 control-label">Нік*</label>
+                                 <div class="col-sm-8">
+                                    <input type="text" id="username" name="username" class="form-control" required="required" placeholder="Nickname" ng-model="user.username">
+                                 </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Пароль *</label>
+                                <div class="col-sm-8">
+                                     <input type="password" id="password" class="form-control" required="required" placeholder="Password" ng-model="user.password">
+                                 </div>
+                        </div>
+                         <div class="form-group">
+                             <label for="inputPassword3" class="col-sm-4 control-label">Повторіть пароль *</label>
+                                 <div class="col-sm-8">
+                                     <input type="password" id="confirmPassword" class="form-control" required="required" placeholder="Confirm Password" ng-model="user.confirmPassword">
+                                </div>
+                         </div>
+                        <div class="form-group">
+                             <label for="inputEmail3" class="col-sm-4 control-label">Е-меіл *</label>
+                                 <div class="col-sm-8">
+                                     <input type="email" id="email" class="form-control" required="required" placeholder="Email" ng-model="user.email">
+                         </div>
+                         </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">День народження *</label>
+                                 <div class="col-sm-8">
+                                     <input type="date" id="birthday" class="form-control" required="required" ng-model="user.birthday">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-4 control-label">Пластовий курінь</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="org_troop" class="form-control" placeholder="Plast Hovel" ng-model="user.org_troop">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-4 control-label">Станиця</label>
+                                 <div class="col-sm-8">
+                                     <input type="text" id="org_region" class="form-control" placeholder="Plast Region" ng-model="user.org_region">
+                                </div>
+                         </div>
+                        <div class="form-group">
+                             <label  class="col-sm-4 control-label">Пластовий ступінь</label>
+                                <div class="col-sm-1 mr_top">
+                                     <select id="org_level" ng-model="user.org_level">
+                                        <option>початківець</option>
+                                        <option selected>досвітчений</option>
+                                        <option>експерт</option>
+                                     </select>
+                                 </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="col-sm-4 control-label" for="exampleInputFile">Завантажити аватар</label>
+                                <div class="col-sm-8 mr_top">
+                                    <input type="file" id="exampleInputFile">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                             <label class="col-sm-4 control-label" for="exampleInputFile">Введіть число:</label>
+                                <div class="col-sm-3">
+                                <span id="txtCaptchaDiv" ng-model="user.txtCaptchaDiv" style="color:#0000"> {{captcha}}</span>
+                                    <!-- <input type="hidden" id="txtCaptcha"> </label> -->
+                                    <input type="text" name="txtInput" ng-model="user.txtInput" id="txtInput" size="5" />
+                                </div>
+                        </div>
+                                 <hr>
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                       
+                                            <button type="button" ui-sref='auth.login' class="btn btn-danger btn-block">Логін</button>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <button type="submit" class="btn btn-success btn-block">Реєстрація</button>
+                                        </div>                      
+                                
+     </form>
+</div>
