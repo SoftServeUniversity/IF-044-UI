@@ -1,7 +1,8 @@
 <div class="index">
     <main>
         <div class="container" data-ng-controller="TestController">
-            <div class="row">
+			<div>{{loader}}</div>
+            <div class="row" ng-hide="checkResponse">
                 <div class="col-lg-7 col-sm-offset-1">
 
                     <h2>{{tests.name}}</h2>
@@ -46,7 +47,7 @@
 				<br />
 			</div>
             </div>
-            <div class="centerbtn">
+            <div class="centerbtn" ng-hide="checkResponse">
 
                 <a id="next" href="http://google.com">
                     <button class="btn-lg btn-success bnt-next" id="sendB">Пройти тест</button>
