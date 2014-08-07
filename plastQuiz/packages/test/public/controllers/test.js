@@ -2,7 +2,11 @@
 
 angular.module('mean.test').controller('TestController', ['$scope', '$http', '$stateParams',
     function($scope, $http, $stateParams) {
+        $scope.load = false;
+        $scope.show = true;
         $http.get('http://localhost:3000/test/' + $stateParams.id).success(function(result) {
+            $scope.show = false;
+            $scope.load = true;
             $scope.tests = result[0];
             $scope.name = result[1];
         });
