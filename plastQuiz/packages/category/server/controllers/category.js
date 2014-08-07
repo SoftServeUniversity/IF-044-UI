@@ -24,6 +24,7 @@ if (sub_cat[i].get('parent_id') === cat[0].get('cat_id')) {
                             TempObj.subcat.push({
                                 subcat_name: sub_cat[i].get('name'),
                                 subcat_id: sub_cat[i].get('cat_id'),
+                                tests : 0
                                 
                             });
                         }
@@ -35,6 +36,13 @@ if (sub_cat[i].get('parent_id') === cat[0].get('cat_id')) {
                                 test_id: test[k].get('test_id'),
                                 subcat_id: sub_cat[i].get('cat_id')
                             });
+                        }
+                    }
+                }
+                for (var x = 0; x < TempObj.subcat.length; x++) {
+                    for (var y = 0; y <  TempObj.tests.length; y++) {
+                        if (TempObj.tests[y].subcat_id === TempObj.subcat[x].subcat_id) {
+                            TempObj.subcat[x].tests++
                         }
                     }
                 }

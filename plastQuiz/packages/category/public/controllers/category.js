@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('mean.category').controller('CategoryController', ['$scope', 'Global', 'Category',
-    function($scope, Global, Category) {
-        $scope.global = Global;
-        $scope.package = {
-            name: 'category'
-        };
+angular.module('mean.category').controller('categoryCtrl', ['$scope', '$http', '$stateParams',
+    function($scope, $http, $stateParams) {
+    	$http.get('/category/' + $stateParams.id).success(function(result) {
+            $scope.category = result[0];
+            
+        });
+    	
+        
     }
 ]);

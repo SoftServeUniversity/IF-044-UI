@@ -1,0 +1,27 @@
+<main class="container-fluid" data-ng-controller="categoryCtrl">
+<div class="row">
+	<div class="text-center">
+		<h3 class="pageTitle" id="content-title-block">{{category.cat_name}}</h3>
+	</div>
+</div>
+<!-- <div class="row">
+		<p class="description text-center">
+		<a id="content-title-stats" href="category-statistics.html?id=1">Статистика категорії</a>
+		</p>
+</div> -->
+<br>
+<br>
+<div class="row" id="category-page-content">
+	
+	<div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3" ng-repeat="sub in category.subcat">
+	<strong>Підкатегорія <a href="subcategory.html?id=6"> <u></u>{{sub.subcat_name}}</a>
+	<br>
+	</strong>
+	<span class="text-center count">Tестів: {{sub.tests}}</span>
+	<ul class="list-unstyled">
+	<li ng-if="sub.subcat_id === test.subcat_id" ng-repeat="test in category.tests"><a ui-sref="test({id : test.test_id})">{{test.test_name}}</a></li>
+	</ul>
+</div>
+
+</div>
+</div></main>

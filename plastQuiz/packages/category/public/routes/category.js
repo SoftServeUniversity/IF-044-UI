@@ -2,9 +2,9 @@
 
 angular.module('mean.category').config(['$stateProvider',
     function($stateProvider) {
-        $stateProvider.state('category example page', {
-            url: '/category/example',
-            templateUrl: 'category/views/index.html'
+        $stateProvider.state('category', {
+            url: '/category/:id',
+            templateUrl: 'category/views/category.html'
         });
     }
 ]);
