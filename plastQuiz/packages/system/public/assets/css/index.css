@@ -1,0 +1,62 @@
+
+
+.index main{
+  text-align: left;
+}
+    
+.index .desrpiption{
+    font: 18px italic arial;     
+    color: #9b9a9a;
+}
+
+.index .name {    
+    font: 16px times new roman;
+    color: #a5a1a1;
+  }
+.index .line { 
+    border-left: 2px solid #ccc; 
+    margin-left: 20px; 
+    padding-left: 10px; 
+   }
+
+.index .count {
+  text-align: left;
+    color: #a5a1a1;
+  font-family: 'Roboto Slab', serif;
+    font-size: 13px;
+  
+  }
+
+  .index .title-post-name {
+        color: rgba(82, 82, 82, 0.72);
+    }
+    .index .contact {
+        margin-bottom: 30px;
+    }
+    .index .block-contact {
+        border: solid 1px #ccc;
+        padding: 18px 20px 0px;
+        position: relative;
+    }
+    .index .contact-person {
+        position: absolute;
+        background: url(../pic/badge_contacts.png) no-repeat scroll left center transparent;
+        padding: 2px 10px 0px 11px;
+        left: -13px;
+        height: 36px;
+        top: -13px;
+        z-index: 2;
+        color: #fff;
+    }
+    .index .block-contact h4 {
+        color: #5bc0de;
+    }
+    .index .pos {
+        position: relative;
+        left: -30px;
+    }
+    .index .contact-person a {
+        color: #fff;
+    }
+
+/*index page style end*/

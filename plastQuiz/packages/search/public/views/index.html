@@ -1,0 +1,97 @@
+            <main data-ng-controller="SearchController">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div id="modal-login-box" class="modal-dialog">
+                    <div id="modal-login-form" class="modal-content">
+                        <div class="modal-header">
+                            <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Вхід в Систему</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="error-block"></p>
+                            <form id="signin-form" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Пошта</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputPassword3"
+                                               placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">Запам'ятати
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-1 col-sm-10">
+                                        <button id="registration-button" type="button" class="btn btn-primary">Зареєструватись</button>
+                                        <button id="loginButton" type="submit" class="btn btn-primary">Увійти</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pageTitleBox">
+                        <div class="center-block"><h3 class="pageTitle" id="no-login">Гостьовий пошук</h3></div>
+                    </div>
+
+                </div>
+<!--                   <h4><h4>-->
+                  
+                <div class="row">
+              
+                </br>
+                    <div class="input-group col-xs-12 col-lg-6 col-md-6 col-sm-6 col-xs-offset-0 col-lg-offset-3 col-md-offset-3  col-sm-offset-3">
+
+                        <input type="text" class="form-control" id="search_input" ng-change="simpleSearch()" ng-model="searchQuery" placeholder="введіть шось для пошуку...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="button">пошук</button>
+                        </span>
+                    </div>
+					<br />
+						<div class="input-group col-xs-12 col-lg-3 col-md-3 col-sm-3 col-xs-offset-0 col-lg-offset-6 col-md-offset-6  col-sm-offset-6 text-right">		
+						   <a href="advancedSearch.html" id="linkToAdvancedSearch">+Розширений пошук</a>
+						</div>   
+					
+                </div>
+                <br>
+                <div class="row">
+
+
+                    <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8 col-lg-offset-3  col-md-offset-3  col-sm-offset-3 ">
+                        <div class="row row-search-result">     
+                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well" ng-repeat="test in searchResult">
+                                <h3 class="title-post-name"><a style="text-decoration: none;" href="Test.html?id=2">{{test.name}}</a></h3>
+                                <p class="text-justify ">{{test.description}}</p>
+                                <div class="col-xs-12">
+                                    <ul class="search-teg">
+                                        <li  ng-repeat="tag in test.tags"><a href="" ng-click="changeQuerySearc(tag)">{{tag}}&nbsp;| </a> 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>					
+                        </div>
+                    </div>
+                </div>
+                                        <div id="place_for_pagination">
+                                        </div>
+                <!--                CONTENT!!!-->
+
+            </main>

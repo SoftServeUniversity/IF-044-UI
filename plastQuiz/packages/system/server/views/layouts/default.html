@@ -1,20 +1,61 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
+
+
 {% include '../includes/head.html' %}
 
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
-    {% if adminEnabled %}
-    <section class="admin-menu">
-        <div data-ng-include="'/mean-admin/views/index.html'"></div>
-    </section>
-    {% endif %}
-    <section class="content">
-        <section class="container">
+<body class="container-fluid">
+<div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
+        <header class="row">
+            <div id="header-container"
+                 class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <div id="title-block">
+                    <h4>Система Пластових електронних опитників</h4>
+                </div>
+                <nav id="header-menu" class="header-menu">
+                     <ul>
+                        <li><a href="/">Головна</a></li>
+                        <li><a href="guest_search_result.html">Пошук</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="/#!/gen_statistic">Статистика</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
+                    <img src="/system/assets/img/login.png" alt="login" width="35" height="35">
+                </a>
+                <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
+                <ul id="userNavPanel">
+                    <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a></li>
+                    <li><a href="#" id="changedA"></a></li>
+                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
+                </ul>
+                <div class="expand-menu-button" id="expand-menu-button" onclick="expandMenuModule()"><img src="/system/assets/pic/expand-header-menu-button.jpg" alt=""></div>
+                <div class="expand-header-menu" id="expand-header-menu"></div>
+            </div>
+        </header>
+
+
             {% block content %}{% endblock %}
-        </section>
-    </section>
+
+        </div>
+    </div>
+<footer class="container">
+    <div id="footer-container">
+        <nav id="footer-menu">
+            <ul>
+                <li><a href="index.html">Головна</a> &nbsp|</li>
+                <li><a href="about.html">Про нас</a> &nbsp|</li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+        </nav>
+        <p>Copyright@ 2014 <b>IF-044</b></p>
+    </div>
+</footer>
+
     {% include '../includes/foot.html' %}
+
 </body>
 
 </html>
