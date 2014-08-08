@@ -3,8 +3,8 @@
 {% include '../includes/head.html' %}
 
 <body class="container-fluid">
-<!-- <div id="outer-wrapper" class="container">
-    <div id="inner-wrapper" class="container"> -->
+<div id="outer-wrapper" class="container">
+    <div id="inner-wrapper" class="container">
 <!-- class="navbar navbar-inverse navbar-fixed-top" -->
     <div data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
     {% if adminEnabled %}
@@ -17,6 +17,8 @@
             {% block content %}{% endblock %}
         </section>
     </section>
+    </div>
+    </div>
     {% include '../includes/foot.html' %}
 </body>
 
