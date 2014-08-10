@@ -4,6 +4,10 @@
 .btn-center {
     margin-right: 8%;
 }
+span.col-sm-3{
+    padding-left: 0px;
+    padding-right: 5px;
+}
 .input-group-addon.success {
     color: rgb(255, 255, 255);
     background-color: rgb(92, 184, 92);
@@ -114,4 +118,11 @@ hr.message-inner-separator {
 .glyphicon {
     position: relative;
  top: 0px;
+}
+
+.magrintop{
+    margin-top: 20px;
+}
+.btn-xs{
+    border-radius: 0px;
 }

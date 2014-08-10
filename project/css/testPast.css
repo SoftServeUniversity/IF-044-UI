@@ -15,10 +15,12 @@
 .index .pos {
     float: left;
     display: inline-block;
-    margin-bottom: 70px;
+    
     margin-right: 5px;
 }
 .index .answer-spase {
+    position:relative;
+    left: 1%;
     margin-top: 5px;
 }
 .index .MyClass:before {

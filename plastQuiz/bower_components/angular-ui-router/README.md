@@ -35,6 +35,7 @@ Check out the sample app: http://angular-ui.github.io/ui-router/sample/
  - clone & [build](#developing) this repository
  - [download the release](http://angular-ui.github.io/ui-router/release/angular-ui-router.js) (or [minified](http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js))
  - via **[Bower](http://bower.io/)**: by running `$ bower install angular-ui-router` from your console
+ - or via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-ui-router` from your console
  - or via **[Component](https://github.com/component/component)**: by running `$ component install angular-ui/ui-router` from your console
 
 **(2)** Include `angular-ui-router.js` (or `angular-ui-router.min.js`) in your `index.html`, after including Angular itself (For Component users: ignore this step)
@@ -63,7 +64,7 @@ When you're done, your setup should look similar to the following:
 </html>
 ```
 
-### Nested States & Views
+### [Nested States & Views](http://plnkr.co/edit/u18KQc?p=preview)
 
 The majority of UI-Router's power is in its ability to nest states & views.
 
@@ -164,7 +165,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 >**[Dive Deeper!](https://github.com/angular-ui/ui-router/wiki)**
 
 
-### Multiple & Named Views
+### [Multiple & Named Views](http://plnkr.co/edit/SDOcGS?p=preview)
 
 Another great feature is the ability to have multiple `ui-view`s view per template.
 

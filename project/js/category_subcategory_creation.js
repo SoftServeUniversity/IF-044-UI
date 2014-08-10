@@ -27,15 +27,16 @@
 
     }
 
-    var categoryTestCount = function(name) {
+    var categoryTestCount = function(id) {
         var count = 0;
         for (var i = 0; i < testCategories.length; i++) {
-            if (testCategories[i].name == name)
+            if (testCategories[i].id == id)
                 for (var j = 0; j < tests.length; j++) {
                     if (testCategories[i].id == tests[j].category) {
-                        {
+                        if (tests[j].status === 3) {
                             count++
                         };
+                        
                     };
                 };
 
@@ -61,7 +62,7 @@
         for (var i = 0; i < catName.length; i++) {
             var newdiv = document.createElement('div');
             newdiv.className = "col-xs-12 col-sm-3 col-lg-3 contact col-sm-offset-1";
-            newdiv.innerHTML += '<div class="row"> <div class="col-xs-10 col-xs-offset-1 block-contact"> <div class="contact-person"><a href="category.html?id=' + catId[i] + '">' + catName[i] + '</a> </div> <div class="row"> <ul class="list-unstyled col-sm-offset-1"><li><span class="text-center count">Тестів:  ' + categoryTestCount(catName[i]) + ' </span></li> </ul> </div> </div> </div>';
+            newdiv.innerHTML += '<div class="row"> <div class="col-xs-5 col-sm-10 col-sm-offset-1 col-xs-offset-4 block-contact"> <div class="contact-person"><a href="category.html?id=' + catId[i] + '">' + catName[i] + '</a> </div> <div class="row"> <ul class="list-unstyled col-xs-offset-1 col-sm-offset-1"><li><span class="text-center count">Тестів:  ' + categoryTestCount(catId[i]) + ' </span></li> </ul> </div> </div> </div>';
             document.getElementById('category').appendChild(newdiv);
 
         }

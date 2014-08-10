@@ -1,7 +1,7 @@
 'use strict' 
 redirect.testExist();
 redirect.idNotFound();
-
+redirect.publicTest();
 
 var category = function(id) {
     for (var i = 0; i < Model.date.Tests_categories.length; i++) {
@@ -125,7 +125,7 @@ var result = function() {
                 document.getElementsByClassName("col-lg-10 col-sm-offset-1")[i + 1].className += " alertMessage"
                 var newel = document.createElement('div');
                 newel.className = 'alertmess';
-                newel.innerHTML = '<span class="star">* </span>   <i>vuberit xochab 1 vidpovid!</i>';
+                newel.innerHTML = '<span class="star">* </span>   <i>Виберіть хоча б одну відповідь!</i>';
                 document.getElementsByClassName("pos")[i].parentElement.insertBefore(newel, document.getElementsByClassName("pos")[i]);
                 document.getElementById("next").href = 'javascript:void(0)'; //перехід не відбувається
                 document.getElementsByClassName("alertmess")[0].scrollIntoView(true)
