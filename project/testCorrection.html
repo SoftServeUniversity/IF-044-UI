@@ -6,46 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YunakQuize Layout</title>
-    
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login_page.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/testcreation.css">
-     <link rel="stylesheet" href= "css/select2/select2.css">
+    <link rel="stylesheet" href="css/select2/select2.css">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="json/new_data.js"></script>
     <link href="css/media-queries.css" rel="stylesheet">
- 
+
     <style type="text/css">
-    .input-group-addon.success {
-        color: rgb(255, 255, 255);
-        background-color: rgb(92, 184, 92);
-        border-color: rgb(76, 174, 76);
-    }
-    .input-group-addon.primary {
-        color: rgb(255, 255, 255);
-        background-color: rgb(50, 118, 177);
-        border-color: rgb(40, 94, 142);
-    }
-    .input-group-addon.danger {
-        color: rgb(255, 255, 255);
-        background-color: rgb(217, 83, 79);
-        border-color: rgb(212, 63, 58);
-    }
-    select[disabled] {
-        background-color: #ddd;
-    }
-    .mm {
-        margin-top: -30px;
-    }
-    .ss {
-        margin-right: 5px;
-    }
-    .width {
-        width: 194px;
-        margin-right: 20px;
-    }
     </style>
 </head>
 
@@ -86,8 +58,10 @@
                         <li><a href="#" onclick="logOutModule()">Вихід</a>
                         </li>
                     </ul>
-                    <div class="expand-menu-button" id="expand-menu-button" onclick="expandMenuModule()"><img src="pic/expand-header-menu-button.jpg" alt=""></div>
-                    <div class="expand-header-menu" id="expand-header-menu"></div>                    
+                    <div class="expand-menu-button" id="expand-menu-button" onclick="expandMenuModule()">
+                        <img src="pic/expand-header-menu-button.jpg" alt="">
+                    </div>
+                    <div class="expand-header-menu" id="expand-header-menu"></div>
                 </div>
             </header>
 
@@ -137,86 +111,91 @@
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <div class="container-fluid">
-                    <div class="row heading">
-                        <h3>Редагування тесту</h3>
-                        
-                    </div>
-                    <div class="col-lg-11 col-md-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-xs-offset-1">
-                        <div class="row ">
-                            <br>
-                            <div class="col-lg-6 col-md-6 col-sm-offset-2">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span class="col-sm-3">Назва тесту:</span>
-                                        <input placeholder="Назва тесту" type="text" class="myForm" id="name" onkeyup="textarea(this)" onclick="newclass(this)">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span class="col-sm-3">Опис тесту:</span>
-                                        <textarea placeholder="Опис тесту" class="textarea" id="description" onclick="newclass(this)"></textarea>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span class="col-sm-3">Теги:</span>
-
-                                        <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags" onclick="newclass(this)">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span class="col-sm-3">Категорія:</span>
-
-                                        <select class="myForm" id="category" onchange="Subcat(this)" onclick="newclass(this)">
-                                            <option>Оберіть категорію</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <span class="col-sm-3">Підкатегорія:</span>
-
-                                        <select class="myForm" id="subCategory" disabled="true" onclick="newclass(this)">
-
-                                        </select>
-                                    </div>
-                                </div>
+                   
+                        <div class="row">
+                            <div class="row heading">
+                                <h3>Редагування тесту</h3>
 
                             </div>
-                            <div class="col-sm-11 margintop">
-                                <h4 class="pull-left" style="margin-top:0; margin-right:10px;">Зауваження</h4>
-                                <a class="btn btn-primary btn-xs pull-left" style="border-radius:0px" onclick="changeLast(this)">Останні</a>
-                                <a class="btn btn-default btn-xs pull-left" style="border-radius:0px" onclick="changeAll(this)">Усі</a>
-                            </div>
-                            <br />
-                            <div class=" col-xs-10 col-lg-11 col-md-11 col-sm-11 well place_for_comment pull-left " id="commentPlace"></div>
                         </div>
-
-                        <div>
-                            <div class="row mm  pull-left">
-                                <button type="button" class="btn btn-info margintop" onClick="questionAdd(this)">
-                                    <span class="glyphicon glyphicon-plus ss"></span>Додати питання</button>
-                            </div>
-
-
-                            <br />
-                            <br />
+                        <div class="col-lg-11 col-sm-12 col-md-12 col-xs-9 col-lg-offset-0 col-md-offset-0 col-xs-offset-1 col-sm-offset-0" id="parentBlock">
                             <div class="row margintop">
-                                <a href="#">
-                                    <button type="button" class="btn btn-md btn-default width" onclick="save(0, this)">Зберегти в чорновик</button>
-                                </a>
-                                <a href="#">
-                                    <button type="button" class="btn btn-md btn-success " onclick="save(1, this)">Відправити на модерацію</button>
-                                </a>
+                                <br>
+                                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 col-sm-offset-2 col-md-offset-2 col-lg-offset-3">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-11">
+                                            <span class="col-sm-3 col-md-3 col-xs-3">Назва тесту:</span>
+                                            <input placeholder="Назва тесту" type="text" class="myForm" id="name" onkeyup="textarea(this)">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-11">
+                                            <span class="col-sm-3 col-md-3 col-xs-3">Опис тесту:</span>
+                                            <textarea placeholder="Опис тесту" class="textarea" id="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-11">
+                                            <span class="col-sm-3 col-md-3 col-xs-3">Теги:</span>
 
+                                            <input placeholder="Теги розділяються комами" type="text" class="tags" id="tags">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-11">
+                                            <span class="col-sm-3 col-md-3 col-xs-3">Категорія:</span>
+
+                                            <select class="myForm" id="category" onchange="Subcat(this)">
+                                                <option>Оберіть категорію</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-11">
+                                            <span class="col-sm-3 col-md-3 col-xs-3">Підкатегорія:</span>
+
+                                            <select class="myForm" id="subCategory" disabled="true">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
                             </div>
-                        </div>
+                            <div class="row col-lg-offset-1">
+                                    <div class="col-sm-11 margintop">
+                                        <h4 class="pull-left" style="margin-top:0; margin-right:10px;">Зауваження</h4>
+                                        <a class="btn btn-primary btn-xs pull-left" onclick="changeLast(this)">Останні</a>
+                                        <a class="btn btn-default btn-xs pull-left" onclick="changeAll(this)">Усі</a>
+                                    </div>
+                                    <br />
+
+                                    <div class=" col-xs-10 col-lg-12 col-md-12 col-sm-12 well place_for_comment pull-left c" id="commentPlace"></div>
+                                </div>
+                            <div>
+                                <div class="row mm  pull-left col-lg-offset-1">
+                                    <button type="button" class="btn btn-info margintop" id="addqbtn">
+                                        <span class="glyphicon glyphicon-plus ss"></span>Додати питання</button>
+                                </div>
+
+
+                                <br />
+                                <br />
+                                <div class="row margintop col-lg-offset-2">
+                                    <a href="#">
+                                        <button type="button" class="btn btn-md btn-default width" id="draftbtn">Зберегти в чорновик</button>
+                                    </a>
+                                    <a href="#">
+                                        <button type="button" class="btn btn-md btn-success " id="sendtbtn">Відправити на модерацію</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
             </main>
             </div>
             </div>
@@ -236,7 +215,7 @@
                 </div>
             </footer>
             <script src="js/testObj_module.js"></script>
-             <script src="js/redirect_module.js"></script>
+            <script src="js/redirect_module.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
             <script src="js/select2/select2.min.js"></script>
             <script type="text/javascript" src="js/testCreation.js"></script>
@@ -245,10 +224,10 @@
 
             <script type="text/javascript" src="js/testEdit.js"></script>
             <script type="text/javascript" src="js/testCorrection.js"></script>
-            <script> 
+            <script>
             window.onload = changeLoginPic();
             </script>
-            
+
 </body>
 
 </html>

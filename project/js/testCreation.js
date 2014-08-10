@@ -84,7 +84,7 @@
     //шаблон для вставлення відповідей
 
     function answerPattern() {
-        var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer"  placeholder="Відповідь" onclick="newclass(this)" onclick="newclass(this)"> <span class="btn input-group-addon default glyphicon glyphicon-ok" title="Правильна відповідь" >  </span> <span class="btn input-group-addon danger glyphicon glyphicon-remove" title="Видалити відповідь" >  </span> </div> </div>'
+        var mat = '<div class="col-sm-11 col-sm-offset-1" > <div class="input-group"> <input type="text" class="form-control answer"  placeholder="Відповідь" > <span class="btn input-group-addon default glyphicon glyphicon-ok" title="Правильна відповідь" >  </span> <span class="btn input-group-addon danger glyphicon glyphicon-remove" title="Видалити відповідь" >  </span> </div> </div>'
         return mat;
     }
 
@@ -95,7 +95,7 @@
         var id = element.id;
         if (chalLength > 50) {
             parent.removeChild(element);
-            parent.innerHTML += '<textarea id="' + element.id + '" class = "textarea" onclick="newclass(this)">' + element.value + '</textarea>';
+            parent.innerHTML += '<textarea id="' + element.id + '" class = "textarea" >' + element.value + '</textarea>';
             element = null;
             var textarea = document.getElementById(id);
             textarea.focus();
@@ -117,9 +117,9 @@
     //функція додає нове запитання до списку
     var questionAdd = function(el) {
 
-        var mat = '<div class="col-sm-11 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  onclick="newclass(this)"> <span class="btn input-group-addon danger"  title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання" onclick="newclass(this)" class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1"  style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
+        var mat = '<div class="col-sm-12 col-md-12 well"><div class="row"> <div class="col-md-12"> <div class="input-group"> <input type="text" class="form-control question" placeholder="Текст запитання"  > <span class="btn input-group-addon danger"  title="Видалити відповідь" > <span class="glyphicon glyphicon-remove"></span> </span> </div> <div class="col-sm-11 col-sm-offset-1 nopadding" > <textarea placeholder="Опис Запитання"  class="form-control margintop questionDescription"></textarea> </div></div> </div> <div class="row"> <div class="col-sm-12"> <div class="row margintop">' + answerPattern() + '</div> <div class="row margintop">' + answerPattern() + '</div> <button type="button" class="btn btn-sm btn-info margintop col-sm-offset-1"  style="float:left"><span class="glyphicon glyphicon-plus ss"></span>Додати відповідь</button> </div> </div></div>'
         var newdiv = document.createElement('div');
-        newdiv.className = 'row';
+        newdiv.className = 'row col-lg-offset-1';
         newdiv.innerHTML = mat;
         el.target.parentNode.parentNode.insertBefore(newdiv, el.target.parentNode);
 
@@ -144,7 +144,7 @@
         if (document.getElementsByClassName('question').length == 1) {
             if (document.getElementsByClassName('alert alert-danger q')[0] === undefined) {
                 var newel = document.createElement('div');
-                newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+                newel.className = 'col-sm-8 col-md-6 col-sm-offset-3';
                 newel.innerHTML = '<div class="alert alert-danger q"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Тест має містити мінімум 1 питання!</p> </div>';
                 el.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode);
             } else {
@@ -167,13 +167,13 @@
         if (a === 3) {
             if (document.getElementsByClassName('alert alert-danger a')[0] === undefined) {
                 var newel = document.createElement('div');
-                newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+                newel.className = 'col-sm-8 col-md-6 col-sm-offset-3';
                 newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
                 el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
             } else {
                 if (el.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].className != "col-sm-5 col-md-5 col-sm-offset-3") {
                     var newel = document.createElement('div');
-                    newel.className = 'col-sm-5 col-md-5 col-sm-offset-3';
+                    newel.className = 'col-sm-8 col-md-6 col-sm-offset-3';
                     newel.innerHTML = '<div class="alert alert-danger a"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button> <p> Питання має містити мінімум 2 відповіді!</p> </div>';
                     el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(newel, el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
                 } else {
@@ -248,7 +248,8 @@
     var newclass = function(element) {
 
             if (element.target.className === 'select2-input select2-focused') {
-                console.log(element.target)
+                document.getElementById('tags').className = document.getElementById('tags').className.replace(new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
+                '$1');
                 element.target.parentNode.parentNode.parentNode.className = element.target.parentNode.parentNode.parentNode.className.replace(
                     new RegExp('(^|\\s+)' + 'validation' + '(\\s+|$)', 'g'),
                     '$1'
@@ -266,7 +267,7 @@
         if (el.value === param) {
             if (el.className.indexOf('validation') != -1) {
                 return
-            } else {
+            } else {             
                 el.className += " validation";
             }
         }
@@ -274,33 +275,7 @@
 
 
 
-    //Знаходить ід категорії
-
-    function categorySearch(category) {
-        for (var i = 0; i < category.length; i++) {
-            if (category[i].name === category) {
-                var categoryId = category[i].id
-            }
-        }
-        return categoryId;
-    }
-
-    //Знаходить ід підкатегорії
-
-    function subCategorySearch(subCategory) {
-        for (var i = 0; i < category.length; i++) {
-            if (category[i].name === subCategory) {
-                var categoryId = category[i].id
-            }
-        }
-        return categoryId;
-    }
-
-
-
-
-
-    function QuestionSave(obj, question, answer) {
+    QuestionSave = function (obj, question, answer) {
         obj.question = [];
         obj.answers = [];
         obj.correct_answer = [];
@@ -341,41 +316,17 @@
         };
     }
 
-    function statusCheck(el) {
-        if (el.length) {
-            for (var i = 0; i < el.length; i++) {
+   
 
-                if (el[i].className.indexOf('validation') === -1) {
-
-                    return true
-                } else {
-                    console.log(el)
-                    return false
-                }
-            }
-        } else {
-            if (el.className.indexOf('validation') === -1) {
-
-                return true
-            } else {
-                console.log(el)
-                return false
-            }
-        }
-
-
-    }
-
-    function validationClass(el) {
+    validationClass = function (el) {
         for (var i = 0; i < el.length; i++) {
             validation(el[i], "");
         };
     }
 
-    function allFieldvalidation() {
+    allFieldvalidation = function () {
 
         var textarea = document.getElementsByTagName('textarea');
-
         validation(elID('name'), "");
         validation(elID('tags'), "");
         validation(elID('category'), "Оберіть категорію");
@@ -384,15 +335,17 @@
         validationClass(document.getElementsByClassName('question'));
         validationClass(document.getElementsByClassName('answer'));
         validationClass(document.getElementsByClassName('questionDescription'));
-
-        if (statusCheck(elID('description')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)) {
-
+        //statusCheck(elID('description')) && statusCheck(elID('name')) && statusCheck(elID('category')) && statusCheck(elID('subCategory')) && statusCheck(textarea)
+        if (document.getElementsByClassName('validation').length === 0) {
+           
             return true
         } else {
             if (document.getElementsByClassName('row')[1].children[1]) {
+                
                 window.scrollTo(0, 0);
                 return
             } else {
+                
                 var li = document.createElement('div');
                 li.className = 'alertmessage margintop';
                 li.innerHTML = '<h4>Заповніть всі поля!</h4>';
@@ -404,6 +357,25 @@
         }
 
     }
+
+    categoryId = function(name){
+        for (var i = 0; i < category.length; i++) {
+            if (category[i].name === name) {
+                return category[i].id
+            };
+        };
+    }
+
+    var uniqueId = function(){
+        var id = 0;
+        for (var i = 0; i < tests.length; i++) {            
+            if (tests[i].id > id) {                
+                id = tests[i].id;
+            };
+        };
+        
+        return id=id+1;
+    }
     //Збирає данні з інпутів по ід і записує їх у базу
     var send = function(el) {
 
@@ -412,19 +384,18 @@
         (statusclick) ? id = 0 : id = 1;
 
         if (allFieldvalidation()) {
-
-            el.target.parentElement.href = "user_my_test_nyarytc.html";
+            
+            el.target.parentElement.href = 'user_my_test_nyarytc.html';
             var l = TestLength();
-            var category = elID('category').value;
-            var subcategory = elID('subCategory').value;
+            
             var newTest = {};
             QuestionSave(newTest, document.getElementsByClassName('question'), document.getElementsByClassName('answer'));
             newTest.user_owner_id = Model.date.session_user_id;
             newTest.name = elID('name').value;
-            newTest.id = tests.length;
+            newTest.id = uniqueId();
             newTest.description = elID('description').value;
-            newTest.category = categorySearch(category);
-            newTest.subcategory = subCategorySearch(subcategory);
+            newTest.category = categoryId(elID('category').value);
+            newTest.subcategory = categoryId(elID('subCategory').value);
             newTest.status = id;
             newTest.tags = elID('tags').value.split(',');
             newTest.date = Date.parse(new Date());

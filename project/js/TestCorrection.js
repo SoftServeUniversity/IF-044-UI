@@ -1,4 +1,8 @@
 (function() {
+    a = function(){
+        console.log(allFieldvalidation())
+        
+    }
     function commentCreate(id_test) {
 
         document.getElementById('commentPlace').innerHTML = '';
@@ -18,7 +22,7 @@
 
     }
 
-    function showAll(id_test) {
+    showAll = function(id_test) {
 
         document.getElementById('commentPlace').innerHTML = '';
 
@@ -42,14 +46,14 @@
         };
     }
 
-    function changeAll(el) {
+   changeAll =  function (el) {
         el.className = "btn btn-primary btn-xs pull-left ";
         el.parentElement.children[1].className = "btn btn-default btn-xs pull-left ";
         showAll(test.id)
 
     }
 
-    function changeLast(el) {
+    changeLast = function (el) {
         el.className = "btn btn-primary btn-xs pull-left";
         el.parentElement.children[2].className = "btn btn-default btn-xs pull-left ";
         commentCreate(test.id);
