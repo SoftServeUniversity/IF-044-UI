@@ -2,6 +2,10 @@
 	margin-left: -15px;
 	padding: 0 100px;
 }
+.administration_panel{
+	min-width: 1010px;
+}
+
 .administration_panel .question-answer {
 	text-align: left;
 	margin-bottom: 30px;
@@ -24,7 +28,7 @@
 	margin-top: 10px;
 }
 .administration_panel .user{
-	color: #4FDC8C;
+	color: #48CB48;
 	border-radius: 2px;
 	font-family: Arial;
 }
@@ -119,7 +123,7 @@
 }
 .administration_panel #name_of_user{
 	padding-top: 14px;
-	color: #5CCA5C;
+	color: #48CB48;
 }
 .administration_panel .editcaptcha{
 	margin-top: 70px;
@@ -136,17 +140,38 @@
 .administration_panel #name_of_user_delete{
 	font-weight: bold;
 	padding: 7px 0px 0px 80px;
-	color: #5CCA5C;
+	color: #48CB48;
 }
  .administration_panel #main_status_of_user{
  	font-weight: bold;
-	color: #5CCA5C;
+	color: #48CB48;
  }
  .administration_panel #name_of_user_banned{
  	font-weight: bold;
-	color: #5CCA5C;
+	color: #48CB48;
 	padding: 7px 0px 0px 100px;
  }
+ .administration_panel #main_name_of_category{
+ 	font-weight: bold;
+ 	color:  #48CB48;
+ 	padding: 0px 0px 0px 0px;
+ 	float: right;
+ }
+  .administration_panel #newecategory{
+  	text-align: left;
+ 	font-weight: bold;
+ 	color:  #48CB48;
+ 	float: right;
+ 	padding: 0px 0px 0px 0px;
+ }
+ .administration_panel .delete_captcha{
+ 	padding: 0px;
+ }
+ .administration_panel .exampleInputFile{
+	margin: 0px -40px 0px 0px;
+
+ }
+ 
 .administration_panel  .button-categoty{
  	margin-top: 30px;
  }
@@ -187,6 +212,7 @@
 .administration_panel .namecategory{
 	font-weight: bold;
 }
+
 .administration_panel .fadepanel3{
 	height: 44px;
 }
@@ -241,3 +267,14 @@
 .administration_panel .create-button{
  	margin: 20px 0px 0px 60px;
  }
+ 	.administration_panel .pagination{
+ 		position: absolute;
+		width: 102px;
+		left: 47%;
+ 	}
+.administration_panel .modal{
+	margin-right: -18px;
+}
+.admin_panelin{
+	overflow-y:hidden;
+}

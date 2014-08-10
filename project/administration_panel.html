@@ -24,7 +24,7 @@
 
 </head>
 <main class='administration_panel'>
-    <body class="container-fluid">
+    <body class="container-fluid admin_panelin">
         <div id="outer-wrapper" class="container">
             <div id="inner-wrapper" class="container">
                 <header class="row">
@@ -277,7 +277,7 @@
                                                         <div class='row fadepanel1'>
                                                             <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
                                                             <div class="col-sm-3">
-                                                                <select class='form-control control ' id='filter' onchange="UsersTabComboboxChangeController()">
+                                                                <select class='form-control control ' id='filter' onchange="UsersTabComboboxChangeFilter()">
                                                                     <option>Алфавіту</oprtion>
                                                                         <option>Електронній пошті</oprtion>
                                                                 </select>
@@ -298,28 +298,7 @@
                                                         <!-- here will be some content -->
                                                     </tbody>
                                                 </table>
-                                                <div class='pageroller' id='paginator'>
-                                                   <!--  <ul class='pagination'>
-                                                        <li><a href='#'>&laquo;</a>
-                                                        </li>
-                                                        <li class='active'><a href='#'>1</a>
-                                                        </li>
-                                                        <li><a href='#'>2</a>
-                                                        </li>
-                                                        <li><a href='#'>3</a>
-                                                        </li>
-                                                        <li><a href='#'>4</a>
-                                                        </li>
-                                                        <li><a href='#'>5</a>
-                                                        </li>
-                                                        <li><a href='#'>6</a>
-                                                        </li>
-                                                        <li><a href='#'>7</a>
-                                                        </li>
-                                                        <li><a href='#'>&raquo</a>
-                                                        </li>
-                                                    </ul> -->
-                                                </div>
+                         
                                             </div>
 
                                             <div id="p2" class="tab-pane fade in #p2">
@@ -328,7 +307,7 @@
                                                         <div class='row fadepanel1'>
                                                             <div class="col-sm-2 nameofsort text-center">Сортувати по</div>
                                                             <div class='col-sm-3'>
-                                                                <select class='form-control control' id='filterforblacklist' onchange="BlackListUsersTabController()">
+                                                                <select class='form-control control' id='filterforblacklist' onchange="BlackListUsersTabFilter()">
                                                                     <option>Алфавіту</oprtion>
                                                                         <option>Елетронній пошті</oprtion>
                                                                 </select>
@@ -348,28 +327,7 @@
 
                                                     </tbody>
                                                 </table>
-                                                <div class='pageroller'>
-                                                    <ul class='pagination'>
-                                                        <li><a href='#'>&laquo;</a>
-                                                        </li>
-                                                        <li class='active'><a href='#'>1</a>
-                                                        </li>
-                                                        <li><a href='#'>2</a>
-                                                        </li>
-                                                        <li><a href='#'>3</a>
-                                                        </li>
-                                                        <li><a href='#'>4</a>
-                                                        </li>
-                                                        <li><a href='#'>5</a>
-                                                        </li>
-                                                        <li><a href='#'>6</a>
-                                                        </li>
-                                                        <li><a href='#'>7</a>
-                                                        </li>
-                                                        <li><a href='#'>&raquo</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                               
                                             </div>
 
                                             <div id="p3" class="tab-pane fade in #p3">
@@ -516,20 +474,19 @@
                                                                 <div class="modal-body">
                                                                     <form id="edit-form" class="form-horizontal" role="form">
                                                                         <div class="form-group">
-                                                                            <label for="name_of_category" class="col-sm-5 control-label required">Категорія</label>
-                                                                            <div class="col-sm-7 text-left nameofuser" id='newecategory'></div>
+                                                                            <label for="name_of_category" class="col-sm-8 required">Категорія</label>
+                                                                            <div class="col-sm-4 text-left nameofuser" id='newecategory'></div>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="choose_main_category" class="col-sm-8 control-label">Батьківська категорія</label>
-                                                                            <div class="col-sm-4" id='main_name_of_category'>
+                                                                            <label for="choose_main_category" class="col-sm-6">Батьківська категорія</label>
+                                                                            <div class="col-sm-6" id='main_name_of_category'>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label class="col-sm-6" for="exampleInputFile">Введіть число:</label>
-                                                                            <div class="col-sm-6">
-                                                                                <span id="txtCaptchaDiv_delete_category" style="color:#0000"></span>
+                                                                            <label for="Captcher" class="col-lg-7 exampleInputFile">Введіть число:</label>
+                                                                            <div class="col-lg-5 pull-left">
+                                                                                <span id="txtCaptchaDiv_delete_category" class='delete_captcha' style="color:#0000"></span>
                                                                                 <input type="hidden" id="txtCaptcha_delete_category">
-                                                                                </label>
                                                                                 <input type="text" name="txtInput" id="txtInput_delete_category" size="5" />
                                                                             </div>
                                                                         </div>
@@ -610,12 +567,8 @@
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
                         <script src="js/bootstrap.min.js"></script>
                         <script src="js/components.js"></script>
-            <!--             <script src='js/search-form2.js'></script> -->
                         <script src='js/categories_form.js'></script>
-                        <script src='js/admin_serach.js'></script>
-                        <script>
-                            window.onload = changeLoginPic();
-                        </script>
+                        <script src='js/administration.js'></script>
                         <script src="js/administration/eltre/jquery-1.6.1.min.js"></script>
                         <script src="js/administration/eltre/jquery-ui-1.8.13.custom.min.js"></script>
                         <script src="js/administration/eltre/elrte.min.js"></script>
