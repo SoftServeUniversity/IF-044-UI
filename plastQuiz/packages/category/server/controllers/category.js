@@ -42,7 +42,7 @@ if (sub_cat[i].get('parent_id') === cat[0].get('cat_id')) {
                 for (var x = 0; x < TempObj.subcat.length; x++) {
                     for (var y = 0; y <  TempObj.tests.length; y++) {
                         if (TempObj.tests[y].subcat_id === TempObj.subcat[x].subcat_id) {
-                            TempObj.subcat[x].tests++
+                            TempObj.subcat[x].tests++;
                         }
                     }
                 }

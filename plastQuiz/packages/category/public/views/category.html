@@ -1,6 +1,26 @@
-<main class="container-fluid" data-ng-controller="categoryCtrl">
+<main class="container-fluid index" data-ng-controller="categoryCtrl">
 <div class="row">
-	<div class="text-center">
+<div ng-hide="load" >
+            <div id="circularG" class="position">
+                <div id="circularG_1" class="circularG">
+                </div>
+                <div id="circularG_2" class="circularG">
+                </div>
+                <div id="circularG_3" class="circularG">
+                </div>
+                <div id="circularG_4" class="circularG">
+                </div>
+                <div id="circularG_5" class="circularG">
+                </div>
+                <div id="circularG_6" class="circularG">
+                </div>
+                <div id="circularG_7" class="circularG">
+                </div>
+                <div id="circularG_8" class="circularG">
+                </div>
+            </div>
+       </div>
+	<div class="text-center" ng-hide="show">
 		<h3 class="pageTitle" id="content-title-block">{{category.cat_name}}</h3>
 	</div>
 </div>
@@ -11,17 +31,38 @@
 </div> -->
 <br>
 <br>
-<div class="row" id="category-page-content">
+<div class="row" id="category-page-content" ng-hide="show">
 	
-	<div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3" ng-repeat="sub in category.subcat">
+        <div class="col-sm-10 col-sm-offset-1 pos" id="category">
+            <div class="col-xs-12 col-sm-3 col-lg-3 contact col-sm-offset-1" ng-repeat="sub in category.subcat">
+
+                <div class="row">
+                    <div class="col-xs-5 col-sm-10 col-sm-offset-1 col-xs-offset-4 block-contact">
+                        <div class="contact-person"><strong><a href="subcategory.html?id=6"> <u></u>{{sub.subcat_name}}</a></strong> 
+                        </div>
+                        <div class="row">
+                            <ul class="list-unstyled col-xs-offset-1 col-sm-offset-1">
+                                <li>
+                                    <span class="text-center count">Tестів: {{sub.tests}}</span>
+                                </li>
+                                <li ng-if="sub.subcat_id === test.subcat_id" ng-repeat="test in category.tests"><a ui-sref="test({id : test.test_id})">{{test.test_name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+	<!-- <div class="col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-3" >
 	<strong>Підкатегорія <a href="subcategory.html?id=6"> <u></u>{{sub.subcat_name}}</a>
 	<br>
 	</strong>
-	<span class="text-center count">Tестів: {{sub.tests}}</span>
+	<span class="text-center count"></span>
 	<ul class="list-unstyled">
 	<li ng-if="sub.subcat_id === test.subcat_id" ng-repeat="test in category.tests"><a ui-sref="test({id : test.test_id})">{{test.test_name}}</a></li>
 	</ul>
-</div>
+</div> -->
 
 </div>
-</div></main>
+</main>

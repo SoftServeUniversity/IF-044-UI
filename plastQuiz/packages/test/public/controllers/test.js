@@ -4,7 +4,7 @@ angular.module('mean.test').controller('TestController', ['$scope', '$http', '$s
     function($scope, $http, $stateParams) {
         $scope.load = false;
         $scope.show = true;
-        $http.get('http://localhost:3000/test/' + $stateParams.id).success(function(result) {
+        $http.get('/test/' + $stateParams.id).success(function(result) {
             $scope.show = false;
             $scope.load = true;
             $scope.tests = result[0];
