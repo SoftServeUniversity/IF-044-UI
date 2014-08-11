@@ -20,29 +20,41 @@ exports.render = function(req, res) {
                 TempObj.subcat = [];
                 TempObj.tests = [];
                 for (var i = 0; i < sub_cat.length; i++) {
-if (sub_cat[i].get('parent_id') === cat[0].get('cat_id')) {
-                            TempObj.subcat.push({
-                                subcat_name: sub_cat[i].get('name'),
-                                subcat_id: sub_cat[i].get('cat_id'),
-                                tests : 0
-                                
-                            });
-                        }
+                    if (sub_cat[i].get('parent_id') === cat[0].get('cat_id')) {
+                        TempObj.subcat.push({
+                            subcat_name: sub_cat[i].get('name'),
+                            subcat_id: sub_cat[i].get('cat_id'),
+                            tests: 0
+
+                        });
+                    }
+                    var limit = 0;
                     for (var k = 0; k < test.length; k++) {
-                        
-                        if (sub_cat[i].get('cat_id') === test[k].get('subcategory')) {
+
+                        if ((sub_cat[i].get('cat_id') === test[k].get('subcategory')) && (limit < 5)) {
                             TempObj.tests.push({
                                 test_name: test[k].get('name'),
                                 test_id: test[k].get('test_id'),
                                 subcat_id: sub_cat[i].get('cat_id')
                             });
+                            limit++;
+
                         }
                     }
                 }
-                for (var x = 0; x < TempObj.subcat.length; x++) {
-                    for (var y = 0; y <  TempObj.tests.length; y++) {
-                        if (TempObj.tests[y].subcat_id === TempObj.subcat[x].subcat_id) {
-                            TempObj.subcat[x].tests++;
+                for (var x = 0; x < sub_cat.length; x++) {
+                    for (var y = 0; y < test.length; y++) {
+                        if (test[y].get('subcategory') === sub_cat[x].get('cat_id')) {
+                            // TempObj.subcat[x].tests++;
+                            for (var z = 0; z < TempObj.subcat.length; z++) {
+                                if (sub_cat[x].get('cat_id') === TempObj.subcat[z].subcat_id) {
+                                     TempObj.subcat[z].tests++;
+                                };
+
+
+                            };
+
+
                         }
                     }
                 }

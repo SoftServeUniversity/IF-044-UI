@@ -255,14 +255,14 @@
         -webkit-transform: scale(.3)
     }
 }
-@-ms-keyframes bounce_circularG {
+/*@-ms-keyframes bounce_circularG {
     0% {
         -ms-transform: scale(1)
     }
     100% {
         -ms-transform: scale(.3)
     }
-}
+}*/
 @-o-keyframes bounce_circularG {
     0% {
         -o-transform: scale(1)

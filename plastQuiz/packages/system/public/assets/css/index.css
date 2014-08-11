@@ -58,5 +58,14 @@
     .index .contact-person a {
         color: #fff;
     }
+    .index .category{
+        margin-top: 4%;
+    }
+    .index li{
+        text-align: left;
+    }
 
+    .index .minh{
+        min-height: 151px;
+    }
 /*index page style end*/
