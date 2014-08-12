@@ -1,5 +1,6 @@
-angular.module('mean.test').controller('ScoreController', ['$scope', 
-function($scope){
-	$scope.data = 'Data';
+'use strict';
+angular.module('mean.test').controller('ScoreController', ['$scope', 'Data',
+function($scope, Data){
+	$scope.data = Data.getdata();
 }
-])
+]);

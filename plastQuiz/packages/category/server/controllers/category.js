@@ -49,10 +49,10 @@ exports.render = function(req, res) {
                             for (var z = 0; z < TempObj.subcat.length; z++) {
                                 if (sub_cat[x].get('cat_id') === TempObj.subcat[z].subcat_id) {
                                      TempObj.subcat[z].tests++;
-                                };
+                                }
 
 
-                            };
+                            }
 
 
                         }

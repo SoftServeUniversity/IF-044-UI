@@ -1,7 +1,12 @@
 'use strict';
 
-angular.module('mean.test').controller('TestController', ['$scope', '$http', '$stateParams',
-    function($scope, $http, $stateParams) {
+angular.module('mean.test').controller('TestController', ['$scope', '$http', '$stateParams', 'getAnswer', 'Data',
+    function($scope, $http, $stateParams, getAnswer, Data) {
+        $scope.getAnswer = function() {
+            var a = getAnswer.Answers();
+            Data.adddata(a);
+        };
+
         $scope.load = false;
         $scope.show = true;
         $http.get('/test/' + $stateParams.id).success(function(result) {
@@ -52,8 +57,8 @@ angular.module('mean.test').controller('TestController', ['$scope', '$http', '$s
 
         $scope.answer = function(elem) {
             var el = elem.target;
-            
-            
+
+
             var questionBlock = el.parentElement.parentElement.parentElement.parentElement;
             if (questionBlock.className.indexOf('alertMessage') !== -1) {
                 delteClass(questionBlock, 'alertMessage');
