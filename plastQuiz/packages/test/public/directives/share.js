@@ -4,6 +4,7 @@ angular.module('mean.test').service('Data', function() {
     var data = [];
 
     var adddata = function(newObj) {
+        data = [];
         data.push(newObj);
     };
 

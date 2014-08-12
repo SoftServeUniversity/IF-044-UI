@@ -6,7 +6,7 @@ angular.module('mean.test').service('getAnswer', function() {
             
             var obj = {}; // пустий об*єкт, для запису відповідей, відповідно до запитання
 
-            var a = document.getElementsByClassName('col-lg-10 answer-spase'); // вибираємо всі питання на сторінці
+            var a = document.getElementsByClassName('col-lg-12 answer-spase'); // вибираємо всі питання на сторінці
             for (var i = 0; i < a.length; i++) { //перебираємо всі питання на сторінці
                 obj['question' + i] = []; //в об*єкті створюємо нове запитання, яке записуватиме правильні відповіді в массив
                 for (var j = 0; j < a[i].children.length; j++) { //перебираємо варіанти відповідей

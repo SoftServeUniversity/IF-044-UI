@@ -1,12 +1,11 @@
-
 .index main {
     text-align: left;
 }
 .index .bnt-next {
     width: 200px;
-     margin-top: 35px;
-     padding: 7px 15px;
-     font-size:15px;
+    margin-top: 35px;
+    padding: 7px 15px;
+    font-size: 15px;
 }
 .index .centerbtn {
     margin-top: 10px;
@@ -15,14 +14,13 @@
 .index .poss {
     float: left;
     display: inline-block;
-    margin-bottom: 70px;
-    margin-right: 5px;
 }
 .index .answer-spase {
+    left: 1%;
     margin-top: 5px;
 }
 .index .MyClass:before {
-    content:'\2714';
+    content: '\2714';
     position: relative;
     right: 10px;
 }
@@ -32,30 +30,38 @@
     position: relative;
     right: 12px;
 }
-.index .noclass {
-}
-
-.index .descript {
+.index .noclass {} .index .descript {
     color: gray;
 }
 .index .alertmess {
-    color:rgba(255,0,0,0.7);;
-    margin-bottom:5px;
+    color: rgba(255, 0, 0, 0.7);
+    ;
+    margin-bottom: 5px;
     margin-left: 1.5%;
     margin-top: 4px;
-
 }
-.index .star{
-       display: inline-block;
-   -webkit-transform: scale(1.5,1.5);
-   position: relative;
-   top: 1px;
-   right: 3px;
+.index .star {
+    display: inline-block;
+    -webkit-transform: scale(1.5, 1.5);
+    position: relative;
+    top: 1px;
+    right: 3px;
 }
-.index .alertMessage{
+.index .alertMessage {
     border: 1px solid red;
     border-radius: 4px;
-    background-color:rgba(255,0,0,0.1);
-    
+    background-color: rgba(255, 0, 0, 0.1);
+}
+.col-lg-10.col-sm-offset-1{
+     -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.alertmess{
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
 }
 /*testpage style end*/

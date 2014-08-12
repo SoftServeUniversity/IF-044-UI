@@ -1,73 +1,74 @@
 <div class="index">
     <main>
-    <div class="container" data-ng-controller="TestController">
-        <div ng-hide="load" >
-            <div id="circularG" class="position">
-                <div id="circularG_1" class="circularG">
-                </div>
-                <div id="circularG_2" class="circularG">
-                </div>
-                <div id="circularG_3" class="circularG">
-                </div>
-                <div id="circularG_4" class="circularG">
-                </div>
-                <div id="circularG_5" class="circularG">
-                </div>
-                <div id="circularG_6" class="circularG">
-                </div>
-                <div id="circularG_7" class="circularG">
-                </div>
-                <div id="circularG_8" class="circularG">
-                </div>
-            </div>
-       </div>
-        <div class="row" ng-hide="show">
-            <div class="col-lg-7 col-sm-offset-1">
-                <h2>{{tests.name}}</h2>
-                <a ui-sref="category({id : name.cat_id})"> <u><i id="Category">{{name.cat_name}}</i></u>
-                </a>
-                &gt;
-                <a href="subcategory.html?id=4"> <u><i id="SubCategory">{{name.sub_name}}</i></u>
-                </a>
-                <div>
-                    <i class="descript">Для вибору відповіді натисніть на текст відповіді(Тест може мати декілька відповідей)</i>
-                    <!-- <br />
-                    <i class="descript">Для отримання результату, натисніть на клавішу "Результат" в низу тесту</i> -->
-                </div>
-            </div>
-        </div>
-
-        <br />
-        <br />
-        <div class="col-lg-12 page">
-            <div ng-repeat="q in tests.question">
-                <div class="row" >
-                    <div class="col-lg-10 col-sm-offset-1">
-                        <div class="poss">
-                            <strong>{{$index+1}}.</strong>
-                        </div>
-                        <div class="question">{{q.text}}?</div>
-                        <div class="col-lg-10 answer-spase">
-                            <div ng-if="q.id === a.question_id" ng-repeat="a in tests.answers">
-                                <label ng-click="autoScroll = !autoScroll" ng-class="{true: 'MyClass', false: 'noclass'}[autoScroll]" >
-                                    <strong ng-click="answer($event)">{{a.text_answer}}</strong>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        
+        <div class="container" data-ng-controller="TestController" >
+            <div ng-hide="load">
+                <div id="circularG" class="position">
+                    <div id="circularG_1" class="circularG">
                     </div>
-                    
+                    <div id="circularG_2" class="circularG">
+                    </div>
+                    <div id="circularG_3" class="circularG">
+                    </div>
+                    <div id="circularG_4" class="circularG">
+                    </div>
+                    <div id="circularG_5" class="circularG">
+                    </div>
+                    <div id="circularG_6" class="circularG">
+                    </div>
+                    <div id="circularG_7" class="circularG">
+                    </div>
+                    <div id="circularG_8" class="circularG">
+                    </div>
                 </div>
-                <br />
+            </div>
+            <div class="row" ng-hide="show">
+                <div class="col-lg-7 col-sm-offset-1">
+                    <h2>{{tests.name}}</h2>
+                    <a ui-sref="category({id : name.cat_id})"> <u><i id="Category">{{name.cat_name}}</i></u>
+                    </a>
+                    &gt;
+                    <a href="subcategory.html?id=4"> <u><i id="SubCategory">{{name.sub_name}}</i></u>
+                    </a>
+                    <div>
+                        <i class="descript">Для вибору відповіді натисніть на текст відповіді(Тест може мати декілька відповідей)</i>
+                        <!-- <br />
+                    <i class="descript">Для отримання результату, натисніть на клавішу "Результат" в низу тесту</i> -->
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <div class="col-lg-12 page ">
+                <div ng-repeat="q in tests.question">
+                    <div class="row">
+                        <div class="col-lg-10 col-sm-offset-1 ">
+
+                            <div class="poss">
+                                <strong>{{$index+1}}.</strong>
+                            </div>
+                            <div class="question">{{q.text}}?</div>
+                            <div class="col-lg-12 answer-spase">
+                                <div ng-if="q.id === a.question_id" ng-repeat="a in tests.answers" >
+                                    <label ng-click="autoScroll = !autoScroll; answer($event)" ng-class="{true: 'MyClass', false: 'noclass'}[autoScroll]">
+                                        <strong>{{a.text_answer}}</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="centerbtn" ng-hide="show">
+              
+                    <a id="next">
+                    <button class="btn-lg btn-success bnt-next" id="sendB" ng-click="getAnswer()">Пройти тест</button>
+                </a>
             </div>
         </div>
-        <div class="centerbtn" ng-hide="show" >
-
-         <a id="next" ui-sref="result({id : tests.test_id})"> 
-                <button class="btn-lg btn-success bnt-next" id="sendB" ng-click="getAnswer()">Пройти тест</button>
-            </a>
-        </div>
-    </div>
     </main>
 </div>
