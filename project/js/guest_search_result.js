@@ -1,4 +1,4 @@
-//window.onload = function(){
+
 Tests = Model.date.Tests;
 Categories = Model.date.Tests_categories;
 var simpleSearch = {
@@ -10,7 +10,6 @@ var simpleSearch = {
     subCat: false,
     showEmpty: function(nothing) {
         if (nothing) {
-            //			this.row_results.innerHTML = '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><p>нічого не знайдено...</p></div>'; /*old version	    */
             this.row_results.innerHTML =
                 '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 alert alert-warning">нічого не знайдено...</div>';
             this.place_for_pagination.innerHTML = "";
@@ -72,12 +71,6 @@ var simpleSearch = {
             console.log(result_array);
             this.showEmpty();
             var lengthArray;
-            // if(start+step<result_array.length){
-            // //lengthArray = result_array.length;
-            // lengthArray = start+step;
-            // }else{
-            // lengthArray = (start+1)*step;
-            // }
             lengthArray = (start) ? start * step : step;
             var i;
             for (var k = (start - 1) * step; k < lengthArray; k++) {
@@ -111,7 +104,6 @@ var simpleSearch = {
         } else {
             this.showEmpty(true);
         }
-        //console.log(result_array.length);
     },
 
     EventKeyUp: this.search_input.addEventListener('keyup', function() {
