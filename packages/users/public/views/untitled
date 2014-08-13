@@ -1,0 +1,39 @@
+// 'use strict';
+// // var mean = require('meanio');
+// var mongoose = require('mongoose');
+
+// var sendObj = [],
+
+// contacts = mongoose.model('contacts', {}, 'contacts');
+// exports.gtdata = function(req, res) {
+// 	contacts.find().select('-_id').exec(function(err, contacts) {
+// 	sendObj = [];
+// 	for (var i = 0; i < contacts.length; i++) {
+//                     var tObj = {
+//                         person: '1',
+//                         address: '1',
+//                         email: '1',
+//                         tel: '1'
+//                     };
+//                     sendObj.push(tObj);
+//                 }    
+             
+// 	res.send(sendObj);
+// });
+// };
+
+
+    // app.route('/data')
+    //     .get(users.gtdate);
+
+
+    // var contacts = require('../controllers/contacts');
+
+    // 'use strict';
+
+// angular.module('mean.system').controller('Contacts', ['$scope','$http', function ($scope, $http) {
+  
+// 	    $http.get('/data').success(function(result) {
+// 	        $scope.contacts = result;
+// 	    });
+// }]);

@@ -20,7 +20,8 @@
                 "packages/system/public/assets/css/error_pages.css",
                 "packages/system/public/assets/css/datepicker.css",
                 "packages/system/public/assets/css/category.css",
-                "packages/system/public/assets/css/administration.css"
+                "packages/system/public/assets/css/administration.css",
+                "packages/system/public/assets/css/contact.css"
             ]
         },
         "js": {

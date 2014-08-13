@@ -1,0 +1,9 @@
+ .title-post-name{color: rgb(102, 115, 122);}
+ .contact{margin-bottom: 30px; }
+ .block-contact{border: solid 1px #ccc;padding: 20px;position: relative; }
+ /*.contact-person{position: absolute;background: url(users/public/assets/img/badge_contacts.png) no-repeat scroll left center transparent;padding: 2px 10px 0 11px;left: -13px;height: 36px;top: -13px;z-index: 2;color: #fff;}*/
+ .block-contact h4{color: #5bc0de;} 
+ .pageTitle {margin-bottom: 15px; margin-top: 15px;padding-left:45%;color: white;}
+ .pageTitleBox {height: 50px;margin-bottom: 20px;}
+ /*reg form*/
+ .mr_top {margin-top: 10px;}

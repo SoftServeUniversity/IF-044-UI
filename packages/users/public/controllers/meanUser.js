@@ -1,5 +1,10 @@
 'use strict';
 angular.module('mean.users')
+.controller('Contacts', ['$scope','$http', function ($scope, $http) {
+     $http.get('/contact').success(function(res) {
+         $scope.contacts = res;
+     });
+}])
     .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location',
         function($scope, $rootScope, $http, $location) {
             // This object will be filled by the form
@@ -54,7 +59,8 @@ angular.module('mean.users')
                     org_region: $scope.user.org_region,
                     org_level: $scope.user.org_level,
                     txtCaptchaDiv: $scope.captcha,
-                    txtInput: $scope.user.txtInput
+                    txtInput: $scope.user.txtInput,
+                    txtInputhidden: $scope.user.txtInputhidden
                 })
                     .success(function() {
                         // authentication OK

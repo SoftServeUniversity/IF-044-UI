@@ -13,13 +13,30 @@ body {
 	#registration-info {
 		margin-bottom: 90px;
 	}
-
 	#login-button {
  		right: 100px;
         position: absolute;
         bottom: 50px;
 	}
-
+    #login-button2 {
+        right: 100px;
+        position: absolute;
+        bottom: 45px;
+        background-color: white;
+        font-size: 1.3em;
+    }
+     #login-button2>li>a {
+        color: #5bc0de;
+    }
+    #login-button2 :hover {
+        background-color: white;
+    }
+    #login-button2 :visited {
+        background-color: white;
+    }
+    #login-button2 :active {
+        background-color: white;
+    }
     #modal-login-form {
         width: 400px;
     }

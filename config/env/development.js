@@ -3,7 +3,7 @@
 module.exports = {
     db: 'mongodb://serhiyif:12345678q@kahana.mongohq.com:10026/mean-dev',
     app: {
-        name: 'MEAN - FullStack JS - Development'
+        name: 'PlastQuiz'
     },
     facebook: {
         clientID: 'APP_ID',

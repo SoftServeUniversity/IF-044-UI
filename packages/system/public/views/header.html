@@ -17,69 +17,17 @@
                 <a data-ng-hide="global.authenticated" ui-sref='auth.login' id="login-button" >
                     <img src="/system/assets/img/login.png" alt="login" width="35" height="35">
                 </a>
-                <ul class="navbar-nav nav" id="login-button" data-ng-show="global.authenticated">
+                <ul class="navbar-nav nav" id="login-button2" data-ng-show="global.authenticated">
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                          {{global.user.username}} <b class="caret"></b>
                      </a>
-                 <ul class="dropdown-menu">
-                    <li><a href="/#!/test/1">goToTest</a>
-                    <li><a href="/#!/profile">Edit Profile</a>
-                    <li><a href="/logout">Signout</a>
-                 </li>
-            </ul>
-        </li>
-    </ul>
-                <!-- <a href="#myModal" data-toggle="modal" data-target="#myModal" id="login-button" onclick="loginModule()">
-                    <img src="/system/assets/img/login.png" alt="login" width="35" height="35">
-                </a> -->
-<!--                 <span onclick="headerUserNavPanel()" id="userMenuButton"></span>
-                <ul id="userNavPanel">
-                    <li><a href="user_my_test_nyarytc.html">Особистий кабінет</a></li>
-                    <li><a href="#" id="changedA"></a></li>
-                    <li><a href="#" onclick="logOutModule()">Вихід</a></li>
-                </ul>
-                <div class="expand-menu-button" id="expand-menu-button" onclick="expandMenuModule()"><img src="/system/assets/pic/expand-header-menu-button.jpg" alt=""></div>
-                <div class="expand-header-menu" id="expand-header-menu"></div>  -->               
-            </div>   
+                     <ul class="dropdown-menu">
+                        <li><a href="/logout">Вихід</a>
+                      </li>
+                    </ul>
+                       </li>
+                     </ul>
+               </div>   
         </header>
 </div>
-  <!-- <div class="logo pull-left">
-    <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">index</a>
-    <a class="navbar-brand" ui-sref="contacts" mean-token="'site-title'">contacts</a>
-  </div>
-
-  <div class="left pull-left">
-    <ul class="navbar-nav nav">
-      <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-          <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="account">
-    <div class="text-edit">
-      <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
-      <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
-    </div>
-    <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-        <li><a ui-sref='auth.register'>register</a>
-        </li>
-        <li class="divider-vertical"></li>
-        <li><a ui-sref='auth.login'>login</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav nav" data-ng-show="global.authenticated">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                {{global.user.username}} <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="/#!/profile">Profile</a>
-                <li><a href="/logout">Signout</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-  </div>
-</div> -->

@@ -6,6 +6,26 @@
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
 
+var sendObj = [],
+contacts = mongoose.model('contacts', {}, 'contacts');
+exports.gtdata = function(req, res) {
+ contacts.find().select('-_id').exec(function(err, contacts) {
+ sendObj = [];
+ for (var i = 0; i < contacts.length; i++) {
+                    var tObj = {};
+
+                        tObj.person = contacts[i].get('person');
+                        tObj.address = contacts[i].get('address');
+                        tObj.email = contacts[i].get('email');
+                        tObj.tel = contacts[i].get('tel');
+
+                    sendObj.push(tObj);
+                }    
+             
+ res.send(sendObj);
+});
+};
+
 /**
  * Auth callback
  */
@@ -54,6 +74,7 @@ exports.create = function(req, res, next) {
     req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
     req.assert('txtCaptchaDiv', 'Not correct captcha number').equals(req.body.txtInput);
     req.assert('birthday', 'You must enter a birthday').notEmpty();
+    req.assert('txtInputhidden', 'This is program registration').len(0, 0);
 
     var errors = req.validationErrors();
     if (errors) {
