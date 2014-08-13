@@ -61,7 +61,7 @@
                     <div class="input-group col-xs-12 col-lg-6 col-md-6 col-sm-6 col-xs-offset-0 col-lg-offset-3 col-md-offset-3  col-sm-offset-3">
 
 <!--                        <input type="text" class="form-control" id="search_input" ng-change="simpleSearch()" ng-model="searchQuery" placeholder="введіть шось для пошуку...">-->
-                        <input type="text" class="form-control" id="search_input" ng-model="searchQuery" placeholder="введіть шось для пошуку...">
+                        <input type="text" class="form-control" id="search_input" ng-model="searchQuery" ng-change="newSearch(searchQuery)" placeholder="введіть шось для пошуку...">
                         <span class="input-group-btn">
                             <button class="btn btn-info" type="button">пошук</button>
                         </span>
@@ -94,7 +94,7 @@
                 </div>
                 <div id="place_for_pagination">
 				<ul class="pagination">
-					<li ng-repeat="link in links" ng-class="{active: link.active}"><a ui-sref="search  with params({searchQuery:searchQuery, currentPage: link.href})" href="#"  class="pagination-link">{{link.content}}</a></li>
+					<li ng-repeat="link in links" ng-class="{active: link.active}"><a ui-sref="search  with params({searchQuery:searchQuery, currentPage: link.href})" href="#" ng-click="tryClick($event,link.href)">{{link.content}}</a></li>
 				</ul>
                 </div>
                 <!--                CONTENT!!!-->
