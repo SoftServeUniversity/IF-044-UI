@@ -21,10 +21,77 @@ angular.module('mean.search').directive('mySharedScope', function ($timeout) {
 
 angular.module('mean.search').controller('SearchController', ['$scope', '$http', '$stateParams', '$location', '$state', '$timeout',
     function($scope, $http, $stateParams, $location, $state, $timeout) {
-        console.log($location.path());
+
+        
+        
+        
+        
+        $scope.createLinksPagination = function(quantity, step, currentpage){
+        var countLinks  = Math.ceil(quantity/step);
+        var linkOnPage = 4;
+        currentpage = (currentpage)?currentpage: 1;
+		$scope.links = [];
+        if(countLinks>1 && currentpage<=countLinks){ 
+            var beginLink,endLink;
+                     if(currentpage>1){
+                         if(currentpage-2>1){
+                             $scope.links.push( {href:1, content:"перша"});                             
+                         }
+                         $scope.links.push({href:(currentpage-1), content:"«"});
+                     }            
+             for(var i=currentpage-2;i<=parseInt(currentpage)+2;i++){
+                 if(i>0 && i <=countLinks)
+				 if(currentpage == i){
+					$scope.links.push({href:i,content:i, active: true});
+				 }
+				 else{
+					$scope.links.push({href:i,content:i});
+				 }
+             }
+            if(currentpage<countLinks){
+                $scope.links.push({href:+(currentpage)+1,content:"»"});
+                if(parseInt(currentpage)+2<countLinks){
+                    $scope.links.push({href:countLinks,content:"остання"});                    
+                }
+            }
+        }
+
+     }     
+        
+        
+        
+        // $scope.createLinksPagination(222,4,2);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        console.log($location);
+        console.log($stateParams);
         console.log($state);
         $scope.nothingFind = true;
         $scope.searchQuery;
+		$scope.stateName = $state.current.name;
         $scope.package = {
             name: 'search'
         };     
@@ -33,7 +100,7 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
             var tempFilterText = '',
         filterTextTimeout;
         $scope.searchQuery = $stateParams.searchQuery;
-        $scope.search = function(val){
+        $scope.search = function(val,keyUp){
             
                             var cat = false;
                             var subCat = false;
@@ -57,29 +124,54 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
             filterTextTimeout = $timeout(function() {  
             if(val === '' || !val){
                 $scope.searchResult = false;
+				$scope.links = false;
                 return false;
-            }                 
+            }    
+			var page = (keyUp)?1:$stateParams.currentPage;
                 $http.post('/search/example/anyone',{
                     searchQuery: val,
                     subCategories: subCat,
-                    categories: cat
+                    categories: cat,
+					page: page
                 })
-                    .success(function(response){      
+                    .success(function(response){ 
+                        console.log(response.totalCount);
+						$scope.links = false;
                        // console.log("count " + response.length);
-                        if(!response.length){
+                        if(!response.tests.length){
                             $scope.nothingFind = false;
                         }else{
                             $scope.nothingFind = true;
                         }
-                            $scope.searchResult = response;
-//                        if(response.length){
-//                           // $location.path( "/search/"+$scope.searchQuery+'/');
-//                        }
+                            $scope.searchResult = response.tests;
+                       if(response.tests.length){
+						   if($state.current.name == 'advanced_search_with_params'){
+								if(keyUp){
+									$location.path( "/advanced_search/"+$scope.searchQuery+'/');
+								}else{
+									$location.path( "/advanced_search/"+$scope.searchQuery+'/'+ $stateParams.currentPage);
+								}
+						   }else{
+								if(keyUp){
+									$location.path( "/search/"+$scope.searchQuery+'/');
+								}else{
+									$location.path( "/search/"+$scope.searchQuery+'/'+ $stateParams.currentPage);
+								}						   
+								//$location.path( "/search/"+$scope.searchQuery+'/'+ $stateParams.currentPage);
+						   }
+                       }
+					   $scope.createLinksPagination(response.totalCount,4,$stateParams.currentPage);
                     })
             }, 250); // delay          
         }
-        $scope.$watch('searchQuery',function(val){
-                      $scope.search(val);
+        $scope.$watch('searchQuery',function(val,newVal){
+		console.log(val + "====" + newVal);
+		if(val!=newVal){
+			var keyUp = true;
+		}else{
+			var keyUp = false;
+		}
+        $scope.search(val,keyUp);
         })
         $scope.changeQuerySearch = function(val){
         if(val){
@@ -169,3 +261,4 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
        
     }
 ]);
+

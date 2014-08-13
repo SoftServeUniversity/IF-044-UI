@@ -88,8 +88,11 @@
                         </div>
                     </div>
                 </div>
-                                        <div id="place_for_pagination">
-                                        </div>
+                <div id="place_for_pagination">
+			<ul class="pagination">
+					<li ng-repeat="link in links" ng-class="{active: link.active}"><a ui-sref="advanced_search_with_params({searchQuery:searchQuery, currentPage: link.href})">{{link.content}}</a></li>
+				</ul>
+                </div>
                 <!--                CONTENT!!!-->
 
             </main>
