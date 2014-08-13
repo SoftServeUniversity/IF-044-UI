@@ -11,7 +11,8 @@ var simpleSearch = {
     showEmpty: function(nothing) {
         if (nothing) {
             //			this.row_results.innerHTML = '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><p>нічого не знайдено...</p></div>'; /*old version	    */
-            this.row_results.innerHTML = '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 alert alert-warning">нічого не знайдено...</div>';
+            this.row_results.innerHTML =
+                '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 alert alert-warning">нічого не знайдено...</div>';
             this.place_for_pagination.innerHTML = "";
         } else {
             this.row_results.innerHTML = '';
@@ -22,15 +23,19 @@ var simpleSearch = {
         start = (start) ? start : 0;
         step = (step) ? step : 4;
         var result_array = [];
-        var array_filter_categories = document.querySelectorAll('.curent-filter');
+        var array_filter_categories = document.querySelectorAll(
+            '.curent-filter');
         if (array_filter_categories.length) {
             this.cat = [];
             this.subCat = [];
             for (var i = 0; i < array_filter_categories.length; i++) {
-                if (this.cat.indexOf(array_filter_categories[i].getAttribute("categ")) == -1) {
-                    this.cat.push(array_filter_categories[i].getAttribute("categ"));
+                if (this.cat.indexOf(array_filter_categories[i].getAttribute(
+                    "categ")) == -1) {
+                    this.cat.push(array_filter_categories[i].getAttribute(
+                        "categ"));
                 }
-                this.subCat.push(array_filter_categories[i].getAttribute("sub_categ"));
+                this.subCat.push(array_filter_categories[i].getAttribute(
+                    "sub_categ"));
             }
         } else {
             this.cat = false;
@@ -39,7 +44,11 @@ var simpleSearch = {
         if (this.cat && this.subCat) {
             for (index in Tests) {
                 for (inner_index in Tests[index]) {
-                    if (Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && this.subCat.indexOf(Tests[index]['subcategory'].toString()) + 1 && this.cat.indexOf(Tests[index]['category'].toString()) + 1 && Tests[index]['status'] == 3) {
+                    if (Tests[index].tags.toString().toLowerCase().indexOf(
+                            value.toLowerCase()) + 1 && this.subCat.indexOf(
+                            Tests[index]['subcategory'].toString()) + 1 &&
+                        this.cat.indexOf(Tests[index]['category'].toString()) +
+                        1 && Tests[index]['status'] == 3) {
                         result_array.push(index);
                         break;
                     }
@@ -48,7 +57,10 @@ var simpleSearch = {
         } else {
             for (index in Tests) {
                 for (inner_index in Tests[index]) {
-                    if (Tests[index].tags.toString().toLowerCase().indexOf(value.toLowerCase()) + 1 && Tests[index]['status'] == 3) {
+                    if (Tests[index].tags.toString().toLowerCase().indexOf(
+                        value.toLowerCase()) + 1 && Tests[index][
+                        'status'
+                    ] == 3) {
                         result_array.push(index);
                         break;
 
@@ -75,12 +87,20 @@ var simpleSearch = {
                 if (Tests[i]) {
                     for (var j = 0; j < Tests[i].tags.length; j++) {
                         if (j != Tests[i].tags.length - 1) {
-                            tags += '<li><a href="">' + Tests[i].tags[j] + '&nbsp|</a></li> ';
+                            tags += '<li><a href="">' + Tests[i].tags[j] +
+                                '&nbsp|</a></li> ';
                         } else {
-                            tags += '<li><a href="">' + Tests[i].tags[j] + '</a></li>';
+                            tags += '<li><a href="">' + Tests[i].tags[j] +
+                                '</a></li>';
                         }
                     }
-                    this.row_results.innerHTML += '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><h3 class="title-post-name"><a style="text-decoration: none;" href="Test.html?id=' + Tests[i].id + '">' + Tests[i].name + '</a></h3><p class="text-justify ">' + Tests[i].description + '</p><div class="col-xs-12"><ul class="search-teg">' + tags + ' </ul></div></div>';
+                    this.row_results.innerHTML +=
+                        '<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 search-result well"><h3 class="title-post-name"><a style="text-decoration: none;" href="Test.html?id=' +
+                        Tests[i].id + '">' + Tests[i].name +
+                        '</a></h3><p class="text-justify ">' + Tests[i]
+                        .description +
+                        '</p><div class="col-xs-12"><ul class="search-teg">' +
+                        tags + ' </ul></div></div>';
                 } else {
                     //break;
                 }
@@ -110,7 +130,8 @@ var simpleSearch = {
                 e.preventDefault();
                 var searchQuery;
                 if (this.innerText.indexOf('|') + 1) {
-                    searchQuery = this.innerText.substring(0, this.innerText.length - 2);
+                    searchQuery = this.innerText.substring(0,
+                        this.innerText.length - 2);
                 } else {
                     searchQuery = this.innerText;
                 }
@@ -124,18 +145,22 @@ var simpleSearch = {
     },
     clickLinkToAdvancedSearch: function() {
         if (this.linkToAdvancedSearch) {
-            this.linkToAdvancedSearch.addEventListener('click', function(e) {
-                //e.preventDefault();
-                console.log(document.getElementById('linkToAdvancedSearch'))
-                this.href = this.href + '?searchQuery=' + simpleSearch.search_input.value;
-            })
+            this.linkToAdvancedSearch.addEventListener('click',
+                function(e) {
+                    //e.preventDefault();
+                    console.log(document.getElementById(
+                        'linkToAdvancedSearch'))
+                    this.href = this.href + '?searchQuery=' +
+                        simpleSearch.search_input.value;
+                })
         }
     },
     parseUrlForSearch: function() {
         if (window.location.search) {
             var searchQuery = this.getUrlParams().searchQuery;
             this.search_input.value = searchQuery;
-            this.showAllcontaining(searchQuery, this.getUrlParams().currentpage, 4);
+            this.showAllcontaining(searchQuery, this.getUrlParams().currentpage,
+                4);
         }
 
     },
@@ -149,22 +174,40 @@ var simpleSearch = {
             var beginLink, endLink;
             if (currentpage > 1) {
                 if (currentpage - 2 > 1) {
-                    htmlLinks += "<li><a href='" + window.location.pathname + "?searchQuery=" + this.search_input.value + "&currentpage=1'>перша</a></li>";
+                    htmlLinks += "<li><a href='" + window.location.pathname +
+                        "?searchQuery=" + this.search_input.value +
+                        "&currentpage=1'>перша</a></li>";
                 }
-                htmlLinks += "<li><a href='" + window.location.pathname + "?searchQuery=" + this.search_input.value + "&currentpage=" + (currentpage - 1) + "'>&laquo;</a></li>";
+                htmlLinks += "<li><a href='" + window.location.pathname +
+                    "?searchQuery=" + this.search_input.value +
+                    "&currentpage=" + (currentpage - 1) +
+                    "'>&laquo;</a></li>";
             }
-            for (var i = currentpage - 2; i <= parseInt(currentpage) + 2; i++) {
+            for (var i = currentpage - 2; i <= parseInt(currentpage) +
+                2; i++) {
                 if (i > 0 && i <= countLinks)
                     if (currentpage == i) {
-                        htmlLinks += "<li class='active'><a href='" + window.location.pathname + "?searchQuery=" + this.search_input.value + "&currentpage=" + i + "'>" + i + "</a></li>";
+                        htmlLinks += "<li class='active'><a href='" +
+                            window.location.pathname + "?searchQuery=" +
+                            this.search_input.value + "&currentpage=" +
+                            i + "'>" + i + "</a></li>";
                     } else {
-                        htmlLinks += "<li><a href='" + window.location.pathname + "?searchQuery=" + this.search_input.value + "&currentpage=" + i + "'>" + i + "</a></li>";
+                        htmlLinks += "<li><a href='" + window.location.pathname +
+                            "?searchQuery=" + this.search_input.value +
+                            "&currentpage=" + i + "'>" + i +
+                            "</a></li>";
                     }
             }
             if (currentpage < countLinks) {
-                htmlLinks += "<li><a href='" + window.location.pathname + "?searchQuery=" + this.search_input.value + "&currentpage=" + (parseInt(currentpage) + 1) + "'>&raquo;</a></li>";
+                htmlLinks += "<li><a href='" + window.location.pathname +
+                    "?searchQuery=" + this.search_input.value +
+                    "&currentpage=" + (parseInt(currentpage) + 1) +
+                    "'>&raquo;</a></li>";
                 if (parseInt(currentpage) + 2 < countLinks) {
-                    htmlLinks += "<li><a href='" + window.location.pathname + "?searchQuery=" + this.search_input.value + "&currentpage=" + countLinks + "'>остання</a></li>";
+                    htmlLinks += "<li><a href='" + window.location.pathname +
+                        "?searchQuery=" + this.search_input.value +
+                        "&currentpage=" + countLinks +
+                        "'>остання</a></li>";
                 }
             }
             htmlLinks += "</ul>";
