@@ -21,15 +21,12 @@ angular.module('mean.search').directive('mySharedScope', function ($timeout) {
 
 angular.module('mean.search').controller('SearchController', ['$scope', '$http', '$stateParams', '$location', '$state', '$timeout',
     function($scope, $http, $stateParams, $location, $state, $timeout) {
-
-        
-        
-        
         
         $scope.createLinksPagination = function(quantity, step, currentpage){
         var countLinks  = Math.ceil(quantity/step);
         var linkOnPage = 4;
         currentpage = (currentpage)?currentpage: 1;
+		console.log("CURRENT PAGE___"+currentpage);
 		$scope.links = [];
         if(countLinks>1 && currentpage<=countLinks){ 
             var beginLink,endLink;
@@ -56,36 +53,7 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
             }
         }
 
-     }     
-        
-        
-        
-        // $scope.createLinksPagination(222,4,2);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+     }   
         console.log($location);
         console.log($stateParams);
         console.log($state);
@@ -136,7 +104,6 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
                 })
                     .success(function(response){ 
                         console.log(response.totalCount);
-						$scope.links = false;
                        // console.log("count " + response.length);
                         if(!response.tests.length){
                             $scope.nothingFind = false;
@@ -160,6 +127,7 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
 								//$location.path( "/search/"+$scope.searchQuery+'/'+ $stateParams.currentPage);
 						   }
                        }
+    					$scope.links = [];
 					   $scope.createLinksPagination(response.totalCount,4,$stateParams.currentPage);
                     })
             }, 250); // delay          
@@ -174,11 +142,12 @@ angular.module('mean.search').controller('SearchController', ['$scope', '$http',
         $scope.search(val,keyUp);
         })
         $scope.changeQuerySearch = function(val){
-        if(val){
-            $scope.searchQuery =val;
-        }else{
-            $scope.search($scope.searchQuery);
-        }    
+			if(val){
+				$stateParams.currentPage = 1;
+				$scope.searchQuery =val;
+			}else{
+				$scope.search($scope.searchQuery);
+			}    
         }; 
 	    $http.get('http://localhost:3000/indexdata').success(function(result) {
             $scope.testsCategories = result;
