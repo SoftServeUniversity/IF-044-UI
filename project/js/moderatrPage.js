@@ -131,7 +131,6 @@
 	            var categoryId;
 	            categoryId = (categoryId) ? categoryId : this.catchTestById(
 	                testId).category;
-	            console.log("from method-->" + categoryId);
 	            for (var i = 0; i < Model.date.Tests_categories.length; i++) {
 	                if (Model.date.Tests_categories[i].parent_id ==
 	                    categoryId) {
@@ -250,7 +249,6 @@
 	                            '.edit-textarea').length) {
 	                            return false;
 	                        }
-	                        console.log(e.target.tagName);
 	                        if (e.target.tagName == "H3") {
 	                            var editText = document.createElement(
 	                                'input')
@@ -277,14 +275,9 @@
 	                            var globalTests = Model.date.Tests;
 	                            var changeText = document.querySelectorAll(
 	                                '.edit-textarea')[0].value;
-	                            console.log(changeText);
 	                            var e = e || window.event;
 	                            var validateLength = (that.tagName ==
 	                                'H3') ? 5 : 25;
-	                            console.log(e.target.className);
-	                            console.log(e.target.className
-	                                .indexOf(
-	                                    'edit-textarea'));
 	                            if (e.target.className.indexOf(
 	                                    'edit-textarea') &&
 	                                changeText.length >
@@ -328,51 +321,15 @@
 	                'change', function() {
 	                    generateHtml.listSubCategories(get_test_id,
 	                        this.value)
-	                    console.log(this.value);
 	                }
 	            )
 	        },
 	        addComents: function() {
 	            document.getElementById('add-comment').addEventListener(
 	                'submit', function() {
-	                    var element = document.querySelectorAll(
-	                        '.div-list-comments')[0];
-	                    if (element) {
-	                        element.parentNode.removeChild(element);
-	                    }
 	                    var comment = document.querySelectorAll(
 	                        'textarea')[0].value;
-	                    var coments;
-	                    var day = new Date();
-	                    var month = [];
-	                    var minutes = day.getMinutes();
-	                    if (minutes < 10) minutes = '0' + minutes;
-	                    month[0] = "січ";
-	                    month[1] = "лют";
-	                    month[2] = "бер";
-	                    month[3] = "кві";
-	                    month[4] = "тра";
-	                    month[5] = "чер";
-	                    month[6] = "лип";
-	                    month[7] = "сер";
-	                    month[8] = "вер";
-	                    month[9] = "жов";
-	                    month[10] = "лис";
-	                    month[11] = "гру";
-	                    var timeCreateComments = day.getDate() +
-	                        " " + month[day.getMonth()] + " о " +
-	                        day.getHours() + ":" + minutes;
-	                    console.log(Model.date.comment);
-	                    /*My old
-						if(!Model.date.comment){
-							Model.date.comment = [];
-						}				
-						Model.date.comment.push({
-								comment: comment,
-								test_id : get_test_id,
-								timeCreate: timeCreateComments
-							});*/
-	                    wrote(get_test_id, comment); /* call function by Sergiy*/
+							wrote(get_test_id, comment); /* call function by Sergiy*/
 	                    generateHtml.catchTestById(get_test_id).category =
 	                        generateHtml.place_for_list_categories
 	                        .value;
@@ -394,8 +351,6 @@
 	                'click', function() {
 	                    generateHtml.catchTestById(get_test_id).status =
 	                        3;
-	                    console.log(generateHtml.catchTestById(
-	                        get_test_id));
 	                    generateHtml.catchTestById(get_test_id).category =
 	                        generateHtml.place_for_list_categories
 	                        .value;
@@ -417,13 +372,9 @@
 	                })
 	        },
 	        saveTags: function() {
-	            //document.getElementById('tags');
-	            console.log(document.getElementById('tags').value +
-	                "should be tags");
 	            generateHtml.catchTestById(get_test_id).tags = [].concat(
 	                document.getElementById('tags').value.split(
 	                    ','));
-	            console.log(generateHtml.catchTestById(get_test_id).tags);
 	        },
 	        saveDescription: function() {
 	            generateHtml.catchTestById(get_test_id).description =
