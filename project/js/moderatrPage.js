@@ -412,17 +412,6 @@
 	        unpublicTests: function() {
 	            document.getElementById('unpublic').addEventListener(
 	                'click', function() {
-	                    generateHtml.catchTestById(get_test_id).status =
-	                        2;
-	                    generateHtml.catchTestById(get_test_id).category =
-	                        generateHtml.place_for_list_categories
-	                        .value;
-	                    generateHtml.catchTestById(get_test_id).subcategory =
-	                        generateHtml.place_for_list_subCategories
-	                        .value;
-	                    Events.saveTags();
-	                    Events.saveDescription();
-	                    Model.save_localStorage();
 	                    window.location =
 	                        'moderator_filtertests_nyarytc.html';
 	                })
