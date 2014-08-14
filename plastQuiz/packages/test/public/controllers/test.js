@@ -29,7 +29,7 @@ angular.module('mean.test').controller('TestController', ['$scope', '$http', '$s
 
             if (Validation.validation()) {
                 $state.go('result', 'id : tests.test_id');
-            };
+            }
             var a = getAnswer.Answers();
             Data.adddata(a);
         };
