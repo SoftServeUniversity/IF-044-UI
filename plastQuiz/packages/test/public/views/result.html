@@ -1,0 +1,35 @@
+<div class="index">
+    <main>
+    <div class="container" data-ng-controller="TestController">
+			<body class='score'>
+
+                <div class="container-fluid">
+                    <div class='row'>
+                        <div class='col-xs-12'>
+                            <div class='panel panel-success'>
+                                <div class='panel-heading'>
+                                    <h3 class='panel-title'><span class='Testname'><strong>Тест &quot;<span id='name_for_test'></span>&quot;</strong></span><i><br>з категорії <strong><span id='name_for_test_categoty' class='name_for_test_categoty' onclick='category()'></span></strong> підкатегорії <strong><span id='name_for_test_subcategoty' class='name_for_test_subcategoty' onclick='subcategory()'></span></strong></i></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-xs-12'>
+                            <div class='score-number'><strong>Твій вислід: <span id='total'></span> балів!<strong></div>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-success score right' style='width: ' id='right'>
+                    <span class='sr-only '></span>
+                  </div>
+                  <div class='progress-bar progress-bar-danger score wrong' style='width: ' id='wrong'>
+                    <span class='sr-only'></span>
+                  </div>                 
+              </div>
+            </div>   
+      <div id='answerpanel'>
+            </div>
+              <button class='btn btn-success btn-lg pass_again' onclick='pass_again()'><strong>Пройти тест заново!</strong>
+                                </button>
+                            </div>
+                        </div>
+		</body>
+    </div>
+    </main>
+</div>
