@@ -1,9 +1,12 @@
+
+
 #faq {
 	margin-left: -15px;
 	padding: 0 100px;
 }
 .administration_panel{
 	min-width: 1010px;
+
 }
 
 .administration_panel .question-answer {
@@ -277,4 +280,19 @@
 }
 .admin_panelin{
 	overflow-y:hidden;
+}
+
+/*------------------------media querys--------------------------*/
+
+
+
+
+@media screen and (max-width: 1200px){
+
+		#myTab li{
+			font-size: 11px;
+		}
+		#title-block{
+			margin-left: -220px;
+		}
 }

@@ -107,7 +107,7 @@ footer {
 
 #title-block {
     position: relative;
-    left: 22%;
+/*    left: 22%;*/
     display: inline-block;
     bottom: -15px;
 }

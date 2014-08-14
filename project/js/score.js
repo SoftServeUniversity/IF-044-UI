@@ -136,7 +136,11 @@ function showAll() {
         content_place += "<strong>Правильна відповідь: </strong>";
         content_place += "<span class='true'>" + getCorrectAnswerByQuestionId(0, correct_answer_id);
         content_place += "</span></div><div class='more-about'><strong>Пояснення: </strong><span>";
+        if (Model.date.Tests[n].question[i].question_description == undefined) {
+            content_place += "Розширене пояснення до питання..."
+        }else{
         content_place += Model.date.Tests[n].question[i].question_description;
+    }
         content_place += "</span></div></div>"
     }
     place_for_answer.innerHTML = content_place;
