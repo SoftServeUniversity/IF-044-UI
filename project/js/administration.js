@@ -215,6 +215,10 @@ var objForUrl = {
                 }
 
             }
+        }else{
+            objectParams = {start:0,
+                            step:10    
+                            }
         }
         return objectParams;
     },
@@ -294,7 +298,9 @@ function sliceTheSet(array, start, step) {
     // 
 
 function currentSelection(result_set, par_step) {
+
     var params = objForUrl.getUrlParams();
+    console.log(params);
     var start, step;
     if (params["start"] == undefined || params["start"] == null) {
         start = 0;
@@ -424,6 +430,7 @@ function printNavigation(active, pages) {
 function initialize(data, pages) {
     var result;
     var params = objForUrl.getUrlParams();
+
     var start = parseInt(params["start"]);
 
     if (params["start"] != undefined) {
